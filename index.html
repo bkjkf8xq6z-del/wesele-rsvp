@@ -546,6 +546,30 @@
             box-shadow: 0 4px 12px rgba(217, 118, 52, 0.2);
         }
 
+        /* ========== RSVP FORM REDESIGN ========== */
+        .rsvp-form-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #e8ddf5;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .rsvp-form-card h2 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .rsvp-form-card .subtitle {
+            text-align: center;
+            color: #7a7a7a;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
         /* ========== SUMMARY TABLE ========== */
         .summary-table {
             width: 100%;
@@ -576,11 +600,15 @@
             border-bottom: none;
         }
 
-        /* ========== SUCCESS ICON ========== */
+        /* ========== SUCCESS SECTION ========== */
+        .success-container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
         .success-icon {
             font-size: 64px;
-            margin: 30px 0;
-            text-align: center;
+            margin: 20px 0;
             animation: bounce 0.6s ease;
         }
 
@@ -589,10 +617,43 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* ========== GALLERY LINK ========== */
+        .success-container h2 {
+            font-size: 28px;
+            margin: 20px 0;
+        }
+
+        .success-container .message {
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        /* ========== GALLERY SECTION ========== */
+        .gallery-container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #e8dfd5;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .gallery-info {
+            background: #f5f0e8;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 3px solid #d97634;
+        }
+
+        .gallery-info p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
         .gallery-link {
             text-align: center;
-            margin: 35px 0;
+            margin: 30px 0;
         }
 
         .gallery-link a {
@@ -655,17 +716,6 @@
             font-style: italic;
             display: inline-block;
             font-size: 13px;
-        }
-
-        /* ========== RSVP SPECIFIC ========== */
-        .rsvp-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            border: 1px solid #e8ddf5;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
         }
 
         /* ========== RSVP STEPS ========== */
@@ -732,7 +782,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .rsvp-container {
+            .rsvp-form-card {
                 padding: 25px;
             }
 
@@ -741,12 +791,10 @@
                 padding: 10px 6px;
                 min-width: 40px;
             }
-        }
 
-        .loading {
-            text-align: center;
-            padding: 20px;
-            color: #d97634;
+            .gallery-container {
+                padding: 25px;
+            }
         }
 
         .spinner {
@@ -769,7 +817,7 @@
     <!-- LOGIN PAGE -->
     <div class="login-page" id="loginPage">
         <div class="login-box">
-            <h1>💕 Wesele</h1>
+            <h1>Wesele</h1>
             <p>Wprowadź hasło aby uzyskać dostęp do systemu potwierdzenia</p>
             <input type="password" id="passwordInput" placeholder="Hasło" />
             <button onclick="checkPassword()">Zaloguj się</button>
@@ -781,25 +829,25 @@
     <div class="app-container" id="appContainer">
         <header>
             <nav>
-                <button class="nav-btn active" onclick="showPage('home')">🏠 Główna</button>
-                <button class="nav-btn" onclick="showPage('history')">💑 Historia</button>
-                <button class="nav-btn" onclick="showPage('info')">ℹ️ Info</button>
-                <button class="nav-btn" onclick="showPage('rsvp')">✅ Potwierdzenie Przybycia</button>
-                <button class="nav-btn" onclick="showPage('gallery')">📸 Galeria</button>
+                <button class="nav-btn active" onclick="showPage('home')">Główna</button>
+                <button class="nav-btn" onclick="showPage('history')">Historia</button>
+                <button class="nav-btn" onclick="showPage('info')">Informacje Organizacyjne</button>
+                <button class="nav-btn" onclick="showPage('rsvp')">Potwierdzenie Przybycia</button>
+                <button class="nav-btn" onclick="showPage('gallery')">Galeria</button>
             </nav>
         </header>
 
         <div class="content">
             <!-- HOME PAGE -->
             <div class="page active" id="home">
-                <h1>💕 Wesele Wiktoria & Maciej</h1>
+                <h1>Wesele Wiktoria & Maciej</h1>
                 <p style="text-align: center; color: #7a7a7a; font-size: 16px; margin-bottom: 30px;">6 sierpnia 2026</p>
                 <div class="countdown" id="countdown"></div>
             </div>
 
             <!-- HISTORY PAGE -->
             <div class="page" id="history">
-                <h1>💑 Nasza Historia Miłości</h1>
+                <h1>Nasza Historia Miłości</h1>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
@@ -833,7 +881,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Sierpień 2026</div>
-                            <div class="timeline-text">Wielki Dzień!</div>
+                            <div class="timeline-text">Wielki Dzień</div>
                         </div>
                     </div>
                 </div>
@@ -841,10 +889,10 @@
 
             <!-- INFO PAGE -->
             <div class="page" id="info">
-                <h1>Informacje 🎉</h1>
+                <h1>Informacje Organizacyjne</h1>
 
                 <div class="info-section">
-                    <h3>📍 Ceremonia Ślubna</h3>
+                    <h3>Ceremonia Ślubna</h3>
                     <p><strong>Data:</strong> 6 sierpnia 2026</p>
                     <p><strong>Godzina:</strong> 15:00</p>
                     <p><strong>Miejsce:</strong> Kościół pw. Podwyższenia Krzyża Świętego</p>
@@ -852,7 +900,7 @@
                 </div>
 
                 <div class="info-section">
-                    <h3>🍽️ Przyjęcie Weselne</h3>
+                    <h3>Przyjęcie Weselne</h3>
                     <p><strong>Data:</strong> 6 sierpnia 2026</p>
                     <p><strong>Godzina:</strong> 17:00</p>
                     <p><strong>Miejsce:</strong> OKLASKI</p>
@@ -860,12 +908,12 @@
                 </div>
 
                 <div class="info-section">
-                    <h3>💐 Prezenty i Kwiaty</h3>
-                    <p>Prosimy o koperty z pieniędzmi 💵</p>
-                    <p style="margin-top: 15px; color: #d97634; font-weight: 600;">⚠️ Prosimy NIE przynosić kwiatów - preferujemy koperty z pieniędzmi 🎁</p>
+                    <h3>Prezenty i Kwiaty</h3>
+                    <p>Prosimy o koperty z pieniędzmi</p>
+                    <p style="margin-top: 15px; color: #d97634; font-weight: 600;">Prosimy NIE przynosić kwiatów - preferujemy koperty z pieniędzmi</p>
                 </div>
 
-                <h2>📞 Kontakt</h2>
+                <h2>Kontakt</h2>
                 <div class="contact-grid">
                     <div class="contact-card">
                         <h3>Wiktoria</h3>
@@ -894,7 +942,7 @@
 
             <!-- RSVP PAGE -->
             <div class="page" id="rsvp">
-                <div class="rsvp-container">
+                <div class="rsvp-form-card">
                     <!-- STEP 1 -->
                     <div class="rsvp-step visible" id="rsvpStep1">
                         <div class="step-indicator">
@@ -907,8 +955,8 @@
                             <div class="step">7<br>Podsumowanie</div>
                         </div>
 
-                        <h2 style="font-size: 24px;">Wprowadź Kod Zaproszenia</h2>
-                        <p style="color: #7a7a7a; margin-bottom: 25px;">Wpisz 4-cyfrowy kod, który otrzymałeś na zaproszeniu.</p>
+                        <h2>Wprowadź Kod Zaproszenia</h2>
+                        <p class="subtitle">Wpisz 4-cyfrowy kod, który otrzymałeś na zaproszeniu</p>
 
                         <div class="form-group">
                             <label for="codeInput">Kod zaproszenia (4 cyfry):</label>
@@ -922,7 +970,7 @@
                         </div>
                     </div>
 
-                    <!-- STEP 2 - ATTENDANCE CHOICE -->
+                    <!-- STEP 2 -->
                     <div class="rsvp-step" id="rsvpStep2">
                         <div class="step-indicator">
                             <div class="step">1<br>Kod</div>
@@ -934,8 +982,8 @@
                             <div class="step">7<br>Podsumowanie</div>
                         </div>
 
-                        <h2 style="font-size: 24px;">Czy będziesz na weselu?</h2>
-                        <p style="color: #7a7a7a; margin-bottom: 25px;">Prosimy o potwierdzenie Twojej obecności.</p>
+                        <h2>Czy będziesz na weselu?</h2>
+                        <p class="subtitle">Prosimy o potwierdzenie Twojej obecności</p>
 
                         <div class="button-group">
                             <button class="button-secondary" onclick="rsvpNoAttendance()">Nie Będę</button>
@@ -955,8 +1003,8 @@
                             <div class="step">7<br>Podsumowanie</div>
                         </div>
 
-                        <h2 style="font-size: 24px;">Wybierz osoby uczestniczące</h2>
-                        <p style="color: #7a7a7a; margin-bottom: 20px;">Zaznacz wszystkie osoby, które będą brać udział w weselu.</p>
+                        <h2>Wybierz osoby uczestniczące</h2>
+                        <p class="subtitle">Zaznacz wszystkie osoby, które będą brać udział w weselu</p>
 
                         <div class="checkbox-group" id="peopleCheckboxes"></div>
 
@@ -980,11 +1028,11 @@
                             <div class="step">7<br>Podsumowanie</div>
                         </div>
 
-                        <h2 style="font-size: 24px;">Będziesz z osobą towarzyszącą?</h2>
-                        <p style="color: #7a7a7a; margin-bottom: 25px;">Czy chcesz przyjść z osobą towarzyszącą?</p>
+                        <h2>Będziesz z osobą towarzyszącą?</h2>
+                        <p class="subtitle">Czy chcesz przyjść z osobą towarzyszącą?</p>
 
                         <div class="button-group">
-                            <button class="button-secondary" onclick="rsvpNoCompanion()">Nie, sam(a)</button>
+                            <button class="button-secondary" onclick="rsvpNoCompanion()">Nie, sam/a</button>
                             <button onclick="rsvpYesCompanion()">Tak, z osobą</button>
                         </div>
                     </div>
@@ -1001,8 +1049,8 @@
                             <div class="step">7<br>Podsumowanie</div>
                         </div>
 
-                        <h2 style="font-size: 24px;">Dane Osoby Towarzyszącej</h2>
-                        <p style="color: #7a7a7a; margin-bottom: 25px;">Wprowadź dane osoby towarzyszącej.</p>
+                        <h2>Dane Osoby Towarzyszącej</h2>
+                        <p class="subtitle">Wprowadź dane osoby towarzyszącej</p>
 
                         <div class="form-group">
                             <label for="companionName">Imię i nazwisko:</label>
@@ -1034,8 +1082,8 @@
                             <div class="step">7<br>Podsumowanie</div>
                         </div>
 
-                        <h2 style="font-size: 24px;">Chcesz pozostać w kontakcie?</h2>
-                        <p style="color: #7a7a7a; margin-bottom: 25px;">Chciałbyś/chciałabyś otrzymywać aktualizacje dotyczące wesela?</p>
+                        <h2>Chcesz pozostać w kontakcie?</h2>
+                        <p class="subtitle">Chciałbyś/chciałabyś otrzymywać aktualizacje dotyczące wesela?</p>
 
                         <div class="button-group">
                             <button class="button-secondary" id="emailNoBtn" onclick="rsvpEmailNo()">Nie, Dziękuję</button>
@@ -1067,8 +1115,8 @@
                             <div class="step">7<br>Podsumowanie</div>
                         </div>
 
-                        <h2 style="font-size: 24px;">Preferencje Żywieniowe</h2>
-                        <p style="color: #7a7a7a; margin-bottom: 20px;">Czy masz jakieś ograniczenia dietetyczne?</p>
+                        <h2>Preferencje Żywieniowe</h2>
+                        <p class="subtitle">Czy masz jakieś ograniczenia dietetyczne?</p>
 
                         <div class="checkbox-group">
                             <div class="checkbox-item">
@@ -1100,7 +1148,7 @@
                             <div class="step active">7<br>Podsumowanie</div>
                         </div>
 
-                        <h2 style="font-size: 24px;">Podsumowanie Potwierdzenia</h2>
+                        <h2>Podsumowanie Potwierdzenia</h2>
 
                         <table class="summary-table">
                             <tr>
@@ -1139,23 +1187,22 @@
                         </div>
                     </div>
 
-                    <!-- STEP 8 - SUCCESS -->
+                    <!-- STEP 8 - SUCCESS FOR YES -->
                     <div class="rsvp-step" id="rsvpStep8">
-                        <div class="success-icon">✅</div>
-                        <h2 style="text-align: center; font-size: 24px; margin-bottom: 30px;">Potwierdzenie Wysłane!</h2>
-                        <div class="message success">Dziękujemy za potwierdzenie! Czekamy na Ciebie na weselu.</div>
-
-                        <div class="button-group">
-                            <button onclick="rsvpNewConfirmation()">Nowe Potwierdzenie</button>
-                            <button class="button-secondary" onclick="showPage('home')">Zamknij</button>
+                        <div class="success-container">
+                            <h2>Potwierdzenie Wysłane</h2>
+                            <div class="message success">Dziękujemy za potwierdzenie przybycia. Czekamy na Ciebie na weselu.</div>
+                            <div class="button-group">
+                                <button onclick="rsvpNewConfirmation()">Nowe Potwierdzenie</button>
+                                <button class="button-secondary" onclick="showPage('home')">Zamknij</button>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- NO ATTENDANCE -->
+                    <!-- NO ATTENDANCE SECTION -->
                     <div class="rsvp-step" id="rsvpNoAttendanceSection">
-                        <h2 style="font-size: 24px;">Szkoda, że nas nie będzie 💙</h2>
-                        <div class="message warning">Rozumiemy! Będziemy myśleć o Tobie tego dnia.</div>
-                        <p style="color: #7a7a7a; margin-bottom: 25px;">Chcesz zostać w kontakcie i otrzymywać aktualizacje?</p>
+                        <h2>Rozumiemy Twoją Decyzję</h2>
+                        <p class="subtitle">Czy chcesz otrzymywać aktualizacje dotyczące wesela?</p>
 
                         <div class="button-group">
                             <button class="button-secondary" onclick="rsvpNoContactDone()">Nie, Dziękuję</button>
@@ -1175,10 +1222,8 @@
                         </div>
 
                         <div id="noContactSuccess" style="display: none;">
-                            <div class="success-icon">✅</div>
-                            <h3 style="text-align: center;">Potwierdzenie Wysłane!</h3>
+                            <h3 style="text-align: center; color: #d97634; margin: 20px 0;">Potwierdzenie Wysłane</h3>
                             <div class="message success">Będziemy Ci wysyłać aktualizacje dotyczące wesela.</div>
-
                             <div class="button-group">
                                 <button onclick="rsvpNewConfirmation()">Nowe Potwierdzenie</button>
                                 <button class="button-secondary" onclick="showPage('home')">Zamknij</button>
@@ -1190,22 +1235,29 @@
 
             <!-- GALLERY PAGE -->
             <div class="page" id="gallery">
-                <h1>Galeria Naszych Zdjęć 📸</h1>
-                <p style="text-align: center; color: #7a7a7a; margin: 20px 0; font-size: 15px;">Zapraszamy do obejrzenia naszych ulubionych momentów.</p>
+                <div class="gallery-container">
+                    <h1>Galeria Naszych Zdjęć</h1>
+                    <p style="text-align: center; color: #7a7a7a; margin: 20px 0; font-size: 15px;">Zapraszamy do obejrzenia naszych ulubionych momentów</p>
 
-                <div class="gallery-link">
-                    <a href="https://photos.app.goo.gl/" target="_blank">Otwórz Pełną Galerię w Google Photos</a>
-                </div>
+                    <div class="gallery-info">
+                        <h3 style="margin-top: 0;">Podziel się Swoimi Zdjęciami</h3>
+                        <p>Jeśli masz zdjęcia z wesela, dodaj je do naszej wspólnej galerii! Możesz wrzucać zdjęcia bezpośrednio do albumu Google Photos. Dzięki temu wszystkie wspomnienia będą w jednym miejscu.</p>
+                        <p style="margin-bottom: 0; color: #d97634; font-weight: 600;">Pamiętaj: Tylko zdjęcia z dnia wesela - 6 sierpnia 2026</p>
+                    </div>
 
-                <div style="margin-top: 40px; padding: 30px; background: #ffffff; border-radius: 12px; text-align: center; border: 1px solid #e8ddf5;">
-                    <p style="color: #7a7a7a; font-size: 15px;">Wkrótce będziemy dodawać więcej zdjęć! 📷</p>
+                    <div class="gallery-link">
+                        <a href="https://photos.app.goo.gl/563UeatK4Yv3f9kP7" target="_blank">Otwórz Galerię w Google Photos</a>
+                    </div>
+
+                    <div style="margin-top: 30px; padding: 24px; background: #f5f0e8; border-radius: 8px; text-align: center; border: 1px solid #e8dfd5;">
+                        <p style="color: #5a5a5a; font-size: 14px; margin: 0;">Zdjęcia pojawiają się w galerii na bieżąco. Dziękujemy za dzielenie się wspomnieniami!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // ========== KONFIGURACJA ==========
         const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTdoZJn2yd4HVavsFeL9degLN6ZG86CAlE_a86X4d6sDBkkZPx_za3s-LNW2NfHtWYtw/exec";
         const PASSWORD = "wesele2026";
 
@@ -1351,7 +1403,7 @@
 
             codeError.style.display = "none";
             codeBtn.disabled = true;
-            codeBtn.textContent = "⏳ Sprawdzam...";
+            codeBtn.textContent = "Sprawdzam...";
 
             fetch(GOOGLE_APPS_SCRIPT_URL, {
                 method: "POST",
@@ -1534,7 +1586,7 @@
         function rsvpSubmit() {
             const submitBtn = document.getElementById("submitBtn");
             submitBtn.disabled = true;
-            submitBtn.textContent = "⏳ Wysyłam...";
+            submitBtn.textContent = "Wysyłam...";
 
             const payload = {
                 action: "submitRSVP",
@@ -1618,7 +1670,8 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    showStep("rsvpStep8");
+                    document.getElementById("noContactSuccess").style.display = "block";
+                    document.getElementById("rsvpNoAttendanceSection").style.display = "none";
                 }
             })
             .catch(error => {
@@ -1638,7 +1691,7 @@
 
             const noContactSubmitBtn = document.getElementById("noContactSubmitBtn");
             noContactSubmitBtn.disabled = true;
-            noContactSubmitBtn.textContent = "⏳ Wysyłam...";
+            noContactSubmitBtn.textContent = "Wysyłam...";
 
             const payload = {
                 action: "submitNoAttendance",
