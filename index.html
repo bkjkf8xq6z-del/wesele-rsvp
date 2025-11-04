@@ -30,7 +30,6 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.3s ease;
         }
 
         .login-page.hidden {
@@ -121,11 +120,11 @@
         .app-container {
             display: none;
             min-height: 100vh;
+            flex-direction: column;
         }
 
         .app-container.visible {
             display: flex;
-            flex-direction: column;
         }
 
         header {
@@ -133,7 +132,8 @@
             border-bottom: 3px solid #f4d4a8;
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            sticky: top 0;
+            position: sticky;
+            top: 0;
             z-index: 100;
         }
 
@@ -260,6 +260,65 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        /* ========== TIMELINE ========== */
+        .timeline {
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #f9f5f0 0%, #f5e6d3 100%);
+            border-radius: 15px;
+            border: 2px solid #e8d5c4;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: slideInLeft 0.5s ease forwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .timeline-dot {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #d97634 0%, #c4643d 100%);
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-year {
+            font-weight: bold;
+            color: #d97634;
+            font-size: 14px;
+        }
+
+        .timeline-text {
+            color: #3d3d3d;
+            margin-top: 5px;
+            font-size: 15px;
         }
 
         /* ========== INFO SECTIONS ========== */
@@ -395,12 +454,21 @@
         }
 
         .button-secondary {
-            background: linear-gradient(135deg, #a8d5a8 0%, #7fbf7f 100%);
+            background: linear-gradient(135deg, #8a7d7d 0%, #6b5f5f 100%);
             color: white;
         }
 
         .button-secondary:hover {
-            box-shadow: 0 10px 25px rgba(127, 191, 127, 0.3);
+            box-shadow: 0 10px 25px rgba(107, 95, 95, 0.3);
+        }
+
+        .button-back {
+            background: linear-gradient(135deg, #b8b8b8 0%, #9a9a9a 100%);
+            color: white;
+        }
+
+        .button-back:hover {
+            box-shadow: 0 10px 25px rgba(154, 154, 154, 0.3);
         }
 
         /* ========== MESSAGES ========== */
@@ -632,20 +700,6 @@
                 width: 100%;
             }
 
-            .summary-table td:first-child {
-                width: 45%;
-                font-size: 13px;
-            }
-
-            .summary-table td:last-child {
-                font-size: 13px;
-            }
-
-            .login-box {
-                padding: 35px;
-                width: 90%;
-            }
-
             .contact-grid {
                 grid-template-columns: 1fr;
             }
@@ -694,6 +748,7 @@
         <header>
             <nav>
                 <button class="nav-btn active" onclick="showPage('home')">🏠 Strona Główna</button>
+                <button class="nav-btn" onclick="showPage('history')">💑 Nasza Historia</button>
                 <button class="nav-btn" onclick="showPage('info')">ℹ️ Informacje</button>
                 <button class="nav-btn" onclick="showPage('rsvp')">✅ Potwierdzenie</button>
                 <button class="nav-btn" onclick="showPage('gallery')">📸 Galeria</button>
@@ -706,6 +761,48 @@
                 <h1>💕 Wesele Wiktoria & Maciej</h1>
                 <p style="text-align: center; color: #8a7d7d; font-size: 18px; margin-bottom: 30px;">6 sierpnia 2026</p>
                 <div class="countdown" id="countdown"></div>
+            </div>
+
+            <!-- HISTORY PAGE -->
+            <div class="page" id="history">
+                <h1>💑 Nasza Historia Miłości</h1>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Wrzesień 2020</div>
+                            <div class="timeline-text">[Placeholder - Pierwsze Spotkanie]</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Październik 2020</div>
+                            <div class="timeline-text">[Placeholder - Pierwsza Randka]</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Czerwiec 2021</div>
+                            <div class="timeline-text">[Placeholder - Pierwszy Wspólny Wyjazd]</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Grudzień 2024</div>
+                            <div class="timeline-text">[Placeholder - Oświadczyny]</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Sierpień 2026</div>
+                            <div class="timeline-text">Wielki Dzień!</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- INFO PAGE -->
@@ -737,7 +834,7 @@
                 <h2>📞 Kontakt</h2>
                 <div class="contact-grid">
                     <div class="contact-card">
-                        <h3>Maciej</h3>
+                        <h3>Wiktoria</h3>
                         <div class="contact-item">
                             <strong>Telefon:</strong>
                             <span class="contact-placeholder">[Numer telefonu]</span>
@@ -748,7 +845,7 @@
                         </div>
                     </div>
                     <div class="contact-card">
-                        <h3>Wiktoria</h3>
+                        <h3>Maciej</h3>
                         <div class="contact-item">
                             <strong>Telefon:</strong>
                             <span class="contact-placeholder">[Numer telefonu]</span>
@@ -772,9 +869,10 @@
                             <div class="step active">1. Kod</div>
                             <div class="step">2. Uczestnictwo</div>
                             <div class="step">3. Osoby</div>
-                            <div class="step">4. Email</div>
-                            <div class="step">5. Dieta</div>
-                            <div class="step">6. Podsumowanie</div>
+                            <div class="step">4. Towarzysz</div>
+                            <div class="step">5. Email</div>
+                            <div class="step">6. Dieta</div>
+                            <div class="step">7. Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Wprowadź Kod Zaproszenia</h2>
@@ -798,9 +896,10 @@
                             <div class="step">1. Kod</div>
                             <div class="step active">2. Uczestnictwo</div>
                             <div class="step">3. Osoby</div>
-                            <div class="step">4. Email</div>
-                            <div class="step">5. Dieta</div>
-                            <div class="step">6. Podsumowanie</div>
+                            <div class="step">4. Towarzysz</div>
+                            <div class="step">5. Email</div>
+                            <div class="step">6. Dieta</div>
+                            <div class="step">7. Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Czy będziesz na weselu?</h2>
@@ -817,9 +916,10 @@
                             <div class="step">1. Kod</div>
                             <div class="step">2. Uczestnictwo</div>
                             <div class="step active">3. Osoby</div>
-                            <div class="step">4. Email</div>
-                            <div class="step">5. Dieta</div>
-                            <div class="step">6. Podsumowanie</div>
+                            <div class="step">4. Towarzysz</div>
+                            <div class="step">5. Email</div>
+                            <div class="step">6. Dieta</div>
+                            <div class="step">7. Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Wybierz osoby uczestniczące</h2>
@@ -830,23 +930,45 @@
                         <div class="message error" id="peopleError" style="display: none;"></div>
 
                         <div class="button-group">
-                            <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
+                            <button class="button-back" onclick="rsvpGoBack()">Wróć</button>
                             <button onclick="rsvpSelectPeople()">Dalej</button>
                         </div>
                     </div>
 
-                    <!-- STEP 3B: COMPANION -->
+                    <!-- STEP 3B: COMPANION CHOICE -->
                     <div id="rsvpStep3b" style="display: none;">
                         <div class="step-indicator">
                             <div class="step">1. Kod</div>
                             <div class="step">2. Uczestnictwo</div>
                             <div class="step active">3. Osoby</div>
-                            <div class="step">4. Email</div>
-                            <div class="step">5. Dieta</div>
-                            <div class="step">6. Podsumowanie</div>
+                            <div class="step">4. Towarzysz</div>
+                            <div class="step">5. Email</div>
+                            <div class="step">6. Dieta</div>
+                            <div class="step">7. Podsumowanie</div>
                         </div>
 
-                        <h2 style="font-size: 24px;">Osoba Towarzysząca</h2>
+                        <h2 style="font-size: 24px;">Będziesz z osobą towarzyszącą?</h2>
+                        <p style="color: #8a7d7d; margin-bottom: 25px;">Czy chcesz przyjść z osobą towarzyszącą?</p>
+
+                        <div class="button-group">
+                            <button class="button-secondary" onclick="rsvpNoCompanion()">Nie, sam(a)</button>
+                            <button onclick="rsvpYesCompanion()">Tak, z osobą</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3C: COMPANION DATA -->
+                    <div id="rsvpStep3c" style="display: none;">
+                        <div class="step-indicator">
+                            <div class="step">1. Kod</div>
+                            <div class="step">2. Uczestnictwo</div>
+                            <div class="step active">3. Osoby</div>
+                            <div class="step">4. Towarzysz</div>
+                            <div class="step">5. Email</div>
+                            <div class="step">6. Dieta</div>
+                            <div class="step">7. Podsumowanie</div>
+                        </div>
+
+                        <h2 style="font-size: 24px;">Dane Osoby Towarzyszącej</h2>
                         <p style="color: #8a7d7d; margin-bottom: 25px;">Wprowadź dane osoby towarzyszącej.</p>
 
                         <div class="form-group">
@@ -862,20 +984,21 @@
                         <div class="message error" id="companionError" style="display: none;"></div>
 
                         <div class="button-group">
-                            <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
+                            <button class="button-back" onclick="rsvpGoBack()">Wróć</button>
                             <button onclick="rsvpCompanionDone()">Dalej</button>
                         </div>
                     </div>
 
-                    <!-- STEP 4: EMAIL -->
-                    <div id="rsvpStep4" style="display: none;">
+                    <!-- STEP 5: EMAIL -->
+                    <div id="rsvpStep5" style="display: none;">
                         <div class="step-indicator">
                             <div class="step">1. Kod</div>
                             <div class="step">2. Uczestnictwo</div>
                             <div class="step">3. Osoby</div>
-                            <div class="step active">4. Email</div>
-                            <div class="step">5. Dieta</div>
-                            <div class="step">6. Podsumowanie</div>
+                            <div class="step">4. Towarzysz</div>
+                            <div class="step active">5. Email</div>
+                            <div class="step">6. Dieta</div>
+                            <div class="step">7. Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Chcesz pozostać w kontakcie?</h2>
@@ -893,21 +1016,22 @@
                             </div>
                             <div class="message error" id="emailError" style="display: none;"></div>
                             <div class="button-group">
-                                <button class="button-secondary" onclick="rsvpEmailReset()">Anuluj</button>
+                                <button class="button-back" onclick="rsvpEmailReset()">Anuluj</button>
                                 <button onclick="rsvpEmailConfirm()">Potwierdź</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- STEP 5: DIETARY PREFERENCES -->
-                    <div id="rsvpStep5" style="display: none;">
+                    <!-- STEP 6: DIETARY PREFERENCES -->
+                    <div id="rsvpStep6" style="display: none;">
                         <div class="step-indicator">
                             <div class="step">1. Kod</div>
                             <div class="step">2. Uczestnictwo</div>
                             <div class="step">3. Osoby</div>
-                            <div class="step">4. Email</div>
-                            <div class="step active">5. Dieta</div>
-                            <div class="step">6. Podsumowanie</div>
+                            <div class="step">4. Towarzysz</div>
+                            <div class="step">5. Email</div>
+                            <div class="step active">6. Dieta</div>
+                            <div class="step">7. Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Preferencje Żywieniowe</h2>
@@ -926,20 +1050,21 @@
                         </div>
 
                         <div class="button-group">
-                            <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
+                            <button class="button-back" onclick="rsvpGoBack()">Wróć</button>
                             <button onclick="rsvpDietDone()">Dalej</button>
                         </div>
                     </div>
 
-                    <!-- STEP 6: SUMMARY -->
-                    <div id="rsvpStep6" style="display: none;">
+                    <!-- STEP 7: SUMMARY -->
+                    <div id="rsvpStep7" style="display: none;">
                         <div class="step-indicator">
                             <div class="step">1. Kod</div>
                             <div class="step">2. Uczestnictwo</div>
                             <div class="step">3. Osoby</div>
-                            <div class="step">4. Email</div>
-                            <div class="step">5. Dieta</div>
-                            <div class="step active">6. Podsumowanie</div>
+                            <div class="step">4. Towarzysz</div>
+                            <div class="step">5. Email</div>
+                            <div class="step">6. Dieta</div>
+                            <div class="step active">7. Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Podsumowanie Potwierdzenia</h2>
@@ -976,13 +1101,13 @@
                         </table>
 
                         <div class="button-group">
-                            <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
+                            <button class="button-back" onclick="rsvpGoBack()">Wróć</button>
                             <button onclick="rsvpSubmit()" id="submitBtn">Potwierdź i Wyślij</button>
                         </div>
                     </div>
 
-                    <!-- STEP 7: SUCCESS -->
-                    <div id="rsvpStep7" style="display: none;">
+                    <!-- STEP 8: SUCCESS -->
+                    <div id="rsvpStep8" style="display: none;">
                         <div class="success-icon">✅</div>
                         <h2 style="text-align: center; font-size: 28px;">Potwierdzenie Wysłane!</h2>
                         <p style="text-align: center; color: #8a7d7d; margin-bottom: 30px;">Dziękujemy za potwierdzenie! Czekamy na was na weselu.</p>
@@ -1010,7 +1135,7 @@
                             </div>
                             <div class="message error" id="noContactEmailError" style="display: none;"></div>
                             <div class="button-group">
-                                <button class="button-secondary" onclick="rsvpNoContactReset()">Anuluj</button>
+                                <button class="button-back" onclick="rsvpNoContactReset()">Anuluj</button>
                                 <button onclick="rsvpNoContactSubmit()" id="noContactSubmitBtn">Potwierdź</button>
                             </div>
                         </div>
@@ -1095,12 +1220,13 @@
         let rsvpState = {
             code: null,
             selectedPeople: [],
-            companion: { name: "", email: "" },
+            companion: { name: "", email: "", hasCompanion: null },
             email: "",
             wantEmail: false,
             diet: "",
             noDiet: false,
-            attending: null
+            attending: null,
+            previousStep: null
         };
 
         // ========== INICJALIZACJA ==========
@@ -1135,24 +1261,27 @@
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            document.getElementById("countdown").innerHTML = `
-                <div class="countdown-item">
-                    <div class="countdown-number">${days}</div>
-                    <div class="countdown-label">DNI</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number">${hours}</div>
-                    <div class="countdown-label">GODZINY</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number">${minutes}</div>
-                    <div class="countdown-label">MINUTY</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number">${seconds}</div>
-                    <div class="countdown-label">SEKUNDY</div>
-                </div>
-            `;
+            const countdownEl = document.getElementById("countdown");
+            if (countdownEl) {
+                countdownEl.innerHTML = `
+                    <div class="countdown-item">
+                        <div class="countdown-number">${days}</div>
+                        <div class="countdown-label">DNI</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number">${hours}</div>
+                        <div class="countdown-label">GODZINY</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number">${minutes}</div>
+                        <div class="countdown-label">MINUTY</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number">${seconds}</div>
+                        <div class="countdown-label">SEKUNDY</div>
+                    </div>
+                `;
+            }
         }
 
         // ========== NAWIGACJA ==========
@@ -1200,6 +1329,7 @@
 
                 if (data.success) {
                     rsvpState.code = code;
+                    rsvpState.previousStep = "step1";
                     document.getElementById("rsvpStep1").style.display = "none";
                     document.getElementById("rsvpStep2").style.display = "block";
                 } else {
@@ -1210,7 +1340,6 @@
             .catch(error => {
                 codeBtn.disabled = false;
                 codeBtn.textContent = "Dalej";
-                console.error("Błąd:", error);
                 codeError.textContent = "Błąd połączenia. Spróbuj ponownie.";
                 codeError.style.display = "block";
             });
@@ -1218,12 +1347,14 @@
 
         function rsvpYesAttendance() {
             rsvpState.attending = true;
+            rsvpState.previousStep = "step2";
             document.getElementById("rsvpStep2").style.display = "none";
             rsvpShowPeopleSelection();
         }
 
         function rsvpNoAttendance() {
             rsvpState.attending = false;
+            rsvpState.previousStep = "step2";
             document.getElementById("rsvpStep2").style.display = "none";
             document.getElementById("rsvpNoAttendanceSection").style.display = "block";
         }
@@ -1257,6 +1388,7 @@
             }
 
             rsvpState.selectedPeople = selected;
+            rsvpState.previousStep = "step3";
             peopleError.style.display = "none";
             document.getElementById("rsvpStep3").style.display = "none";
 
@@ -1265,6 +1397,22 @@
             } else {
                 rsvpShowEmailStep();
             }
+        }
+
+        function rsvpNoCompanion() {
+            rsvpState.companion.hasCompanion = false;
+            rsvpState.companion.name = "";
+            rsvpState.companion.email = "";
+            rsvpState.previousStep = "step3b";
+            document.getElementById("rsvpStep3b").style.display = "none";
+            rsvpShowEmailStep();
+        }
+
+        function rsvpYesCompanion() {
+            rsvpState.companion.hasCompanion = true;
+            rsvpState.previousStep = "step3b";
+            document.getElementById("rsvpStep3b").style.display = "none";
+            document.getElementById("rsvpStep3c").style.display = "block";
         }
 
         function rsvpCompanionDone() {
@@ -1284,14 +1432,15 @@
                 return;
             }
 
-            rsvpState.companion = { name, email };
+            rsvpState.companion = { name, email, hasCompanion: true };
+            rsvpState.previousStep = "step3c";
             companionError.style.display = "none";
-            document.getElementById("rsvpStep3b").style.display = "none";
+            document.getElementById("rsvpStep3c").style.display = "none";
             rsvpShowEmailStep();
         }
 
         function rsvpShowEmailStep() {
-            document.getElementById("rsvpStep4").style.display = "block";
+            document.getElementById("rsvpStep5").style.display = "block";
         }
 
         function rsvpEmailYes() {
@@ -1303,8 +1452,9 @@
         function rsvpEmailNo() {
             rsvpState.wantEmail = false;
             rsvpState.email = "";
-            document.getElementById("rsvpStep4").style.display = "none";
-            document.getElementById("rsvpStep5").style.display = "block";
+            rsvpState.previousStep = "step5";
+            document.getElementById("rsvpStep5").style.display = "none";
+            document.getElementById("rsvpStep6").style.display = "block";
         }
 
         function rsvpEmailConfirm() {
@@ -1319,9 +1469,10 @@
 
             rsvpState.wantEmail = true;
             rsvpState.email = email;
+            rsvpState.previousStep = "step5";
             emailError.style.display = "none";
-            document.getElementById("rsvpStep4").style.display = "none";
-            document.getElementById("rsvpStep5").style.display = "block";
+            document.getElementById("rsvpStep5").style.display = "none";
+            document.getElementById("rsvpStep6").style.display = "block";
         }
 
         function rsvpEmailReset() {
@@ -1337,21 +1488,26 @@
 
             rsvpState.noDiet = noDiet;
             rsvpState.diet = dietDetails;
+            rsvpState.previousStep = "step6";
 
-            document.getElementById("rsvpStep5").style.display = "none";
+            document.getElementById("rsvpStep6").style.display = "none";
             rsvpShowSummary();
         }
 
         function rsvpShowSummary() {
             document.getElementById("summaryCode").textContent = rsvpState.code;
-            document.getElementById("summaryCount").textContent = rsvpState.selectedPeople.length + (rsvpState.companion.name ? 1 : 0);
+            let totalCount = rsvpState.selectedPeople.length;
+            if (rsvpState.companion.hasCompanion && rsvpState.companion.name) {
+                totalCount += 1;
+            }
+            document.getElementById("summaryCount").textContent = totalCount;
             document.getElementById("summaryPeople").textContent = rsvpState.selectedPeople.join(", ");
             document.getElementById("summaryCompanion").textContent = rsvpState.companion.name || "Brak";
             document.getElementById("summaryEmail").textContent = rsvpState.email || "Nie podane";
             document.getElementById("summaryNewsletter").textContent = rsvpState.wantEmail ? "Tak" : "Nie";
             document.getElementById("summaryDiet").textContent = rsvpState.noDiet ? "Brak ograniczeń" : (rsvpState.diet || "Brak");
 
-            document.getElementById("rsvpStep6").style.display = "block";
+            document.getElementById("rsvpStep7").style.display = "block";
         }
 
         function rsvpSubmit() {
@@ -1363,8 +1519,8 @@
                 action: "submitRSVP",
                 code: rsvpState.code,
                 people: rsvpState.selectedPeople,
-                companion: rsvpState.companion.name,
-                companionEmail: rsvpState.companion.email,
+                companion: rsvpState.companion.hasCompanion && rsvpState.companion.name ? rsvpState.companion.name : "",
+                companionEmail: rsvpState.companion.email || "",
                 email: rsvpState.email,
                 newsletter: rsvpState.wantEmail ? "Tak" : "Nie",
                 diet: rsvpState.noDiet ? "Brak ograniczeń" : rsvpState.diet
@@ -1380,8 +1536,9 @@
                 submitBtn.textContent = "Potwierdź i Wyślij";
 
                 if (data.success) {
-                    document.getElementById("rsvpStep6").style.display = "none";
-                    document.getElementById("rsvpStep7").style.display = "block";
+                    rsvpState.previousStep = "step7";
+                    document.getElementById("rsvpStep7").style.display = "none";
+                    document.getElementById("rsvpStep8").style.display = "block";
                 } else {
                     alert("Błąd: " + data.message);
                 }
@@ -1389,7 +1546,6 @@
             .catch(error => {
                 submitBtn.disabled = false;
                 submitBtn.textContent = "Potwierdź i Wyślij";
-                console.error("Błąd:", error);
                 alert("Błąd połączenia. Spróbuj ponownie.");
             });
         }
@@ -1398,15 +1554,16 @@
             rsvpState = {
                 code: null,
                 selectedPeople: [],
-                companion: { name: "", email: "" },
+                companion: { name: "", email: "", hasCompanion: null },
                 email: "",
                 wantEmail: false,
                 diet: "",
                 noDiet: false,
-                attending: null
+                attending: null,
+                previousStep: null
             };
 
-            document.getElementById("rsvpStep7").style.display = "none";
+            document.getElementById("rsvpStep8").style.display = "none";
             document.getElementById("rsvpNoAttendanceSection").style.display = "none";
             document.getElementById("noContactSuccess").style.display = "none";
             document.getElementById("codeInput").value = "";
@@ -1438,13 +1595,10 @@
             .then(data => {
                 if (data.success) {
                     document.getElementById("rsvpNoAttendanceSection").style.display = "none";
-                    document.getElementById("rsvpStep7").style.display = "block";
-                } else {
-                    alert("Błąd: " + data.message);
+                    document.getElementById("rsvpStep8").style.display = "block";
                 }
             })
             .catch(error => {
-                console.error("Błąd:", error);
                 alert("Błąd połączenia. Spróbuj ponownie.");
             });
         }
@@ -1483,14 +1637,11 @@
                     document.getElementById("noContactEmailInput").style.display = "none";
                     document.getElementById("rsvpNoAttendanceSection").style.display = "none";
                     document.getElementById("noContactSuccess").style.display = "block";
-                } else {
-                    alert("Błąd: " + data.message);
                 }
             })
             .catch(error => {
                 noContactSubmitBtn.disabled = false;
                 noContactSubmitBtn.textContent = "Potwierdź";
-                console.error("Błąd:", error);
                 alert("Błąd połączenia. Spróbuj ponownie.");
             });
         }
@@ -1500,7 +1651,8 @@
             document.getElementById("noContactEmail").value = "";
         }
 
-        function rsvpPreviousStep() {
+        function rsvpGoBack() {
+            // Resetuj do Step 1
             rsvpNewConfirmation();
         }
 
