@@ -13,18 +13,19 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);
+            color: #3d3d3d;
             min-height: 100vh;
         }
 
-        .login-overlay {
+        /* ========== LOGIN PAGE ========== */
+        .login-page {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -32,19 +33,20 @@
             transition: opacity 0.3s ease;
         }
 
-        .login-overlay.hidden {
+        .login-page.hidden {
             display: none;
         }
 
         .login-box {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #f9f5f0 100%);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             text-align: center;
-            max-width: 400px;
+            max-width: 450px;
             width: 90%;
             animation: slideUp 0.5s ease;
+            border: 2px solid #f4d4a8;
         }
 
         @keyframes slideUp {
@@ -59,39 +61,44 @@
         }
 
         .login-box h1 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 28px;
+            color: #d97634;
+            margin-bottom: 15px;
+            font-size: 36px;
+            font-weight: bold;
         }
 
         .login-box p {
-            color: #666;
-            margin-bottom: 25px;
-            font-size: 14px;
+            color: #8a7d7d;
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.6;
         }
 
         .login-box input {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 2px solid #e8d5c4;
+            border-radius: 10px;
             font-size: 16px;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #fefdfb;
+            color: #3d3d3d;
         }
 
         .login-box input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #d97634;
+            box-shadow: 0 0 10px rgba(217, 118, 52, 0.2);
         }
 
         .login-box button {
             width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 14px;
+            background: linear-gradient(135deg, #d97634 0%, #c4643d 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
@@ -100,31 +107,39 @@
 
         .login-box button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 20px rgba(217, 118, 52, 0.3);
         }
 
         .login-error {
-            color: #e74c3c;
+            color: #c4643d;
             margin-top: 15px;
             font-size: 14px;
             min-height: 20px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* ========== MAIN APP ========== */
+        .app-container {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .app-container.visible {
+            display: flex;
+            flex-direction: column;
         }
 
         header {
-            background: white;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #f9f5f0 100%);
+            border-bottom: 3px solid #f4d4a8;
             padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            sticky: top 0;
+            z-index: 100;
         }
 
         nav {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
@@ -132,32 +147,44 @@
         }
 
         nav button {
-            padding: 12px 20px;
-            background: #f0f0f0;
+            padding: 12px 24px;
+            background: #f5e6d3;
             border: 2px solid transparent;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 14px;
             font-weight: bold;
+            color: #3d3d3d;
             transition: all 0.3s ease;
         }
 
         nav button:hover {
-            background: #e0e0e0;
+            background: #e8d5c4;
+            transform: translateY(-2px);
         }
 
         nav button.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d97634 0%, #c4643d 100%);
             color: white;
-            border-color: #764ba2;
+            border-color: #d97634;
+            box-shadow: 0 5px 15px rgba(217, 118, 52, 0.2);
         }
 
-        main {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .content {
+            flex: 1;
+            padding: 40px 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .page {
+            display: none;
             animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
         }
 
         @keyframes fadeIn {
@@ -171,198 +198,191 @@
             }
         }
 
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
         h1 {
-            color: #667eea;
+            color: #d97634;
             margin-bottom: 10px;
-            font-size: 32px;
+            font-size: 40px;
             text-align: center;
+            font-weight: bold;
         }
 
         h2 {
-            color: #764ba2;
+            color: #8a7d7d;
             margin: 30px 0 20px 0;
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: bold;
         }
 
         h3 {
-            color: #667eea;
+            color: #d97634;
             margin: 20px 0 15px 0;
-            font-size: 18px;
+            font-size: 22px;
+            font-weight: bold;
         }
 
+        p {
+            color: #3d3d3d;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* ========== COUNTDOWN ========== */
         .countdown {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin: 30px 0;
+            margin: 40px 0;
             flex-wrap: wrap;
         }
 
         .countdown-item {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #a8d5a8 0%, #7fbf7f 100%);
             color: white;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 30px;
+            border-radius: 15px;
             text-align: center;
-            min-width: 80px;
+            min-width: 100px;
+            box-shadow: 0 8px 20px rgba(127, 191, 127, 0.2);
+            border: 2px solid #90c890;
         }
 
         .countdown-number {
-            font-size: 32px;
+            font-size: 44px;
             font-weight: bold;
+            line-height: 1;
         }
 
         .countdown-label {
-            font-size: 12px;
-            margin-top: 5px;
-            opacity: 0.9;
-        }
-
-        .timeline {
-            margin: 30px 0;
-        }
-
-        .timeline-item {
-            display: flex;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: slideInLeft 0.5s ease forwards;
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
-
-        .timeline-dot {
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            margin-right: 20px;
-            flex-shrink: 0;
-            margin-top: 5px;
-        }
-
-        .timeline-content {
-            flex: 1;
-        }
-
-        .timeline-year {
+            font-size: 13px;
+            margin-top: 8px;
+            opacity: 0.95;
             font-weight: bold;
-            color: #667eea;
-            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .timeline-text {
-            color: #666;
-            margin-top: 5px;
-        }
-
+        /* ========== INFO SECTIONS ========== */
         .info-section {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #f9f5f0 0%, #f5e6d3 100%);
+            padding: 25px;
+            border-radius: 15px;
             margin: 20px 0;
-            border-left: 4px solid #667eea;
+            border-left: 5px solid #f4d4a8;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
         .info-section h3 {
             margin-top: 0;
+            color: #d97634;
         }
 
+        .info-section p {
+            margin-bottom: 10px;
+            color: #3d3d3d;
+        }
+
+        .info-section strong {
+            color: #d97634;
+            font-weight: bold;
+        }
+
+        /* ========== FORMS ========== */
         .form-group {
-            margin: 20px 0;
+            margin: 25px 0;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: bold;
-            color: #333;
+            color: #3d3d3d;
+            font-size: 15px;
         }
 
         input[type="text"],
         input[type="email"],
         textarea {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
+            padding: 14px;
+            border: 2px solid #e8d5c4;
+            border-radius: 10px;
+            font-size: 15px;
             font-family: inherit;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #fefdfb;
+            color: #3d3d3d;
         }
 
         input[type="text"]:focus,
         input[type="email"]:focus,
         textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #d97634;
+            box-shadow: 0 0 10px rgba(217, 118, 52, 0.2);
         }
 
         .checkbox-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
         }
 
         .checkbox-item {
             display: flex;
             align-items: center;
+            padding: 12px;
+            background: #fefdfb;
+            border-radius: 10px;
+            border: 2px solid #e8d5c4;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            border-color: #d97634;
+            background: #faf8f5;
         }
 
         input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
+            width: 22px;
+            height: 22px;
+            margin-right: 12px;
             cursor: pointer;
+            accent-color: #d97634;
         }
 
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        /* ========== BUTTONS ========== */
         .button-group {
             display: flex;
-            gap: 10px;
-            margin: 30px 0;
+            gap: 15px;
+            margin: 35px 0;
             flex-wrap: wrap;
         }
 
         button {
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #d97634 0%, #c4643d 100%);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 14px;
+            border-radius: 10px;
+            font-size: 15px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
             flex: 1;
-            min-width: 150px;
+            min-width: 160px;
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 25px rgba(217, 118, 52, 0.3);
         }
 
         button:active {
@@ -375,44 +395,47 @@
         }
 
         .button-secondary {
-            background: #e0e0e0;
-            color: #333;
+            background: linear-gradient(135deg, #a8d5a8 0%, #7fbf7f 100%);
+            color: white;
         }
 
         .button-secondary:hover {
-            background: #d0d0d0;
+            box-shadow: 0 10px 25px rgba(127, 191, 127, 0.3);
         }
 
+        /* ========== MESSAGES ========== */
         .message {
-            padding: 15px;
-            border-radius: 8px;
+            padding: 18px;
+            border-radius: 10px;
             margin: 20px 0;
             text-align: center;
             font-weight: bold;
+            font-size: 15px;
         }
 
         .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background: linear-gradient(135deg, #d4f1d4 0%, #c8e6c8 100%);
+            color: #2d5a2d;
+            border: 2px solid #a8d5a8;
         }
 
         .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            background: linear-gradient(135deg, #f8e4e4 0%, #f5d5d5 100%);
+            color: #8b4444;
+            border: 2px solid #d97634;
         }
 
         .message.info {
-            background: #d1ecf1;
-            color: #0c5460;
-            border: 1px solid #bee5eb;
+            background: linear-gradient(135deg, #e8f4f8 0%, #ddeef3 100%);
+            color: #4a6b7d;
+            border: 2px solid #a8d5c8;
         }
 
+        /* ========== STEP INDICATOR ========== */
         .step-indicator {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             flex-wrap: wrap;
             gap: 10px;
         }
@@ -421,99 +444,155 @@
             flex: 1;
             min-width: 60px;
             text-align: center;
-            padding: 10px;
-            background: #f0f0f0;
-            border-radius: 8px;
+            padding: 12px;
+            background: #f5e6d3;
+            border-radius: 10px;
             font-size: 12px;
             font-weight: bold;
-            color: #999;
+            color: #8a7d7d;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
         }
 
         .step.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d97634 0%, #c4643d 100%);
             color: white;
+            border-color: #d97634;
+            box-shadow: 0 5px 15px rgba(217, 118, 52, 0.2);
         }
 
+        /* ========== SUMMARY TABLE ========== */
         .summary-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 25px 0;
+            background: #fefdfb;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #e8d5c4;
         }
 
         .summary-table td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
+            padding: 16px;
+            border-bottom: 1px solid #e8d5c4;
+            color: #3d3d3d;
+            font-size: 15px;
         }
 
         .summary-table td:first-child {
             font-weight: bold;
-            color: #667eea;
-            width: 30%;
+            color: #d97634;
+            width: 35%;
+            background: #f9f5f0;
         }
 
-        .summary-table td:last-child {
-            color: #333;
+        .summary-table tr:last-child td {
+            border-bottom: none;
         }
 
+        /* ========== SUCCESS ICON ========== */
+        .success-icon {
+            font-size: 64px;
+            margin: 30px 0;
+            text-align: center;
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ========== GALLERY LINK ========== */
         .gallery-link {
             text-align: center;
-            margin: 40px 0;
+            margin: 35px 0;
         }
 
         .gallery-link a {
             display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 16px 35px;
+            background: linear-gradient(135deg, #d97634 0%, #c4643d 100%);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: bold;
+            font-size: 15px;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(217, 118, 52, 0.2);
         }
 
         .gallery-link a:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 25px rgba(217, 118, 52, 0.3);
         }
 
-        .success-icon {
-            font-size: 48px;
-            margin: 20px 0;
-            text-align: center;
+        /* ========== CONTACT GRID ========== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
         }
 
-        .loading {
-            text-align: center;
-            padding: 20px;
-            color: #667eea;
+        .contact-card {
+            background: linear-gradient(135deg, #f9f5f0 0%, #f5e6d3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #e8d5c4;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
+        .contact-card h3 {
+            color: #d97634;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            margin: 12px 0;
+            color: #3d3d3d;
+            font-size: 15px;
+        }
+
+        .contact-item strong {
+            color: #d97634;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .contact-placeholder {
+            background: #f5e6d3;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #8a7d7d;
+            font-style: italic;
+            display: inline-block;
+        }
+
+        /* ========== RSVP SPECIFIC ========== */
+        .rsvp-container {
+            max-width: 600px;
             margin: 0 auto;
+            background: linear-gradient(135deg, #ffffff 0%, #f9f5f0 100%);
+            padding: 35px;
+            border-radius: 15px;
+            border: 2px solid #f4d4a8;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
-            main {
-                padding: 20px;
+            .content {
+                padding: 25px 15px;
             }
 
             h1 {
-                font-size: 24px;
+                font-size: 28px;
             }
 
             h2 {
-                font-size: 20px;
+                font-size: 22px;
             }
 
             nav {
@@ -526,20 +605,22 @@
             }
 
             .countdown {
-                gap: 10px;
+                gap: 12px;
             }
 
             .countdown-item {
-                padding: 15px;
-                min-width: 70px;
+                padding: 20px;
+                min-width: 85px;
             }
 
             .countdown-number {
-                font-size: 24px;
+                font-size: 32px;
             }
 
             button {
-                min-width: 120px;
+                min-width: 140px;
+                padding: 12px 20px;
+                font-size: 14px;
             }
 
             .button-group {
@@ -548,33 +629,68 @@
 
             button {
                 flex: auto;
+                width: 100%;
             }
 
             .summary-table td:first-child {
-                width: 40%;
-                font-size: 12px;
+                width: 45%;
+                font-size: 13px;
             }
 
             .summary-table td:last-child {
-                font-size: 12px;
+                font-size: 13px;
             }
+
+            .login-box {
+                padding: 35px;
+                width: 90%;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rsvp-container {
+                padding: 25px;
+            }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #d97634;
+        }
+
+        .spinner {
+            border: 4px solid #f5e6d3;
+            border-top: 4px solid #d97634;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- LOGIN OVERLAY -->
-    <div class="login-overlay" id="loginOverlay">
+    <!-- LOGIN PAGE -->
+    <div class="login-page" id="loginPage">
         <div class="login-box">
             <h1>💕 Wesele</h1>
-            <p>Wprowadź hasło aby uzyskać dostęp</p>
+            <p>Wprowadź hasło aby uzyskać dostęp do systemu potwierdzenia</p>
             <input type="password" id="passwordInput" placeholder="Hasło" />
             <button onclick="checkPassword()">Zaloguj się</button>
             <div class="login-error" id="loginError"></div>
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="container">
+    <!-- MAIN APP -->
+    <div class="app-container" id="appContainer">
         <header>
             <nav>
                 <button class="nav-btn active" onclick="showPage('home')">🏠 Strona Główna</button>
@@ -584,52 +700,12 @@
             </nav>
         </header>
 
-        <main>
+        <div class="content">
             <!-- HOME PAGE -->
             <div class="page active" id="home">
                 <h1>💕 Wesele Wiktoria & Maciej</h1>
-                <p style="text-align: center; color: #666; margin-bottom: 20px;">6 sierpnia 2026</p>
-
+                <p style="text-align: center; color: #8a7d7d; font-size: 18px; margin-bottom: 30px;">6 sierpnia 2026</p>
                 <div class="countdown" id="countdown"></div>
-
-                <h2>Nasza Historia Miłości ❤️</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">Wrzesień 2020</div>
-                            <div class="timeline-text">Pierwsze Spotkanie</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">Październik 2020</div>
-                            <div class="timeline-text">Pierwsza Randka</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">Czerwiec 2021</div>
-                            <div class="timeline-text">Pierwszy Wspólny Wyjazd</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">Grudzień 2024</div>
-                            <div class="timeline-text">Oświadczyny</div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-year">Sierpień 2026</div>
-                            <div class="timeline-text">Wielki Dzień!</div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- INFO PAGE -->
@@ -653,284 +729,301 @@
                 </div>
 
                 <div class="info-section">
-                    <h3>📞 Kontakt</h3>
-                    <p>W przypadku pytań prosimy kontaktować się z: <strong>Maciej</strong></p>
-                </div>
-
-                <div class="info-section">
                     <h3>💐 Prezenty i Kwiaty</h3>
                     <p>Prosimy o koperty z pieniędzmi 💵</p>
-                    <p style="margin-top: 15px; color: #d9534f;"><strong>Prosimy NIE przynosić kwiatów</strong> - preferujemy koperty z pieniędzmi 🎁</p>
+                    <p style="margin-top: 15px; color: #c4643d; font-weight: bold;">⚠️ Prosimy NIE przynosić kwiatów - preferujemy koperty z pieniędzmi 🎁</p>
                 </div>
 
-                <h2>Galeria 📸</h2>
-                <p>Zapraszamy do obejrzenia naszych zdjęć:</p>
-                <div class="gallery-link">
-                    <a href="https://photos.app.goo.gl/" target="_blank">Otwórz Album w Google Photos</a>
+                <h2>📞 Kontakt</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>Maciej</h3>
+                        <div class="contact-item">
+                            <strong>Telefon:</strong>
+                            <span class="contact-placeholder">[Numer telefonu]</span>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Email:</strong>
+                            <span class="contact-placeholder">[Adres email]</span>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Wiktoria</h3>
+                        <div class="contact-item">
+                            <strong>Telefon:</strong>
+                            <span class="contact-placeholder">[Numer telefonu]</span>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Email:</strong>
+                            <span class="contact-placeholder">[Adres email]</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- RSVP PAGE -->
             <div class="page" id="rsvp">
-                <h1>Potwierdzenie Udziału ✅</h1>
+                <div class="rsvp-container">
+                    <h1>Potwierdzenie Udziału ✅</h1>
 
-                <!-- STEP 1: CODE INPUT -->
-                <div id="rsvpStep1">
-                    <div class="step-indicator">
-                        <div class="step active">1. Kod</div>
-                        <div class="step">2. Uczestnictwo</div>
-                        <div class="step">3. Osoby</div>
-                        <div class="step">4. Email</div>
-                        <div class="step">5. Dieta</div>
-                        <div class="step">6. Podsumowanie</div>
-                    </div>
+                    <!-- STEP 1: CODE INPUT -->
+                    <div id="rsvpStep1">
+                        <div class="step-indicator">
+                            <div class="step active">1. Kod</div>
+                            <div class="step">2. Uczestnictwo</div>
+                            <div class="step">3. Osoby</div>
+                            <div class="step">4. Email</div>
+                            <div class="step">5. Dieta</div>
+                            <div class="step">6. Podsumowanie</div>
+                        </div>
 
-                    <h2>Wprowadź Kod Zaproszenia</h2>
-                    <p style="color: #666; margin-bottom: 20px;">Wpisz 4-cyfrowy kod, który otrzymałeś na zaproszeniu.</p>
+                        <h2 style="font-size: 24px;">Wprowadź Kod Zaproszenia</h2>
+                        <p style="color: #8a7d7d; margin-bottom: 25px;">Wpisz 4-cyfrowy kod, który otrzymałeś na zaproszeniu.</p>
 
-                    <div class="form-group">
-                        <label for="codeInput">Kod zaproszenia (4 cyfry):</label>
-                        <input type="text" id="codeInput" placeholder="np. 1001" maxlength="4" />
-                    </div>
-
-                    <div class="message error" id="codeError" style="display: none;"></div>
-
-                    <div class="button-group">
-                        <button onclick="rsvpValidateCode()" id="codeBtn">Dalej</button>
-                    </div>
-                </div>
-
-                <!-- STEP 2: ATTENDANCE CHOICE -->
-                <div id="rsvpStep2" style="display: none;">
-                    <div class="step-indicator">
-                        <div class="step">1. Kod</div>
-                        <div class="step active">2. Uczestnictwo</div>
-                        <div class="step">3. Osoby</div>
-                        <div class="step">4. Email</div>
-                        <div class="step">5. Dieta</div>
-                        <div class="step">6. Podsumowanie</div>
-                    </div>
-
-                    <h2>Czy będziesz na weselu?</h2>
-
-                    <div class="button-group">
-                        <button class="button-secondary" onclick="rsvpNoAttendance()">Nie Będę</button>
-                        <button onclick="rsvpYesAttendance()">Będę</button>
-                    </div>
-                </div>
-
-                <!-- STEP 3: SELECT PEOPLE -->
-                <div id="rsvpStep3" style="display: none;">
-                    <div class="step-indicator">
-                        <div class="step">1. Kod</div>
-                        <div class="step">2. Uczestnictwo</div>
-                        <div class="step active">3. Osoby</div>
-                        <div class="step">4. Email</div>
-                        <div class="step">5. Dieta</div>
-                        <div class="step">6. Podsumowanie</div>
-                    </div>
-
-                    <h2>Wybierz osoby uczestniczące</h2>
-                    <p style="color: #666; margin-bottom: 20px;">Zaznacz wszystkie osoby, które będą brać udział w weselu.</p>
-
-                    <div class="checkbox-group" id="peopleCheckboxes"></div>
-
-                    <div class="message error" id="peopleError" style="display: none;"></div>
-
-                    <div class="button-group">
-                        <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
-                        <button onclick="rsvpSelectPeople()">Dalej</button>
-                    </div>
-                </div>
-
-                <!-- STEP 3B: COMPANION -->
-                <div id="rsvpStep3b" style="display: none;">
-                    <div class="step-indicator">
-                        <div class="step">1. Kod</div>
-                        <div class="step">2. Uczestnictwo</div>
-                        <div class="step active">3. Osoby</div>
-                        <div class="step">4. Email</div>
-                        <div class="step">5. Dieta</div>
-                        <div class="step">6. Podsumowanie</div>
-                    </div>
-
-                    <h2>Osoba Towarzysząca</h2>
-                    <p style="color: #666; margin-bottom: 20px;">Wprowadź dane osoby towarzyszącej.</p>
-
-                    <div class="form-group">
-                        <label for="companionName">Imię i nazwisko:</label>
-                        <input type="text" id="companionName" placeholder="Imię Nazwisko" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="companionEmail">Email (opcjonalnie):</label>
-                        <input type="email" id="companionEmail" placeholder="email@example.com" />
-                    </div>
-
-                    <div class="message error" id="companionError" style="display: none;"></div>
-
-                    <div class="button-group">
-                        <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
-                        <button onclick="rsvpCompanionDone()">Dalej</button>
-                    </div>
-                </div>
-
-                <!-- STEP 4: EMAIL -->
-                <div id="rsvpStep4" style="display: none;">
-                    <div class="step-indicator">
-                        <div class="step">1. Kod</div>
-                        <div class="step">2. Uczestnictwo</div>
-                        <div class="step">3. Osoby</div>
-                        <div class="step active">4. Email</div>
-                        <div class="step">5. Dieta</div>
-                        <div class="step">6. Podsumowanie</div>
-                    </div>
-
-                    <h2>Chcesz pozostać w kontakcie?</h2>
-                    <p style="color: #666; margin-bottom: 20px;">Chciałbyś/chciałabyś otrzymywać aktualizacje dotyczące wesela?</p>
-
-                    <div class="button-group">
-                        <button class="button-secondary" id="emailNoBtn" onclick="rsvpEmailNo()">Nie, Dziękuję</button>
-                        <button id="emailYesBtn" onclick="rsvpEmailYes()">Tak, Chcę Email</button>
-                    </div>
-
-                    <div id="emailInput" style="display: none; margin-top: 20px;">
                         <div class="form-group">
-                            <label for="userEmail">Twój adres email:</label>
-                            <input type="email" id="userEmail" placeholder="email@example.com" />
+                            <label for="codeInput">Kod zaproszenia (4 cyfry):</label>
+                            <input type="text" id="codeInput" placeholder="np. 1001" maxlength="4" />
                         </div>
-                        <div class="message error" id="emailError" style="display: none;"></div>
+
+                        <div class="message error" id="codeError" style="display: none;"></div>
+
                         <div class="button-group">
-                            <button class="button-secondary" onclick="rsvpEmailReset()">Anuluj</button>
-                            <button onclick="rsvpEmailConfirm()">Potwierdź</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- STEP 5: DIETARY PREFERENCES -->
-                <div id="rsvpStep5" style="display: none;">
-                    <div class="step-indicator">
-                        <div class="step">1. Kod</div>
-                        <div class="step">2. Uczestnictwo</div>
-                        <div class="step">3. Osoby</div>
-                        <div class="step">4. Email</div>
-                        <div class="step active">5. Dieta</div>
-                        <div class="step">6. Podsumowanie</div>
-                    </div>
-
-                    <h2>Preferencje Żywieniowe</h2>
-                    <p style="color: #666; margin-bottom: 20px;">Czy masz jakieś ograniczenia dietetyczne?</p>
-
-                    <div class="checkbox-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="noDiet" />
-                            <label for="noDiet" style="margin: 0;">Brak ograniczeń</label>
+                            <button onclick="rsvpValidateCode()" id="codeBtn">Dalej</button>
                         </div>
                     </div>
 
-                    <div class="form-group" style="margin-top: 20px;">
-                        <label for="dietDetails">Szczegóły ograniczeń (opcjonalnie):</label>
-                        <textarea id="dietDetails" placeholder="np. Weganin, Gluten-free, Alergiczny na..." rows="4"></textarea>
+                    <!-- STEP 2: ATTENDANCE CHOICE -->
+                    <div id="rsvpStep2" style="display: none;">
+                        <div class="step-indicator">
+                            <div class="step">1. Kod</div>
+                            <div class="step active">2. Uczestnictwo</div>
+                            <div class="step">3. Osoby</div>
+                            <div class="step">4. Email</div>
+                            <div class="step">5. Dieta</div>
+                            <div class="step">6. Podsumowanie</div>
+                        </div>
+
+                        <h2 style="font-size: 24px;">Czy będziesz na weselu?</h2>
+
+                        <div class="button-group">
+                            <button class="button-secondary" onclick="rsvpNoAttendance()">Nie Będę</button>
+                            <button onclick="rsvpYesAttendance()">Będę</button>
+                        </div>
                     </div>
 
-                    <div class="button-group">
-                        <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
-                        <button onclick="rsvpDietDone()">Dalej</button>
-                    </div>
-                </div>
+                    <!-- STEP 3: SELECT PEOPLE -->
+                    <div id="rsvpStep3" style="display: none;">
+                        <div class="step-indicator">
+                            <div class="step">1. Kod</div>
+                            <div class="step">2. Uczestnictwo</div>
+                            <div class="step active">3. Osoby</div>
+                            <div class="step">4. Email</div>
+                            <div class="step">5. Dieta</div>
+                            <div class="step">6. Podsumowanie</div>
+                        </div>
 
-                <!-- STEP 6: SUMMARY -->
-                <div id="rsvpStep6" style="display: none;">
-                    <div class="step-indicator">
-                        <div class="step">1. Kod</div>
-                        <div class="step">2. Uczestnictwo</div>
-                        <div class="step">3. Osoby</div>
-                        <div class="step">4. Email</div>
-                        <div class="step">5. Dieta</div>
-                        <div class="step active">6. Podsumowanie</div>
-                    </div>
+                        <h2 style="font-size: 24px;">Wybierz osoby uczestniczące</h2>
+                        <p style="color: #8a7d7d; margin-bottom: 20px;">Zaznacz wszystkie osoby, które będą brać udział w weselu.</p>
 
-                    <h2>Podsumowanie Potwierdzenia</h2>
+                        <div class="checkbox-group" id="peopleCheckboxes"></div>
 
-                    <table class="summary-table">
-                        <tr>
-                            <td>Kod zaproszenia:</td>
-                            <td id="summaryCode"></td>
-                        </tr>
-                        <tr>
-                            <td>Liczba osób:</td>
-                            <td id="summaryCount"></td>
-                        </tr>
-                        <tr>
-                            <td>Osoby:</td>
-                            <td id="summaryPeople"></td>
-                        </tr>
-                        <tr>
-                            <td>Osoba towarzysząca:</td>
-                            <td id="summaryCompanion"></td>
-                        </tr>
-                        <tr>
-                            <td>Email:</td>
-                            <td id="summaryEmail"></td>
-                        </tr>
-                        <tr>
-                            <td>Newsletter:</td>
-                            <td id="summaryNewsletter"></td>
-                        </tr>
-                        <tr>
-                            <td>Preferencje żywieniowe:</td>
-                            <td id="summaryDiet"></td>
-                        </tr>
-                    </table>
+                        <div class="message error" id="peopleError" style="display: none;"></div>
 
-                    <div class="button-group">
-                        <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
-                        <button onclick="rsvpSubmit()" id="submitBtn">Potwierdź i Wyślij</button>
-                    </div>
-                </div>
-
-                <!-- STEP 7: SUCCESS -->
-                <div id="rsvpStep7" style="display: none;">
-                    <div class="success-icon">✅</div>
-                    <h2 style="text-align: center;">Potwierdzenie Wysłane!</h2>
-                    <p style="text-align: center; color: #666; margin-bottom: 30px;">Dziękujemy za potwierdzenie! Czekamy na was na weselu.</p>
-
-                    <div class="button-group">
-                        <button onclick="rsvpNewConfirmation()">Nowe Potwierdzenie</button>
-                        <button class="button-secondary" onclick="showPage('home')">Zamknij</button>
-                    </div>
-                </div>
-
-                <!-- NO ATTENDANCE SECTION -->
-                <div id="rsvpNoAttendanceSection" style="display: none;">
-                    <h2>Rozumiemy 💙</h2>
-                    <p style="color: #666; margin-bottom: 20px;">Chcesz zostać w kontakcie?</p>
-
-                    <div class="button-group">
-                        <button class="button-secondary" onclick="rsvpNoContactDone()">Nie, Dziękuję</button>
-                        <button onclick="rsvpNoContactEmail()">Tak, Chcę Email</button>
+                        <div class="button-group">
+                            <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
+                            <button onclick="rsvpSelectPeople()">Dalej</button>
+                        </div>
                     </div>
 
-                    <div id="noContactEmailInput" style="display: none; margin-top: 20px;">
+                    <!-- STEP 3B: COMPANION -->
+                    <div id="rsvpStep3b" style="display: none;">
+                        <div class="step-indicator">
+                            <div class="step">1. Kod</div>
+                            <div class="step">2. Uczestnictwo</div>
+                            <div class="step active">3. Osoby</div>
+                            <div class="step">4. Email</div>
+                            <div class="step">5. Dieta</div>
+                            <div class="step">6. Podsumowanie</div>
+                        </div>
+
+                        <h2 style="font-size: 24px;">Osoba Towarzysząca</h2>
+                        <p style="color: #8a7d7d; margin-bottom: 25px;">Wprowadź dane osoby towarzyszącej.</p>
+
                         <div class="form-group">
-                            <label for="noContactEmail">Twój adres email:</label>
-                            <input type="email" id="noContactEmail" placeholder="email@example.com" />
+                            <label for="companionName">Imię i nazwisko:</label>
+                            <input type="text" id="companionName" placeholder="Imię Nazwisko" />
                         </div>
-                        <div class="message error" id="noContactEmailError" style="display: none;"></div>
+
+                        <div class="form-group">
+                            <label for="companionEmail">Email (opcjonalnie):</label>
+                            <input type="email" id="companionEmail" placeholder="email@example.com" />
+                        </div>
+
+                        <div class="message error" id="companionError" style="display: none;"></div>
+
                         <div class="button-group">
-                            <button class="button-secondary" onclick="rsvpNoContactReset()">Anuluj</button>
-                            <button onclick="rsvpNoContactSubmit()" id="noContactSubmitBtn">Potwierdź</button>
+                            <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
+                            <button onclick="rsvpCompanionDone()">Dalej</button>
                         </div>
                     </div>
 
-                    <div id="noContactSuccess" style="display: none;">
+                    <!-- STEP 4: EMAIL -->
+                    <div id="rsvpStep4" style="display: none;">
+                        <div class="step-indicator">
+                            <div class="step">1. Kod</div>
+                            <div class="step">2. Uczestnictwo</div>
+                            <div class="step">3. Osoby</div>
+                            <div class="step active">4. Email</div>
+                            <div class="step">5. Dieta</div>
+                            <div class="step">6. Podsumowanie</div>
+                        </div>
+
+                        <h2 style="font-size: 24px;">Chcesz pozostać w kontakcie?</h2>
+                        <p style="color: #8a7d7d; margin-bottom: 25px;">Chciałbyś/chciałabyś otrzymywać aktualizacje dotyczące wesela?</p>
+
+                        <div class="button-group">
+                            <button class="button-secondary" id="emailNoBtn" onclick="rsvpEmailNo()">Nie, Dziękuję</button>
+                            <button id="emailYesBtn" onclick="rsvpEmailYes()">Tak, Chcę Email</button>
+                        </div>
+
+                        <div id="emailInput" style="display: none; margin-top: 25px;">
+                            <div class="form-group">
+                                <label for="userEmail">Twój adres email:</label>
+                                <input type="email" id="userEmail" placeholder="email@example.com" />
+                            </div>
+                            <div class="message error" id="emailError" style="display: none;"></div>
+                            <div class="button-group">
+                                <button class="button-secondary" onclick="rsvpEmailReset()">Anuluj</button>
+                                <button onclick="rsvpEmailConfirm()">Potwierdź</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5: DIETARY PREFERENCES -->
+                    <div id="rsvpStep5" style="display: none;">
+                        <div class="step-indicator">
+                            <div class="step">1. Kod</div>
+                            <div class="step">2. Uczestnictwo</div>
+                            <div class="step">3. Osoby</div>
+                            <div class="step">4. Email</div>
+                            <div class="step active">5. Dieta</div>
+                            <div class="step">6. Podsumowanie</div>
+                        </div>
+
+                        <h2 style="font-size: 24px;">Preferencje Żywieniowe</h2>
+                        <p style="color: #8a7d7d; margin-bottom: 20px;">Czy masz jakieś ograniczenia dietetyczne?</p>
+
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="noDiet" />
+                                <label for="noDiet" style="margin: 0;">Brak ograniczeń</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 25px;">
+                            <label for="dietDetails">Szczegóły ograniczeń (opcjonalnie):</label>
+                            <textarea id="dietDetails" placeholder="np. Weganin, Gluten-free, Alergiczny na..." rows="4"></textarea>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
+                            <button onclick="rsvpDietDone()">Dalej</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 6: SUMMARY -->
+                    <div id="rsvpStep6" style="display: none;">
+                        <div class="step-indicator">
+                            <div class="step">1. Kod</div>
+                            <div class="step">2. Uczestnictwo</div>
+                            <div class="step">3. Osoby</div>
+                            <div class="step">4. Email</div>
+                            <div class="step">5. Dieta</div>
+                            <div class="step active">6. Podsumowanie</div>
+                        </div>
+
+                        <h2 style="font-size: 24px;">Podsumowanie Potwierdzenia</h2>
+
+                        <table class="summary-table">
+                            <tr>
+                                <td>Kod zaproszenia:</td>
+                                <td id="summaryCode"></td>
+                            </tr>
+                            <tr>
+                                <td>Liczba osób:</td>
+                                <td id="summaryCount"></td>
+                            </tr>
+                            <tr>
+                                <td>Osoby:</td>
+                                <td id="summaryPeople"></td>
+                            </tr>
+                            <tr>
+                                <td>Osoba towarzysząca:</td>
+                                <td id="summaryCompanion"></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td id="summaryEmail"></td>
+                            </tr>
+                            <tr>
+                                <td>Newsletter:</td>
+                                <td id="summaryNewsletter"></td>
+                            </tr>
+                            <tr>
+                                <td>Preferencje żywieniowe:</td>
+                                <td id="summaryDiet"></td>
+                            </tr>
+                        </table>
+
+                        <div class="button-group">
+                            <button class="button-secondary" onclick="rsvpPreviousStep()">Wróć</button>
+                            <button onclick="rsvpSubmit()" id="submitBtn">Potwierdź i Wyślij</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 7: SUCCESS -->
+                    <div id="rsvpStep7" style="display: none;">
                         <div class="success-icon">✅</div>
-                        <h3 style="text-align: center;">Potwierdzenie Wysłane!</h3>
-                        <p style="text-align: center; color: #666; margin-bottom: 30px;">Będziemy Ci wysyłać aktualizacje.</p>
+                        <h2 style="text-align: center; font-size: 28px;">Potwierdzenie Wysłane!</h2>
+                        <p style="text-align: center; color: #8a7d7d; margin-bottom: 30px;">Dziękujemy za potwierdzenie! Czekamy na was na weselu.</p>
 
                         <div class="button-group">
                             <button onclick="rsvpNewConfirmation()">Nowe Potwierdzenie</button>
                             <button class="button-secondary" onclick="showPage('home')">Zamknij</button>
+                        </div>
+                    </div>
+
+                    <!-- NO ATTENDANCE SECTION -->
+                    <div id="rsvpNoAttendanceSection" style="display: none;">
+                        <h2 style="font-size: 24px;">Rozumiemy 💙</h2>
+                        <p style="color: #8a7d7d; margin-bottom: 25px;">Chcesz zostać w kontakcie?</p>
+
+                        <div class="button-group">
+                            <button class="button-secondary" onclick="rsvpNoContactDone()">Nie, Dziękuję</button>
+                            <button onclick="rsvpNoContactEmail()">Tak, Chcę Email</button>
+                        </div>
+
+                        <div id="noContactEmailInput" style="display: none; margin-top: 25px;">
+                            <div class="form-group">
+                                <label for="noContactEmail">Twój adres email:</label>
+                                <input type="email" id="noContactEmail" placeholder="email@example.com" />
+                            </div>
+                            <div class="message error" id="noContactEmailError" style="display: none;"></div>
+                            <div class="button-group">
+                                <button class="button-secondary" onclick="rsvpNoContactReset()">Anuluj</button>
+                                <button onclick="rsvpNoContactSubmit()" id="noContactSubmitBtn">Potwierdź</button>
+                            </div>
+                        </div>
+
+                        <div id="noContactSuccess" style="display: none;">
+                            <div class="success-icon">✅</div>
+                            <h3 style="text-align: center;">Potwierdzenie Wysłane!</h3>
+                            <p style="text-align: center; color: #8a7d7d; margin-bottom: 30px;">Będziemy Ci wysyłać aktualizacje.</p>
+
+                            <div class="button-group">
+                                <button onclick="rsvpNewConfirmation()">Nowe Potwierdzenie</button>
+                                <button class="button-secondary" onclick="showPage('home')">Zamknij</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -939,26 +1032,24 @@
             <!-- GALLERY PAGE -->
             <div class="page" id="gallery">
                 <h1>Galeria Naszych Zdjęć 📸</h1>
-                <p style="text-align: center; color: #666; margin: 20px 0;">Zapraszamy do obejrzenia naszych ulubionych momentów.</p>
+                <p style="text-align: center; color: #8a7d7d; margin: 20px 0; font-size: 16px;">Zapraszamy do obejrzenia naszych ulubionych momentów.</p>
 
                 <div class="gallery-link">
                     <a href="https://photos.app.goo.gl/" target="_blank">Otwórz Pełną Galerię w Google Photos</a>
                 </div>
 
-                <div style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 10px; text-align: center;">
-                    <p style="color: #666;">Wkrótce będziemy dodawać więcej zdjęć!</p>
+                <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #f9f5f0 0%, #f5e6d3 100%); border-radius: 15px; text-align: center; border: 2px solid #e8d5c4;">
+                    <p style="color: #8a7d7d; font-size: 16px;">Wkrótce będziemy dodawać więcej zdjęć! 📷</p>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
 
     <script>
         // ========== KONFIGURACJA ==========
-        // ⚠️ WAŻNE: Zastąp poniższy URL linkiem z Google Apps Script
         const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTdoZJn2yd4HVavsFeL9degLN6ZG86CAlE_a86X4d6sDBkkZPx_za3s-LNW2NfHtWYtw/exec";
         const PASSWORD = "wesele2026";
 
-        // Lokalna baza gości (do walidacji i wyświetlenia)
         const guestDatabase = {
             "1001": { names: ["Ludmiła Schleser", "Jacek Schleser"], companion: false },
             "1002": { names: ["Milena Schleser"], companion: true },
@@ -1001,7 +1092,6 @@
             "1039": { names: ["Malwina Piechocka", "Marek Piechocki"], companion: false }
         };
 
-        // ========== ZARZĄDZANIE STANEM ==========
         let rsvpState = {
             code: null,
             selectedPeople: [],
@@ -1022,11 +1112,12 @@
             });
         });
 
-        // ========== UWIERZYTELNIANIE HASŁA ==========
+        // ========== LOGOWANIE ==========
         function checkPassword() {
             const password = document.getElementById("passwordInput").value;
             if (password === PASSWORD) {
-                document.getElementById("loginOverlay").classList.add("hidden");
+                document.getElementById("loginPage").classList.add("hidden");
+                document.getElementById("appContainer").classList.add("visible");
             } else {
                 document.getElementById("loginError").textContent = "Nieprawidłowe hasło";
                 document.getElementById("passwordInput").value = "";
@@ -1073,7 +1164,7 @@
             event.target?.classList.add("active");
         }
 
-        // ========== PRZEPŁYW RSVP ==========
+        // ========== RSVP FUNCTIONS ==========
         function rsvpValidateCode() {
             const code = document.getElementById("codeInput").value.trim();
             const codeError = document.getElementById("codeError");
@@ -1095,7 +1186,6 @@
             codeBtn.disabled = true;
             codeBtn.textContent = "⏳ Sprawdzam...";
 
-            // Waliduj kod na serwerze
             fetch(GOOGLE_APPS_SCRIPT_URL, {
                 method: "POST",
                 body: JSON.stringify({
@@ -1147,7 +1237,7 @@
                 container.innerHTML += `
                     <div class="checkbox-item">
                         <input type="checkbox" id="person${index}" value="${person}" />
-                        <label for="person${index}" style="margin: 0;">${person}</label>
+                        <label for="person${index}">${person}</label>
                     </div>
                 `;
             });
@@ -1333,10 +1423,6 @@
         }
 
         function rsvpNoContactDone() {
-            const noContactSubmitBtn = document.getElementById("noContactSubmitBtn");
-            const noContactSubmitBtnCopy = noContactSubmitBtn.cloneNode(true);
-            noContactSubmitBtn.parentNode.replaceChild(noContactSubmitBtnCopy, noContactSubmitBtn);
-
             const payload = {
                 action: "submitNoAttendance",
                 code: rsvpState.code,
@@ -1418,7 +1504,7 @@
             rsvpNewConfirmation();
         }
 
-        // ========== FUNKCJE POMOCNICZE ==========
+        // ========== UTILITY ==========
         function validateEmail(email) {
             const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return re.test(email);
