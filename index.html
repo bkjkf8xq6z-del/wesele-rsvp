@@ -16,6 +16,8 @@
             background: linear-gradient(135deg, #f9f5f0 0%, #f0e8e0 100%);
             color: #2c2c2c;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* ========== LOGIN PAGE ========== */
@@ -120,6 +122,7 @@
             display: none;
             min-height: 100vh;
             flex-direction: column;
+            flex: 1;
         }
 
         .app-container.visible {
@@ -175,6 +178,32 @@
             margin: 0 auto;
         }
 
+        footer {
+            background: #ffffff;
+            border-top: 1px solid #e8dfd5;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            color: #d97634;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .footer-content p {
+            color: #5a5a5a;
+            font-size: 14px;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
         .page {
             display: none;
             animation: fadeIn 0.4s ease;
@@ -222,6 +251,33 @@
             line-height: 1.7;
             font-size: 15px;
             margin-bottom: 15px;
+        }
+
+        /* ========== COUNTDOWN HERO ========== */
+        .countdown-hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .countdown-title {
+            font-size: 48px;
+            color: #d97634;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .countdown-date {
+            font-size: 28px;
+            color: #2c2c2c;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .countdown-location {
+            font-size: 16px;
+            color: #7a7a7a;
+            margin-bottom: 30px;
         }
 
         /* ========== COUNTDOWN ========== */
@@ -332,10 +388,9 @@
             padding: 24px;
             border-radius: 12px;
             margin: 20px 0;
-            border-left: 3px solid #d97634;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             border: 1px solid #e8ddf5;
             border-left: 3px solid #d97634;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .info-section h3 {
@@ -351,6 +406,20 @@
         .info-section strong {
             color: #2c2c2c;
             font-weight: 600;
+        }
+
+        .map-container {
+            margin-top: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e8dfd5;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
         }
 
         /* ========== FORMS ========== */
@@ -501,52 +570,61 @@
             border: 1px solid #ffcdd2;
         }
 
-        .message.info {
-            background: #e3f2fd;
-            color: #1565c0;
-            border: 1px solid #bbdefb;
-        }
-
-        .message.warning {
-            background: #fff3e0;
-            color: #e65100;
-            border: 1px solid #ffe0b2;
-        }
-
-        /* ========== STEP INDICATOR ========== */
-        .step-indicator {
+        /* ========== PROGRESS DOTS ========== */
+        .progress-dots {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 35px;
-            flex-wrap: wrap;
-            gap: 8px;
+            position: relative;
         }
 
-        .step {
-            flex: 1;
-            min-width: 45px;
-            text-align: center;
-            padding: 12px 8px;
+        .progress-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
             background: #f5f0e8;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 600;
             color: #7a7a7a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
             border: 1px solid #e0d5c7;
             transition: all 0.3s ease;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            line-height: 1.3;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
         }
 
-        .step.active {
+        .progress-dot.active {
             background: #d97634;
             color: white;
             border-color: #d97634;
             box-shadow: 0 4px 12px rgba(217, 118, 52, 0.2);
         }
 
-        /* ========== RSVP FORM REDESIGN ========== */
+        .progress-line {
+            position: absolute;
+            height: 2px;
+            background: #e0d5c7;
+            top: 50%;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .progress-line-active {
+            position: absolute;
+            height: 2px;
+            background: #d97634;
+            top: 50%;
+            left: 0;
+            z-index: 1;
+            transition: width 0.3s ease;
+        }
+
+        /* ========== RSVP FORM ========== */
         .rsvp-form-card {
             background: #ffffff;
             padding: 40px;
@@ -604,17 +682,6 @@
         .success-container {
             text-align: center;
             padding: 40px 20px;
-        }
-
-        .success-icon {
-            font-size: 64px;
-            margin: 20px 0;
-            animation: bounce 0.6s ease;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
 
         .success-container h2 {
@@ -737,8 +804,12 @@
                 font-size: 28px;
             }
 
-            h2 {
-                font-size: 20px;
+            .countdown-title {
+                font-size: 36px;
+            }
+
+            .countdown-date {
+                font-size: 22px;
             }
 
             nav {
@@ -786,30 +857,23 @@
                 padding: 25px;
             }
 
-            .step {
-                font-size: 10px;
-                padding: 10px 6px;
-                min-width: 40px;
+            .progress-dot {
+                width: 28px;
+                height: 28px;
+                font-size: 11px;
             }
 
             .gallery-container {
                 padding: 25px;
             }
-        }
 
-        .spinner {
-            border: 3px solid #e8ddf5;
-            border-top: 3px solid #d97634;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
+            .map-container iframe {
+                height: 250px;
+            }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            .footer-content p {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -840,8 +904,11 @@
         <div class="content">
             <!-- HOME PAGE -->
             <div class="page active" id="home">
-                <h1>Wesele Wiktoria & Maciej</h1>
-                <p style="text-align: center; color: #7a7a7a; font-size: 16px; margin-bottom: 30px;">6 sierpnia 2026</p>
+                <div class="countdown-hero">
+                    <h2 class="countdown-title">Wielki Dzień</h2>
+                    <p class="countdown-date">6 sierpnia 2026</p>
+                    <p class="countdown-location">Tczew</p>
+                </div>
                 <div class="countdown" id="countdown"></div>
             </div>
 
@@ -893,18 +960,24 @@
 
                 <div class="info-section">
                     <h3>Ceremonia Ślubna</h3>
-                    <p><strong>Data:</strong> 6 sierpnia 2026</p>
                     <p><strong>Godzina:</strong> 15:00</p>
                     <p><strong>Miejsce:</strong> Kościół pw. Podwyższenia Krzyża Świętego</p>
                     <p><strong>Adres:</strong> ul. Stefana Kardynała Wyszyńskiego 13, 83-110 Tczew</p>
+                    <p><strong><a href="https://maps.google.com/?q=ul.+Stefana+Kardynała+Wyszyńskiego+13,+83-110+Tczew" target="_blank" style="color: #d97634; text-decoration: none;">Otwórz w Google Maps</a></strong></p>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2412.0123456789012!2d19.215!3d54.389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471fd6d0d0d0d0d%3A0x0!2sKo%C5%9Bci%C3%B3%C5%82%20pw.%20Podwy%C5%BCszenia%20Krzy%C5%BCa%20%C5%9Awi%C4%99tego!5e0!3m2!1spl!2spl!4v" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
 
                 <div class="info-section">
                     <h3>Przyjęcie Weselne</h3>
-                    <p><strong>Data:</strong> 6 sierpnia 2026</p>
                     <p><strong>Godzina:</strong> 17:00</p>
                     <p><strong>Miejsce:</strong> OKLASKI</p>
                     <p><strong>Adres:</strong> Stanisławie 30A, 83-112 Lubiszewo</p>
+                    <p><strong><a href="https://maps.google.com/?q=Stanisławie+30A,+83-112+Lubiszewo" target="_blank" style="color: #d97634; text-decoration: none;">Otwórz w Google Maps</a></strong></p>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2411.5!2d19.1!3d54.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471fd6d0d0d0d0d%3A0x0!2sStanisławie%2030A%2C%2083-112%20Lubiszewo!5e0!3m2!1spl!2spl!4v" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
 
                 <div class="info-section">
@@ -945,15 +1018,7 @@
                 <div class="rsvp-form-card">
                     <!-- STEP 1 -->
                     <div class="rsvp-step visible" id="rsvpStep1">
-                        <div class="step-indicator">
-                            <div class="step active">1<br>Kod</div>
-                            <div class="step">2<br>Decyzja</div>
-                            <div class="step">3<br>Osoby</div>
-                            <div class="step">4<br>Gość</div>
-                            <div class="step">5<br>Email</div>
-                            <div class="step">6<br>Dieta</div>
-                            <div class="step">7<br>Podsumowanie</div>
-                        </div>
+                        <div class="progress-dots" id="progressDots"></div>
 
                         <h2>Wprowadź Kod Zaproszenia</h2>
                         <p class="subtitle">Wpisz 4-cyfrowy kod, który otrzymałeś na zaproszeniu</p>
@@ -972,15 +1037,7 @@
 
                     <!-- STEP 2 -->
                     <div class="rsvp-step" id="rsvpStep2">
-                        <div class="step-indicator">
-                            <div class="step">1<br>Kod</div>
-                            <div class="step active">2<br>Decyzja</div>
-                            <div class="step">3<br>Osoby</div>
-                            <div class="step">4<br>Gość</div>
-                            <div class="step">5<br>Email</div>
-                            <div class="step">6<br>Dieta</div>
-                            <div class="step">7<br>Podsumowanie</div>
-                        </div>
+                        <div class="progress-dots" id="progressDots2"></div>
 
                         <h2>Czy będziesz na weselu?</h2>
                         <p class="subtitle">Prosimy o potwierdzenie Twojej obecności</p>
@@ -993,15 +1050,7 @@
 
                     <!-- STEP 3 -->
                     <div class="rsvp-step" id="rsvpStep3">
-                        <div class="step-indicator">
-                            <div class="step">1<br>Kod</div>
-                            <div class="step">2<br>Decyzja</div>
-                            <div class="step active">3<br>Osoby</div>
-                            <div class="step">4<br>Gość</div>
-                            <div class="step">5<br>Email</div>
-                            <div class="step">6<br>Dieta</div>
-                            <div class="step">7<br>Podsumowanie</div>
-                        </div>
+                        <div class="progress-dots" id="progressDots3"></div>
 
                         <h2>Wybierz osoby uczestniczące</h2>
                         <p class="subtitle">Zaznacz wszystkie osoby, które będą brać udział w weselu</p>
@@ -1018,15 +1067,7 @@
 
                     <!-- STEP 3B -->
                     <div class="rsvp-step" id="rsvpStep3b">
-                        <div class="step-indicator">
-                            <div class="step">1<br>Kod</div>
-                            <div class="step">2<br>Decyzja</div>
-                            <div class="step active">3<br>Osoby</div>
-                            <div class="step">4<br>Gość</div>
-                            <div class="step">5<br>Email</div>
-                            <div class="step">6<br>Dieta</div>
-                            <div class="step">7<br>Podsumowanie</div>
-                        </div>
+                        <div class="progress-dots" id="progressDots3b"></div>
 
                         <h2>Będziesz z osobą towarzyszącą?</h2>
                         <p class="subtitle">Czy chcesz przyjść z osobą towarzyszącą?</p>
@@ -1039,15 +1080,7 @@
 
                     <!-- STEP 3C -->
                     <div class="rsvp-step" id="rsvpStep3c">
-                        <div class="step-indicator">
-                            <div class="step">1<br>Kod</div>
-                            <div class="step">2<br>Decyzja</div>
-                            <div class="step active">3<br>Osoby</div>
-                            <div class="step">4<br>Gość</div>
-                            <div class="step">5<br>Email</div>
-                            <div class="step">6<br>Dieta</div>
-                            <div class="step">7<br>Podsumowanie</div>
-                        </div>
+                        <div class="progress-dots" id="progressDots3c"></div>
 
                         <h2>Dane Osoby Towarzyszącej</h2>
                         <p class="subtitle">Wprowadź dane osoby towarzyszącej</p>
@@ -1070,22 +1103,15 @@
                         </div>
                     </div>
 
-                    <!-- STEP 5 - Z PRZYCISKIEM WRÓĆ W POLU MAILA -->
+                    <!-- STEP 5 -->
                     <div class="rsvp-step" id="rsvpStep5">
-                        <div class="step-indicator">
-                            <div class="step">1<br>Kod</div>
-                            <div class="step">2<br>Decyzja</div>
-                            <div class="step">3<br>Osoby</div>
-                            <div class="step">4<br>Gość</div>
-                            <div class="step active">5<br>Email</div>
-                            <div class="step">6<br>Dieta</div>
-                            <div class="step">7<br>Podsumowanie</div>
-                        </div>
+                        <div class="progress-dots" id="progressDots5"></div>
 
                         <h2>Chcesz pozostać w kontakcie?</h2>
                         <p class="subtitle">Chciałbyś/chciałabyś otrzymywać aktualizacje dotyczące wesela?</p>
 
                         <div class="button-group">
+                            <button class="button-back" onclick="rsvpGoBack(5)">Wróć</button>
                             <button class="button-secondary" id="emailNoBtn" onclick="rsvpEmailNo()">Nie, Dziękuję</button>
                             <button id="emailYesBtn" onclick="rsvpEmailYes()">Tak, Chcę Email</button>
                         </div>
@@ -1097,7 +1123,7 @@
                             </div>
                             <div class="message error" id="emailError" style="display: none;"></div>
                             <div class="button-group">
-                                <button class="button-back" onclick="rsvpEmailReset()">Wróć</button>
+                                <button class="button-back" onclick="rsvpEmailReset()">Anuluj</button>
                                 <button onclick="rsvpEmailConfirm()">Potwierdź</button>
                             </div>
                         </div>
@@ -1105,18 +1131,10 @@
 
                     <!-- STEP 6 -->
                     <div class="rsvp-step" id="rsvpStep6">
-                        <div class="step-indicator">
-                            <div class="step">1<br>Kod</div>
-                            <div class="step">2<br>Decyzja</div>
-                            <div class="step">3<br>Osoby</div>
-                            <div class="step">4<br>Gość</div>
-                            <div class="step">5<br>Email</div>
-                            <div class="step active">6<br>Dieta</div>
-                            <div class="step">7<br>Podsumowanie</div>
-                        </div>
+                        <div class="progress-dots" id="progressDots6"></div>
 
                         <h2>Preferencje Żywieniowe</h2>
-                        <p class="subtitle">Czy masz jakieś ograniczenia dietetyczne?</p>
+                        <p class="subtitle">Czy masz jakieś ograniczenia dietetyczne? (obowiązkowe)</p>
 
                         <div class="checkbox-group">
                             <div class="checkbox-item">
@@ -1138,15 +1156,7 @@
 
                     <!-- STEP 7 -->
                     <div class="rsvp-step" id="rsvpStep7">
-                        <div class="step-indicator">
-                            <div class="step">1<br>Kod</div>
-                            <div class="step">2<br>Decyzja</div>
-                            <div class="step">3<br>Osoby</div>
-                            <div class="step">4<br>Gość</div>
-                            <div class="step">5<br>Email</div>
-                            <div class="step">6<br>Dieta</div>
-                            <div class="step active">7<br>Podsumowanie</div>
-                        </div>
+                        <div class="progress-dots" id="progressDots7"></div>
 
                         <h2>Podsumowanie Potwierdzenia</h2>
 
@@ -1270,6 +1280,14 @@
                 </div>
             </div>
         </div>
+
+        <footer>
+            <div class="footer-content">
+                <h3>Kontakt</h3>
+                <p>Wiktoria: [numer telefonu] | wiktoria@example.com</p>
+                <p>Maciej: [numer telefonu] | maciej@example.com</p>
+            </div>
+        </footer>
     </div>
 
     <script>
@@ -1399,6 +1417,28 @@
         function showStep(stepId) {
             hideAllSteps();
             document.getElementById(stepId).classList.add("visible");
+            updateProgressDots(rsvpState.currentStep);
+        }
+
+        function updateProgressDots(currentStep) {
+            const dotsContainers = document.querySelectorAll("[id^='progressDots']");
+            dotsContainers.forEach(container => {
+                if (!container) return;
+
+                let html = '<div class="progress-line"></div><div class="progress-line-active"></div>';
+                for (let i = 1; i <= 7; i++) {
+                    const isActive = i === currentStep;
+                    html += `<div class="progress-dot ${isActive ? 'active' : ''}">${i}</div>`;
+                }
+                container.innerHTML = html;
+
+                // Update progress line
+                const progressLine = container.querySelector('.progress-line-active');
+                if (progressLine && currentStep > 1) {
+                    const percentage = ((currentStep - 1) / 6) * 100;
+                    progressLine.style.width = percentage + '%';
+                }
+            });
         }
 
         function rsvpValidateCode() {
@@ -1577,6 +1617,12 @@
             const noDiet = document.getElementById("noDiet").checked;
             const dietDetails = document.getElementById("dietDetails").value.trim();
 
+            // NOWA WALIDACJA - OBOWIĄZKOWE
+            if (!noDiet && !dietDetails) {
+                alert("Zaznacz 'Brak ograniczeń' lub wpisz szczegóły ograniczeń dietetycznych");
+                return;
+            }
+
             rsvpState.noDiet = noDiet;
             rsvpState.diet = dietDetails;
             rsvpState.currentStep = 7;
@@ -1690,6 +1736,7 @@
             const payload = {
                 action: "submitNoAttendance",
                 code: rsvpState.code,
+                people: guestDatabase[rsvpState.code].names.join(", "),
                 email: "",
                 newsletter: "Nie"
             };
@@ -1737,6 +1784,7 @@
             const payload = {
                 action: "submitNoAttendance",
                 code: rsvpState.code,
+                people: guestDatabase[rsvpState.code].names.join(", "),
                 email: email,
                 newsletter: "Tak"
             };
