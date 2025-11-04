@@ -408,17 +408,27 @@
             font-weight: 600;
         }
 
+        /* ========== V11 POPRAWKA 2: MAPY - MAŁY KWADRAT OBOK TEKSTU ========== */
+        .info-section-with-map {
+            display: grid;
+            grid-template-columns: 1fr 250px;
+            gap: 20px;
+            align-items: start;
+        }
+
         .map-container {
-            margin-top: 15px;
+            width: 250px;
+            height: 250px;
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid #e8dfd5;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            flex-shrink: 0;
         }
 
         .map-container iframe {
             width: 100%;
-            height: 300px;
+            height: 100%;
             border: none;
         }
 
@@ -867,12 +877,18 @@
                 padding: 25px;
             }
 
-            .map-container iframe {
-                height: 250px;
-            }
-
             .footer-content p {
                 font-size: 13px;
+            }
+
+            /* V11: Responsive mapy */
+            .info-section-with-map {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                width: 100%;
+                height: 250px;
             }
         }
     </style>
@@ -960,23 +976,37 @@
 
                 <div class="info-section">
                     <h3>Ceremonia Ślubna</h3>
-                    <p><strong>Godzina:</strong> 15:00</p>
-                    <p><strong>Miejsce:</strong> Kościół pw. Podwyższenia Krzyża Świętego</p>
-                    <p><strong>Adres:</strong> ul. Stefana Kardynała Wyszyńskiego 13, 83-110 Tczew</p>
-                    <p><strong><a href="https://maps.google.com/?q=ul.+Stefana+Kardynała+Wyszyńskiego+13,+83-110+Tczew" target="_blank" style="color: #d97634; text-decoration: none;">Otwórz w Google Maps</a></strong></p>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2412.0123456789012!2d19.215!3d54.389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471fd6d0d0d0d0d%3A0x0!2sKo%C5%9Bci%C3%B3%C5%82%20pw.%20Podwy%C5%BCszenia%20Krzy%C5%BCa%20%C5%9Awi%C4%99tego!5e0!3m2!1spl!2spl!4v" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    <div class="info-section-with-map">
+                        <div>
+                            <p><strong>Data:</strong> 6 sierpnia 2026</p>
+                            <p><strong>Godzina:</strong> 15:00</p>
+                            <p><strong>Miejsce:</strong> Kościół pw. Podwyższenia Krzyża Świętego</p>
+                            <p><strong>Adres:</strong> ul. Stefana Kardynała Wyszyńskiego 13, 83-110 Tczew</p>
+                            <p><strong><a href="https://maps.google.com/?q=ul.+Stefana+Kardynała+Wyszyńskiego+13,+83-110+Tczew" target="_blank" style="color: #d97634; text-decoration: none;">Otwórz w Google Maps</a></strong></p>
+                        </div>
+
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2412.0123456789012!2d19.215!3d54.389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471fd6d0d0d0d0d%3A0x0!2sKo%C5%9Bci%C3%B3%C5%82%20pw.%20Podwy%C5%BCszenia%20Krzy%C5%BCa%20%C5%9Awi%C4%99tego!5e0!3m2!1spl!2spl!4v" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                 </div>
 
                 <div class="info-section">
                     <h3>Przyjęcie Weselne</h3>
-                    <p><strong>Godzina:</strong> 17:00</p>
-                    <p><strong>Miejsce:</strong> OKLASKI</p>
-                    <p><strong>Adres:</strong> Stanisławie 30A, 83-112 Lubiszewo</p>
-                    <p><strong><a href="https://maps.google.com/?q=Stanisławie+30A,+83-112+Lubiszewo" target="_blank" style="color: #d97634; text-decoration: none;">Otwórz w Google Maps</a></strong></p>
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2411.5!2d19.1!3d54.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471fd6d0d0d0d0d%3A0x0!2sStanisławie%2030A%2C%2083-112%20Lubiszewo!5e0!3m2!1spl!2spl!4v" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    <div class="info-section-with-map">
+                        <div>
+                            <p><strong>Data:</strong> 6 sierpnia 2026</p>
+                            <p><strong>Godzina:</strong> 17:00</p>
+                            <p><strong>Miejsce:</strong> OKLASKI</p>
+                            <p><strong>Adres:</strong> Stanisławie 30A, 83-112 Lubiszewo</p>
+                            <p><strong><a href="https://maps.google.com/?q=Stanisławie+30A,+83-112+Lubiszewo" target="_blank" style="color: #d97634; text-decoration: none;">Otwórz w Google Maps</a></strong></p>
+                        </div>
+
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2411.5!2d19.1!3d54.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471fd6d0d0d0d0d%3A0x0!2sStanisławie%2030A%2C%2083-112%20Lubiszewo!5e0!3m2!1spl!2spl!4v" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                 </div>
 
@@ -1432,7 +1462,6 @@
                 }
                 container.innerHTML = html;
 
-                // Update progress line
                 const progressLine = container.querySelector('.progress-line-active');
                 if (progressLine && currentStep > 1) {
                     const percentage = ((currentStep - 1) / 6) * 100;
@@ -1617,7 +1646,6 @@
             const noDiet = document.getElementById("noDiet").checked;
             const dietDetails = document.getElementById("dietDetails").value.trim();
 
-            // NOWA WALIDACJA - OBOWIĄZKOWE
             if (!noDiet && !dietDetails) {
                 alert("Zaznacz 'Brak ograniczeń' lub wpisz szczegóły ograniczeń dietetycznych");
                 return;
@@ -1823,12 +1851,17 @@
             document.getElementById("noContactEmailError").style.display = "none";
         }
 
+        // V11 POPRAWKA 1: Inteligentne cofanie - sprawdza czy osoba ma towarzysza
         function rsvpGoBack(fromStep) {
             const previousStep = fromStep - 1;
             rsvpState.currentStep = previousStep;
 
-            if (previousStep === 1) showStep("rsvpStep1");
-            else if (previousStep === 2) showStep("rsvpStep2");
+            if (previousStep === 1) {
+                showStep("rsvpStep1");
+            } 
+            else if (previousStep === 2) {
+                showStep("rsvpStep2");
+            } 
             else if (previousStep === 3) {
                 if (guestDatabase[rsvpState.code].companion) {
                     showStep("rsvpStep3b");
@@ -1836,10 +1869,22 @@
                     showStep("rsvpStep3");
                 }
             }
-            else if (previousStep === 4) showStep("rsvpStep3c");
-            else if (previousStep === 5) showStep("rsvpStep5");
-            else if (previousStep === 6) showStep("rsvpStep6");
-            else if (previousStep === 7) showStep("rsvpStep7");
+            else if (previousStep === 4) {
+                if (guestDatabase[rsvpState.code].companion) {
+                    showStep("rsvpStep3c");
+                } else {
+                    showStep("rsvpStep3");
+                }
+            }
+            else if (previousStep === 5) {
+                showStep("rsvpStep5");
+            }
+            else if (previousStep === 6) {
+                showStep("rsvpStep6");
+            }
+            else if (previousStep === 7) {
+                showStep("rsvpStep7");
+            }
         }
 
         function validateEmail(email) {
