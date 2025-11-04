@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wesele Wiktoria & Maciej</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="preload" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
 * {
     margin: 0;
@@ -18,6 +20,30 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+/* NOWE: Header dekoracyjny z nazwami */
+.header-banner {
+    background: linear-gradient(135deg, #f9f5f0 0%, #f0e8e0 100%);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid rgba(217, 118, 52, 0.2);
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: #d97634;
+    font-weight: 300;
+    letter-spacing: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.header-banner span {
+    display: block;
+    font-size: 18px;
+    color: #9a9a9a;
+    font-family: inherit;
+    margin-top: 8px;
+    letter-spacing: 3px;
+    font-weight: 400;
 }
 
 .login-page {
@@ -382,16 +408,17 @@ p {
     font-weight: 600;
 }
 
+/* ZMIANA: Mapki większe i wycentrowane */
 .info-section-with-map {
     display: grid;
-    grid-template-columns: 1fr 250px;
-    gap: 20px;
-    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
 }
 
 .map-container {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: 350px;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid #e8dfd5;
@@ -768,6 +795,15 @@ button:disabled {
 }
 
 @media (max-width: 768px) {
+    .header-banner {
+        font-size: 32px;
+        padding: 15px;
+    }
+
+    .header-banner span {
+        font-size: 14px;
+    }
+
     .content {
         padding: 25px 15px;
     }
@@ -849,12 +885,19 @@ button:disabled {
 
     .map-container {
         width: 100%;
-        height: 250px;
+        height: 300px;
     }
 }
 </style>
 </head>
 <body>
+
+<!-- NOWE: Header dekoracyjny -->
+<div class="header-banner">
+    Wiktoria & Maciej
+    <span>06.08.2026</span>
+</div>
+
 <!-- LOGIN PAGE -->
 <div class="login-page" id="loginPage">
     <div class="login-box">
@@ -1305,7 +1348,6 @@ let rsvpState = {
     isSubmitting: false
 };
 
-// DOM Cache - Optymalizacja
 const domCache = {
     rsvpSteps: null,
     progressDots: null,
@@ -1319,7 +1361,6 @@ const domCache = {
 
 let countdownTimeoutId = null;
 
-// Debounce function
 function debounce(func, delay) {
     let timeoutId;
     return function (...args) {
@@ -1328,7 +1369,6 @@ function debounce(func, delay) {
     };
 }
 
-// Optymizowany countdown
 function scheduleCountdownUpdate() {
     const now = new Date();
     const msUntilNextSecond = 1000 - now.getMilliseconds();
@@ -1420,7 +1460,6 @@ function updateProgressDots(currentStep) {
     });
 }
 
-// RSVP Functions
 function rsvpValidateCode() {
     const code = document.getElementById("codeInput").value.trim();
     const codeError = document.getElementById("codeError");
@@ -1668,7 +1707,6 @@ function rsvpSubmit() {
     });
 }
 
-// WAŻNA FUNKCJA - Resetowanie RSVP
 function resetRSVP() {
     rsvpState = {
         code: null,
@@ -1684,7 +1722,6 @@ function resetRSVP() {
         isSubmitting: false
     };
 
-    // Wyczyść wszystkie inputy
     document.getElementById("codeInput").value = "";
     document.getElementById("userEmail").value = "";
     document.getElementById("companionName").value = "";
@@ -1692,14 +1729,12 @@ function resetRSVP() {
     document.getElementById("dietDetails").value = "";
     document.getElementById("noDiet").checked = false;
     
-    // Schowaj ukryte inputy
     document.getElementById("emailInput").style.display = "none";
     document.getElementById("emailNoBtn").style.display = "block";
     document.getElementById("emailYesBtn").style.display = "block";
     document.getElementById("noContactEmailInput").style.display = "none";
     document.getElementById("noContactEmail").value = "";
 
-    // Pokaż krok 1
     showStep("rsvpStep1");
 }
 
@@ -1805,7 +1840,7 @@ function rsvpNoContactReset() {
     document.getElementById("noContactEmailError").style.display = "none";
 }
 
-// V11 POPRAWKA 1: Inteligentne cofanie - sprawdza czy osoba ma towarzysza
+/* NAPRAWKA 1 i 2: Inteligentne cofanie */
 function rsvpGoBack(fromStep) {
     const previousStep = fromStep - 1;
     rsvpState.currentStep = previousStep;
@@ -1817,18 +1852,16 @@ function rsvpGoBack(fromStep) {
         showStep("rsvpStep2");
     } 
     else if (previousStep === 3) {
-        if (guestDatabase.get(rsvpState.code).companion) {
+        // NAPRAWKA 1: Jeśli cofamy z kroku 5, wracamy do 3 (nie 3c)
+        if (rsvpState.companion.hasCompanion) {
             showStep("rsvpStep3b");
         } else {
             showStep("rsvpStep3");
         }
     }
     else if (previousStep === 4) {
-        if (guestDatabase.get(rsvpState.code).companion) {
-            showStep("rsvpStep3c");
-        } else {
-            showStep("rsvpStep3");
-        }
+        // NAPRAWKA 2: Krok 4 teraz ma przycisk Wróć - wraca do 3
+        showStep("rsvpStep3");
     }
     else if (previousStep === 5) {
         showStep("rsvpStep5");
@@ -1846,7 +1879,6 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-// Inicjalizacja
 document.addEventListener("DOMContentLoaded", function() {
     domCache.init();
     updateCountdown();
@@ -1860,7 +1892,6 @@ window.addEventListener("resize", debounce(() => {
     // Resize handler
 }, 250));
 
-// Service Worker Registration
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
         .then(e => { console.log('SW registered'); })
