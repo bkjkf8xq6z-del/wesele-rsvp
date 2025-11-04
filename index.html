@@ -1312,7 +1312,9 @@
             diet: "",
             noDiet: false,
             attending: null,
-            currentStep: 1
+            currentStep: 1,
+            formCompleted: false,
+            isSubmitting: false
         };
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -1584,8 +1586,11 @@
         }
 
         function rsvpSubmit() {
+            if (rsvpState.isSubmitting) return;
+
             const submitBtn = document.getElementById("submitBtn");
             submitBtn.disabled = true;
+            rsvpState.isSubmitting = true;
             submitBtn.textContent = "Wysyłam...";
 
             const payload = {
@@ -1607,8 +1612,10 @@
             .then(data => {
                 submitBtn.disabled = false;
                 submitBtn.textContent = "Potwierdź i Wyślij";
+                rsvpState.isSubmitting = false;
 
                 if (data.success) {
+                    rsvpState.formCompleted = true;
                     rsvpState.currentStep = 8;
                     showStep("rsvpStep8");
                 } else {
@@ -1618,6 +1625,7 @@
             .catch(error => {
                 submitBtn.disabled = false;
                 submitBtn.textContent = "Potwierdź i Wyślij";
+                rsvpState.isSubmitting = false;
                 alert("Błąd połączenia. Spróbuj ponownie.");
             });
         }
@@ -1632,7 +1640,9 @@
                 diet: "",
                 noDiet: false,
                 attending: null,
-                currentStep: 1
+                currentStep: 1,
+                formCompleted: false,
+                isSubmitting: false
             };
 
             document.getElementById("codeInput").value = "";
@@ -1656,6 +1666,9 @@
         }
 
         function rsvpNoContactDone() {
+            if (rsvpState.formCompleted) return;
+
+            rsvpState.formCompleted = true;
             const payload = {
                 action: "submitNoAttendance",
                 code: rsvpState.code,
@@ -1671,15 +1684,18 @@
             .then(data => {
                 if (data.success) {
                     document.getElementById("noContactSuccess").style.display = "block";
-                    document.getElementById("rsvpNoAttendanceSection").style.display = "none";
+                    document.getElementById("rsvpNoAttendanceSection").innerHTML = '';
                 }
             })
             .catch(error => {
+                rsvpState.formCompleted = false;
                 alert("Błąd połączenia. Spróbuj ponownie.");
             });
         }
 
         function rsvpNoContactSubmit() {
+            if (rsvpState.formCompleted || rsvpState.isSubmitting) return;
+
             const email = document.getElementById("noContactEmail").value.trim();
             const emailError = document.getElementById("noContactEmailError");
 
@@ -1691,6 +1707,8 @@
 
             const noContactSubmitBtn = document.getElementById("noContactSubmitBtn");
             noContactSubmitBtn.disabled = true;
+            rsvpState.isSubmitting = true;
+            rsvpState.formCompleted = true;
             noContactSubmitBtn.textContent = "Wysyłam...";
 
             const payload = {
@@ -1708,6 +1726,7 @@
             .then(data => {
                 noContactSubmitBtn.disabled = false;
                 noContactSubmitBtn.textContent = "Potwierdź";
+                rsvpState.isSubmitting = false;
 
                 if (data.success) {
                     document.getElementById("noContactEmailInput").style.display = "none";
@@ -1717,6 +1736,8 @@
             .catch(error => {
                 noContactSubmitBtn.disabled = false;
                 noContactSubmitBtn.textContent = "Potwierdź";
+                rsvpState.isSubmitting = false;
+                rsvpState.formCompleted = false;
                 alert("Błąd połączenia. Spróbuj ponownie.");
             });
         }
