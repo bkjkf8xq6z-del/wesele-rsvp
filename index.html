@@ -22,7 +22,6 @@ body {
     flex-direction: column;
 }
 
-/* NOWE: Header dekoracyjny z nazwami */
 .header-banner {
     background: linear-gradient(135deg, #f9f5f0 0%, #f0e8e0 100%);
     padding: 20px;
@@ -34,6 +33,13 @@ body {
     font-weight: 300;
     letter-spacing: 2px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.header-banner:hover {
+    transform: scale(1.02);
 }
 
 .header-banner span {
@@ -44,6 +50,106 @@ body {
     margin-top: 8px;
     letter-spacing: 3px;
     font-weight: 400;
+}
+
+.easter-egg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    animation: easterEggAppear 0.5s ease;
+}
+
+.easter-egg.show {
+    display: flex;
+}
+
+@keyframes easterEggAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5) rotateZ(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotateZ(0deg);
+    }
+}
+
+.easter-egg img {
+    width: 300px;
+    height: 300px;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+    animation: easterEggFloat 3s ease-in-out infinite;
+}
+
+@keyframes easterEggFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.easter-egg-text {
+    font-size: 24px;
+    color: #d97634;
+    font-weight: 600;
+    text-align: center;
+    animation: easterEggPulse 1s ease-in-out infinite;
+}
+
+@keyframes easterEggPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.easter-egg-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    cursor: pointer;
+    background: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.easter-egg-close:hover {
+    background: #d97634;
+    color: white;
+    transform: scale(1.1);
+}
+
+.easter-egg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+}
+
+.easter-egg-overlay.show {
+    display: block;
 }
 
 .login-page {
@@ -408,16 +514,22 @@ p {
     font-weight: 600;
 }
 
-/* ZMIANA: Mapki większe i wycentrowane */
+/* ZMIANA 4: Mapki wyśrodkowane - display flex + align-items center */
 .info-section-with-map {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    gap: 30px;
+}
+
+.info-section-with-map > div:first-child {
+    flex: 1;
 }
 
 .map-container {
     width: 100%;
+    max-width: 400px;
     height: 350px;
     border-radius: 8px;
     overflow: hidden;
@@ -880,11 +992,12 @@ button:disabled {
     }
 
     .info-section-with-map {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     .map-container {
         width: 100%;
+        max-width: 100%;
         height: 300px;
     }
 }
@@ -892,8 +1005,19 @@ button:disabled {
 </head>
 <body>
 
-<!-- NOWE: Header dekoracyjny -->
-<div class="header-banner">
+<!-- EASTER EGG OVERLAY -->
+<div class="easter-egg-overlay" id="easterEggOverlay" onclick="closeEasterEgg()"></div>
+
+<!-- EASTER EGG -->
+<div class="easter-egg" id="easterEgg">
+    <button class="easter-egg-close" onclick="closeEasterEgg()">×</button>
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%23444' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='48' fill='%23d97634' text-anchor='middle' dy='.3em' font-family='Arial'%3EMay The Force Be With You%3C/text%3E%3C/svg%3E" alt="Easter Egg" style="width: 200px; height: auto;"/>
+    <div class="easter-egg-text">🚀 Millennium Falcon 🚀</div>
+    <p style="color: #7a7a7a; font-size: 14px; margin-top: 10px;">May the Odds Be Ever in Your Favor!</p>
+</div>
+
+<!-- HEADER DEKORACYJNY -->
+<div class="header-banner" id="headerBanner" onclick="easterEggTrigger()">
     Wiktoria & Maciej
     <span>06.08.2026</span>
 </div>
@@ -989,7 +1113,7 @@ button:disabled {
                         <p><strong><a href="https://maps.google.com/?q=ul.+Stefana+Kardynała+Wyszyńskiego+13,+83-110+Tczew" target="_blank" style="color: #d97634; text-decoration: none;">Otwórz w Google Maps</a></strong></p>
                     </div>
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5565.896565008256!2d18.79967232190074!3d54.08843931564477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd60daf7f655c3%3A0xa59e0b2ac82b288a!2zS2_Fm2Npw7PFgiBwdy4gUG9kd3nFvHN6ZW5pYSBLcnp5xbxhIMWad2nEmXRlZ28!5e0!3m2!1spl!2spl!4v1762261706136!5m2!1spl!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5565.896565008256!2d18.79967232190074!3d54.08843931564477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd60daf7f655c3%3A0xa59e0b2ac82b288a!2zS2_Fm2Npw7PDgiBwdy4gUG9kd3nFvHN6ZW5pYSBLcnp5xbxhIMWat2nEmXRlZ28!5e0!3m2!1spl!2spl!4v1762261706136!5m2!1spl!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -1085,12 +1209,13 @@ button:disabled {
                     </div>
                 </div>
 
-                <!-- STEP 3B -->
+                <!-- STEP 3B - NAPRAWKA 1: Dodaję przycisk Wróć -->
                 <div class="rsvp-step" id="rsvpStep3b">
                     <div class="progress-dots" id="progressDots3b"></div>
                     <h2>Będziesz z osobą towarzyszącą?</h2>
                     <p class="subtitle">Czy chcesz przyjść z osobą towarzyszącą?</p>
                     <div class="button-group">
+                        <button class="button-back" onclick="rsvpGoBack(4)">Wróć</button>
                         <button class="button-secondary" onclick="rsvpNoCompanion()">Nie, sam/a</button>
                         <button onclick="rsvpYesCompanion()">Tak, z osobą</button>
                     </div>
@@ -1360,6 +1485,17 @@ const domCache = {
 };
 
 let countdownTimeoutId = null;
+
+// EASTER EGG FUNCTIONS
+function easterEggTrigger() {
+    document.getElementById("easterEgg").classList.add("show");
+    document.getElementById("easterEggOverlay").classList.add("show");
+}
+
+function closeEasterEgg() {
+    document.getElementById("easterEgg").classList.remove("show");
+    document.getElementById("easterEggOverlay").classList.remove("show");
+}
 
 function debounce(func, delay) {
     let timeoutId;
@@ -1840,7 +1976,6 @@ function rsvpNoContactReset() {
     document.getElementById("noContactEmailError").style.display = "none";
 }
 
-/* NAPRAWKA 1 i 2: Inteligentne cofanie */
 function rsvpGoBack(fromStep) {
     const previousStep = fromStep - 1;
     rsvpState.currentStep = previousStep;
@@ -1852,15 +1987,13 @@ function rsvpGoBack(fromStep) {
         showStep("rsvpStep2");
     } 
     else if (previousStep === 3) {
-        // NAPRAWKA 1: Jeśli cofamy z kroku 5, wracamy do 3 (nie 3c)
-        if (rsvpState.companion.hasCompanion) {
+        if (guestDatabase.get(rsvpState.code).companion) {
             showStep("rsvpStep3b");
         } else {
             showStep("rsvpStep3");
         }
     }
     else if (previousStep === 4) {
-        // NAPRAWKA 2: Krok 4 teraz ma przycisk Wróć - wraca do 3
         showStep("rsvpStep3");
     }
     else if (previousStep === 5) {
