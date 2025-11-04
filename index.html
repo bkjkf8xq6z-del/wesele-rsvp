@@ -409,6 +409,7 @@
             margin-right: 12px;
             cursor: pointer;
             accent-color: #d97634;
+            flex-shrink: 0;
         }
 
         .checkbox-item label {
@@ -505,21 +506,24 @@
             justify-content: space-between;
             margin-bottom: 35px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .step {
             flex: 1;
-            min-width: 60px;
+            min-width: 45px;
             text-align: center;
-            padding: 12px;
+            padding: 12px 8px;
             background: #f5e6d3;
             border-radius: 10px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             color: #8a7d7d;
             border: 2px solid transparent;
             transition: all 0.3s ease;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.3;
         }
 
         .step.active {
@@ -649,6 +653,15 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
+        /* ========== RSVP STEPS - HIDDEN PROPERLY ========== */
+        .rsvp-step {
+            display: none;
+        }
+
+        .rsvp-step.visible {
+            display: block;
+        }
+
         /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
             .content {
@@ -707,6 +720,12 @@
             .rsvp-container {
                 padding: 25px;
             }
+
+            .step {
+                font-size: 10px;
+                padding: 10px 6px;
+                min-width: 40px;
+            }
         }
 
         .loading {
@@ -747,10 +766,10 @@
     <div class="app-container" id="appContainer">
         <header>
             <nav>
-                <button class="nav-btn active" onclick="showPage('home')">🏠 Strona Główna</button>
-                <button class="nav-btn" onclick="showPage('history')">💑 Nasza Historia</button>
-                <button class="nav-btn" onclick="showPage('info')">ℹ️ Informacje</button>
-                <button class="nav-btn" onclick="showPage('rsvp')">✅ Potwierdzenie</button>
+                <button class="nav-btn active" onclick="showPage('home')">🏠 Główna</button>
+                <button class="nav-btn" onclick="showPage('history')">💑 Historia</button>
+                <button class="nav-btn" onclick="showPage('info')">ℹ️ Info</button>
+                <button class="nav-btn" onclick="showPage('rsvp')">✅ RSVP</button>
                 <button class="nav-btn" onclick="showPage('gallery')">📸 Galeria</button>
             </nav>
         </header>
@@ -861,18 +880,16 @@
             <!-- RSVP PAGE -->
             <div class="page" id="rsvp">
                 <div class="rsvp-container">
-                    <h1>Potwierdzenie Udziału ✅</h1>
-
-                    <!-- STEP 1: CODE INPUT -->
-                    <div id="rsvpStep1">
+                    <!-- STEP 1 -->
+                    <div class="rsvp-step visible" id="rsvpStep1">
                         <div class="step-indicator">
-                            <div class="step active">1. Kod</div>
-                            <div class="step">2. Uczestnictwo</div>
-                            <div class="step">3. Osoby</div>
-                            <div class="step">4. Towarzysz</div>
-                            <div class="step">5. Email</div>
-                            <div class="step">6. Dieta</div>
-                            <div class="step">7. Podsumowanie</div>
+                            <div class="step active">1<br>Kod</div>
+                            <div class="step">2<br>Uczestnictwo</div>
+                            <div class="step">3<br>Osoby</div>
+                            <div class="step">4<br>Towarzysz</div>
+                            <div class="step">5<br>Email</div>
+                            <div class="step">6<br>Dieta</div>
+                            <div class="step">7<br>Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Wprowadź Kod Zaproszenia</h2>
@@ -890,16 +907,16 @@
                         </div>
                     </div>
 
-                    <!-- STEP 2: ATTENDANCE CHOICE -->
-                    <div id="rsvpStep2" style="display: none;">
+                    <!-- STEP 2 -->
+                    <div class="rsvp-step" id="rsvpStep2">
                         <div class="step-indicator">
-                            <div class="step">1. Kod</div>
-                            <div class="step active">2. Uczestnictwo</div>
-                            <div class="step">3. Osoby</div>
-                            <div class="step">4. Towarzysz</div>
-                            <div class="step">5. Email</div>
-                            <div class="step">6. Dieta</div>
-                            <div class="step">7. Podsumowanie</div>
+                            <div class="step">1<br>Kod</div>
+                            <div class="step active">2<br>Uczestnictwo</div>
+                            <div class="step">3<br>Osoby</div>
+                            <div class="step">4<br>Towarzysz</div>
+                            <div class="step">5<br>Email</div>
+                            <div class="step">6<br>Dieta</div>
+                            <div class="step">7<br>Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Czy będziesz na weselu?</h2>
@@ -910,16 +927,16 @@
                         </div>
                     </div>
 
-                    <!-- STEP 3: SELECT PEOPLE -->
-                    <div id="rsvpStep3" style="display: none;">
+                    <!-- STEP 3 -->
+                    <div class="rsvp-step" id="rsvpStep3">
                         <div class="step-indicator">
-                            <div class="step">1. Kod</div>
-                            <div class="step">2. Uczestnictwo</div>
-                            <div class="step active">3. Osoby</div>
-                            <div class="step">4. Towarzysz</div>
-                            <div class="step">5. Email</div>
-                            <div class="step">6. Dieta</div>
-                            <div class="step">7. Podsumowanie</div>
+                            <div class="step">1<br>Kod</div>
+                            <div class="step">2<br>Uczestnictwo</div>
+                            <div class="step active">3<br>Osoby</div>
+                            <div class="step">4<br>Towarzysz</div>
+                            <div class="step">5<br>Email</div>
+                            <div class="step">6<br>Dieta</div>
+                            <div class="step">7<br>Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Wybierz osoby uczestniczące</h2>
@@ -935,16 +952,16 @@
                         </div>
                     </div>
 
-                    <!-- STEP 3B: COMPANION CHOICE -->
-                    <div id="rsvpStep3b" style="display: none;">
+                    <!-- STEP 3B - COMPANION CHOICE -->
+                    <div class="rsvp-step" id="rsvpStep3b">
                         <div class="step-indicator">
-                            <div class="step">1. Kod</div>
-                            <div class="step">2. Uczestnictwo</div>
-                            <div class="step active">3. Osoby</div>
-                            <div class="step">4. Towarzysz</div>
-                            <div class="step">5. Email</div>
-                            <div class="step">6. Dieta</div>
-                            <div class="step">7. Podsumowanie</div>
+                            <div class="step">1<br>Kod</div>
+                            <div class="step">2<br>Uczestnictwo</div>
+                            <div class="step active">3<br>Osoby</div>
+                            <div class="step">4<br>Towarzysz</div>
+                            <div class="step">5<br>Email</div>
+                            <div class="step">6<br>Dieta</div>
+                            <div class="step">7<br>Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Będziesz z osobą towarzyszącą?</h2>
@@ -956,16 +973,16 @@
                         </div>
                     </div>
 
-                    <!-- STEP 3C: COMPANION DATA -->
-                    <div id="rsvpStep3c" style="display: none;">
+                    <!-- STEP 3C - COMPANION DATA -->
+                    <div class="rsvp-step" id="rsvpStep3c">
                         <div class="step-indicator">
-                            <div class="step">1. Kod</div>
-                            <div class="step">2. Uczestnictwo</div>
-                            <div class="step active">3. Osoby</div>
-                            <div class="step">4. Towarzysz</div>
-                            <div class="step">5. Email</div>
-                            <div class="step">6. Dieta</div>
-                            <div class="step">7. Podsumowanie</div>
+                            <div class="step">1<br>Kod</div>
+                            <div class="step">2<br>Uczestnictwo</div>
+                            <div class="step active">3<br>Osoby</div>
+                            <div class="step">4<br>Towarzysz</div>
+                            <div class="step">5<br>Email</div>
+                            <div class="step">6<br>Dieta</div>
+                            <div class="step">7<br>Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Dane Osoby Towarzyszącej</h2>
@@ -989,16 +1006,16 @@
                         </div>
                     </div>
 
-                    <!-- STEP 5: EMAIL -->
-                    <div id="rsvpStep5" style="display: none;">
+                    <!-- STEP 5 - EMAIL -->
+                    <div class="rsvp-step" id="rsvpStep5">
                         <div class="step-indicator">
-                            <div class="step">1. Kod</div>
-                            <div class="step">2. Uczestnictwo</div>
-                            <div class="step">3. Osoby</div>
-                            <div class="step">4. Towarzysz</div>
-                            <div class="step active">5. Email</div>
-                            <div class="step">6. Dieta</div>
-                            <div class="step">7. Podsumowanie</div>
+                            <div class="step">1<br>Kod</div>
+                            <div class="step">2<br>Uczestnictwo</div>
+                            <div class="step">3<br>Osoby</div>
+                            <div class="step">4<br>Towarzysz</div>
+                            <div class="step active">5<br>Email</div>
+                            <div class="step">6<br>Dieta</div>
+                            <div class="step">7<br>Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Chcesz pozostać w kontakcie?</h2>
@@ -1022,16 +1039,16 @@
                         </div>
                     </div>
 
-                    <!-- STEP 6: DIETARY PREFERENCES -->
-                    <div id="rsvpStep6" style="display: none;">
+                    <!-- STEP 6 - DIET -->
+                    <div class="rsvp-step" id="rsvpStep6">
                         <div class="step-indicator">
-                            <div class="step">1. Kod</div>
-                            <div class="step">2. Uczestnictwo</div>
-                            <div class="step">3. Osoby</div>
-                            <div class="step">4. Towarzysz</div>
-                            <div class="step">5. Email</div>
-                            <div class="step active">6. Dieta</div>
-                            <div class="step">7. Podsumowanie</div>
+                            <div class="step">1<br>Kod</div>
+                            <div class="step">2<br>Uczestnictwo</div>
+                            <div class="step">3<br>Osoby</div>
+                            <div class="step">4<br>Towarzysz</div>
+                            <div class="step">5<br>Email</div>
+                            <div class="step active">6<br>Dieta</div>
+                            <div class="step">7<br>Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Preferencje Żywieniowe</h2>
@@ -1040,7 +1057,7 @@
                         <div class="checkbox-group">
                             <div class="checkbox-item">
                                 <input type="checkbox" id="noDiet" />
-                                <label for="noDiet" style="margin: 0;">Brak ograniczeń</label>
+                                <label for="noDiet">Brak ograniczeń</label>
                             </div>
                         </div>
 
@@ -1055,16 +1072,16 @@
                         </div>
                     </div>
 
-                    <!-- STEP 7: SUMMARY -->
-                    <div id="rsvpStep7" style="display: none;">
+                    <!-- STEP 7 - SUMMARY -->
+                    <div class="rsvp-step" id="rsvpStep7">
                         <div class="step-indicator">
-                            <div class="step">1. Kod</div>
-                            <div class="step">2. Uczestnictwo</div>
-                            <div class="step">3. Osoby</div>
-                            <div class="step">4. Towarzysz</div>
-                            <div class="step">5. Email</div>
-                            <div class="step">6. Dieta</div>
-                            <div class="step active">7. Podsumowanie</div>
+                            <div class="step">1<br>Kod</div>
+                            <div class="step">2<br>Uczestnictwo</div>
+                            <div class="step">3<br>Osoby</div>
+                            <div class="step">4<br>Towarzysz</div>
+                            <div class="step">5<br>Email</div>
+                            <div class="step">6<br>Dieta</div>
+                            <div class="step active">7<br>Podsumowanie</div>
                         </div>
 
                         <h2 style="font-size: 24px;">Podsumowanie Potwierdzenia</h2>
@@ -1106,8 +1123,8 @@
                         </div>
                     </div>
 
-                    <!-- STEP 8: SUCCESS -->
-                    <div id="rsvpStep8" style="display: none;">
+                    <!-- STEP 8 - SUCCESS -->
+                    <div class="rsvp-step" id="rsvpStep8">
                         <div class="success-icon">✅</div>
                         <h2 style="text-align: center; font-size: 28px;">Potwierdzenie Wysłane!</h2>
                         <p style="text-align: center; color: #8a7d7d; margin-bottom: 30px;">Dziękujemy za potwierdzenie! Czekamy na was na weselu.</p>
@@ -1119,7 +1136,7 @@
                     </div>
 
                     <!-- NO ATTENDANCE SECTION -->
-                    <div id="rsvpNoAttendanceSection" style="display: none;">
+                    <div class="rsvp-step" id="rsvpNoAttendanceSection">
                         <h2 style="font-size: 24px;">Rozumiemy 💙</h2>
                         <p style="color: #8a7d7d; margin-bottom: 25px;">Chcesz zostać w kontakcie?</p>
 
@@ -1225,8 +1242,7 @@
             wantEmail: false,
             diet: "",
             noDiet: false,
-            attending: null,
-            previousStep: null
+            attending: null
         };
 
         // ========== INICJALIZACJA ==========
@@ -1294,6 +1310,15 @@
         }
 
         // ========== RSVP FUNCTIONS ==========
+        function hideAllSteps() {
+            document.querySelectorAll(".rsvp-step").forEach(el => el.classList.remove("visible"));
+        }
+
+        function showStep(stepId) {
+            hideAllSteps();
+            document.getElementById(stepId).classList.add("visible");
+        }
+
         function rsvpValidateCode() {
             const code = document.getElementById("codeInput").value.trim();
             const codeError = document.getElementById("codeError");
@@ -1329,9 +1354,7 @@
 
                 if (data.success) {
                     rsvpState.code = code;
-                    rsvpState.previousStep = "step1";
-                    document.getElementById("rsvpStep1").style.display = "none";
-                    document.getElementById("rsvpStep2").style.display = "block";
+                    showStep("rsvpStep2");
                 } else {
                     codeError.textContent = data.message;
                     codeError.style.display = "block";
@@ -1347,16 +1370,12 @@
 
         function rsvpYesAttendance() {
             rsvpState.attending = true;
-            rsvpState.previousStep = "step2";
-            document.getElementById("rsvpStep2").style.display = "none";
             rsvpShowPeopleSelection();
         }
 
         function rsvpNoAttendance() {
             rsvpState.attending = false;
-            rsvpState.previousStep = "step2";
-            document.getElementById("rsvpStep2").style.display = "none";
-            document.getElementById("rsvpNoAttendanceSection").style.display = "block";
+            showStep("rsvpNoAttendanceSection");
         }
 
         function rsvpShowPeopleSelection() {
@@ -1373,7 +1392,7 @@
                 `;
             });
 
-            document.getElementById("rsvpStep3").style.display = "block";
+            showStep("rsvpStep3");
         }
 
         function rsvpSelectPeople() {
@@ -1388,14 +1407,12 @@
             }
 
             rsvpState.selectedPeople = selected;
-            rsvpState.previousStep = "step3";
             peopleError.style.display = "none";
-            document.getElementById("rsvpStep3").style.display = "none";
 
             if (guestDatabase[rsvpState.code].companion) {
-                document.getElementById("rsvpStep3b").style.display = "block";
+                showStep("rsvpStep3b");
             } else {
-                rsvpShowEmailStep();
+                showStep("rsvpStep5");
             }
         }
 
@@ -1403,16 +1420,12 @@
             rsvpState.companion.hasCompanion = false;
             rsvpState.companion.name = "";
             rsvpState.companion.email = "";
-            rsvpState.previousStep = "step3b";
-            document.getElementById("rsvpStep3b").style.display = "none";
-            rsvpShowEmailStep();
+            showStep("rsvpStep5");
         }
 
         function rsvpYesCompanion() {
             rsvpState.companion.hasCompanion = true;
-            rsvpState.previousStep = "step3b";
-            document.getElementById("rsvpStep3b").style.display = "none";
-            document.getElementById("rsvpStep3c").style.display = "block";
+            showStep("rsvpStep3c");
         }
 
         function rsvpCompanionDone() {
@@ -1433,14 +1446,8 @@
             }
 
             rsvpState.companion = { name, email, hasCompanion: true };
-            rsvpState.previousStep = "step3c";
             companionError.style.display = "none";
-            document.getElementById("rsvpStep3c").style.display = "none";
-            rsvpShowEmailStep();
-        }
-
-        function rsvpShowEmailStep() {
-            document.getElementById("rsvpStep5").style.display = "block";
+            showStep("rsvpStep5");
         }
 
         function rsvpEmailYes() {
@@ -1452,9 +1459,7 @@
         function rsvpEmailNo() {
             rsvpState.wantEmail = false;
             rsvpState.email = "";
-            rsvpState.previousStep = "step5";
-            document.getElementById("rsvpStep5").style.display = "none";
-            document.getElementById("rsvpStep6").style.display = "block";
+            showStep("rsvpStep6");
         }
 
         function rsvpEmailConfirm() {
@@ -1469,10 +1474,8 @@
 
             rsvpState.wantEmail = true;
             rsvpState.email = email;
-            rsvpState.previousStep = "step5";
             emailError.style.display = "none";
-            document.getElementById("rsvpStep5").style.display = "none";
-            document.getElementById("rsvpStep6").style.display = "block";
+            showStep("rsvpStep6");
         }
 
         function rsvpEmailReset() {
@@ -1488,9 +1491,7 @@
 
             rsvpState.noDiet = noDiet;
             rsvpState.diet = dietDetails;
-            rsvpState.previousStep = "step6";
 
-            document.getElementById("rsvpStep6").style.display = "none";
             rsvpShowSummary();
         }
 
@@ -1507,7 +1508,7 @@
             document.getElementById("summaryNewsletter").textContent = rsvpState.wantEmail ? "Tak" : "Nie";
             document.getElementById("summaryDiet").textContent = rsvpState.noDiet ? "Brak ograniczeń" : (rsvpState.diet || "Brak");
 
-            document.getElementById("rsvpStep7").style.display = "block";
+            showStep("rsvpStep7");
         }
 
         function rsvpSubmit() {
@@ -1536,9 +1537,7 @@
                 submitBtn.textContent = "Potwierdź i Wyślij";
 
                 if (data.success) {
-                    rsvpState.previousStep = "step7";
-                    document.getElementById("rsvpStep7").style.display = "none";
-                    document.getElementById("rsvpStep8").style.display = "block";
+                    showStep("rsvpStep8");
                 } else {
                     alert("Błąd: " + data.message);
                 }
@@ -1559,20 +1558,23 @@
                 wantEmail: false,
                 diet: "",
                 noDiet: false,
-                attending: null,
-                previousStep: null
+                attending: null
             };
 
-            document.getElementById("rsvpStep8").style.display = "none";
-            document.getElementById("rsvpNoAttendanceSection").style.display = "none";
-            document.getElementById("noContactSuccess").style.display = "none";
             document.getElementById("codeInput").value = "";
             document.getElementById("userEmail").value = "";
             document.getElementById("companionName").value = "";
             document.getElementById("companionEmail").value = "";
             document.getElementById("dietDetails").value = "";
             document.getElementById("noDiet").checked = false;
-            document.getElementById("rsvpStep1").style.display = "block";
+            document.getElementById("emailInput").style.display = "none";
+            document.getElementById("emailNoBtn").style.display = "block";
+            document.getElementById("emailYesBtn").style.display = "block";
+            document.getElementById("noContactSuccess").style.display = "none";
+            document.getElementById("noContactEmailInput").style.display = "none";
+            document.getElementById("noContactEmail").value = "";
+
+            showStep("rsvpStep1");
         }
 
         function rsvpNoContactEmail() {
@@ -1594,8 +1596,7 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    document.getElementById("rsvpNoAttendanceSection").style.display = "none";
-                    document.getElementById("rsvpStep8").style.display = "block";
+                    showStep("rsvpStep8");
                 }
             })
             .catch(error => {
@@ -1635,7 +1636,6 @@
 
                 if (data.success) {
                     document.getElementById("noContactEmailInput").style.display = "none";
-                    document.getElementById("rsvpNoAttendanceSection").style.display = "none";
                     document.getElementById("noContactSuccess").style.display = "block";
                 }
             })
@@ -1652,7 +1652,6 @@
         }
 
         function rsvpGoBack() {
-            // Resetuj do Step 1
             rsvpNewConfirmation();
         }
 
