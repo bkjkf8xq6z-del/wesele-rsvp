@@ -77,66 +77,60 @@ body {
     overflow: hidden;
 }
 
-.falcon {
+.falcon-real {
     position: absolute;
-    width: 200px;
-    height: 120px;
-    left: -250px;
+    width: 280px;
+    height: auto;
+    left: -350px;
     top: 50%;
     transform: translateY(-50%);
-    filter: drop-shadow(0 0 20px rgba(217, 118, 52, 0.6));
-    animation: falconFly 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    filter: drop-shadow(0 0 25px rgba(217, 118, 52, 0.8)) drop-shadow(0 0 40px rgba(217, 118, 52, 0.4));
+    animation: falconFlyReal 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     z-index: 10001;
 }
 
-@keyframes falconFly {
+@keyframes falconFlyReal {
     0% {
-        left: -250px;
+        left: -350px;
         top: 50%;
         opacity: 1;
-        transform: translateY(-50%) rotateZ(0deg) scale(1);
+        transform: translateY(-50%) rotateZ(0deg) scaleX(1);
     }
     15% {
-        top: 40%;
-        transform: translateY(-50%) rotateZ(-5deg) scale(1.05);
+        top: 42%;
+        transform: translateY(-50%) rotateZ(-5deg) scaleX(1);
     }
     30% {
-        left: 25%;
-        top: 30%;
-        transform: translateY(-50%) rotateZ(-15deg) scale(1.1);
+        left: 15%;
+        top: 32%;
+        transform: translateY(-50%) rotateZ(-18deg) scaleX(1);
     }
     45% {
         left: 50%;
-        top: 20%;
-        transform: translateY(-50%) rotateZ(-25deg) scale(1.15);
+        top: 22%;
+        transform: translateY(-50%) rotateZ(-30deg) scaleX(1);
     }
     60% {
         left: 75%;
         top: 35%;
-        transform: translateY(-50%) rotateZ(-10deg) scale(1.1);
+        transform: translateY(-50%) rotateZ(-12deg) scaleX(1);
     }
     75% {
-        right: 10%;
+        right: 5%;
         top: 45%;
         opacity: 1;
-        transform: translateY(-50%) rotateZ(5deg) scale(1.05);
+        transform: translateY(-50%) rotateZ(5deg) scaleX(1);
     }
     85% {
-        right: -50px;
+        right: -80px;
         opacity: 1;
-        transform: translateY(-50%) rotateZ(10deg) scale(1);
+        transform: translateY(-50%) rotateZ(10deg) scaleX(1);
     }
     100% {
-        right: -300px;
+        right: -350px;
         opacity: 0;
-        transform: translateY(-50%) rotateZ(15deg) scale(0.9);
+        transform: translateY(-50%) rotateZ(15deg) scaleX(0.95);
     }
-}
-
-.falcon-svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 0 15px rgba(217, 118, 52, 0.8));
 }
 
 .easter-egg-text {
@@ -144,24 +138,24 @@ body {
     bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 36px;
+    font-size: 40px;
     color: #d97634;
     font-weight: 700;
     text-align: center;
     opacity: 0;
-    animation: textAppear 0.5s ease 3s forwards;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: textAppear 0.6s ease 3.2s forwards;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
     z-index: 9999;
 }
 
 @keyframes textAppear {
     from {
         opacity: 0;
-        transform: translateX(-50%) translateY(20px);
+        transform: translateX(-50%) translateY(20px) scale(0.8);
     }
     to {
         opacity: 1;
-        transform: translateX(-50%) translateY(0);
+        transform: translateX(-50%) translateY(0) scale(1);
     }
 }
 
@@ -384,7 +378,7 @@ h2 {
 h3 {
     color: #d97634;
     margin: 20px 0 15px 0;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -515,6 +509,7 @@ p {
 .info-section h3 {
     margin-top: 0;
     color: #d97634;
+    font-size: 24px;
 }
 
 .info-section p {
@@ -527,18 +522,23 @@ p {
     font-weight: 600;
 }
 
-/* POPRAWKA 1: MAPA IDEALNIE WYCENTROWANA */
+/* POPRAWKA 2: MAPKI - CENTROWANIE POZIOME I PIONOWE */
 .info-section-with-map {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
+    width: 100%;
+}
+
+.info-section-with-map > div:first-child {
+    flex: 0 1 auto;
+    min-width: 300px;
 }
 
 .map-container {
-    width: 100%;
-    max-width: 400px;
+    width: 400px;
     height: 350px;
     border-radius: 8px;
     overflow: hidden;
@@ -1002,6 +1002,12 @@ button:disabled {
 
     .info-section-with-map {
         flex-direction: column;
+        gap: 20px;
+    }
+
+    .info-section-with-map > div:first-child {
+        width: 100%;
+        min-width: auto;
     }
 
     .map-container {
@@ -1010,38 +1016,19 @@ button:disabled {
         height: 300px;
     }
 
-    .falcon {
-        width: 150px;
-        height: 90px;
+    .falcon-real {
+        width: 200px;
     }
 }
 </style>
 </head>
 <body>
 
-<!-- EASTER EGG - MILLENNIUM FALCON -->
+<!-- EASTER EGG - MILLENNIUM FALCON REAL IMAGE -->
 <div class="easter-egg-overlay" id="easterEggOverlay" onclick="closeEasterEgg()">
     <div class="falcon-container">
-        <div class="falcon" id="falcon">
-            <svg class="falcon-svg" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="falconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#d97634;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#a85a2a;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <ellipse cx="100" cy="60" rx="80" ry="50" fill="url(#falconGrad)" stroke="#5a4a3a" stroke-width="1.5"/>
-                <circle cx="70" cy="40" r="18" fill="#d97634" stroke="#5a4a3a" stroke-width="1"/>
-                <circle cx="72" cy="40" r="12" fill="#ffd700" opacity="0.7"/>
-                <path d="M 150 60 Q 180 50 200 60 Q 180 70 150 60" fill="url(#falconGrad)" stroke="#5a4a3a" stroke-width="1"/>
-                <path d="M 30 30 Q 100 20 160 35" stroke="#a85a2a" stroke-width="2" fill="none"/>
-                <ellipse cx="40" cy="65" rx="30" ry="18" fill="url(#falconGrad)" opacity="0.8" stroke="#5a4a3a" stroke-width="1"/>
-                <ellipse cx="160" cy="65" rx="30" ry="18" fill="url(#falconGrad)" opacity="0.8" stroke="#5a4a3a" stroke-width="1"/>
-                <circle cx="30" cy="70" r="8" fill="#ff6b00" opacity="0.6"/>
-                <circle cx="170" cy="70" r="8" fill="#ff6b00" opacity="0.6"/>
-                <circle cx="195" cy="60" r="6" fill="#ffcc00" opacity="0.8"/>
-            </svg>
-        </div>
+        <!-- TUTAJ BĘDZIE RZECZYWISTY OBRAZEK MILLENNIUM FALCON -->
+        <img src="falcon.png" alt="Millennium Falcon" class="falcon-real" />
         <div class="easter-egg-text">🚀 May The Force Be With You! 🚀</div>
     </div>
 </div>
@@ -1239,19 +1226,19 @@ button:disabled {
                     </div>
                 </div>
 
-                <!-- STEP 3B - POPRAWKA 2: NOWA FUNKCJA DO POWROTU -->
+                <!-- STEP 4 (3B) -->
                 <div class="rsvp-step" id="rsvpStep3b">
                     <div class="progress-dots" id="progressDots3b"></div>
                     <h2>Będziesz z osobą towarzyszącą?</h2>
                     <p class="subtitle">Czy chcesz przyjść z osobą towarzyszącą?</p>
                     <div class="button-group">
-                        <button class="button-back" onclick="rsvpBackToStep3()">Wróć</button>
+                        <button class="button-back" onclick="rsvpGoBackFromStep4()">Wróć</button>
                         <button class="button-secondary" onclick="rsvpNoCompanion()">Nie, sam/a</button>
                         <button onclick="rsvpYesCompanion()">Tak, z osobą</button>
                     </div>
                 </div>
 
-                <!-- STEP 3C -->
+                <!-- STEP 5 (3C) -->
                 <div class="rsvp-step" id="rsvpStep3c">
                     <div class="progress-dots" id="progressDots3c"></div>
                     <h2>Dane Osoby Towarzyszącej</h2>
@@ -1266,18 +1253,18 @@ button:disabled {
                     </div>
                     <div class="message error" id="companionError" style="display: none;"></div>
                     <div class="button-group">
-                        <button class="button-back" onclick="rsvpGoBack(3)">Wróć</button>
+                        <button class="button-back" onclick="rsvpGoBackFromStep5()">Wróć</button>
                         <button onclick="rsvpCompanionDone()">Dalej</button>
                     </div>
                 </div>
 
-                <!-- STEP 5 -->
+                <!-- STEP 6 (MAIL QUESTION) -->
                 <div class="rsvp-step" id="rsvpStep5">
                     <div class="progress-dots" id="progressDots5"></div>
                     <h2>Chcesz pozostać w kontakcie?</h2>
                     <p class="subtitle">Chciałbyś/chciałabyś otrzymywać aktualizacje dotyczące wesela?</p>
                     <div class="button-group">
-                        <button class="button-back" onclick="rsvpGoBack(5)">Wróć</button>
+                        <button class="button-back" onclick="rsvpGoBackFromStep6()">Wróć</button>
                         <button class="button-secondary" id="emailNoBtn" onclick="rsvpEmailNo()">Nie, Dziękuję</button>
                         <button id="emailYesBtn" onclick="rsvpEmailYes()">Tak, Chcę Email</button>
                     </div>
@@ -1294,7 +1281,7 @@ button:disabled {
                     </div>
                 </div>
 
-                <!-- STEP 6 -->
+                <!-- STEP 7 (DIET) -->
                 <div class="rsvp-step" id="rsvpStep6">
                     <div class="progress-dots" id="progressDots6"></div>
                     <h2>Preferencje Żywieniowe</h2>
@@ -1310,12 +1297,12 @@ button:disabled {
                         <textarea id="dietDetails" placeholder="np. Weganin, Gluten-free, Alergiczny na..." rows="4"></textarea>
                     </div>
                     <div class="button-group">
-                        <button class="button-back" onclick="rsvpGoBack(6)">Wróć</button>
+                        <button class="button-back" onclick="rsvpGoBackFromStep7()">Wróć</button>
                         <button onclick="rsvpDietDone()">Dalej</button>
                     </div>
                 </div>
 
-                <!-- STEP 7 -->
+                <!-- STEP 8 (SUMMARY) -->
                 <div class="rsvp-step" id="rsvpStep7">
                     <div class="progress-dots" id="progressDots7"></div>
                     <h2>Podsumowanie Potwierdzenia</h2>
@@ -1350,12 +1337,12 @@ button:disabled {
                         </tr>
                     </table>
                     <div class="button-group">
-                        <button class="button-back" onclick="rsvpGoBack(7)">Wróć</button>
+                        <button class="button-back" onclick="rsvpGoBackFromStep8()">Wróć</button>
                         <button onclick="rsvpSubmit()" id="submitBtn">Potwierdź i Wyślij</button>
                     </div>
                 </div>
 
-                <!-- STEP 8 - SUCCESS FOR YES -->
+                <!-- STEP 9 (SUCCESS) -->
                 <div class="rsvp-step" id="rsvpStep8">
                     <div class="success-container">
                         <h2>Potwierdzenie Wysłane</h2>
@@ -1367,7 +1354,7 @@ button:disabled {
                     </div>
                 </div>
 
-                <!-- NO ATTENDANCE SECTION -->
+                <!-- NO ATTENDANCE -->
                 <div class="rsvp-step" id="rsvpNoAttendanceSection">
                     <h2>Rozumiemy Twoją Decyzję</h2>
                     <p class="subtitle">Czy chcesz otrzymywać aktualizacje dotyczące wesela?</p>
@@ -1388,7 +1375,7 @@ button:disabled {
                     </div>
                 </div>
 
-                <!-- NO EMAIL SUCCESS -->
+                <!-- SUCCESS SCREENS -->
                 <div class="rsvp-step" id="noEmailSuccess">
                     <div class="success-container">
                         <h2>Potwierdzenie Wysłane</h2>
@@ -1400,7 +1387,6 @@ button:disabled {
                     </div>
                 </div>
 
-                <!-- WITH EMAIL SUCCESS -->
                 <div class="rsvp-step" id="withEmailSuccess">
                     <div class="success-container">
                         <h2>Potwierdzenie Wysłane</h2>
@@ -1520,7 +1506,7 @@ function triggerEasterEgg() {
     document.getElementById("easterEggOverlay").classList.add("show");
     setTimeout(() => {
         closeEasterEgg();
-    }, 4500);
+    }, 4800);
 }
 
 function closeEasterEgg() {
@@ -1612,7 +1598,7 @@ function updateProgressDots(currentStep) {
         if (!container) return;
         
         let html = '<div class="progress-line"></div><div class="progress-line-active"></div>';
-        for (let i = 1; i <= 7; i++) {
+        for (let i = 1; i <= 8; i++) {
             const isActive = i === currentStep;
             html += `<div class="progress-dot ${isActive ? 'active' : ''}">${i}</div>`;
         }
@@ -1620,7 +1606,7 @@ function updateProgressDots(currentStep) {
         
         const progressLine = container.querySelector('.progress-line-active');
         if (progressLine && currentStep > 1) {
-            const percentage = ((currentStep - 1) / 6) * 100;
+            const percentage = ((currentStep - 1) / 7) * 100;
             progressLine.style.width = percentage + '%';
         }
     });
@@ -1681,7 +1667,6 @@ function rsvpYesAttendance() {
 
 function rsvpNoAttendance() {
     rsvpState.attending = false;
-    rsvpState.currentStep = 8;
     showStep("rsvpNoAttendanceSection");
 }
 
@@ -1715,30 +1700,29 @@ function rsvpSelectPeople() {
 
     rsvpState.selectedPeople = selected;
     peopleError.style.display = "none";
-    rsvpState.currentStep = 4;
 
     if (guestDatabase.get(rsvpState.code).companion) {
+        rsvpState.currentStep = 4;
         showStep("rsvpStep3b");
     } else {
-        rsvpState.currentStep = 5;
+        rsvpState.currentStep = 6;
         showStep("rsvpStep5");
     }
 }
 
-/* POPRAWKA 2: NOWA FUNKCJA - Bezpośredni powrót do kroku 3 */
-function rsvpBackToStep3() {
+function rsvpGoBackFromStep4() {
     rsvpState.currentStep = 3;
     showStep("rsvpStep3");
 }
 
 function rsvpNoCompanion() {
     rsvpState.companion = { hasCompanion: false, name: "", email: "" };
-    rsvpState.currentStep = 5;
+    rsvpState.currentStep = 6;
     showStep("rsvpStep5");
 }
 
 function rsvpYesCompanion() {
-    rsvpState.companion.hasCompanion = true;
+    rsvpState.currentStep = 5;
     showStep("rsvpStep3c");
 }
 
@@ -1761,8 +1745,13 @@ function rsvpCompanionDone() {
 
     rsvpState.companion = { name, email, hasCompanion: true };
     companionError.style.display = "none";
-    rsvpState.currentStep = 5;
+    rsvpState.currentStep = 6;
     showStep("rsvpStep5");
+}
+
+function rsvpGoBackFromStep5() {
+    rsvpState.currentStep = 4;
+    showStep("rsvpStep3b");
 }
 
 function rsvpEmailYes() {
@@ -1774,7 +1763,7 @@ function rsvpEmailYes() {
 function rsvpEmailNo() {
     rsvpState.wantEmail = false;
     rsvpState.email = "";
-    rsvpState.currentStep = 6;
+    rsvpState.currentStep = 7;
     showStep("rsvpStep6");
 }
 
@@ -1791,7 +1780,7 @@ function rsvpEmailConfirm() {
     rsvpState.wantEmail = true;
     rsvpState.email = email;
     emailError.style.display = "none";
-    rsvpState.currentStep = 6;
+    rsvpState.currentStep = 7;
     showStep("rsvpStep6");
 }
 
@@ -1800,6 +1789,11 @@ function rsvpEmailReset() {
     document.getElementById("emailNoBtn").style.display = "block";
     document.getElementById("emailYesBtn").style.display = "block";
     document.getElementById("userEmail").value = "";
+}
+
+function rsvpGoBackFromStep6() {
+    rsvpState.currentStep = 6;
+    showStep("rsvpStep5");
 }
 
 function rsvpDietDone() {
@@ -1813,7 +1807,7 @@ function rsvpDietDone() {
 
     rsvpState.noDiet = noDiet;
     rsvpState.diet = dietDetails;
-    rsvpState.currentStep = 7;
+    rsvpState.currentStep = 8;
 
     rsvpShowSummary();
 }
@@ -1832,6 +1826,16 @@ function rsvpShowSummary() {
     document.getElementById("summaryDiet").textContent = rsvpState.noDiet ? "Brak ograniczeń" : (rsvpState.diet || "Brak");
 
     showStep("rsvpStep7");
+}
+
+function rsvpGoBackFromStep7() {
+    rsvpState.currentStep = 7;
+    showStep("rsvpStep6");
+}
+
+function rsvpGoBackFromStep8() {
+    rsvpState.currentStep = 7;
+    showStep("rsvpStep6");
 }
 
 function rsvpSubmit() {
@@ -1865,7 +1869,7 @@ function rsvpSubmit() {
 
         if (data.success) {
             rsvpState.formCompleted = true;
-            rsvpState.currentStep = 8;
+            rsvpState.currentStep = 9;
             showStep("rsvpStep8");
         } else {
             alert("Błąd: " + data.message);
@@ -2010,37 +2014,6 @@ function rsvpNoContactReset() {
     document.getElementById("btnYesEmail").style.display = "block";
     document.getElementById("noContactEmail").value = "";
     document.getElementById("noContactEmailError").style.display = "none";
-}
-
-function rsvpGoBack(fromStep) {
-    const previousStep = fromStep - 1;
-    rsvpState.currentStep = previousStep;
-
-    if (previousStep === 1) {
-        showStep("rsvpStep1");
-    } 
-    else if (previousStep === 2) {
-        showStep("rsvpStep2");
-    } 
-    else if (previousStep === 3) {
-        if (guestDatabase.get(rsvpState.code).companion) {
-            showStep("rsvpStep3b");
-        } else {
-            showStep("rsvpStep3");
-        }
-    }
-    else if (previousStep === 4) {
-        showStep("rsvpStep3");
-    }
-    else if (previousStep === 5) {
-        showStep("rsvpStep5");
-    }
-    else if (previousStep === 6) {
-        showStep("rsvpStep6");
-    }
-    else if (previousStep === 7) {
-        showStep("rsvpStep7");
-    }
 }
 
 function validateEmail(email) {
