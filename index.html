@@ -1199,14 +1199,14 @@
                         </div>
                     </div>
 
-                    <!-- NO ATTENDANCE SECTION -->
+                    <!-- NO ATTENDANCE - INITIAL QUESTION -->
                     <div class="rsvp-step" id="rsvpNoAttendanceSection">
                         <h2>Rozumiemy Twoją Decyzję</h2>
                         <p class="subtitle">Czy chcesz otrzymywać aktualizacje dotyczące wesela?</p>
 
                         <div class="button-group">
-                            <button class="button-secondary" onclick="rsvpNoContactDone()">Nie, Dziękuję</button>
-                            <button onclick="rsvpNoContactEmail()">Tak, Chcę Email</button>
+                            <button class="button-secondary" id="btnNoEmail" onclick="rsvpNoContactDone()">Nie, Dziękuję</button>
+                            <button id="btnYesEmail" onclick="rsvpNoContactEmail()">Tak, Chcę Email</button>
                         </div>
 
                         <div id="noContactEmailInput" style="display: none; margin-top: 25px;">
@@ -1220,10 +1220,25 @@
                                 <button onclick="rsvpNoContactSubmit()" id="noContactSubmitBtn">Potwierdź</button>
                             </div>
                         </div>
+                    </div>
 
-                        <div id="noContactSuccess" style="display: none;">
-                            <h3 style="text-align: center; color: #d97634; margin: 20px 0;">Potwierdzenie Wysłane</h3>
-                            <div class="message success">Będziemy Ci wysyłać aktualizacje dotyczące wesela.</div>
+                    <!-- NO ATTENDANCE - SUCCESS (bez maila) -->
+                    <div class="rsvp-step" id="noEmailSuccess">
+                        <div class="success-container">
+                            <h2>Potwierdzenie Wysłane</h2>
+                            <div class="message success">Rozumiemy Twoją decyzję. Dziękujemy za wiadomość.</div>
+                            <div class="button-group">
+                                <button onclick="rsvpNewConfirmation()">Nowe Potwierdzenie</button>
+                                <button class="button-secondary" onclick="showPage('home')">Zamknij</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NO ATTENDANCE - SUCCESS (z mailem) -->
+                    <div class="rsvp-step" id="withEmailSuccess">
+                        <div class="success-container">
+                            <h2>Potwierdzenie Wysłane</h2>
+                            <div class="message success">Będziemy Ci wysyłać aktualizacje dotyczące wesela na podany email.</div>
                             <div class="button-group">
                                 <button onclick="rsvpNewConfirmation()">Nowe Potwierdzenie</button>
                                 <button class="button-secondary" onclick="showPage('home')">Zamknij</button>
@@ -1654,7 +1669,6 @@
             document.getElementById("emailInput").style.display = "none";
             document.getElementById("emailNoBtn").style.display = "block";
             document.getElementById("emailYesBtn").style.display = "block";
-            document.getElementById("noContactSuccess").style.display = "none";
             document.getElementById("noContactEmailInput").style.display = "none";
             document.getElementById("noContactEmail").value = "";
 
@@ -1663,12 +1677,16 @@
 
         function rsvpNoContactEmail() {
             document.getElementById("noContactEmailInput").style.display = "block";
+            document.getElementById("btnNoEmail").style.display = "none";
+            document.getElementById("btnYesEmail").style.display = "none";
         }
 
         function rsvpNoContactDone() {
-            if (rsvpState.formCompleted) return;
+            if (rsvpState.formCompleted || rsvpState.isSubmitting) return;
 
             rsvpState.formCompleted = true;
+            rsvpState.isSubmitting = true;
+
             const payload = {
                 action: "submitNoAttendance",
                 code: rsvpState.code,
@@ -1682,12 +1700,17 @@
             })
             .then(response => response.json())
             .then(data => {
+                rsvpState.isSubmitting = false;
+
                 if (data.success) {
-                    document.getElementById("noContactSuccess").style.display = "block";
-                    document.getElementById("rsvpNoAttendanceSection").innerHTML = '';
+                    showStep("noEmailSuccess");
+                } else {
+                    alert("Błąd: " + data.message);
+                    rsvpState.formCompleted = false;
                 }
             })
             .catch(error => {
+                rsvpState.isSubmitting = false;
                 rsvpState.formCompleted = false;
                 alert("Błąd połączenia. Spróbuj ponownie.");
             });
@@ -1729,8 +1752,10 @@
                 rsvpState.isSubmitting = false;
 
                 if (data.success) {
-                    document.getElementById("noContactEmailInput").style.display = "none";
-                    document.getElementById("noContactSuccess").style.display = "block";
+                    showStep("withEmailSuccess");
+                } else {
+                    alert("Błąd: " + data.message);
+                    rsvpState.formCompleted = false;
                 }
             })
             .catch(error => {
@@ -1744,7 +1769,10 @@
 
         function rsvpNoContactReset() {
             document.getElementById("noContactEmailInput").style.display = "none";
+            document.getElementById("btnNoEmail").style.display = "block";
+            document.getElementById("btnYesEmail").style.display = "block";
             document.getElementById("noContactEmail").value = "";
+            document.getElementById("noContactEmailError").style.display = "none";
         }
 
         function rsvpGoBack(fromStep) {
