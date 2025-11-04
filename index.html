@@ -378,7 +378,7 @@ h2 {
 h3 {
     color: #d97634;
     margin: 20px 0 15px 0;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
 }
 
@@ -522,7 +522,6 @@ p {
     font-weight: 600;
 }
 
-/* POPRAWKA 2: MAPKI - CENTROWANIE POZIOME I PIONOWE */
 .info-section-with-map {
     display: flex;
     flex-direction: row;
@@ -1027,7 +1026,6 @@ button:disabled {
 <!-- EASTER EGG - MILLENNIUM FALCON REAL IMAGE -->
 <div class="easter-egg-overlay" id="easterEggOverlay" onclick="closeEasterEgg()">
     <div class="falcon-container">
-        <!-- TUTAJ BĘDZIE RZECZYWISTY OBRAZEK MILLENNIUM FALCON -->
         <img src="falcon.PNG" alt="Millennium Falcon" class="falcon-real" />
         <div class="easter-egg-text">🚀 May The Force Be With You! 🚀</div>
     </div>
@@ -1710,10 +1708,51 @@ function rsvpSelectPeople() {
     }
 }
 
+/* ========================================================================== */
+/* BRAKUJĄCE FUNKCJE DO COFANIA - V19 FIX */
+/* ========================================================================== */
+
 function rsvpGoBackFromStep4() {
+    console.log("🔙 Cofam: STEP 4 → STEP 3");
     rsvpState.currentStep = 3;
     showStep("rsvpStep3");
 }
+
+function rsvpGoBackFromStep5() {
+    console.log("🔙 Cofam: STEP 5 → STEP 4");
+    rsvpState.currentStep = 4;
+    showStep("rsvpStep3b");
+}
+
+function rsvpGoBackFromStep6() {
+    console.log("🔙 Cofam: STEP 6 → Sprawdzam gdzie wstecz...");
+    
+    if (rsvpState.companion.hasCompanion && rsvpState.companion.name) {
+        console.log("   → Ma towarzysza, wracam do STEP 5");
+        rsvpState.currentStep = 5;
+        showStep("rsvpStep3c");
+    } else {
+        console.log("   → Bez towarzysza, wracam do STEP 4");
+        rsvpState.currentStep = 4;
+        showStep("rsvpStep3b");
+    }
+}
+
+function rsvpGoBackFromStep7() {
+    console.log("🔙 Cofam: STEP 7 → STEP 6");
+    rsvpState.currentStep = 6;
+    showStep("rsvpStep5");
+}
+
+function rsvpGoBackFromStep8() {
+    console.log("🔙 Cofam: STEP 8 → STEP 7");
+    rsvpState.currentStep = 7;
+    showStep("rsvpStep6");
+}
+
+/* ========================================================================== */
+/* KONIEC FUNKCJI DO COFANIA */
+/* ========================================================================== */
 
 function rsvpNoCompanion() {
     rsvpState.companion = { hasCompanion: false, name: "", email: "" };
@@ -1747,11 +1786,6 @@ function rsvpCompanionDone() {
     companionError.style.display = "none";
     rsvpState.currentStep = 6;
     showStep("rsvpStep5");
-}
-
-function rsvpGoBackFromStep5() {
-    rsvpState.currentStep = 4;
-    showStep("rsvpStep3b");
 }
 
 function rsvpEmailYes() {
@@ -1791,11 +1825,6 @@ function rsvpEmailReset() {
     document.getElementById("userEmail").value = "";
 }
 
-function rsvpGoBackFromStep6() {
-    rsvpState.currentStep = 6;
-    showStep("rsvpStep5");
-}
-
 function rsvpDietDone() {
     const noDiet = document.getElementById("noDiet").checked;
     const dietDetails = document.getElementById("dietDetails").value.trim();
@@ -1826,16 +1855,6 @@ function rsvpShowSummary() {
     document.getElementById("summaryDiet").textContent = rsvpState.noDiet ? "Brak ograniczeń" : (rsvpState.diet || "Brak");
 
     showStep("rsvpStep7");
-}
-
-function rsvpGoBackFromStep7() {
-    rsvpState.currentStep = 7;
-    showStep("rsvpStep6");
-}
-
-function rsvpGoBackFromStep8() {
-    rsvpState.currentStep = 7;
-    showStep("rsvpStep6");
 }
 
 function rsvpSubmit() {
@@ -2014,6 +2033,18 @@ function rsvpNoContactReset() {
     document.getElementById("btnYesEmail").style.display = "block";
     document.getElementById("noContactEmail").value = "";
     document.getElementById("noContactEmailError").style.display = "none";
+}
+
+function rsvpGoBack(fromStep) {
+    const previousStep = fromStep - 1;
+    rsvpState.currentStep = previousStep;
+
+    if (previousStep === 1) {
+        showStep("rsvpStep1");
+    } 
+    else if (previousStep === 2) {
+        showStep("rsvpStep2");
+    }
 }
 
 function validateEmail(email) {
