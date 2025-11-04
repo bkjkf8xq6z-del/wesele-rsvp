@@ -52,7 +52,6 @@ body {
     font-weight: 400;
 }
 
-/* NOWY EASTER EGG - MILLENNIUM FALCON ANIMATION */
 .easter-egg-overlay {
     position: fixed;
     top: 0;
@@ -528,21 +527,24 @@ p {
     font-weight: 600;
 }
 
-/* POPRAWKA 2: Mapki wycentrowane - display grid */
+/* POPRAWKA 1: MAPA IDEALNIE WYCENTROWANA */
 .info-section-with-map {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    gap: 30px;
 }
 
 .map-container {
     width: 100%;
+    max-width: 400px;
     height: 350px;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid #e8dfd5;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    flex-shrink: 0;
 }
 
 .map-container iframe {
@@ -999,11 +1001,12 @@ button:disabled {
     }
 
     .info-section-with-map {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     .map-container {
         width: 100%;
+        max-width: 100%;
         height: 300px;
     }
 
@@ -1021,29 +1024,21 @@ button:disabled {
     <div class="falcon-container">
         <div class="falcon" id="falcon">
             <svg class="falcon-svg" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                <!-- Millennium Falcon SVG Simplified -->
                 <defs>
                     <linearGradient id="falconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" style="stop-color:#d97634;stop-opacity:1" />
                         <stop offset="100%" style="stop-color:#a85a2a;stop-opacity:1" />
                     </linearGradient>
                 </defs>
-                <!-- Main Body -->
                 <ellipse cx="100" cy="60" rx="80" ry="50" fill="url(#falconGrad)" stroke="#5a4a3a" stroke-width="1.5"/>
-                <!-- Cockpit -->
                 <circle cx="70" cy="40" r="18" fill="#d97634" stroke="#5a4a3a" stroke-width="1"/>
                 <circle cx="72" cy="40" r="12" fill="#ffd700" opacity="0.7"/>
-                <!-- Front Section -->
                 <path d="M 150 60 Q 180 50 200 60 Q 180 70 150 60" fill="url(#falconGrad)" stroke="#5a4a3a" stroke-width="1"/>
-                <!-- Top Ridge -->
                 <path d="M 30 30 Q 100 20 160 35" stroke="#a85a2a" stroke-width="2" fill="none"/>
-                <!-- Wings/Side extensions -->
                 <ellipse cx="40" cy="65" rx="30" ry="18" fill="url(#falconGrad)" opacity="0.8" stroke="#5a4a3a" stroke-width="1"/>
                 <ellipse cx="160" cy="65" rx="30" ry="18" fill="url(#falconGrad)" opacity="0.8" stroke="#5a4a3a" stroke-width="1"/>
-                <!-- Engine glow -->
                 <circle cx="30" cy="70" r="8" fill="#ff6b00" opacity="0.6"/>
                 <circle cx="170" cy="70" r="8" fill="#ff6b00" opacity="0.6"/>
-                <!-- Thruster glow -->
                 <circle cx="195" cy="60" r="6" fill="#ffcc00" opacity="0.8"/>
             </svg>
         </div>
@@ -1244,13 +1239,13 @@ button:disabled {
                     </div>
                 </div>
 
-                <!-- STEP 3B -->
+                <!-- STEP 3B - POPRAWKA 2: NOWA FUNKCJA DO POWROTU -->
                 <div class="rsvp-step" id="rsvpStep3b">
                     <div class="progress-dots" id="progressDots3b"></div>
                     <h2>Będziesz z osobą towarzyszącą?</h2>
                     <p class="subtitle">Czy chcesz przyjść z osobą towarzyszącą?</p>
                     <div class="button-group">
-                        <button class="button-back" onclick="rsvpGoBack(4)">Wróć</button>
+                        <button class="button-back" onclick="rsvpBackToStep3()">Wróć</button>
                         <button class="button-secondary" onclick="rsvpNoCompanion()">Nie, sam/a</button>
                         <button onclick="rsvpYesCompanion()">Tak, z osobą</button>
                     </div>
@@ -1521,7 +1516,6 @@ const domCache = {
 
 let countdownTimeoutId = null;
 
-// EASTER EGG FUNCTIONS
 function triggerEasterEgg() {
     document.getElementById("easterEggOverlay").classList.add("show");
     setTimeout(() => {
@@ -1729,6 +1723,12 @@ function rsvpSelectPeople() {
         rsvpState.currentStep = 5;
         showStep("rsvpStep5");
     }
+}
+
+/* POPRAWKA 2: NOWA FUNKCJA - Bezpośredni powrót do kroku 3 */
+function rsvpBackToStep3() {
+    rsvpState.currentStep = 3;
+    showStep("rsvpStep3");
 }
 
 function rsvpNoCompanion() {
@@ -2012,7 +2012,6 @@ function rsvpNoContactReset() {
     document.getElementById("noContactEmailError").style.display = "none";
 }
 
-/* POPRAWKA 3: Inteligentne cofanie - wyświetla prawidłowy ekran */
 function rsvpGoBack(fromStep) {
     const previousStep = fromStep - 1;
     rsvpState.currentStep = previousStep;
@@ -2031,7 +2030,6 @@ function rsvpGoBack(fromStep) {
         }
     }
     else if (previousStep === 4) {
-        /* WAŻNA POPRAWKA: Wracamy do kroku 3, nie 3b! */
         showStep("rsvpStep3");
     }
     else if (previousStep === 5) {
