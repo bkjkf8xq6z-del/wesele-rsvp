@@ -905,6 +905,8 @@ function checkPassword() {
     if (password === PASSWORD) {
         document.getElementById("loginPage").classList.add("hidden");
         document.getElementById("appContainer").classList.add("visible");
+        const heroSection = document.querySelector(".hero-section");
+        heroSection.style.display = "flex";
     } else {
         document.getElementById("loginError").textContent = "Nieprawidłowe hasło";
         document.getElementById("passwordInput").value = "";
