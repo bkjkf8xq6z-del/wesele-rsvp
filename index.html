@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com">
 <title>Wesele Wiktoria & Maciej - 06.08.2026</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,251 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Lato:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --navy-blue: #1a3a52;
-    --gold-accent: #d4af37;
-    --cream-white: #f8f6f4;
-    --dark-text: #2d2d2d;
-    --soft-beige: #e8e3dc;
-    --light-gold: #f4e4c1;
-    --darker-navy: #0f2433;
-    
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Lato', sans-serif;
-    --font-cursive: 'Great Vibes', cursive;
-    
-    --max-width: 1400px;
-    --section-padding: 80px;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: var(--font-body); background: var(--cream-white); color: var(--dark-text); line-height: 1.7; overflow-x: hidden; }
-.top-banner { background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%); padding: 30px 20px; text-align: center; position: relative; overflow: hidden; cursor: pointer; transition: all 0.3s ease; }
-.top-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold-accent), transparent); }
-.couple-names { font-family: var(--font-cursive); font-size: 56px; color: var(--gold-accent); margin-bottom: 8px; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); }
-.wedding-date { font-family: var(--font-heading); font-size: 18px; color: var(--cream-white); letter-spacing: 4px; font-weight: 400; }
-
-/* ✅ ZMIANA 2: HERO SECTION DOMYŚLNIE UKRYTE */
-.hero-section {
-    position: relative;
-    height: 600px;
-    background: linear-gradient(rgba(26, 58, 82, 0.4), rgba(26, 58, 82, 0.6)), url('couple-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
-.hero-content { z-index: 2; max-width: 800px; padding: 40px; }
-.hero-subtitle { font-family: var(--font-heading); font-size: 22px; color: var(--light-gold); margin-bottom: 15px; letter-spacing: 3px; font-weight: 400; }
-.hero-title { font-family: var(--font-heading); font-size: 48px; color: white; margin-bottom: 20px; font-weight: 700; line-height: 1.3; }
-.gold-divider { width: 120px; height: 2px; background: var(--gold-accent); margin: 20px auto; }
-
-.easter-egg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 10000; display: none; align-items: center; justify-content: center; }
-.easter-egg-overlay.show { display: flex; }
-.falcon-container { position: relative; width: 100%; height: 100%; overflow: hidden; }
-.falcon-real { position: absolute; width: 300px; height: auto; left: -350px; top: 50%; transform: translateY(-50%); filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 50px rgba(212, 175, 55, 0.4)); animation: falconFlyEpic 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; z-index: 10001; }
-
-@keyframes falconFlyEpic {
-    0% { left: -350px; top: 50%; opacity: 1; transform: translateY(-50%) rotateZ(0deg); }
-    15% { top: 42%; transform: translateY(-50%) rotateZ(-8deg); }
-    30% { left: 20%; top: 32%; transform: translateY(-50%) rotateZ(-20deg); }
-    45% { left: 50%; top: 22%; transform: translateY(-50%) rotateZ(-32deg); }
-    60% { left: 75%; top: 35%; transform: translateY(-50%) rotateZ(-15deg); }
-    75% { right: 5%; top: 45%; opacity: 1; transform: translateY(-50%) rotateZ(5deg); }
-    85% { right: -80px; opacity: 1; transform: translateY(-50%) rotateZ(12deg); }
-    100% { right: -350px; opacity: 0; transform: translateY(-50%) rotateZ(18deg) scale(0.9); }
-}
-
-.login-page { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%); display: flex; justify-content: center; align-items: center; z-index: 9999; }
-.login-page.hidden { display: none; }
-.login-box { background: white; padding: 60px; border-radius: 8px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3); text-align: center; max-width: 480px; width: 90%; border-top: 4px solid var(--gold-accent); }
-.login-box h1 { font-family: var(--font-heading); color: var(--navy-blue); margin-bottom: 15px; font-size: 38px; font-weight: 700; }
-.login-box p { font-family: var(--font-body); color: #666; margin-bottom: 35px; font-size: 15px; }
-.login-box input { width: 100%; padding: 16px 20px; margin-bottom: 25px; border: 2px solid var(--soft-beige); border-radius: 4px; font-size: 16px; font-family: var(--font-body); transition: all 0.3s ease; }
-.login-box input:focus { outline: none; border-color: var(--gold-accent); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1); }
-.login-box button { width: 100%; padding: 16px; background: var(--navy-blue); color: white; border: none; border-radius: 4px; font-size: 16px; font-weight: 600; font-family: var(--font-heading); letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; }
-.login-box button:hover { background: var(--darker-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); }
-.login-error { color: #c62828; margin-top: 20px; font-size: 14px; min-height: 20px; }
-
-.app-container { display: none; min-height: 100vh; flex-direction: column; }
-.app-container.visible { display: flex; }
-.main-content { flex: 1; background: var(--cream-white); }
-.content-section { max-width: var(--max-width); margin: 0 auto; padding: var(--section-padding) 40px; }
-.page { display: none; }
-.page.active { display: block; animation: fadeInUp 0.5s ease; }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-.section-title { font-family: var(--font-heading); font-size: 48px; color: var(--navy-blue); text-align: center; margin-bottom: 20px; font-weight: 700; }
-.section-subtitle { font-family: var(--font-body); font-size: 18px; color: #666; text-align: center; margin-bottom: 60px; font-weight: 300; }
-
-.main-nav { background: white; border-bottom: 1px solid var(--soft-beige); box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); position: sticky; top: 0; z-index: 1000; transition: all 0.3s ease; }
-.nav-container { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: center; gap: 0; flex-wrap: wrap; padding: 0; }
-.nav-btn { padding: 20px 32px; background: transparent; border: none; border-bottom: 3px solid transparent; font-family: var(--font-heading); font-size: 15px; font-weight: 600; color: var(--navy-blue); letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; }
-.nav-btn:hover { background: var(--light-gold); border-bottom-color: var(--gold-accent); }
-.nav-btn.active { background: var(--navy-blue); color: var(--gold-accent); border-bottom-color: var(--gold-accent); }
-
-.countdown-container { text-align: center; margin-bottom: 60px; }
-.countdown-intro { font-family: var(--font-heading); font-size: 28px; color: var(--navy-blue); margin-bottom: 15px; font-weight: 600; }
-.countdown-date-display { font-family: var(--font-body); font-size: 20px; color: var(--gold-accent); margin-bottom: 10px; font-weight: 600; letter-spacing: 2px; }
-.countdown-location { font-family: var(--font-body); font-size: 16px; color: #888; margin-bottom: 50px; }
-.countdown-boxes { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
-.countdown-box { background: white; border: 2px solid var(--gold-accent); border-radius: 8px; padding: 35px 40px; min-width: 140px; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; }
-.countdown-box:hover { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12); border-color: var(--navy-blue); }
-.countdown-number { font-family: var(--font-heading); font-size: 52px; color: var(--navy-blue); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px; }
-.countdown-label { font-family: var(--font-body); font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
-
-.cta-section { text-align: center; margin-top: 70px; padding: 60px 20px; }
-.cta-title { font-family: var(--font-heading); font-size: 32px; color: var(--navy-blue); margin: 0 0 15px 0; font-weight: 700; }
-.cta-subtitle { font-family: var(--font-body); font-size: 16px; color: #666; margin-bottom: 35px; line-height: 1.6; }
-.cta-button { display: inline-block; padding: 18px 50px; background: var(--navy-blue); color: white; border: none; border-radius: 4px; font-family: var(--font-heading); font-size: 16px; font-weight: 700; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; box-shadow: 0 4px 15px rgba(26, 58, 82, 0.2); }
-.cta-button:hover { background: var(--gold-accent); color: var(--navy-blue); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); }
-.cta-button:active { transform: translateY(-1px); }
-
-.schedule-timeline { max-width: 900px; margin: 0 auto; }
-.schedule-item { display: flex; margin-bottom: 40px; position: relative; align-items: flex-start; }
-.schedule-time { flex: 0 0 140px; padding: 20px; background: var(--navy-blue); color: white; border-radius: 8px; font-family: var(--font-heading); font-size: 24px; font-weight: 700; text-align: center; box-shadow: 0 4px 12px rgba(26, 58, 82, 0.2); }
-.schedule-connector { width: 60px; height: 3px; background: var(--gold-accent); margin: 28px 20px 0 20px; flex-shrink: 0; }
-.schedule-content { flex: 1; background: white; padding: 25px; border-radius: 8px; border-left: 4px solid var(--gold-accent); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
-.schedule-activity { font-family: var(--font-heading); font-size: 22px; color: var(--navy-blue); font-weight: 700; margin-bottom: 10px; }
-.schedule-location { font-size: 14px; color: var(--gold-accent); margin-bottom: 12px; font-weight: 600; }
-.schedule-description { font-size: 15px; color: #666; line-height: 1.6; }
-
-.timeline-container { max-width: 1000px; margin: 0 auto; position: relative; padding: 40px 0; }
-.timeline-container::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(to bottom, var(--gold-accent), var(--soft-beige)); }
-.timeline-item { display: flex; margin-bottom: 80px; position: relative; align-items: flex-start; }
-.timeline-item:nth-child(even) { flex-direction: row-reverse; }
-.timeline-photo { flex: 0 0 220px; height: 220px; border-radius: 50%; overflow: hidden; border: 4px solid var(--gold-accent); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); position: relative; z-index: 2; background: linear-gradient(135deg, var(--soft-beige), white); }
-.timeline-photo img { width: 100%; height: 100%; object-fit: cover; }
-.timeline-photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 14px; color: #999; text-align: center; padding: 20px; background: linear-gradient(135deg, #f5f5f5, #e8e8e8); }
-.timeline-connector { flex: 0 0 60px; height: 2px; background: var(--gold-accent); position: relative; z-index: 1; }
-.timeline-content { flex: 1; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border-left: 3px solid var(--gold-accent); }
-.timeline-item:nth-child(even) .timeline-content { border-left: none; border-right: 3px solid var(--gold-accent); }
-.timeline-year { font-family: var(--font-heading); font-size: 18px; color: var(--gold-accent); font-weight: 700; margin-bottom: 10px; letter-spacing: 1px; }
-.timeline-text { font-family: var(--font-body); font-size: 16px; color: #555; line-height: 1.7; }
-.timeline-dot { position: absolute; left: 50%; transform: translateX(-50%) translateY(30px); width: 20px; height: 20px; background: var(--gold-accent); border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 4px var(--soft-beige); z-index: 3; }
-
-.info-card { background: white; padding: 50px; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); border-top: 4px solid var(--gold-accent); }
-.info-card h3 { font-family: var(--font-heading); font-size: 32px; color: var(--navy-blue); margin-bottom: 30px; font-weight: 700; }
-.info-card h4 { font-family: var(--font-heading); font-size: 18px; color: var(--navy-blue); margin-bottom: 10px; font-weight: 700; }
-.info-card p { font-size: 16px; margin-bottom: 15px; color: #555; }
-.info-card strong { color: var(--navy-blue); font-weight: 700; }
-.info-card a { color: var(--gold-accent); text-decoration: none; font-weight: 600; transition: all 0.2s ease; }
-.info-card a:hover { color: var(--navy-blue); text-decoration: underline; }
-.info-grid { display: grid; grid-template-columns: 1fr 450px; gap: 40px; align-items: center; }
-.info-details p { font-size: 16px; margin-bottom: 15px; color: #555; }
-.info-details strong { color: var(--navy-blue); font-weight: 700; }
-.info-details a { color: var(--gold-accent); text-decoration: none; font-weight: 600; transition: all 0.2s ease; }
-.info-details a:hover { color: var(--navy-blue); text-decoration: underline; }
-.map-embed { width: 100%; height: 350px; border-radius: 8px; border: 2px solid var(--soft-beige); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); }
-.map-embed iframe { width: 100%; height: 100%; border: none; border-radius: 6px; }
-
-.gift-section { background: linear-gradient(135deg, var(--light-gold) 0%, var(--soft-beige) 100%); padding: 40px; border-radius: 8px; text-align: center; margin-top: 40px; border: 2px solid var(--gold-accent); }
-.gift-section h3 { color: var(--navy-blue); margin-bottom: 20px; }
-.gift-section p { font-size: 16px; color: #555; margin-bottom: 10px; }
-.gift-highlight { color: var(--navy-blue); font-weight: 700; font-size: 18px; }
-
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px; }
-.contact-person { background: white; padding: 40px; border-radius: 8px; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); border-top: 3px solid var(--gold-accent); }
-.contact-photo { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; border: 4px solid var(--gold-accent); overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); background: linear-gradient(135deg, var(--soft-beige), white); }
-.contact-photo img { width: 100%; height: 100%; object-fit: cover; }
-.contact-photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #999; text-align: center; background: linear-gradient(135deg, #f5f5f5, #e8e8e8); }
-.contact-person h3 { font-family: var(--font-heading); font-size: 26px; color: var(--navy-blue); margin-bottom: 20px; font-weight: 700; }
-.contact-info-item { margin: 15px 0; font-size: 15px; color: #666; }
-.contact-info-item strong { display: block; color: var(--navy-blue); margin-bottom: 5px; font-weight: 700; }
-
-.rsvp-container { max-width: 700px; margin: 0 auto; }
-.rsvp-card { background: white; padding: 50px; border-radius: 8px; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12); border-top: 4px solid var(--gold-accent); }
-.rsvp-card h2 { font-family: var(--font-heading); font-size: 32px; color: var(--navy-blue); margin-bottom: 15px; text-align: center; font-weight: 700; }
-.rsvp-subtitle { font-size: 16px; color: #777; text-align: center; margin-bottom: 40px; }
-.rsvp-step { display: none; }
-.rsvp-step.visible { display: block; }
-
-.progress-tracker { display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; position: relative; padding: 0 10px; }
-.progress-tracker::before { content: ''; position: absolute; top: 16px; left: 0; right: 0; height: 2px; background: var(--soft-beige); z-index: 1; }
-.progress-tracker-fill { position: absolute; top: 16px; left: 0; height: 2px; background: var(--gold-accent); z-index: 2; transition: width 0.3s ease; }
-.progress-step { width: 36px; height: 36px; border-radius: 50%; background: white; border: 3px solid var(--soft-beige); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: #999; position: relative; z-index: 3; transition: all 0.3s ease; }
-.progress-step.active { background: var(--gold-accent); border-color: var(--gold-accent); color: white; transform: scale(1.15); }
-
-.form-group { margin-bottom: 30px; }
-.form-label { display: block; font-family: var(--font-heading); font-size: 15px; color: var(--navy-blue); margin-bottom: 12px; font-weight: 600; }
-.form-input { width: 100%; padding: 14px 18px; border: 2px solid var(--soft-beige); border-radius: 4px; font-size: 16px; font-family: var(--font-body); transition: all 0.3s ease; background: white; }
-.form-input:focus { outline: none; border-color: var(--gold-accent); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1); }
-
-.checkbox-list { display: flex; flex-direction: column; gap: 12px; }
-.checkbox-option { display: flex; align-items: center; padding: 16px; background: var(--cream-white); border: 2px solid var(--soft-beige); border-radius: 4px; cursor: pointer; transition: all 0.2s ease; }
-.checkbox-option:hover { border-color: var(--gold-accent); background: white; }
-.checkbox-option input[type="checkbox"] { width: 22px; height: 22px; margin-right: 14px; cursor: pointer; accent-color: var(--gold-accent); }
-.checkbox-option label { margin: 0; cursor: pointer; font-size: 16px; color: var(--dark-text); }
-
-.button-group { display: flex; gap: 15px; margin-top: 40px; }
-.btn { flex: 1; padding: 16px 28px; border: none; border-radius: 4px; font-family: var(--font-heading); font-size: 15px; font-weight: 600; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; }
-.btn-primary { background: var(--navy-blue); color: white; }
-.btn-primary:hover { background: var(--darker-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); }
-.btn-primary:disabled { background: #999; cursor: not-allowed; }
-.btn-secondary { background: white; color: var(--navy-blue); border: 2px solid var(--navy-blue); }
-.btn-secondary:hover { background: var(--navy-blue); color: white; }
-.btn-back { background: var(--soft-beige); color: var(--navy-blue); }
-.btn-back:hover { background: #d0c9bd; }
-
-.alert { padding: 18px; border-radius: 4px; margin: 25px 0; text-align: center; font-weight: 600; }
-.alert-success { background: #e8f5e9; color: #2e7d32; border: 2px solid #c8e6c9; }
-.alert-error { background: #ffebee; color: #c62828; border: 2px solid #ffcdd2; }
-
-.summary-table { width: 100%; margin: 30px 0; border-collapse: collapse; border: 1px solid var(--soft-beige); border-radius: 8px; overflow: hidden; }
-.summary-table td { padding: 18px; border-bottom: 1px solid var(--soft-beige); }
-.summary-table td:first-child { font-family: var(--font-heading); font-weight: 700; color: var(--navy-blue); background: var(--cream-white); width: 40%; }
-.summary-table tr:last-child td { border-bottom: none; }
-
-.gallery-container { max-width: 800px; margin: 0 auto; text-align: center; }
-.gallery-card { background: white; padding: 50px; border-radius: 8px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); border-top: 4px solid var(--gold-accent); }
-.gallery-info { background: var(--light-gold); padding: 30px; border-radius: 8px; margin: 30px 0; border-left: 4px solid var(--gold-accent); }
-.gallery-info h3 { font-family: var(--font-heading); color: var(--navy-blue); margin-bottom: 15px; font-size: 24px; }
-.gallery-info p { color: #555; margin-bottom: 12px; line-height: 1.7; }
-.gallery-cta { margin-top: 40px; }
-.gallery-cta a { display: inline-block; padding: 18px 40px; background: var(--navy-blue); color: white; text-decoration: none; border-radius: 4px; font-family: var(--font-heading); font-weight: 600; letter-spacing: 1px; font-size: 16px; transition: all 0.3s ease; text-transform: uppercase; }
-.gallery-cta a:hover { background: var(--darker-navy); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
-
-.main-footer { background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%); color: white; padding: 60px 40px 40px; margin-top: 80px; position: relative; }
-.main-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold-accent), transparent); }
-.footer-content { max-width: var(--max-width); margin: 0 auto; }
-.footer-title { font-family: var(--font-heading); font-size: 28px; color: var(--gold-accent); text-align: center; margin-bottom: 50px; font-weight: 700; }
-.footer-contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 40px; }
-.footer-person { text-align: center; }
-.footer-photo { width: 130px; height: 130px; border-radius: 50%; margin: 0 auto 20px; border: 4px solid var(--gold-accent); overflow: hidden; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); background: linear-gradient(135deg, var(--soft-beige), white); }
-.footer-photo img { width: 100%; height: 100%; object-fit: cover; }
-.footer-photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #999; text-align: center; background: linear-gradient(135deg, #f5f5f5, #e8e8e8); }
-.footer-person h4 { font-family: var(--font-heading); font-size: 24px; color: white; margin-bottom: 15px; font-weight: 700; }
-.footer-person p { color: #ccc; margin: 8px 0; font-size: 15px; }
-.footer-copyright { text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #999; font-size: 14px; }
-
-@media (max-width: 968px) {
-    .info-grid { grid-template-columns: 1fr; }
-    .map-embed { height: 300px; }
-    .timeline-item { flex-direction: column !important; text-align: center; }
-    .timeline-container::before { left: 30px; }
-    .timeline-connector { display: none; }
-    .timeline-dot { left: 30px; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .footer-contacts { grid-template-columns: 1fr; gap: 40px; }
-    .nav-btn { padding: 16px 20px; font-size: 13px; }
-}
-
-@media (max-width: 640px) {
-    .couple-names { font-size: 36px; }
-    .hero-section { height: 400px; }
-    .hero-title { font-size: 28px; }
-    .content-section { padding: 50px 20px; }
-    .countdown-boxes { gap: 15px; }
-    .countdown-box { padding: 25px 30px; min-width: 110px; }
-    .countdown-number { font-size: 40px; }
-    .button-group { flex-direction: column; }
-    .btn { width: 100%; }
-}
+:root{--navy-blue:#1a3a52;--gold-accent:#d4af37;--cream-white:#f8f6f4;--dark-text:#2d2d2d;--soft-beige:#e8e3dc;--light-gold:#f4e4c1;--darker-navy:#0f2433;--font-heading:'Playfair Display',serif;--font-body:'Lato',sans-serif;--font-cursive:'Great Vibes',cursive;--max-width:1400px;--section-padding:80px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--font-body);background:var(--cream-white);color:var(--dark-text);line-height:1.7;overflow-x:hidden}.top-banner{background:linear-gradient(135deg,var(--navy-blue) 0%,var(--darker-navy) 100%);padding:30px 20px;text-align:center;position:relative;overflow:hidden;cursor:pointer;transition:all .3s ease}.top-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold-accent),transparent)}.couple-names{font-family:var(--font-cursive);font-size:56px;color:var(--gold-accent);margin-bottom:8px;letter-spacing:2px;text-shadow:0 2px 10px rgba(0,0,0,.3)}.wedding-date{font-family:var(--font-heading);font-size:18px;color:var(--cream-white);letter-spacing:4px;font-weight:400}.hero-section{position:relative;height:600px;background:linear-gradient(rgba(26,58,82,.4),rgba(26,58,82,.6)),url('couple-hero.jpg');background-size:cover;background-position:center;background-attachment:fixed;display:none;align-items:center;justify-content:center;text-align:center;color:white}.hero-content{z-index:2;max-width:800px;padding:40px}.hero-subtitle{font-family:var(--font-heading);font-size:22px;color:var(--light-gold);margin-bottom:15px;letter-spacing:3px;font-weight:400}.hero-title{font-family:var(--font-heading);font-size:48px;color:white;margin-bottom:20px;font-weight:700;line-height:1.3}.gold-divider{width:120px;height:2px;background:var(--gold-accent);margin:20px auto}.easter-egg-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:10000;display:none;align-items:center;justify-content:center}.easter-egg-overlay.show{display:flex}.falcon-container{position:relative;width:100%;height:100%;overflow:hidden}.falcon-real{position:absolute;width:300px;height:auto;left:-350px;top:50%;transform:translateY(-50%);filter:drop-shadow(0 0 30px rgba(212,175,55,.8)) drop-shadow(0 0 50px rgba(212,175,55,.4));animation:falconFlyEpic 4.5s cubic-bezier(.25,.46,.45,.94) forwards;z-index:10001}@keyframes falconFlyEpic{0%{left:-350px;top:50%;opacity:1;transform:translateY(-50%) rotateZ(0deg)}15%{top:42%;transform:translateY(-50%) rotateZ(-8deg)}30%{left:20%;top:32%;transform:translateY(-50%) rotateZ(-20deg)}45%{left:50%;top:22%;transform:translateY(-50%) rotateZ(-32deg)}60%{left:75%;top:35%;transform:translateY(-50%) rotateZ(-15deg)}75%{right:5%;top:45%;opacity:1;transform:translateY(-50%) rotateZ(5deg)}85%{right:-80px;opacity:1;transform:translateY(-50%) rotateZ(12deg)}100%{right:-350px;opacity:0;transform:translateY(-50%) rotateZ(18deg) scale(.9)}}.login-page{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,var(--navy-blue) 0%,var(--darker-navy) 100%);display:flex;justify-content:center;align-items:center;z-index:9999}.login-page.hidden{display:none}.login-box{background:white;padding:60px;border-radius:8px;box-shadow:0 30px 60px rgba(0,0,0,.3);text-align:center;max-width:480px;width:90%;border-top:4px solid var(--gold-accent)}.login-box h1{font-family:var(--font-heading);color:var(--navy-blue);margin-bottom:15px;font-size:38px;font-weight:700}.login-box p{font-family:var(--font-body);color:#666;margin-bottom:35px;font-size:15px}.login-box input{width:100%;padding:16px 20px;margin-bottom:25px;border:2px solid var(--soft-beige);border-radius:4px;font-size:16px;font-family:var(--font-body);transition:all .3s ease}.login-box input:focus{outline:none;border-color:var(--gold-accent);box-shadow:0 0 0 4px rgba(212,175,55,.1)}.login-box button{width:100%;padding:16px;background:var(--navy-blue);color:white;border:none;border-radius:4px;font-size:16px;font-weight:600;font-family:var(--font-heading);letter-spacing:1px;cursor:pointer;transition:all .3s ease;text-transform:uppercase}.login-box button:hover{background:var(--darker-navy);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.2)}.login-error{color:#c62828;margin-top:20px;font-size:14px;min-height:20px}.app-container{display:none;min-height:100vh;flex-direction:column}.app-container.visible{display:flex}.hamburger-menu{display:none;flex-direction:column;cursor:pointer;gap:6px;padding:10px;background:transparent;border:none;z-index:1001}.hamburger-menu span{width:28px;height:3px;background:var(--navy-blue);border-radius:2px;transition:all .3s ease}.hamburger-menu.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px)}.hamburger-menu.active span:nth-child(2){opacity:0}.hamburger-menu.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}.main-nav{background:white;border-bottom:1px solid var(--soft-beige);box-shadow:0 2px 12px rgba(0,0,0,.08);position:sticky;top:0;z-index:1000;transition:all .3s ease;display:flex;justify-content:space-between;align-items:center;padding:0 20px}.nav-container{max-width:var(--max-width);margin:0 auto;display:flex;justify-content:center;gap:0;flex-wrap:wrap;padding:0;width:100%}.nav-container.mobile-hidden{display:none}.nav-btn{padding:20px 32px;background:transparent;border:none;border-bottom:3px solid transparent;font-family:var(--font-heading);font-size:15px;font-weight:600;color:var(--navy-blue);letter-spacing:1px;cursor:pointer;transition:all .3s ease;text-transform:uppercase}.nav-btn:hover{background:var(--light-gold);border-bottom-color:var(--gold-accent)}.nav-btn.active{background:var(--navy-blue);color:var(--gold-accent);border-bottom-color:var(--gold-accent)}.main-content{flex:1;background:var(--cream-white)}.content-section{max-width:var(--max-width);margin:0 auto;padding:var(--section-padding) 40px}.page{display:none}.page.active{display:block;animation:fadeInUp .5s ease}@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}.section-title{font-family:var(--font-heading);font-size:48px;color:var(--navy-blue);text-align:center;margin-bottom:20px;font-weight:700}.section-subtitle{font-family:var(--font-body);font-size:18px;color:#666;text-align:center;margin-bottom:60px;font-weight:300}.countdown-container{text-align:center;margin-bottom:60px}.countdown-intro{font-family:var(--font-heading);font-size:28px;color:var(--navy-blue);margin-bottom:15px;font-weight:600}.countdown-date-display{font-family:var(--font-body);font-size:20px;color:var(--gold-accent);margin-bottom:10px;font-weight:600;letter-spacing:2px}.countdown-location{font-family:var(--font-body);font-size:16px;color:#888;margin-bottom:50px}.countdown-boxes{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:40px}.countdown-box{background:white;border:2px solid var(--gold-accent);border-radius:8px;padding:35px 40px;min-width:140px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.08);transition:all .3s ease}.countdown-box:hover{transform:translateY(-8px);box-shadow:0 12px 32px rgba(0,0,0,.12);border-color:var(--navy-blue)}.countdown-number{font-family:var(--font-heading);font-size:52px;color:var(--navy-blue);font-weight:700;line-height:1;display:block;margin-bottom:12px}.countdown-label{font-family:var(--font-body);font-size:13px;color:#888;text-transform:uppercase;letter-spacing:2px;font-weight:600}.cta-section{text-align:center;margin-top:70px;padding:60px 20px}.cta-title{font-family:var(--font-heading);font-size:32px;color:var(--navy-blue);margin:0 0 15px 0;font-weight:700}.cta-subtitle{font-family:var(--font-body);font-size:16px;color:#666;margin-bottom:35px;line-height:1.6}.cta-button{display:inline-block;padding:18px 50px;background:var(--navy-blue);color:white;border:none;border-radius:4px;font-family:var(--font-heading);font-size:16px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .3s ease;text-transform:uppercase;box-shadow:0 4px 15px rgba(26,58,82,.2)}.cta-button:hover{background:var(--gold-accent);color:var(--navy-blue);transform:translateY(-3px);box-shadow:0 8px 25px rgba(212,175,55,.3)}.schedule-timeline{max-width:900px;margin:0 auto}.schedule-item{display:flex;margin-bottom:40px;position:relative;align-items:flex-start}.schedule-time{flex:0 0 140px;padding:20px;background:var(--navy-blue);color:white;border-radius:8px;font-family:var(--font-heading);font-size:24px;font-weight:700;text-align:center;box-shadow:0 4px 12px rgba(26,58,82,.2)}.schedule-connector{width:60px;height:3px;background:var(--gold-accent);margin:28px 20px 0 20px;flex-shrink:0}.schedule-content{flex:1;background:white;padding:25px;border-radius:8px;border-left:4px solid var(--gold-accent);box-shadow:0 4px 12px rgba(0,0,0,.08)}.schedule-activity{font-family:var(--font-heading);font-size:22px;color:var(--navy-blue);font-weight:700;margin-bottom:10px}.schedule-location{font-size:14px;color:var(--gold-accent);margin-bottom:12px;font-weight:600}.schedule-description{font-size:15px;color:#666;line-height:1.6}.timeline-container{max-width:1000px;margin:0 auto;position:relative;padding:40px 0}.timeline-container::before{content:'';position:absolute;left:50%;transform:translateX(-50%);width:2px;height:100%;background:linear-gradient(to bottom,var(--gold-accent),var(--soft-beige))}.timeline-item{display:flex;margin-bottom:80px;position:relative;align-items:flex-start}.timeline-item:nth-child(even){flex-direction:row-reverse}.timeline-photo{flex:0 0 220px;height:220px;border-radius:50%;overflow:hidden;border:4px solid var(--gold-accent);box-shadow:0 8px 24px rgba(0,0,0,.15);position:relative;z-index:2;background:linear-gradient(135deg,var(--soft-beige),white)}.timeline-photo img{width:100%;height:100%;object-fit:cover}.timeline-photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-body);font-size:14px;color:#999;text-align:center;padding:20px;background:linear-gradient(135deg,#f5f5f5,#e8e8e8)}.timeline-connector{flex:0 0 60px;height:2px;background:var(--gold-accent);position:relative;z-index:1}.timeline-content{flex:1;background:white;padding:30px;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.08);border-left:3px solid var(--gold-accent)}.timeline-item:nth-child(even) .timeline-content{border-left:none;border-right:3px solid var(--gold-accent)}.timeline-year{font-family:var(--font-heading);font-size:18px;color:var(--gold-accent);font-weight:700;margin-bottom:10px;letter-spacing:1px}.timeline-text{font-family:var(--font-body);font-size:16px;color:#555;line-height:1.7}.timeline-dot{position:absolute;left:50%;transform:translateX(-50%) translateY(30px);width:20px;height:20px;background:var(--gold-accent);border-radius:50%;border:4px solid white;box-shadow:0 0 0 4px var(--soft-beige);z-index:3}.back-to-top-btn{position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:var(--navy-blue);color:white;border:none;border-radius:50%;font-size:24px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:999;box-shadow:0 4px 12px rgba(0,0,0,.2);transition:all .3s ease}.back-to-top-btn:hover{background:var(--gold-accent);color:var(--navy-blue);transform:scale(1.1)}.back-to-top-btn.show{display:flex}.confetti{position:fixed;width:10px;height:10px;background:var(--gold-accent);pointer-events:none;z-index:10000}.validation-error{color:#c62828;font-size:12px;margin-top:5px;display:none;font-family:var(--font-body)}.validation-error.show{display:block}.form-input.error{border-color:#c62828 !important;background-color:#ffebee}.form-input.valid{border-color:#4caf50 !important;background-color:#f1f8f4}.info-card{background:white;padding:50px;border-radius:8px;margin-bottom:40px;box-shadow:0 8px 24px rgba(0,0,0,.08);border-top:4px solid var(--gold-accent)}.info-card h3{font-family:var(--font-heading);font-size:32px;color:var(--navy-blue);margin-bottom:30px;font-weight:700}.info-card h4{font-family:var(--font-heading);font-size:18px;color:var(--navy-blue);margin-bottom:10px;font-weight:700}.info-card p{font-size:16px;margin-bottom:15px;color:#555}.info-card strong{color:var(--navy-blue);font-weight:700}.info-card a{color:var(--gold-accent);text-decoration:none;font-weight:600;transition:all .2s ease}.info-card a:hover{color:var(--navy-blue);text-decoration:underline}.info-grid{display:grid;grid-template-columns:1fr 450px;gap:40px;align-items:center}.info-details p{font-size:16px;margin-bottom:15px;color:#555}.map-embed{width:100%;height:350px;border-radius:8px;border:2px solid var(--soft-beige);box-shadow:0 4px 16px rgba(0,0,0,.1)}.map-embed iframe{width:100%;height:100%;border:none;border-radius:6px}.gift-section{background:linear-gradient(135deg,var(--light-gold) 0%,var(--soft-beige) 100%);padding:40px;border-radius:8px;text-align:center;margin-top:40px;border:2px solid var(--gold-accent)}.gift-section h3{color:var(--navy-blue);margin-bottom:20px}.gift-section p{font-size:16px;color:#555;margin-bottom:10px}.gift-highlight{color:var(--navy-blue);font-weight:700;font-size:18px}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:60px}.contact-person{background:white;padding:40px;border-radius:8px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.08);border-top:3px solid var(--gold-accent)}.contact-photo{width:120px;height:120px;border-radius:50%;margin:0 auto 25px;border:4px solid var(--gold-accent);overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.15);background:linear-gradient(135deg,var(--soft-beige),white)}.contact-photo img{width:100%;height:100%;object-fit:cover}.contact-photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;color:#999;text-align:center;background:linear-gradient(135deg,#f5f5f5,#e8e8e8)}.contact-person h3{font-family:var(--font-heading);font-size:26px;color:var(--navy-blue);margin-bottom:20px;font-weight:700}.contact-info-item{margin:15px 0;font-size:15px;color:#666}.contact-info-item strong{display:block;color:var(--navy-blue);margin-bottom:5px;font-weight:700}.rsvp-container{max-width:700px;margin:0 auto}.rsvp-card{background:white;padding:50px;border-radius:8px;box-shadow:0 12px 36px rgba(0,0,0,.12);border-top:4px solid var(--gold-accent)}.rsvp-card h2{font-family:var(--font-heading);font-size:32px;color:var(--navy-blue);margin-bottom:15px;text-align:center;font-weight:700}.rsvp-subtitle{font-size:16px;color:#777;text-align:center;margin-bottom:40px}.rsvp-step{display:none}.rsvp-step.visible{display:block}.progress-tracker{display:flex;justify-content:space-between;align-items:center;margin-bottom:50px;position:relative;padding:0 10px}.progress-tracker::before{content:'';position:absolute;top:16px;left:0;right:0;height:2px;background:var(--soft-beige);z-index:1}.progress-tracker-fill{position:absolute;top:16px;left:0;height:2px;background:var(--gold-accent);z-index:2;transition:width .3s ease}.progress-step{width:36px;height:36px;border-radius:50%;background:white;border:3px solid var(--soft-beige);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:14px;font-weight:700;color:#999;position:relative;z-index:3;transition:all .3s ease}.progress-step.active{background:var(--gold-accent);border-color:var(--gold-accent);color:white;transform:scale(1.15)}.form-group{margin-bottom:30px}.form-label{display:block;font-family:var(--font-heading);font-size:15px;color:var(--navy-blue);margin-bottom:12px;font-weight:600}.form-input{width:100%;padding:14px 18px;border:2px solid var(--soft-beige);border-radius:4px;font-size:16px;font-family:var(--font-body);transition:all .3s ease;background:white}.form-input:focus{outline:none;border-color:var(--gold-accent);box-shadow:0 0 0 4px rgba(212,175,55,.1)}.checkbox-list{display:flex;flex-direction:column;gap:12px}.checkbox-option{display:flex;align-items:center;padding:16px;background:var(--cream-white);border:2px solid var(--soft-beige);border-radius:4px;cursor:pointer;transition:all .2s ease}.checkbox-option:hover{border-color:var(--gold-accent);background:white}.checkbox-option input[type="checkbox"]{width:22px;height:22px;margin-right:14px;cursor:pointer;accent-color:var(--gold-accent)}.checkbox-option label{margin:0;cursor:pointer;font-size:16px;color:var(--dark-text)}.button-group{display:flex;gap:15px;margin-top:40px}.btn{flex:1;padding:16px 28px;border:none;border-radius:4px;font-family:var(--font-heading);font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all .3s ease;text-transform:uppercase}.btn-primary{background:var(--navy-blue);color:white}.btn-primary:hover{background:var(--darker-navy);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.2)}.btn-primary:disabled{background:#999;cursor:not-allowed}.btn-secondary{background:white;color:var(--navy-blue);border:2px solid var(--navy-blue)}.btn-secondary:hover{background:var(--navy-blue);color:white}.btn-back{background:var(--soft-beige);color:var(--navy-blue)}.btn-back:hover{background:#d0c9bd}.alert{padding:18px;border-radius:4px;margin:25px 0;text-align:center;font-weight:600}.alert-success{background:#e8f5e9;color:#2e7d32;border:2px solid #c8e6c9}.alert-error{background:#ffebee;color:#c62828;border:2px solid #ffcdd2}.summary-table{width:100%;margin:30px 0;border-collapse:collapse;border:1px solid var(--soft-beige);border-radius:8px;overflow:hidden}.summary-table td{padding:18px;border-bottom:1px solid var(--soft-beige)}.summary-table td:first-child{font-family:var(--font-heading);font-weight:700;color:var(--navy-blue);background:var(--cream-white);width:40%}.summary-table tr:last-child td{border-bottom:none}.gallery-container{max-width:800px;margin:0 auto;text-align:center}.gallery-card{background:white;padding:50px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.08);border-top:4px solid var(--gold-accent)}.gallery-info{background:var(--light-gold);padding:30px;border-radius:8px;margin:30px 0;border-left:4px solid var(--gold-accent)}.gallery-info h3{font-family:var(--font-heading);color:var(--navy-blue);margin-bottom:15px;font-size:24px}.gallery-info p{color:#555;margin-bottom:12px;line-height:1.7}.gallery-cta{margin-top:40px}.gallery-cta a{display:inline-block;padding:18px 40px;background:var(--navy-blue);color:white;text-decoration:none;border-radius:4px;font-family:var(--font-heading);font-weight:600;letter-spacing:1px;font-size:16px;transition:all .3s ease;text-transform:uppercase}.gallery-cta a:hover{background:var(--darker-navy);transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,.2)}.main-footer{background:linear-gradient(135deg,var(--navy-blue) 0%,var(--darker-navy) 100%);color:white;padding:60px 40px 40px;margin-top:80px;position:relative}.main-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold-accent),transparent)}.footer-content{max-width:var(--max-width);margin:0 auto}.footer-title{font-family:var(--font-heading);font-size:28px;color:var(--gold-accent);text-align:center;margin-bottom:50px;font-weight:700}.footer-contacts{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:40px}.footer-person{text-align:center}.footer-photo{width:130px;height:130px;border-radius:50%;margin:0 auto 20px;border:4px solid var(--gold-accent);overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.3);background:linear-gradient(135deg,var(--soft-beige),white)}.footer-photo img{width:100%;height:100%;object-fit:cover}.footer-photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:12px;color:#999;text-align:center;background:linear-gradient(135deg,#f5f5f5,#e8e8e8)}.footer-person h4{font-family:var(--font-heading);font-size:24px;color:white;margin-bottom:15px;font-weight:700}.footer-person p{color:#ccc;margin:8px 0;font-size:15px}.footer-copyright{text-align:center;margin-top:50px;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);color:#999;font-size:14px}@media (max-width:968px){.info-grid{grid-template-columns:1fr}.map-embed{height:300px}.timeline-item{flex-direction:column !important;text-align:center}.timeline-container::before{left:30px}.timeline-connector{display:none}.timeline-dot{left:30px}.contact-grid{grid-template-columns:1fr}.footer-contacts{grid-template-columns:1fr;gap:40px}}@media (max-width:768px){.hamburger-menu{display:flex}.nav-container{display:none}.nav-container.show{display:flex !important;position:absolute;top:60px;left:0;right:0;background:white;flex-direction:column;padding:10px 0;border-bottom:1px solid var(--soft-beige);z-index:999}.nav-container.show .nav-btn{width:100%;text-align:left;padding:15px 20px;border-bottom:1px solid var(--soft-beige);border-right:3px solid transparent}.nav-container.show .nav-btn.active{background:var(--light-gold);border-right-color:var(--gold-accent)}.couple-names{font-size:36px}.hero-section{height:400px}.hero-title{font-size:28px}.content-section{padding:50px 20px}.countdown-boxes{gap:15px}.countdown-box{padding:25px 30px;min-width:110px}.countdown-number{font-size:40px}.button-group{flex-direction:column}.btn{width:100%}.back-to-top-btn{bottom:20px;right:20px;width:45px;height:45px;font-size:20px}.rsvp-card{padding:30px 20px}.section-title{font-size:36px}.info-card{padding:30px 20px}}@keyframes confettiFall{to{transform:translateY(100vh) rotate(360deg);opacity:0}}
 </style>
 </head>
 <body>
@@ -291,7 +49,12 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     </div>
     
     <nav class="main-nav">
-        <div class="nav-container">
+        <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-container" id="navContainer">
             <button class="nav-btn active" onclick="showPage('home')">Główna</button>
             <button class="nav-btn" onclick="showPage('history')">Historia</button>
             <button class="nav-btn" onclick="showPage('schedule')">Harmonogram</button>
@@ -327,7 +90,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                 <p class="section-subtitle">Od pierwszego spotkania do naszego wielkiego dnia</p>
                 <div class="timeline-container">
                     <div class="timeline-item">
-                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 1]<br>200x200px</div></div>
+                        <div class="timeline-photo"><img loading="lazy" src="timeline-1.jpg" alt="Pierwsze spotkanie" onerror="this.parentElement.innerHTML='<div class=\"timeline-photo-placeholder\">[PHOTO 1]<br>200x200px</div>'"><div class="timeline-photo-placeholder" style="display:none;">[PHOTO 1]</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Wrzesień 2020</div>
@@ -336,7 +99,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="timeline-dot"></div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 2]<br>200x200px</div></div>
+                        <div class="timeline-photo"><img loading="lazy" src="timeline-2.jpg" alt="Pierwsza randka" onerror="this.parentElement.innerHTML='<div class=\"timeline-photo-placeholder\">[PHOTO 2]<br>200x200px</div>'"><div class="timeline-photo-placeholder" style="display:none;">[PHOTO 2]</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Październik 2020</div>
@@ -345,7 +108,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="timeline-dot"></div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 3]<br>200x200px</div></div>
+                        <div class="timeline-photo"><img loading="lazy" src="timeline-3.jpg" alt="Wspólny wyjazd" onerror="this.parentElement.innerHTML='<div class=\"timeline-photo-placeholder\">[PHOTO 3]<br>200x200px</div>'"><div class="timeline-photo-placeholder" style="display:none;">[PHOTO 3]</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Czerwiec 2021</div>
@@ -354,7 +117,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="timeline-dot"></div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 4]<br>200x200px</div></div>
+                        <div class="timeline-photo"><img loading="lazy" src="timeline-4.jpg" alt="Oświadczyny" onerror="this.parentElement.innerHTML='<div class=\"timeline-photo-placeholder\">[PHOTO 4]<br>200x200px</div>'"><div class="timeline-photo-placeholder" style="display:none;">[PHOTO 4]</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Grudzień 2024</div>
@@ -363,7 +126,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="timeline-dot"></div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 5]<br>200x200px</div></div>
+                        <div class="timeline-photo"><img loading="lazy" src="timeline-5.jpg" alt="Dzień ślubu" onerror="this.parentElement.innerHTML='<div class=\"timeline-photo-placeholder\">[PHOTO 5]<br>200x200px</div>'"><div class="timeline-photo-placeholder" style="display:none;">[PHOTO 5]</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Sierpień 2026</div>
@@ -396,7 +159,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="schedule-content">
                             <div class="schedule-activity">📸 Sesja zdjęciowa</div>
                             <div class="schedule-location">Parki i tereny w okolicy Tczewa</div>
-                            <div class="schedule-description">Plenery fotograficzne pary i grup gości. Jeśli chcesz być na zdjęciach, zarejestruj się podczas RSVP!</div>
+                            <div class="schedule-description">Plenery fotograficzne pary i grup gościu. Jeśli chcesz być na zdjęciach, zarejestruj się podczas RSVP!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
@@ -453,10 +216,10 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                             <p><strong>Godzina:</strong> 15:00</p>
                             <p><strong>Miejsce:</strong> Kościół pw. Podwyższenia Krzyża Świętego</p>
                             <p><strong>Adres:</strong> ul. Stefana Kardynała Wyszyńskiego 13, 83-110 Tczew</p>
-                            <p><strong><a href="https://maps.google.com/?q=ul.+Stefana+Kardynała+Wyszyńskiego+13,+83-110+Tczew" target="_blank">Otwórz w Google Maps</a></strong></p>
+                            <p><strong><a href="https://maps.google.com/?q=ul.+Stefana+Kardynała+Wyszyńskiego+13,+83-110+Tczew" target="_blank" rel="noopener noreferrer">Otwórz w Google Maps</a></strong></p>
                         </div>
                         <div class="map-embed">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5565.896565008256!2d18.79967232190074!3d54.08843931564477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd60daf7f655c3%3A0xa59e0b2ac82b288a!2zS8OzxJ9jiW9sIHB3LiBQb2R3ecWzc3plbmlhIEtyesSyeiBCbyU3NDUxJTdEczolQjglOUQlN0Y6e0E6NUIwMTA2fSU3RH0!5e0!3m2!1spl!2spl!4v1762261706136!5m2!1spl!2spl" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5565.896565008256!2d18.79967232190074!3d54.08843931564477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd60daf7f655c3%3A0xa59e0b2ac82b288a!2zS8OzxJ9jiW9sIHB3LiBQb2R3ecWzc3plbmlhIEtyesSyeiBCbyU3NDUxJTdEczolQjglOUQlN0Y6e0E6NUIwMTA2fSU3RH0!5e0!3m2!1spl!2spl!4v1762261706136!5m2!1spl!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -469,28 +232,28 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                             <p><strong>Godzina:</strong> 17:00</p>
                             <p><strong>Miejsce:</strong> OKLASKI</p>
                             <p><strong>Adres:</strong> Stanisławie 30A, 83-112 Lubiszewo</p>
-                            <p><strong><a href="https://maps.google.com/?q=Stanisławie+30A,+83-112+Lubiszewo" target="_blank">Otwórz w Google Maps</a></strong></p>
+                            <p><strong><a href="https://maps.google.com/?q=Stanisławie+30A,+83-112+Lubiszewo" target="_blank" rel="noopener noreferrer">Otwórz w Google Maps</a></strong></p>
                         </div>
                         <div class="map-embed">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2411.5!2d19.1!3d54.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471fd6d0d0d0d0d%3A0x0!2sStanisławie%2030A%2C%2083-112%20Lubiszewo!5e0!3m2!1spl!2spl!4v" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2411.5!2d19.1!3d54.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471fd6d0d0d0d0d%3A0x0!2sStanisławie%2030A%2C%2083-112%20Lubiszewo!5e0!3m2!1spl!2spl!4v" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
                 
                 <div class="info-card">
                     <h3>🚗 Dojazd i Parkingi</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 25px;">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:25px">
                         <div>
                             <h4>📍 Ceremonia</h4>
                             <p><strong>Kościół pw. Podwyższenia Krzyża Świętego</strong></p>
                             <p>ul. Stefana Kardynała Wyszyńskiego 13, 83-110 Tczew</p>
-                            <p style="margin-top: 15px; font-size: 14px; color: #666;">✅ Parking przy kościele (bezpłatny)</p>
+                            <p style="margin-top:15px;font-size:14px;color:#666">✅ Parking przy kościele (bezpłatny)</p>
                         </div>
                         <div>
                             <h4>📍 Przyjęcie</h4>
                             <p><strong>OKLASKI</strong></p>
                             <p>Stanisławie 30A, 83-112 Lubiszewo</p>
-                            <p style="margin-top: 15px; font-size: 14px; color: #666;">✅ Duży parking na terenie (bezpłatny)</p>
+                            <p style="margin-top:15px;font-size:14px;color:#666">✅ Duży parking na terenie (bezpłatny)</p>
                         </div>
                     </div>
                 </div>
@@ -498,16 +261,16 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                 <div class="info-card">
                     <h3>🚕 Transport</h3>
                     <p>Jeśli nie chcesz prowadzić samochodu, mamy kilka opcji:</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                        <div style="background: var(--cream-white); padding: 20px; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 32px; margin-bottom: 10px;">🚗</div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px">
+                        <div style="background:var(--cream-white);padding:20px;border-radius:8px;text-align:center">
+                            <div style="font-size:32px;margin-bottom:10px">🚗</div>
                             <p><strong>Bolt</strong></p>
-                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Aplikacja Bolt dostępna w Tczewie. Zaordynuj wcześniej!</p>
+                            <p style="font-size:14px;color:#666;margin-top:10px">Aplikacja Bolt dostępna w Tczewie. Zaordynuj wcześniej!</p>
                         </div>
-                        <div style="background: var(--cream-white); padding: 20px; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 32px; margin-bottom: 10px;">🚕</div>
+                        <div style="background:var(--cream-white);padding:20px;border-radius:8px;text-align:center">
+                            <div style="font-size:32px;margin-bottom:10px">🚕</div>
                             <p><strong>Taxi</strong></p>
-                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Taxi Tczew: <strong style="color: var(--navy-blue);">XXX-XXX-XXX</strong></p>
+                            <p style="font-size:14px;color:#666;margin-top:10px">Taxi Tczew: <strong style="color:var(--navy-blue)">XXX-XXX-XXX</strong></p>
                         </div>
                     </div>
                 </div>
@@ -515,21 +278,21 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                 <div class="info-card">
                     <h3>🏨 Noclegi</h3>
                     <p>Jeśli przyjeżdżasz z daleka, polecamy następujące miejsca noclegowe:</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                        <div style="border: 2px solid var(--soft-beige); padding: 20px; border-radius: 8px;">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px">
+                        <div style="border:2px solid var(--soft-beige);padding:20px;border-radius:8px">
                             <h4>Hotel BEISPIEL</h4>
-                            <p style="font-size: 14px; margin: 10px 0;"><strong>Odległość:</strong> 3 km od przyjęcia</p>
-                            <p style="font-size: 14px; margin: 10px 0;"><strong>Cena:</strong> ok. 150-200 zł/noc</p>
-                            <p style="font-size: 14px;"><a href="https://www.booking.com" target="_blank" style="color: var(--gold-accent);">→ Rezerwacja online</a></p>
+                            <p style="font-size:14px;margin:10px 0"><strong>Odległość:</strong> 3 km od przyjęcia</p>
+                            <p style="font-size:14px;margin:10px 0"><strong>Cena:</strong> ok. 150-200 zł/noc</p>
+                            <p style="font-size:14px"><a href="https://www.booking.com" target="_blank" rel="noopener noreferrer" style="color:var(--gold-accent)">→ Rezerwacja online</a></p>
                         </div>
-                        <div style="border: 2px solid var(--soft-beige); padding: 20px; border-radius: 8px;">
+                        <div style="border:2px solid var(--soft-beige);padding:20px;border-radius:8px">
                             <h4>Apartamenty PRZYKŁAD</h4>
-                            <p style="font-size: 14px; margin: 10px 0;"><strong>Odległość:</strong> 2 km od przyjęcia</p>
-                            <p style="font-size: 14px; margin: 10px 0;"><strong>Cena:</strong> ok. 120-150 zł/noc</p>
-                            <p style="font-size: 14px;"><a href="https://www.airbnb.com" target="_blank" style="color: var(--gold-accent);">→ Wyszukaj na Airbnb</a></p>
+                            <p style="font-size:14px;margin:10px 0"><strong>Odległość:</strong> 2 km od przyjęcia</p>
+                            <p style="font-size:14px;margin:10px 0"><strong>Cena:</strong> ok. 120-150 zł/noc</p>
+                            <p style="font-size:14px"><a href="https://www.airbnb.com" target="_blank" rel="noopener noreferrer" style="color:var(--gold-accent)">→ Wyszukaj na Airbnb</a></p>
                         </div>
                     </div>
-                    <p style="margin-top: 25px; padding: 15px; background: var(--light-gold); border-radius: 8px; border-left: 4px solid var(--gold-accent); font-size: 14px; color: #666;">
+                    <p style="margin-top:25px;padding:15px;background:var(--light-gold);border-radius:8px;border-left:4px solid var(--gold-accent);font-size:14px;color:#666">
                         <strong>💡 Wskazówka:</strong> Rezerwuj noclegi z wyprzedzeniem (lipiec-sierpień to sezon turystyczny). Jeśli szukasz więcej opcji, napisz do nas - mamy kilka polecanych miejsc!
                     </p>
                 </div>
@@ -540,7 +303,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                     <p class="gift-highlight">Prosimy NIE przynosić kwiatów - preferujemy koperty z pieniędzmi</p>
                 </div>
                 
-                <h2 class="section-title" style="margin-top: 80px;">Kontakt</h2>
+                <h2 class="section-title" style="margin-top:80px">Kontakt</h2>
                 <div class="gold-divider"></div>
                 <div class="contact-grid">
                     <div class="contact-person">
@@ -550,11 +313,11 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <h3>Wiktoria</h3>
                         <div class="contact-info-item">
                             <strong>Telefon:</strong>
-                            <span style="color: var(--gold-accent); font-weight: 600;">[numer telefonu]</span>
+                            <span style="color:var(--gold-accent);font-weight:600">[numer telefonu]</span>
                         </div>
                         <div class="contact-info-item">
                             <strong>Email:</strong>
-                            <span style="color: var(--gold-accent); font-weight: 600;">[Adres email]</span>
+                            <span style="color:var(--gold-accent);font-weight:600">[Adres email]</span>
                         </div>
                     </div>
                     <div class="contact-person">
@@ -564,11 +327,11 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <h3>Maciej</h3>
                         <div class="contact-info-item">
                             <strong>Telefon:</strong>
-                            <span style="color: var(--gold-accent); font-weight: 600;">[numer telefonu]</span>
+                            <span style="color:var(--gold-accent);font-weight:600">[numer telefonu]</span>
                         </div>
                         <div class="contact-info-item">
                             <strong>Email:</strong>
-                            <span style="color: var(--gold-accent); font-weight: 600;">[Adres email]</span>
+                            <span style="color:var(--gold-accent);font-weight:600">[Adres email]</span>
                         </div>
                     </div>
                 </div>
@@ -586,8 +349,8 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                             <div class="form-group">
                                 <label class="form-label">Kod zaproszenia (4 cyfry):</label>
                                 <input type="text" class="form-input" id="codeInput" placeholder="np. 1001" maxlength="4" />
+                                <div class="validation-error" id="codeError"></div>
                             </div>
-                            <div class="alert alert-error" id="codeError" style="display: none;"></div>
                             <div class="button-group">
                                 <button class="btn btn-primary" onclick="rsvpValidateCode()" id="codeBtn">Dalej</button>
                             </div>
@@ -608,7 +371,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                             <h2>Wybierz osoby uczestniczące</h2>
                             <p class="rsvp-subtitle">Zaznacz wszystkie osoby, które będą brać udział w weselu</p>
                             <div class="checkbox-list" id="peopleCheckboxes"></div>
-                            <div class="alert alert-error" id="peopleError" style="display: none;"></div>
+                            <div class="validation-error" id="peopleError"></div>
                             <div class="button-group">
                                 <button class="btn btn-back" onclick="rsvpGoBack(3)">Wróć</button>
                                 <button class="btn btn-primary" onclick="rsvpSelectPeople()">Dalej</button>
@@ -633,12 +396,13 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                             <div class="form-group">
                                 <label class="form-label">Imię i nazwisko:</label>
                                 <input type="text" class="form-input" id="companionName" placeholder="Imię Nazwisko" />
+                                <div class="validation-error" id="companionNameError"></div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Email (opcjonalnie):</label>
                                 <input type="email" class="form-input" id="companionEmail" placeholder="email@example.com" />
+                                <div class="validation-error" id="companionEmailError"></div>
                             </div>
-                            <div class="alert alert-error" id="companionError" style="display: none;"></div>
                             <div class="button-group">
                                 <button class="btn btn-back" onclick="rsvpGoBackFromStep5()">Wróć</button>
                                 <button class="btn btn-primary" onclick="rsvpCompanionDone()">Dalej</button>
@@ -654,12 +418,12 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                                 <button class="btn btn-secondary" id="emailNoBtn" onclick="rsvpEmailNo()">Nie, Dziękuję</button>
                                 <button class="btn btn-primary" id="emailYesBtn" onclick="rsvpEmailYes()">Tak, Chcę Email</button>
                             </div>
-                            <div id="emailInputSection" style="display: none; margin-top: 30px;">
+                            <div id="emailInputSection" style="display:none;margin-top:30px">
                                 <div class="form-group">
                                     <label class="form-label">Twój adres email:</label>
                                     <input type="email" class="form-input" id="userEmail" placeholder="email@example.com" />
+                                    <div class="validation-error" id="emailError"></div>
                                 </div>
-                                <div class="alert alert-error" id="emailError" style="display: none;"></div>
                                 <div class="button-group">
                                     <button class="btn btn-back" onclick="rsvpEmailReset()">Anuluj</button>
                                     <button class="btn btn-primary" onclick="rsvpEmailConfirm()">Potwierdź</button>
@@ -677,7 +441,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                                     <label for="noDiet">Brak ograniczeń</label>
                                 </div>
                             </div>
-                            <div class="form-group" style="margin-top: 25px;">
+                            <div class="form-group" style="margin-top:25px">
                                 <label class="form-label">Szczegóły ograniczeń (opcjonalnie):</label>
                                 <textarea class="form-input" id="dietDetails" placeholder="np. Weganin, Gluten-free, Alergiczny na..." rows="4"></textarea>
                             </div>
@@ -728,10 +492,10 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         </div>
                         
                         <div class="rsvp-step" id="rsvpStep8">
-                            <div style="text-align: center; padding: 40px 0;">
+                            <div style="text-align:center;padding:40px 0">
                                 <h2>Potwierdzenie Wysłane</h2>
                                 <div class="alert alert-success">Dziękujemy za potwierdzenie przybycia. Czekamy na Ciebie na weselu!</div>
-                                <div class="button-group" style="margin-top: 40px;">
+                                <div class="button-group" style="margin-top:40px">
                                     <button class="btn btn-primary" onclick="resetRSVP()">Nowe Potwierdzenie</button>
                                     <button class="btn btn-secondary" onclick="closeRsvpAndHighlightHome()">Zamknij</button>
                                 </div>
@@ -745,12 +509,12 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                                 <button class="btn btn-secondary" id="btnNoEmail" onclick="rsvpNoContactDone()">Nie, Dziękuję</button>
                                 <button class="btn btn-primary" id="btnYesEmail" onclick="rsvpNoContactEmail()">Tak, Chcę Email</button>
                             </div>
-                            <div id="noContactEmailInput" style="display: none; margin-top: 30px;">
+                            <div id="noContactEmailInput" style="display:none;margin-top:30px">
                                 <div class="form-group">
                                     <label class="form-label">Twój adres email:</label>
                                     <input type="email" class="form-input" id="noContactEmail" placeholder="email@example.com" />
+                                    <div class="validation-error" id="noContactEmailError"></div>
                                 </div>
-                                <div class="alert alert-error" id="noContactEmailError" style="display: none;"></div>
                                 <div class="button-group">
                                     <button class="btn btn-back" onclick="rsvpNoContactReset()">Wróć</button>
                                     <button class="btn btn-primary" onclick="rsvpNoContactSubmit()" id="noContactSubmitBtn">Potwierdź</button>
@@ -759,10 +523,10 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         </div>
                         
                         <div class="rsvp-step" id="noEmailSuccess">
-                            <div style="text-align: center; padding: 40px 0;">
+                            <div style="text-align:center;padding:40px 0">
                                 <h2>Potwierdzenie Wysłane</h2>
                                 <div class="alert alert-success">Rozumiemy Twoją decyzję. Dziękujemy za wiadomość.</div>
-                                <div class="button-group" style="margin-top: 40px;">
+                                <div class="button-group" style="margin-top:40px">
                                     <button class="btn btn-primary" onclick="resetRSVP()">Nowe Potwierdzenie</button>
                                     <button class="btn btn-secondary" onclick="closeRsvpAndHighlightHome()">Zamknij</button>
                                 </div>
@@ -770,10 +534,10 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         </div>
                         
                         <div class="rsvp-step" id="withEmailSuccess">
-                            <div style="text-align: center; padding: 40px 0;">
+                            <div style="text-align:center;padding:40px 0">
                                 <h2>Potwierdzenie Wysłane</h2>
                                 <div class="alert alert-success">Będziemy Ci wysyłać aktualizacje dotyczące wesela na podany email.</div>
-                                <div class="button-group" style="margin-top: 40px;">
+                                <div class="button-group" style="margin-top:40px">
                                     <button class="btn btn-primary" onclick="resetRSVP()">Nowe Potwierdzenie</button>
                                     <button class="btn btn-secondary" onclick="closeRsvpAndHighlightHome()">Zamknij</button>
                                 </div>
@@ -793,13 +557,13 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="gallery-info">
                             <h3>Podziel się Swoimi Zdjęciami</h3>
                             <p>Jeśli masz zdjęcia z wesela, dodaj je do naszej wspólnej galerii! Możesz wrzucać zdjęcia bezpośrednio do albumu Google Photos. Dzięki temu wszystkie wspomnienia będą w jednym miejscu.</p>
-                            <p style="margin-bottom: 0; color: var(--navy-blue); font-weight: 700;">Pamiętaj: Tylko zdjęcia z dnia wesela - 6 sierpnia 2026</p>
+                            <p style="margin-bottom:0;color:var(--navy-blue);font-weight:700">Pamiętaj: Tylko zdjęcia z dnia wesela - 6 sierpnia 2026</p>
                         </div>
                         <div class="gallery-cta">
-                            <a href="https://photos.app.goo.gl/563UeatK4Yv3f9kP7" target="_blank">Otwórz Galerię w Google Photos</a>
+                            <a href="https://photos.app.goo.gl/563UeatK4Yv3f9kP7" target="_blank" rel="noopener noreferrer">Otwórz Galerię w Google Photos</a>
                         </div>
-                        <div style="margin-top: 40px; padding: 30px; background: var(--cream-white); border-radius: 8px; text-align: center; border: 1px solid var(--soft-beige);">
-                            <p style="color: #777; font-size: 15px; margin: 0;">Zdjęcia pojawiają się w galerii na bieżąco. Dziękujemy za dzielenie się wspomnieniami!</p>
+                        <div style="margin-top:40px;padding:30px;background:var(--cream-white);border-radius:8px;text-align:center;border:1px solid var(--soft-beige)">
+                            <p style="color:#777;font-size:15px;margin:0">Zdjęcia pojawiają się w galerii na bieżąco. Dziękujemy za dzielenie się wspomnieniami!</p>
                         </div>
                     </div>
                 </div>
@@ -834,6 +598,8 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
             </div>
         </div>
     </footer>
+    
+    <button class="back-to-top-btn" id="backToTopBtn" onclick="scrollToTop()">⬆️</button>
     
 </div>
 
@@ -883,22 +649,24 @@ const guestDatabase = new Map([
     ["1039", { names: ["Malwina Piechocka", "Marek Piechocki"], companion: false }]
 ]);
 
-let rsvpState = {
-    code: null,
-    selectedPeople: [],
-    companion: { name: "", email: "", hasCompanion: null },
-    email: "",
-    wantEmail: false,
-    diet: "",
-    noDiet: false,
-    attending: null,
-    currentStep: 1,
-    formCompleted: false,
-    isSubmitting: false
-};
+let rsvpState = { code: null, selectedPeople: [], companion: { name: "", email: "", hasCompanion: null }, email: "", wantEmail: false, diet: "", noDiet: false, attending: null, currentStep: 1, formCompleted: false, isSubmitting: false };
 
 function triggerEasterEgg() { document.getElementById("easterEggOverlay").classList.add("show"); setTimeout(() => closeEasterEgg(), 4800); }
 function closeEasterEgg() { document.getElementById("easterEggOverlay").classList.remove("show"); }
+
+function toggleMobileMenu() {
+    const hamburger = document.getElementById('hamburgerMenu');
+    const navContainer = document.getElementById('navContainer');
+    hamburger.classList.toggle('active');
+    navContainer.classList.toggle('show');
+}
+
+document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.getElementById('hamburgerMenu').classList.remove('active');
+        document.getElementById('navContainer').classList.remove('show');
+    });
+});
 
 function checkPassword() {
     const password = document.getElementById("passwordInput").value;
@@ -916,19 +684,11 @@ function checkPassword() {
 function showPage(pageId) {
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
     document.getElementById(pageId).classList.add("active");
-    
     document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
     event.target?.classList.add("active");
-    
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // ✅ ZMIANA 2: POKAŻ/UKRYJ HERO SECTION
     const heroSection = document.querySelector(".hero-section");
-    if (pageId === 'home') {
-        heroSection.style.display = "flex";
-    } else {
-        heroSection.style.display = "none";
-    }
+    if (pageId === 'home') { heroSection.style.display = "flex"; } else { heroSection.style.display = "none"; }
 }
 
 function closeRsvpAndHighlightHome() {
@@ -956,12 +716,7 @@ function updateCountdown() {
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
     const countdownEl = document.getElementById("countdownBoxes");
     if (countdownEl) {
-        countdownEl.innerHTML = `
-            <div class="countdown-box"><span class="countdown-number">${days}</span><span class="countdown-label">Dni</span></div>
-            <div class="countdown-box"><span class="countdown-number">${hours}</span><span class="countdown-label">Godzin</span></div>
-            <div class="countdown-box"><span class="countdown-number">${minutes}</span><span class="countdown-label">Minut</span></div>
-            <div class="countdown-box"><span class="countdown-number">${seconds}</span><span class="countdown-label">Sekund</span></div>
-        `;
+        countdownEl.innerHTML = `<div class="countdown-box"><span class="countdown-number">${days}</span><span class="countdown-label">Dni</span></div><div class="countdown-box"><span class="countdown-number">${hours}</span><span class="countdown-label">Godzin</span></div><div class="countdown-box"><span class="countdown-number">${minutes}</span><span class="countdown-label">Minut</span></div><div class="countdown-box"><span class="countdown-number">${seconds}</span><span class="countdown-label">Sekund</span></div>`;
     }
 }
 
@@ -984,13 +739,59 @@ function updateProgressTracker(step) {
 function hideAllSteps() { document.querySelectorAll(".rsvp-step").forEach(el => el.classList.remove("visible")); }
 function showStep(stepId) { hideAllSteps(); document.getElementById(stepId).classList.add("visible"); updateProgressTracker(rsvpState.currentStep); }
 
+function validateCodeInRealTime(e) {
+    const code = e.target.value;
+    const errorEl = document.getElementById('codeError');
+    if (code.length === 0) { errorEl.textContent = ''; errorEl.classList.remove('show'); e.target.classList.remove('error', 'valid'); return; }
+    if (code.length !== 4 || isNaN(code)) { errorEl.textContent = 'Kod musi mieć dokładnie 4 cyfry'; errorEl.classList.add('show'); e.target.classList.add('error'); e.target.classList.remove('valid'); return; }
+    if (!guestDatabase.has(code)) { errorEl.textContent = 'Kod nie został znaleziony'; errorEl.classList.add('show'); e.target.classList.add('error'); e.target.classList.remove('valid'); return; }
+    errorEl.textContent = ''; errorEl.classList.remove('show'); e.target.classList.add('valid'); e.target.classList.remove('error');
+}
+
+function validateEmailInRealTime(e) {
+    const email = e.target.value;
+    const errorId = e.target.id + 'Error';
+    const errorEl = document.getElementById(errorId) || createErrorElement(e.target);
+    if (email.length === 0) { errorEl.textContent = ''; errorEl.classList.remove('show'); e.target.classList.remove('error', 'valid'); return; }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) { errorEl.textContent = 'Email jest niepoprawny'; errorEl.classList.add('show'); e.target.classList.add('error'); e.target.classList.remove('valid'); return; }
+    errorEl.textContent = ''; errorEl.classList.remove('show'); e.target.classList.add('valid'); e.target.classList.remove('error');
+}
+
+function createErrorElement(inputEl) {
+    const errorEl = document.createElement('div');
+    errorEl.className = 'validation-error';
+    inputEl.parentNode.insertBefore(errorEl, inputEl.nextSibling);
+    return errorEl;
+}
+
+function createConfetti() {
+    const confettiCount = 50;
+    const colors = ['#d4af37', '#FFD700', '#FFA500', '#1a3a52', '#FF6B6B'];
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animation = `confettiFall ${2 + Math.random() * 1}s ease-in forwards`;
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 3000);
+    }
+}
+
+const backToTopBtn = document.querySelector('.back-to-top-btn');
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) { backToTopBtn.classList.add('show'); } else { backToTopBtn.classList.remove('show'); }
+});
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
 function rsvpValidateCode() {
     const code = document.getElementById("codeInput").value.trim();
     const codeError = document.getElementById("codeError");
     const codeBtn = document.getElementById("codeBtn");
-    if (code.length !== 4 || isNaN(code)) { codeError.textContent = "Kod musi mieć 4 cyfry"; codeError.style.display = "block"; return; }
-    if (!guestDatabase.has(code)) { codeError.textContent = "Kod nie został znaleziony"; codeError.style.display = "block"; return; }
-    codeError.style.display = "none";
+    if (code.length !== 4 || isNaN(code)) { codeError.textContent = "Kod musi mieć 4 cyfry"; codeError.classList.add('show'); return; }
+    if (!guestDatabase.has(code)) { codeError.textContent = "Kod nie został znaleziony"; codeError.classList.add('show'); return; }
+    codeError.classList.remove('show');
     codeBtn.disabled = true;
     codeBtn.textContent = "Sprawdzam...";
     fetch(GOOGLE_APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify({ action: "validateCode", code: code }) })
@@ -999,9 +800,9 @@ function rsvpValidateCode() {
         codeBtn.disabled = false;
         codeBtn.textContent = "Dalej";
         if (data.success) { rsvpState.code = code; rsvpState.currentStep = 2; showStep("rsvpStep2"); }
-        else { codeError.textContent = data.message; codeError.style.display = "block"; }
+        else { codeError.textContent = data.message; codeError.classList.add('show'); }
     })
-    .catch(error => { codeBtn.disabled = false; codeBtn.textContent = "Dalej"; codeError.textContent = "Błąd połączenia. Spróbuj ponownie."; codeError.style.display = "block"; });
+    .catch(error => { codeBtn.disabled = false; codeBtn.textContent = "Dalej"; codeError.textContent = "Błąd połączenia"; codeError.classList.add('show'); });
 }
 
 function rsvpYesAttendance() { rsvpState.attending = true; rsvpState.currentStep = 3; rsvpShowPeopleSelection(); }
@@ -1021,9 +822,9 @@ function rsvpSelectPeople() {
     const checkboxes = document.querySelectorAll("#peopleCheckboxes input[type='checkbox']");
     const selected = Array.from(checkboxes).filter(c => c.checked).map(c => c.value);
     const peopleError = document.getElementById("peopleError");
-    if (selected.length === 0) { peopleError.textContent = "Musisz wybrać co najmniej jedną osobę"; peopleError.style.display = "block"; return; }
+    if (selected.length === 0) { peopleError.textContent = "Musisz wybrać co najmniej jedną osobę"; peopleError.classList.add('show'); return; }
     rsvpState.selectedPeople = selected;
-    peopleError.style.display = "none";
+    peopleError.classList.remove('show');
     if (guestDatabase.get(rsvpState.code).companion) { rsvpState.currentStep = 4; showStep("rsvpStep3b"); }
     else { rsvpState.currentStep = 6; showStep("rsvpStep5"); }
 }
@@ -1040,11 +841,12 @@ function rsvpYesCompanion() { rsvpState.currentStep = 5; showStep("rsvpStep3c");
 function rsvpCompanionDone() {
     const name = document.getElementById("companionName").value.trim();
     const email = document.getElementById("companionEmail").value.trim();
-    const companionError = document.getElementById("companionError");
-    if (!name) { companionError.textContent = "Wpisz imię i nazwisko osoby towarzyszącej"; companionError.style.display = "block"; return; }
-    if (email && !validateEmail(email)) { companionError.textContent = "Nieprawidłowy format emaila"; companionError.style.display = "block"; return; }
+    const companionNameError = document.getElementById("companionNameError");
+    if (!name) { companionNameError.textContent = "Wpisz imię i nazwisko"; companionNameError.classList.add('show'); return; }
+    if (email && !validateEmail(email)) { document.getElementById("companionEmailError").textContent = "Nieprawidłowy email"; document.getElementById("companionEmailError").classList.add('show'); return; }
     rsvpState.companion = { name, email, hasCompanion: true };
-    companionError.style.display = "none";
+    document.getElementById("companionNameError").classList.remove('show');
+    document.getElementById("companionEmailError").classList.remove('show');
     rsvpState.currentStep = 6;
     showStep("rsvpStep5");
 }
@@ -1055,10 +857,10 @@ function rsvpEmailNo() { rsvpState.wantEmail = false; rsvpState.email = ""; rsvp
 function rsvpEmailConfirm() {
     const email = document.getElementById("userEmail").value.trim();
     const emailError = document.getElementById("emailError");
-    if (!validateEmail(email)) { emailError.textContent = "Nieprawidłowy format emaila"; emailError.style.display = "block"; return; }
+    if (!validateEmail(email)) { emailError.textContent = "Nieprawidłowy email"; emailError.classList.add('show'); return; }
     rsvpState.wantEmail = true;
     rsvpState.email = email;
-    emailError.style.display = "none";
+    emailError.classList.remove('show');
     rsvpState.currentStep = 7;
     showStep("rsvpStep6");
 }
@@ -1068,7 +870,7 @@ function rsvpEmailReset() { document.getElementById("emailInputSection").style.d
 function rsvpDietDone() {
     const noDiet = document.getElementById("noDiet").checked;
     const dietDetails = document.getElementById("dietDetails").value.trim();
-    if (!noDiet && !dietDetails) { alert("Zaznacz 'Brak ograniczeń' lub wpisz szczegóły ograniczeń dietetycznych"); return; }
+    if (!noDiet && !dietDetails) { alert("Zaznacz 'Brak ograniczeń' lub wpisz szczegóły"); return; }
     rsvpState.noDiet = noDiet;
     rsvpState.diet = dietDetails;
     rsvpState.currentStep = 8;
@@ -1114,13 +916,10 @@ function rsvpSubmit() {
             rsvpState.formCompleted = true;
             rsvpState.currentStep = 9;
             showStep("rsvpStep8");
-            
-            // ✅ ZMIANA 1: SMOOTH SCROLL DO SUCCESS MESSAGE (WYCENTROWANY)
+            createConfetti();
             setTimeout(() => {
                 const successMsg = document.getElementById("rsvpStep8");
-                if (successMsg) {
-                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+                if (successMsg) { successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
             }, 300);
         } else {
             alert("Błąd: " + data.message);
@@ -1130,7 +929,7 @@ function rsvpSubmit() {
         submitBtn.disabled = false;
         submitBtn.textContent = "Potwierdź i Wyślij";
         rsvpState.isSubmitting = false;
-        alert("Błąd połączenia. Spróbuj ponownie.");
+        alert("Błąd połączenia");
     });
 }
 
@@ -1163,14 +962,14 @@ function rsvpNoContactDone() {
         rsvpState.isSubmitting = false;
         if (data.success) { showStep("noEmailSuccess"); } else { alert("Błąd: " + data.message); rsvpState.formCompleted = false; }
     })
-    .catch(error => { rsvpState.isSubmitting = false; rsvpState.formCompleted = false; alert("Błąd połączenia. Spróbuj ponownie."); });
+    .catch(error => { rsvpState.isSubmitting = false; rsvpState.formCompleted = false; alert("Błąd połączenia"); });
 }
 
 function rsvpNoContactSubmit() {
     if (rsvpState.formCompleted || rsvpState.isSubmitting) return;
     const email = document.getElementById("noContactEmail").value.trim();
     const emailError = document.getElementById("noContactEmailError");
-    if (!validateEmail(email)) { emailError.textContent = "Nieprawidłowy format emaila"; emailError.style.display = "block"; return; }
+    if (!validateEmail(email)) { emailError.textContent = "Nieprawidłowy email"; emailError.classList.add('show'); return; }
     const noContactSubmitBtn = document.getElementById("noContactSubmitBtn");
     noContactSubmitBtn.disabled = true;
     rsvpState.isSubmitting = true;
@@ -1185,19 +984,23 @@ function rsvpNoContactSubmit() {
         rsvpState.isSubmitting = false;
         if (data.success) { showStep("withEmailSuccess"); } else { alert("Błąd: " + data.message); rsvpState.formCompleted = false; }
     })
-    .catch(error => { noContactSubmitBtn.disabled = false; noContactSubmitBtn.textContent = "Potwierdź"; rsvpState.isSubmitting = false; rsvpState.formCompleted = false; alert("Błąd połączenia. Spróbuj ponownie."); });
+    .catch(error => { noContactSubmitBtn.disabled = false; noContactSubmitBtn.textContent = "Potwierdź"; rsvpState.isSubmitting = false; rsvpState.formCompleted = false; alert("Błąd połączenia"); });
 }
 
-function rsvpNoContactReset() { document.getElementById("noContactEmailInput").style.display = "none"; document.getElementById("btnNoEmail").style.display = "block"; document.getElementById("btnYesEmail").style.display = "block"; document.getElementById("noContactEmail").value = ""; document.getElementById("noContactEmailError").style.display = "none"; }
+function rsvpNoContactReset() { document.getElementById("noContactEmailInput").style.display = "none"; document.getElementById("btnNoEmail").style.display = "block"; document.getElementById("btnYesEmail").style.display = "block"; document.getElementById("noContactEmail").value = ""; document.getElementById("noContactEmailError").classList.remove('show'); }
 function validateEmail(email) { const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; return re.test(email); }
 
 document.addEventListener("DOMContentLoaded", function() {
     updateCountdown();
     scheduleCountdownUpdate();
     document.getElementById("passwordInput").addEventListener("keypress", function(e) { if (e.key === "Enter") checkPassword(); });
+    document.getElementById("codeInput").addEventListener("change", validateCodeInRealTime);
+    document.getElementById("userEmail").addEventListener("change", validateEmailInRealTime);
+    document.getElementById("companionEmail").addEventListener("change", validateEmailInRealTime);
+    document.getElementById("noContactEmail").addEventListener("change", validateEmailInRealTime);
 });
 
-if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/service-worker.js').then(() => console.log('SW registered')).catch(() => console.log('SW failed')); }
+if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/service-worker.js').then(() => {}).catch(() => {}); }
 </script>
 </body>
 </html>
