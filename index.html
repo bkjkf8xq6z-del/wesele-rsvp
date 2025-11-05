@@ -12,7 +12,7 @@
 
 <style>
 /* ========================================================================== */
-/* MODERN CLASSIC WEDDING DESIGN - V20 */
+/* MODERN CLASSIC WEDDING DESIGN - V21 */
 /* ========================================================================== */
 
 :root {
@@ -102,7 +102,7 @@ body {
     position: relative;
     height: 600px;
     background: linear-gradient(rgba(26, 58, 82, 0.4), rgba(26, 58, 82, 0.6)),
-                url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"%3E%3Crect fill="%231a3a52" width="1200" height="600"/%3E%3Ctext x="600" y="300" font-size="32" fill="%23d4af37" text-anchor="middle" font-family="Arial"%3E[COUPLE HERO PHOTO - 1200x600px]%3C/text%3E%3C/svg%3E');
+                url('couple-hero.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -145,7 +145,7 @@ body {
 }
 
 /* ========================================================================== */
-/* EASTER EGG - MILLENNIUM FALCON (NO TEXT!) */
+/* EASTER EGG - MILLENNIUM FALCON (REAL PNG!) */
 /* ========================================================================== */
 
 .easter-egg-overlay {
@@ -518,6 +518,60 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 600;
+}
+
+/* ========================================================================== */
+/* CTA SECTION - CALL TO ACTION POD LICZNIKIEM */
+/* ========================================================================== */
+
+.cta-section {
+    text-align: center;
+    margin-top: 70px;
+    padding: 60px 20px;
+}
+
+.cta-title {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    color: var(--navy-blue);
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+
+.cta-subtitle {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 18px 50px;
+    background: var(--navy-blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(26, 58, 82, 0.2);
+}
+
+.cta-button:hover {
+    background: var(--gold-accent);
+    color: var(--navy-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+.cta-button:active {
+    transform: translateY(-1px);
 }
 
 /* ========================================================================== */
@@ -1321,6 +1375,19 @@ body {
         font-size: 40px;
     }
     
+    .cta-title {
+        font-size: 26px;
+    }
+    
+    .cta-subtitle {
+        font-size: 14px;
+    }
+    
+    .cta-button {
+        padding: 16px 32px;
+        font-size: 14px;
+    }
+    
     .rsvp-card {
         padding: 30px 20px;
     }
@@ -1345,9 +1412,10 @@ body {
 </head>
 <body>
 
-<!-- EASTER EGG - MILLENNIUM FALCON (NO TEXT!) -->
+<!-- EASTER EGG - MILLENNIUM FALCON (REAL PNG!) -->
 <div class="easter-egg-overlay" id="easterEggOverlay" onclick="closeEasterEgg()">
     <div class="falcon-container">
+        <!-- ✅ FALCON.PNG - SZTYWNIE WKOMPILOWANY -->
         <img src="falcon.PNG" alt="Millennium Falcon" class="falcon-real" />
     </div>
 </div>
@@ -1403,6 +1471,14 @@ body {
                     <div class="countdown-date-display">Sobota, 6 sierpnia 2026</div>
                     <div class="countdown-location">Tczew, Polska</div>
                     <div class="countdown-boxes" id="countdownBoxes"></div>
+                </div>
+                
+                <!-- CTA SECTION - NOWE! V21 -->
+                <div class="cta-section">
+                    <div class="gold-divider"></div>
+                    <h3 class="cta-title">Świętujmy razem</h3>
+                    <p class="cta-subtitle">Potwierdź swoją obecność i dołącz do zabawy</p>
+                    <button class="cta-button" onclick="showPage('rsvp')">Potwierdź Obecność</button>
                 </div>
             </div>
         </div>
