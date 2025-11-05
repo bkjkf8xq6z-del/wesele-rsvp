@@ -35,28 +35,28 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 .wedding-date { font-family: var(--font-heading); font-size: 18px; color: var(--cream-white); letter-spacing: 4px; font-weight: 400; }
 .hero-section {
     position: relative;
-    height: 600px;
+    height: 0;
     background: linear-gradient(rgba(26, 58, 82, 0.4), rgba(26, 58, 82, 0.6)), url('couple-hero.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    display: none !important;
+    display: none;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
-    visibility: hidden !important;
-    height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    visibility: hidden;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
 }
 
-.hero-section.show {
-    display: flex !important;
-    visibility: visible !important;
-    height: 600px !important;
-    padding: 40px !important;
-    margin: 0 !important;
+.hero-section.visible {
+    display: flex;
+    visibility: visible;
+    height: 600px;
+    padding: 40px;
+    margin: 0;
 }
 
 .hero-content { z-index: 2; max-width: 800px; padding: 40px; }
@@ -196,10 +196,10 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 .form-input:focus { outline: none; border-color: var(--gold-accent); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1); }
 
 .checkbox-list { display: flex; flex-direction: column; gap: 12px; }
-.checkbox-option { display: flex; align-items: center; padding: 16px; background: var(--cream-white); border: 2px solid var(--soft-beige); border-radius: 4px; cursor: pointer; transition: all 0.2s ease; width: 100%; user-select: none; }
+.checkbox-option { display: flex; align-items: center; padding: 16px; background: var(--cream-white); border: 2px solid var(--soft-beige); border-radius: 4px; cursor: pointer; transition: all 0.2s ease; }
 .checkbox-option:hover { border-color: var(--gold-accent); background: white; }
 .checkbox-option input[type="checkbox"] { width: 22px; height: 22px; margin-right: 14px; cursor: pointer; accent-color: var(--gold-accent); }
-.checkbox-option label { margin: 0; cursor: pointer; font-size: 16px; color: var(--dark-text); flex: 1; }
+.checkbox-option label { margin: 0; cursor: pointer; font-size: 16px; color: var(--dark-text); }
 
 .button-group { display: flex; gap: 15px; margin-top: 40px; }
 .btn { flex: 1; padding: 16px 28px; border: none; border-radius: 4px; font-family: var(--font-heading); font-size: 15px; font-weight: 600; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; }
@@ -254,39 +254,322 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     .nav-btn { padding: 16px 20px; font-size: 13px; }
 }
 
-@media (max-width: 640px) {
-    .couple-names { font-size: 36px; }
-    .hero-section.show { height: 400px !important; }
-    .hero-title { font-size: 28px; }
-    .content-section { padding: 50px 20px; }
-    .countdown-boxes { gap: 15px; }
-    .countdown-box { padding: 25px 30px; min-width: 110px; }
-    .countdown-number { font-size: 40px; }
-    .button-group { flex-direction: column; }
-    .btn { width: 100%; }
+
+
+
+/* ========== COMPREHENSIVE MOBILE OPTIMIZATION ========== */
+
+/* Hero Section Mobile */
+@media (max-width: 768px) {
+    .hero-section.visible {
+        height: 400px;
+        padding: 20px;
+    }
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
 }
 
+/* Navbar Mobile */
+@media (max-width: 768px) {
+    .main-nav {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
 
-/* ========== HAMBURGER MENU ========== */
+    .hamburger {
+        display: flex;
+        order: -1;
+        padding: 5px;
+    }
+
+    .nav-container {
+        display: none;
+    }
+}
+
+/* Content Section Mobile */
+@media (max-width: 768px) {
+    .content-section {
+        padding: 40px 15px;
+    }
+
+    .section-title {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+}
+
+/* Countdown Mobile */
+@media (max-width: 768px) {
+    .countdown-intro {
+        font-size: 24px;
+    }
+
+    .countdown-date-display {
+        font-size: 16px;
+    }
+
+    .countdown-boxes {
+        gap: 10px;
+        margin-top: 25px;
+    }
+
+    .countdown-box {
+        padding: 20px 15px;
+        min-width: 75px;
+    }
+
+    .countdown-number {
+        font-size: 32px;
+    }
+
+    .countdown-label {
+        font-size: 11px;
+    }
+}
+
+/* Timeline Mobile */
+@media (max-width: 968px) {
+    .timeline-container::before {
+        left: 25px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .timeline-connector {
+        display: none;
+    }
+
+    .timeline-dot {
+        left: 25px;
+    }
+
+    .timeline-photo {
+        flex: 0 0 150px;
+        height: 150px;
+        margin: 0 auto 20px;
+    }
+
+    .timeline-content {
+        border-left: none;
+        border-top: 3px solid var(--gold-accent);
+        padding-top: 20px;
+    }
+}
+
+/* Schedule Mobile */
+@media (max-width: 768px) {
+    .schedule-item {
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+
+    .schedule-time {
+        padding: 12px;
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .schedule-connector {
+        display: none;
+    }
+
+    .schedule-content {
+        padding: 15px;
+        border-left: none;
+        border-top: 3px solid var(--gold-accent);
+    }
+
+    .schedule-activity {
+        font-size: 18px;
+    }
+
+    .schedule-description {
+        font-size: 14px;
+    }
+}
+
+/* Info Cards Mobile */
+@media (max-width: 768px) {
+    .info-card {
+        padding: 25px 15px;
+        margin-bottom: 20px;
+    }
+
+    .info-card h3 {
+        font-size: 24px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .map-embed {
+        height: 250px;
+    }
+}
+
+/* Contact Mobile */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contact-person {
+        padding: 20px;
+    }
+
+    .contact-photo {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* RSVP Mobile */
+@media (max-width: 768px) {
+    .rsvp-container {
+        max-width: 100%;
+    }
+
+    .rsvp-card {
+        padding: 20px 15px;
+    }
+
+    .rsvp-card h2 {
+        font-size: 26px;
+    }
+
+    .form-input {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .checkbox-option {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px 20px;
+    }
+}
+
+/* Gallery Mobile */
+@media (max-width: 768px) {
+    .gallery-card {
+        padding: 20px 15px;
+    }
+
+    .gallery-info {
+        padding: 15px;
+    }
+
+    .gallery-cta a {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
+
+/* Footer Mobile */
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 40px 15px 20px;
+    }
+
+    .footer-contacts {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .footer-person h4 {
+        font-size: 20px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .content-section {
+        padding: 30px 12px;
+    }
+
+    .couple-names {
+        font-size: 32px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+
+    .countdown-number {
+        font-size: 28px;
+    }
+
+    .btn {
+        font-size: 13px;
+        padding: 12px 15px;
+    }
+}
+
+/* Hamburger Menu */
 .hamburger {
     display: none;
     flex-direction: column;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
-    gap: 5px;
+    padding: 8px;
+    gap: 4px;
 }
 
 .hamburger span {
-    width: 25px;
-    height: 3px;
+    width: 24px;
+    height: 2.5px;
     background: var(--dark-text);
     transition: 0.3s ease;
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(10px, 10px);
+    transform: rotate(45deg) translate(8px, 8px);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -294,93 +577,12 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* ========== DESKTOP: Menu poziome ========== */
-@media (min-width: 769px) {
-    .hamburger {
-        display: none !important;
-    }
-
-    nav ul {
-        display: flex !important;
-        position: static !important;
-        background: transparent !important;
-        width: 100% !important;
-        max-width: none !important;
-        padding: 0 !important;
-        box-shadow: none !important;
-        flex-direction: row !important;
-        justify-content: center;
-        gap: 0;
-        z-index: auto !important;
-    }
-
-    nav ul li {
-        padding: 0 !important;
-        border-bottom: none !important;
-        display: inline-block;
-    }
-
-    nav ul li button {
-        padding: 20px 32px;
-        border-bottom: 3px solid transparent;
-        transition: all 0.3s ease;
-    }
-
-    nav ul li button:hover {
-        background: var(--light-gold);
-        border-bottom-color: var(--gold-accent);
-    }
-
-    nav ul li button.active {
-        background: var(--navy-blue);
-        color: var(--gold-accent);
-        border-bottom-color: var(--gold-accent);
-    }
-}
-
-/* ========== MOBILE: Hamburger menu ========== */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
-    }
-
-    nav ul {
-        position: fixed;
-        top: 60px;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        width: 100%;
-        max-width: 300px;
-        padding: 15px;
-        box-shadow: -4px 4px 12px rgba(0,0,0,0.15);
-        display: none;
-        z-index: 999;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    nav ul li {
-        padding: 10px 0;
-        border-bottom: 1px solid var(--soft-beige);
-        display: block;
-    }
-
-    nav ul li:last-child {
-        border-bottom: none;
-    }
-
-    nav ul li button {
-        width: 100%;
-        text-align: left;
-        padding: 12px 0;
-        border: none;
-        background: none;
     }
 }
 </style>
@@ -419,19 +621,14 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     </div>
     
     <nav class="main-nav">
-        <button class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <ul>
-            <li><button class="nav-btn active" onclick="showPage('home')">Główna</button></li>
-            <li><button class="nav-btn" onclick="showPage('history')">Historia</button></li>
-            <li><button class="nav-btn" onclick="showPage('schedule')">Harmonogram</button></li>
-            <li><button class="nav-btn" onclick="showPage('info')">Informacje</button></li>
-            <li><button class="nav-btn" onclick="showPage('rsvp')">Potwierdzenie</button></li>
-            <li><button class="nav-btn" onclick="showPage('gallery')">Galeria</button></li>
-        </ul>
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="showPage('home')">Główna</button>
+            <button class="nav-btn" onclick="showPage('history')">Historia</button>
+            <button class="nav-btn" onclick="showPage('schedule')">Harmonogram</button>
+            <button class="nav-btn" onclick="showPage('info')">Informacje</button>
+            <button class="nav-btn" onclick="showPage('rsvp')">Potwierdzenie</button>
+            <button class="nav-btn" onclick="showPage('gallery')">Galeria</button>
+        </div>
     </nav>
     
     <main class="main-content">
@@ -645,7 +842,23 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                     </div>
                 </div>
                 
-                <div class="info-card" style="min-height: 200px;"><h3>🏨 Noclegi</h3><p style="color: #999; font-style: italic; padding: 20px; text-align: center;">Wkrótce więcej informacji...</p></div>
+                <div class="info-card">
+                    <h3>🏨 Noclegi</h3>
+                    <p>Jeśli przyjeżdżasz z daleka, polecamy następujące miejsca noclegowe:</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                        <div style="border: 2px solid var(--soft-beige); padding: 20px; border-radius: 8px;">
+                            <h4>Hotel BEISPIEL</h4>
+                            <p style="font-size: 14px; margin: 10px 0;"><strong>Odległość:</strong> 3 km od przyjęcia</p>
+                            <p style="font-size: 14px; margin: 10px 0;"><strong>Cena:</strong> ok. 150-200 zł/noc</p>
+                            <p style="font-size: 14px;"><a href="https://www.booking.com" target="_blank" style="color: var(--gold-accent);">→ Rezerwacja online</a></p>
+                        </div>
+                        <div style="border: 2px solid var(--soft-beige); padding: 20px; border-radius: 8px;">
+                            <h4>Apartamenty PRZYKŁAD</h4>
+                            <p style="font-size: 14px; margin: 10px 0;"><strong>Odległość:</strong> 2 km od przyjęcia</p>
+                            <p style="font-size: 14px; margin: 10px 0;"><strong>Cena:</strong> ok. 120-150 zł/noc</p>
+                            <p style="font-size: 14px;"><a href="https://www.airbnb.com" target="_blank" style="color: var(--gold-accent);">→ Wyszukaj na Airbnb</a></p>
+                        </div>
+                    </div>
                     <p style="margin-top: 25px; padding: 15px; background: var(--light-gold); border-radius: 8px; border-left: 4px solid var(--gold-accent); font-size: 14px; color: #666;">
                         <strong>💡 Wskazówka:</strong> Rezerwuj noclegi z wyprzedzeniem (lipiec-sierpień to sezon turystyczny). Jeśli szukasz więcej opcji, napisz do nas - mamy kilka polecanych miejsc!
                     </p>
@@ -1020,7 +1233,7 @@ function checkPassword() {
         document.getElementById("loginPage").classList.add("hidden");
         document.getElementById("appContainer").classList.add("visible");
         const heroSection = document.querySelector(".hero-section");
-        heroSection.classList.add("show");
+        heroSection.classList.add("visible");
     } else {
         document.getElementById("loginError").textContent = "Nieprawidłowe hasło";
         document.getElementById("passwordInput").value = "";
@@ -1052,7 +1265,7 @@ function closeRsvpAndHighlightHome() {
     document.getElementById('home').classList.add("active");
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const heroSection = document.querySelector(".hero-section");
-    heroSection.classList.add("show");
+    heroSection.classList.add("visible");
 }
 
 function smoothScrollToRsvp() {
@@ -1145,7 +1358,7 @@ function rsvpSelectPeople() {
 function rsvpGoBack(fromStep) { const previousStep = fromStep - 1; rsvpState.currentStep = previousStep; if (previousStep === 1) showStep("rsvpStep1"); else if (previousStep === 2) showStep("rsvpStep2"); }
 function rsvpGoBackFromStep4() { rsvpState.currentStep = 3; showStep("rsvpStep3"); }
 function rsvpGoBackFromStep5() { rsvpState.currentStep = 4; showStep("rsvpStep3b"); }
-function rsvpGoBackFromStep6() { if (rsvpState.companion.hasCompanion && rsvpState.companion.name) { rsvpState.currentStep = 5; showStep("rsvpStep3c"); } else { rsvpState.currentStep = 3; showStep("rsvpStep3"); } }
+function rsvpGoBackFromStep6() { if (rsvpState.companion.hasCompanion && rsvpState.companion.name) { rsvpState.currentStep = 5; showStep("rsvpStep3c"); } else { rsvpState.currentStep = 4; showStep("rsvpStep3b"); } }
 function rsvpGoBackFromStep7() { rsvpState.currentStep = 6; showStep("rsvpStep5"); }
 function rsvpGoBackFromStep8() { rsvpState.currentStep = 7; showStep("rsvpStep6"); }
 function rsvpNoCompanion() { rsvpState.companion = { hasCompanion: false, name: "", email: "" }; rsvpState.currentStep = 6; showStep("rsvpStep5"); }
@@ -1309,13 +1522,12 @@ document.addEventListener("DOMContentLoaded", function() {
     updateCountdown();
     scheduleCountdownUpdate();
     document.getElementById("passwordInput").addEventListener("keypress", function(e) { if (e.key === "Enter") checkPassword(); });
-    document.getElementById("codeInput").addEventListener("keypress", function(e) { if (e.key === "Enter") { e.preventDefault(); rsvpValidateCode(); } });
 });
 
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/service-worker.js').then(() => console.log('SW registered')).catch(() => console.log('SW failed')); }
 
 
-// ========== HAMBURGER MENU HANDLER ==========
+// ========== HAMBURGER MENU ==========
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav ul');
@@ -1328,9 +1540,9 @@ document.addEventListener('DOMContentLoaded', function() {
             nav.classList.toggle('active');
         });
 
-        const navItems = document.querySelectorAll('nav ul li');
-        navItems.forEach(item => {
-            item.addEventListener('click', function() {
+        const navButtons = document.querySelectorAll('nav ul li button');
+        navButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
                 hamburger.classList.remove('active');
                 nav.classList.remove('active');
             });
