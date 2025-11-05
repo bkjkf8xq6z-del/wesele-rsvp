@@ -12,11 +12,10 @@
 
 <style>
 /* ========================================================================== */
-/* MODERN CLASSIC WEDDING DESIGN - V22 */
+/* MODERN CLASSIC WEDDING DESIGN - V23 ULTIMATE */
 /* ========================================================================== */
 
 :root {
-    /* Modern Classic Color Palette */
     --navy-blue: #1a3a52;
     --gold-accent: #d4af37;
     --cream-white: #f8f6f4;
@@ -25,12 +24,10 @@
     --light-gold: #f4e4c1;
     --darker-navy: #0f2433;
     
-    /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Lato', sans-serif;
     --font-cursive: 'Great Vibes', cursive;
     
-    /* Spacing */
     --max-width: 1400px;
     --section-padding: 80px;
 }
@@ -49,7 +46,6 @@ body {
     overflow-x: hidden;
 }
 
-/* HEADER */
 .top-banner {
     background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%);
     padding: 30px 20px;
@@ -87,7 +83,6 @@ body {
     font-weight: 400;
 }
 
-/* HERO */
 .hero-section {
     position: relative;
     height: 600px;
@@ -108,12 +103,22 @@ body {
     padding: 40px;
 }
 
+.hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    color: var(--light-gold);
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
 .hero-title {
     font-family: var(--font-heading);
     font-size: 48px;
     color: white;
     margin-bottom: 20px;
     font-weight: 700;
+    line-height: 1.3;
 }
 
 .gold-divider {
@@ -171,50 +176,6 @@ body {
     100% { right: -350px; opacity: 0; transform: translateY(-50%) rotateZ(18deg) scale(0.9); }
 }
 
-/* NAVIGATION */
-.main-nav {
-    background: white;
-    border-bottom: 1px solid var(--soft-beige);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.nav-btn {
-    padding: 20px 32px;
-    background: transparent;
-    border: none;
-    border-bottom: 3px solid transparent;
-    font-family: var(--font-heading);
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--navy-blue);
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-.nav-btn:hover {
-    background: var(--light-gold);
-    border-bottom-color: var(--gold-accent);
-}
-
-.nav-btn.active {
-    background: var(--navy-blue);
-    color: var(--gold-accent);
-    border-bottom-color: var(--gold-accent);
-}
-
 /* LOGIN */
 .login-page {
     position: fixed;
@@ -252,6 +213,13 @@ body {
     font-weight: 700;
 }
 
+.login-box p {
+    font-family: var(--font-body);
+    color: #666;
+    margin-bottom: 35px;
+    font-size: 15px;
+}
+
 .login-box input {
     width: 100%;
     padding: 16px 20px;
@@ -259,6 +227,7 @@ body {
     border: 2px solid var(--soft-beige);
     border-radius: 4px;
     font-size: 16px;
+    font-family: var(--font-body);
     transition: all 0.3s ease;
 }
 
@@ -297,7 +266,7 @@ body {
     min-height: 20px;
 }
 
-/* APP CONTAINER */
+/* APP */
 .app-container {
     display: none;
     min-height: 100vh;
@@ -329,14 +298,8 @@ body {
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .section-title {
@@ -355,6 +318,53 @@ body {
     text-align: center;
     margin-bottom: 60px;
     font-weight: 300;
+}
+
+/* NAVIGATION */
+.main-nav {
+    background: white;
+    border-bottom: 1px solid var(--soft-beige);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.nav-btn {
+    padding: 20px 32px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy-blue);
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.nav-btn:hover {
+    background: var(--light-gold);
+    border-bottom-color: var(--gold-accent);
+}
+
+.nav-btn.active {
+    background: var(--navy-blue);
+    color: var(--gold-accent);
+    border-bottom-color: var(--gold-accent);
 }
 
 /* COUNTDOWN */
@@ -380,6 +390,13 @@ body {
     letter-spacing: 2px;
 }
 
+.countdown-location {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 50px;
+}
+
 .countdown-boxes {
     display: flex;
     justify-content: center;
@@ -402,6 +419,7 @@ body {
 .countdown-box:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: var(--navy-blue);
 }
 
 .countdown-number {
@@ -409,6 +427,7 @@ body {
     font-size: 52px;
     color: var(--navy-blue);
     font-weight: 700;
+    line-height: 1;
     display: block;
     margin-bottom: 12px;
 }
@@ -422,7 +441,7 @@ body {
     font-weight: 600;
 }
 
-/* CTA SECTION */
+/* CTA */
 .cta-section {
     text-align: center;
     margin-top: 70px;
@@ -442,6 +461,7 @@ body {
     font-size: 16px;
     color: #666;
     margin-bottom: 35px;
+    line-height: 1.6;
 }
 
 .cta-button {
@@ -468,10 +488,11 @@ body {
     box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
 }
 
-/* ========================================================================== */
-/* V22 - SCHEDULE PAGE STYLING */
-/* ========================================================================== */
+.cta-button:active {
+    transform: translateY(-1px);
+}
 
+/* SCHEDULE - V23 NEW! */
 .schedule-timeline {
     max-width: 900px;
     margin: 0 auto;
@@ -535,50 +556,6 @@ body {
     line-height: 1.6;
 }
 
-/* INFO CARDS */
-.info-card {
-    background: white;
-    padding: 50px;
-    border-radius: 8px;
-    margin-bottom: 40px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border-top: 4px solid var(--gold-accent);
-}
-
-.info-card h3 {
-    font-family: var(--font-heading);
-    font-size: 32px;
-    color: var(--navy-blue);
-    margin-bottom: 30px;
-    font-weight: 700;
-}
-
-.info-card h4 {
-    font-family: var(--font-heading);
-    font-size: 18px;
-    color: var(--navy-blue);
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.info-card p {
-    font-size: 15px;
-    margin-bottom: 15px;
-    color: #555;
-    line-height: 1.7;
-}
-
-.info-card a {
-    color: var(--gold-accent);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.info-card a:hover {
-    color: var(--navy-blue);
-    text-decoration: underline;
-}
-
 /* TIMELINE */
 .timeline-container {
     max-width: 1000px;
@@ -617,6 +594,13 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     position: relative;
     z-index: 2;
+    background: linear-gradient(135deg, var(--soft-beige), white);
+}
+
+.timeline-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .timeline-photo-placeholder {
@@ -625,6 +609,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--font-body);
     font-size: 14px;
     color: #999;
     text-align: center;
@@ -660,12 +645,214 @@ body {
     color: var(--gold-accent);
     font-weight: 700;
     margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .timeline-text {
+    font-family: var(--font-body);
     font-size: 16px;
     color: #555;
     line-height: 1.7;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--gold-accent);
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 0 4px var(--soft-beige);
+    z-index: 3;
+}
+
+/* INFO CARDS */
+.info-card {
+    background: white;
+    padding: 50px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid var(--gold-accent);
+}
+
+.info-card h3 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    color: var(--navy-blue);
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.info-card h4 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    color: var(--navy-blue);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.info-card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.info-card strong {
+    color: var(--navy-blue);
+    font-weight: 700;
+}
+
+.info-card a {
+    color: var(--gold-accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.info-card a:hover {
+    color: var(--navy-blue);
+    text-decoration: underline;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    gap: 40px;
+    align-items: center;
+}
+
+.info-details p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.info-details strong {
+    color: var(--navy-blue);
+    font-weight: 700;
+}
+
+.info-details a {
+    color: var(--gold-accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.info-details a:hover {
+    color: var(--navy-blue);
+    text-decoration: underline;
+}
+
+.map-embed {
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
+    border: 2px solid var(--soft-beige);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 6px;
+}
+
+.gift-section {
+    background: linear-gradient(135deg, var(--light-gold) 0%, var(--soft-beige) 100%);
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 40px;
+    border: 2px solid var(--gold-accent);
+}
+
+.gift-section h3 {
+    color: var(--navy-blue);
+    margin-bottom: 20px;
+}
+
+.gift-section p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.gift-highlight {
+    color: var(--navy-blue);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* CONTACT */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.contact-person {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-top: 3px solid var(--gold-accent);
+}
+
+.contact-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    border: 4px solid var(--gold-accent);
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, var(--soft-beige), white);
+}
+
+.contact-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+}
+
+.contact-person h3 {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    color: var(--navy-blue);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.contact-info-item {
+    margin: 15px 0;
+    font-size: 15px;
+    color: #666;
+}
+
+.contact-info-item strong {
+    display: block;
+    color: var(--navy-blue);
+    margin-bottom: 5px;
+    font-weight: 700;
 }
 
 /* RSVP */
@@ -689,6 +876,13 @@ body {
     margin-bottom: 15px;
     text-align: center;
     font-weight: 700;
+}
+
+.rsvp-subtitle {
+    font-size: 16px;
+    color: #777;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .rsvp-step {
@@ -717,6 +911,16 @@ body {
     height: 2px;
     background: var(--soft-beige);
     z-index: 1;
+}
+
+.progress-tracker-fill {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    height: 2px;
+    background: var(--gold-accent);
+    z-index: 2;
+    transition: width 0.3s ease;
 }
 
 .progress-step {
@@ -763,13 +967,52 @@ body {
     border: 2px solid var(--soft-beige);
     border-radius: 4px;
     font-size: 16px;
+    font-family: var(--font-body);
     transition: all 0.3s ease;
+    background: white;
 }
 
 .form-input:focus {
     outline: none;
     border-color: var(--gold-accent);
     box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: var(--cream-white);
+    border: 2px solid var(--soft-beige);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.checkbox-option:hover {
+    border-color: var(--gold-accent);
+    background: white;
+}
+
+.checkbox-option input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    margin-right: 14px;
+    cursor: pointer;
+    accent-color: var(--gold-accent);
+}
+
+.checkbox-option label {
+    margin: 0;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--dark-text);
 }
 
 .button-group {
@@ -801,6 +1044,11 @@ body {
     background: var(--darker-navy);
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:disabled {
+    background: #999;
+    cursor: not-allowed;
 }
 
 .btn-secondary {
@@ -843,12 +1091,100 @@ body {
     border: 2px solid #ffcdd2;
 }
 
+.summary-table {
+    width: 100%;
+    margin: 30px 0;
+    border-collapse: collapse;
+    border: 1px solid var(--soft-beige);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.summary-table td {
+    padding: 18px;
+    border-bottom: 1px solid var(--soft-beige);
+}
+
+.summary-table td:first-child {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--navy-blue);
+    background: var(--cream-white);
+    width: 40%;
+}
+
+.summary-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* GALLERY */
+.gallery-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gallery-card {
+    background: white;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid var(--gold-accent);
+}
+
+.gallery-info {
+    background: var(--light-gold);
+    padding: 30px;
+    border-radius: 8px;
+    margin: 30px 0;
+    border-left: 4px solid var(--gold-accent);
+}
+
+.gallery-info h3 {
+    font-family: var(--font-heading);
+    color: var(--navy-blue);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.gallery-info p {
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.gallery-cta {
+    margin-top: 40px;
+}
+
+.gallery-cta a {
+    display: inline-block;
+    padding: 18px 40px;
+    background: var(--navy-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.gallery-cta a:hover {
+    background: var(--darker-navy);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
 /* FOOTER */
 .main-footer {
     background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%);
     color: white;
     padding: 60px 40px 40px;
     margin-top: 80px;
+    position: relative;
 }
 
 .main-footer::before {
@@ -866,6 +1202,69 @@ body {
     margin: 0 auto;
 }
 
+.footer-title {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    color: var(--gold-accent);
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.footer-contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.footer-person {
+    text-align: center;
+}
+
+.footer-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    border: 4px solid var(--gold-accent);
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, var(--soft-beige), white);
+}
+
+.footer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+}
+
+.footer-person h4 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.footer-person p {
+    color: #ccc;
+    margin: 8px 0;
+    font-size: 15px;
+}
+
 .footer-copyright {
     text-align: center;
     margin-top: 50px;
@@ -876,24 +1275,83 @@ body {
 }
 
 /* RESPONSIVE */
-@media (max-width: 640px) {
+@media (max-width: 968px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-embed {
+        height: 300px;
+    }
+    
+    .timeline-item {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    
+    .timeline-container::before {
+        left: 30px;
+    }
+    
+    .timeline-connector {
+        display: none;
+    }
+    
+    .timeline-dot {
+        left: 30px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-contacts {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
     .nav-btn {
         padding: 16px 20px;
         font-size: 13px;
+    }
+}
+
+@media (max-width: 640px) {
+    .couple-names {
+        font-size: 36px;
+    }
+    
+    .hero-section {
+        height: 400px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
     }
     
     .content-section {
         padding: 50px 20px;
     }
     
-    .schedule-item {
+    .countdown-boxes {
+        gap: 15px;
+    }
+    
+    .countdown-box {
+        padding: 25px 30px;
+        min-width: 110px;
+    }
+    
+    .countdown-number {
+        font-size: 40px;
+    }
+    
+    .button-group {
         flex-direction: column;
     }
     
-    .schedule-connector {
-        width: 3px;
-        height: 30px;
-        margin: 10px 0 10px 60px;
+    .btn {
+        width: 100%;
     }
 }
 </style>
@@ -911,7 +1369,7 @@ body {
 <div class="login-page" id="loginPage">
     <div class="login-box">
         <h1>Wesele</h1>
-        <p>Wprowadź hasło aby uzyskać dostęp do systemu potwierdzenia przybycia</p>
+        <p>Wprowadź hasło, aby uzyskać dostęp do systemu potwierdzenia przybycia</p>
         <input type="password" id="passwordInput" placeholder="Wprowadź hasło" />
         <button onclick="checkPassword()">Zaloguj się</button>
         <div class="login-error" id="loginError"></div>
@@ -928,6 +1386,7 @@ body {
     
     <div class="hero-section">
         <div class="hero-content">
+            <div class="hero-subtitle">Zapraszamy na</div>
             <h1 class="hero-title">Nasz Wielki Dzień</h1>
             <div class="gold-divider"></div>
         </div>
@@ -952,6 +1411,7 @@ body {
                 <div class="countdown-container">
                     <div class="countdown-intro">Do naszego wielkiego dnia pozostało:</div>
                     <div class="countdown-date-display">Sobota, 6 sierpnia 2026</div>
+                    <div class="countdown-location">Tczew, Polska</div>
                     <div class="countdown-boxes" id="countdownBoxes"></div>
                 </div>
                 
@@ -972,65 +1432,71 @@ body {
                 <p class="section-subtitle">Od pierwszego spotkania do naszego wielkiego dnia</p>
                 
                 <div class="timeline-container">
+                    
                     <div class="timeline-item">
                         <div class="timeline-photo">
-                            <div class="timeline-photo-placeholder">[PHOTO 1]<br>200x200px</div>
+                            <div class="timeline-photo-placeholder">[PHOTO 1]<br>200x200px<br>Pierwsze spotkanie</div>
                         </div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Wrzesień 2020</div>
-                            <div class="timeline-text">Pierwsze spotkanie - początek naszej pięknej historii.</div>
+                            <div class="timeline-text">[Placeholder - Opis pierwszego spotkania]</div>
                         </div>
+                        <div class="timeline-dot"></div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-photo">
-                            <div class="timeline-photo-placeholder">[PHOTO 2]<br>200x200px</div>
+                            <div class="timeline-photo-placeholder">[PHOTO 2]<br>200x200px<br>Pierwsza randka</div>
                         </div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Październik 2020</div>
-                            <div class="timeline-text">Pierwsza randka - zapamiętamy ten dzień na całe życie.</div>
+                            <div class="timeline-text">[Placeholder - Opis pierwszej randki]</div>
                         </div>
+                        <div class="timeline-dot"></div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-photo">
-                            <div class="timeline-photo-placeholder">[PHOTO 3]<br>200x200px</div>
+                            <div class="timeline-photo-placeholder">[PHOTO 3]<br>200x200px<br>Wspólny wyjazd</div>
                         </div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Czerwiec 2021</div>
-                            <div class="timeline-text">Wspólne wyjazdy i nowe doświadczenia. Odkrywamy świat razem.</div>
+                            <div class="timeline-text">[Placeholder - Opis wspólnego wyjazdu]</div>
                         </div>
+                        <div class="timeline-dot"></div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-photo">
-                            <div class="timeline-photo-placeholder">[PHOTO 4]<br>200x200px</div>
+                            <div class="timeline-photo-placeholder">[PHOTO 4]<br>200x200px<br>Oświadczyny</div>
                         </div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Grudzień 2024</div>
-                            <div class="timeline-text">Oświadczyny! Oficjalnie zdecydowaliśmy spędzić razem całe życie.</div>
+                            <div class="timeline-text">[Placeholder - Opis oświadczyn]</div>
                         </div>
+                        <div class="timeline-dot"></div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-photo">
-                            <div class="timeline-photo-placeholder">[PHOTO 5]<br>200x200px</div>
+                            <div class="timeline-photo-placeholder">[PHOTO 5]<br>200x200px<br>Dzień ślubu</div>
                         </div>
-                        <div class="timeline-connector" style="display: none;"></div>
+                        <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Sierpień 2026</div>
-                            <div class="timeline-text">Nasz wielki dzień! Dziękujemy, że jesteś z nami.</div>
+                            <div class="timeline-text">Nasz wielki dzień! Dziękujemy, że jesteś z nami w tym wyjątkowym momencie.</div>
                         </div>
+                        <div class="timeline-dot"></div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- SCHEDULE - V22 NEW! -->
+        <!-- SCHEDULE - V23 NEW! -->
         <div class="page" id="schedule">
             <div class="content-section">
                 <h2 class="section-title">Harmonogram Dnia</h2>
@@ -1082,7 +1548,7 @@ body {
                             <div class="schedule-activity">🍽️ Obiad i przemowy</div>
                             <div class="schedule-location">Główna sala - OKLASKI</div>
                             <div class="schedule-description">
-                                Zapraszamy do stolów. Serwujemy pyszne menu przygotowane specjalnie dla Was. Toasty i przemowy od bliskich będą nas wzruszać!
+                                Zapraszamy do stołów. Serwujemy pyszne menu przygotowane specjalnie dla Was. Toasty i przemowy od bliskich będą nas wzruszać!
                             </div>
                         </div>
                     </div>
@@ -1114,47 +1580,55 @@ body {
             </div>
         </div>
         
-        <!-- INFO -->
+        <!-- INFORMATION -->
         <div class="page" id="info">
             <div class="content-section">
                 <h2 class="section-title">Informacje Organizacyjne</h2>
                 <div class="gold-divider"></div>
-                <p class="section-subtitle">Wszystko co musisz wiedzieć o naszym weselu</p>
+                <p class="section-subtitle">Wszystko, co musisz wiedzieć o naszym weselu</p>
                 
                 <!-- Ceremonia -->
                 <div class="info-card">
                     <h3>Ceremonia Ślubna</h3>
-                    <p><strong>Data:</strong> 6 sierpnia 2026 | <strong>Godzina:</strong> 15:00</p>
-                    <p><strong>Kościół pw. Podwyższenia Krzyża Świętego</strong></p>
-                    <p>ul. Stefana Kardynała Wyszyńskiego 13, 83-110 Tczew</p>
-                    <p>
-                        <a href="https://maps.google.com/?q=ul.+Stefana+Kardynała+Wyszyńskiego+13,+83-110+Tczew" target="_blank">
-                            → Otwórz w Google Maps
-                        </a>
-                    </p>
+                    <div class="info-grid">
+                        <div class="info-details">
+                            <p><strong>Data:</strong> 6 sierpnia 2026</p>
+                            <p><strong>Godzina:</strong> 15:00</p>
+                            <p><strong>Miejsce:</strong> Kościół pw. Podwyższenia Krzyża Świętego</p>
+                            <p><strong>Adres:</strong> ul. Stefana Kardynała Wyszyńskiego 13, 83-110 Tczew</p>
+                            <p><strong><a href="https://maps.google.com/?q=ul.+Stefana+Kardynała+Wyszyńskiego+13,+83-110+Tczew" target="_blank">Otwórz w Google Maps</a></strong></p>
+                        </div>
+                        <div class="map-embed">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5565.896565008256!2d18.79967232190074!3d54.08843931564477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd60daf7f655c3%3A0xa59e0b2ac82b288a!2zS2_Fm2Npw7PDgiBwdy4gUG9kd3nFvHN6ZW5pYSBLcnp5xbxhIMWat2ljIFxFMDlcdkllXDA2dGVnbyE1e0I4JTlEOiU5RCU3Rjp7QT01QjAxMDZ9JTdEfQ!5e0!3m2!1spl!2spl!4v1762261706136!5m2!1spl!2spl" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Przyjęcie -->
+                <!-- Reception -->
                 <div class="info-card">
                     <h3>Przyjęcie Weselne</h3>
-                    <p><strong>Data:</strong> 6 sierpnia 2026 | <strong>Godzina:</strong> 17:00</p>
-                    <p><strong>OKLASKI</strong></p>
-                    <p>Stanisławie 30A, 83-112 Lubiszewo</p>
-                    <p>
-                        <a href="https://maps.google.com/?q=Stanisławie+30A,+83-112+Lubiszewo" target="_blank">
-                            → Otwórz w Google Maps
-                        </a>
-                    </p>
+                    <div class="info-grid">
+                        <div class="info-details">
+                            <p><strong>Data:</strong> 6 sierpnia 2026</p>
+                            <p><strong>Godzina:</strong> 17:00</p>
+                            <p><strong>Miejsce:</strong> OKLASKI</p>
+                            <p><strong>Adres:</strong> Stanisławie 30A, 83-112 Lubiszewo</p>
+                            <p><strong><a href="https://maps.google.com/?q=Stanisławie+30A,+83-112+Lubiszewo" target="_blank">Otwórz w Google Maps</a></strong></p>
+                        </div>
+                        <div class="map-embed">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2411.5!2d19.1!3d54.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471fd6d0d0d0d0d%3A0x0!2sStanisławie%2030A%2C%2083-112%20Lubiszewo!5e0!3m2!1spl!2spl!4v" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- DOJAZD -->
+                <!-- Transport & Parking - V23 NEW! -->
                 <div class="info-card">
                     <h3>🚗 Dojazd i Parkingi</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 25px;">
                         <div>
                             <h4>📍 Ceremonia</h4>
                             <p><strong>Kościół pw. Podwyższenia Krzyża Świętego</strong></p>
-                            <p>ul. Stefana Kardynała Wyszyńskiego 13</p>
+                            <p>ul. Stefana Kardynała Wyszyńskiego 13, 83-110 Tczew</p>
                             <p style="margin-top: 15px; font-size: 14px; color: #666;">✅ Parking przy kościele (bezpłatny)</p>
                         </div>
                         <div>
@@ -1166,7 +1640,7 @@ body {
                     </div>
                 </div>
                 
-                <!-- TRANSPORT -->
+                <!-- Transport Options - V23 NEW! -->
                 <div class="info-card">
                     <h3>🚕 Transport</h3>
                     <p>Jeśli nie chcesz prowadzić samochodu, mamy kilka opcji:</p>
@@ -1179,7 +1653,7 @@ body {
                         <div style="background: var(--cream-white); padding: 20px; border-radius: 8px; text-align: center;">
                             <div style="font-size: 32px; margin-bottom: 10px;">🚕</div>
                             <p><strong>Taxi</strong></p>
-                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Taxi Tczew: <strong style="color: var(--navy-blue);">58-XXXX-XXX</strong></p>
+                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Taxi Tczew: <strong style="color: var(--navy-blue);">XXX-XXX-XXX</strong></p>
                         </div>
                         <div style="background: var(--cream-white); padding: 20px; border-radius: 8px; text-align: center;">
                             <div style="font-size: 32px; margin-bottom: 10px;">🚌</div>
@@ -1189,83 +1663,287 @@ body {
                     </div>
                 </div>
                 
-                <!-- HOTELE -->
+                <!-- Hotels - V23 NEW! -->
                 <div class="info-card">
                     <h3>🏨 Noclegi</h3>
                     <p>Jeśli przyjeżdżasz z daleka, polecamy następujące miejsca noclegowe:</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
                         <div style="border: 2px solid var(--soft-beige); padding: 20px; border-radius: 8px;">
                             <h4>Hotel BEISPIEL</h4>
-                            <p style="font-size: 14px; margin: 10px 0;"><strong>Odległość:</strong> 3 km</p>
+                            <p style="font-size: 14px; margin: 10px 0;"><strong>Odległość:</strong> 3 km od przyjęcia</p>
                             <p style="font-size: 14px; margin: 10px 0;"><strong>Cena:</strong> ok. 150-200 zł/noc</p>
-                            <p style="font-size: 14px;"><a href="#" style="color: var(--gold-accent);">→ Rezerwacja online</a></p>
+                            <p style="font-size: 14px;"><a href="https://www.booking.com" target="_blank" style="color: var(--gold-accent);">→ Rezerwacja online</a></p>
                         </div>
                         <div style="border: 2px solid var(--soft-beige); padding: 20px; border-radius: 8px;">
                             <h4>Apartamenty PRZYKŁAD</h4>
-                            <p style="font-size: 14px; margin: 10px 0;"><strong>Odległość:</strong> 2 km</p>
+                            <p style="font-size: 14px; margin: 10px 0;"><strong>Odległość:</strong> 2 km od przyjęcia</p>
                             <p style="font-size: 14px; margin: 10px 0;"><strong>Cena:</strong> ok. 120-150 zł/noc</p>
-                            <p style="font-size: 14px;"><a href="#" style="color: var(--gold-accent);">→ Wyszukaj na Airbnb</a></p>
+                            <p style="font-size: 14px;"><a href="https://www.airbnb.com" target="_blank" style="color: var(--gold-accent);">→ Wyszukaj na Airbnb</a></p>
                         </div>
                     </div>
+                    <p style="margin-top: 25px; padding: 15px; background: var(--light-gold); border-radius: 8px; border-left: 4px solid var(--gold-accent); font-size: 14px; color: #666;">
+                        <strong>💡 Wskazówka:</strong> Rezerwuj noclegi z wyprzedzeniem (lipiec-sierpień to sezon turystyczny). Jeśli szukasz więcej opcji, napisz do nas - mamy kilka polecanych miejsc!
+                    </p>
                 </div>
                 
-                <!-- GIFTY -->
-                <div style="background: linear-gradient(135deg, var(--light-gold) 0%, var(--soft-beige) 100%); padding: 40px; border-radius: 8px; text-align: center; margin-top: 40px; border: 2px solid var(--gold-accent);">
-                    <h3 style="color: var(--navy-blue); margin-bottom: 15px;">🎁 Prezenty</h3>
-                    <p style="margin-bottom: 10px;">Prosimy o koperty z pieniędzmi</p>
-                    <p style="color: var(--navy-blue); font-weight: 700; font-size: 18px;">Prosimy NIE przynosić kwiatów</p>
+                <!-- Gifts -->
+                <div class="gift-section">
+                    <h3>🎁 Prezenty i Kwiaty</h3>
+                    <p>Prosimy o koperty z pieniędzmi</p>
+                    <p class="gift-highlight">Prosimy NIE przynosić kwiatów - preferujemy koperty z pieniędzmi</p>
+                </div>
+                
+                <!-- Contact -->
+                <h2 class="section-title" style="margin-top: 80px;">Kontakt</h2>
+                <div class="gold-divider"></div>
+                <div class="contact-grid">
+                    <div class="contact-person">
+                        <div class="contact-photo">
+                            <div class="contact-photo-placeholder">[WIKTORIA]<br>120x120px</div>
+                        </div>
+                        <h3>Wiktoria</h3>
+                        <div class="contact-info-item">
+                            <strong>Telefon:</strong>
+                            <span style="color: var(--gold-accent); font-weight: 600;">[numer telefonu]</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <strong>Email:</strong>
+                            <span style="color: var(--gold-accent); font-weight: 600;">[Adres email]</span>
+                        </div>
+                    </div>
+                    <div class="contact-person">
+                        <div class="contact-photo">
+                            <div class="contact-photo-placeholder">[MACIEJ]<br>120x120px</div>
+                        </div>
+                        <h3>Maciej</h3>
+                        <div class="contact-info-item">
+                            <strong>Telefon:</strong>
+                            <span style="color: var(--gold-accent); font-weight: 600;">[numer telefonu]</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <strong>Email:</strong>
+                            <span style="color: var(--gold-accent); font-weight: 600;">[Adres email]</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <!-- RSVP -->
+        <!-- RSVP - FULL V21 IMPLEMENTATION -->
         <div class="page" id="rsvp">
             <div class="content-section">
                 <div class="rsvp-container">
                     <div class="rsvp-card">
                         
+                        <!-- STEP 1: Code -->
                         <div class="rsvp-step visible" id="rsvpStep1">
                             <div class="progress-tracker" id="progressTracker1"></div>
                             <h2>Wprowadź Kod Zaproszenia</h2>
+                            <p class="rsvp-subtitle">Wpisz 4-cyfrowy kod, który otrzymałeś na zaproszeniu</p>
                             <div class="form-group">
                                 <label class="form-label">Kod zaproszenia (4 cyfry):</label>
                                 <input type="text" class="form-input" id="codeInput" placeholder="np. 1001" maxlength="4" />
                             </div>
                             <div class="alert alert-error" id="codeError" style="display: none;"></div>
                             <div class="button-group">
-                                <button class="btn btn-primary" onclick="rsvpValidateCode()">Dalej</button>
+                                <button class="btn btn-primary" onclick="rsvpValidateCode()" id="codeBtn">Dalej</button>
                             </div>
                         </div>
                         
+                        <!-- STEP 2: Attend? -->
                         <div class="rsvp-step" id="rsvpStep2">
+                            <div class="progress-tracker" id="progressTracker2"></div>
                             <h2>Czy będziesz na weselu?</h2>
+                            <p class="rsvp-subtitle">Prosimy o potwierdzenie Twojej obecności</p>
                             <div class="button-group">
                                 <button class="btn btn-secondary" onclick="rsvpNoAttendance()">Nie Będę</button>
                                 <button class="btn btn-primary" onclick="rsvpYesAttendance()">Będę Obecny/a</button>
                             </div>
                         </div>
                         
+                        <!-- STEP 3: Select People -->
                         <div class="rsvp-step" id="rsvpStep3">
-                            <h2>Osoby uczestniczące</h2>
-                            <div id="peopleCheckboxes"></div>
+                            <div class="progress-tracker" id="progressTracker3"></div>
+                            <h2>Wybierz osoby uczestniczące</h2>
+                            <p class="rsvp-subtitle">Zaznacz wszystkie osoby, które będą brać udział w weselu</p>
+                            <div class="checkbox-list" id="peopleCheckboxes"></div>
+                            <div class="alert alert-error" id="peopleError" style="display: none;"></div>
                             <div class="button-group">
                                 <button class="btn btn-back" onclick="rsvpGoBack(3)">Wróć</button>
                                 <button class="btn btn-primary" onclick="rsvpSelectPeople()">Dalej</button>
                             </div>
                         </div>
                         
-                        <div class="rsvp-step" id="rsvpNoAttendanceSection">
-                            <h2>Rozumiemy Twoją Decyzję</h2>
+                        <!-- STEP 4: Companion? -->
+                        <div class="rsvp-step" id="rsvpStep3b">
+                            <div class="progress-tracker" id="progressTracker4"></div>
+                            <h2>Będziesz z osobą towarzyszącą?</h2>
+                            <p class="rsvp-subtitle">Czy chcesz przyjść z osobą towarzyszącą?</p>
                             <div class="button-group">
-                                <button class="btn btn-secondary" onclick="rsvpNoContactDone()">OK</button>
+                                <button class="btn btn-back" onclick="rsvpGoBackFromStep4()">Wróć</button>
+                                <button class="btn btn-secondary" onclick="rsvpNoCompanion()">Nie, sam/a</button>
+                                <button class="btn btn-primary" onclick="rsvpYesCompanion()">Tak, z osobą</button>
                             </div>
                         </div>
                         
-                        <div class="rsvp-step" id="rsvpSuccess">
+                        <!-- STEP 5: Companion Details -->
+                        <div class="rsvp-step" id="rsvpStep3c">
+                            <div class="progress-tracker" id="progressTracker5"></div>
+                            <h2>Dane Osoby Towarzyszącej</h2>
+                            <p class="rsvp-subtitle">Wprowadź dane osoby towarzyszącej</p>
+                            <div class="form-group">
+                                <label class="form-label">Imię i nazwisko:</label>
+                                <input type="text" class="form-input" id="companionName" placeholder="Imię Nazwisko" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email (opcjonalnie):</label>
+                                <input type="email" class="form-input" id="companionEmail" placeholder="email@example.com" />
+                            </div>
+                            <div class="alert alert-error" id="companionError" style="display: none;"></div>
+                            <div class="button-group">
+                                <button class="btn btn-back" onclick="rsvpGoBackFromStep5()">Wróć</button>
+                                <button class="btn btn-primary" onclick="rsvpCompanionDone()">Dalej</button>
+                            </div>
+                        </div>
+                        
+                        <!-- STEP 6: Email Contact -->
+                        <div class="rsvp-step" id="rsvpStep5">
+                            <div class="progress-tracker" id="progressTracker6"></div>
+                            <h2>Chcesz pozostać w kontakcie?</h2>
+                            <p class="rsvp-subtitle">Chciałbyś/chciałabyś otrzymywać aktualizacje dotyczące wesela?</p>
+                            <div class="button-group">
+                                <button class="btn btn-back" onclick="rsvpGoBackFromStep6()">Wróć</button>
+                                <button class="btn btn-secondary" id="emailNoBtn" onclick="rsvpEmailNo()">Nie, Dziękuję</button>
+                                <button class="btn btn-primary" id="emailYesBtn" onclick="rsvpEmailYes()">Tak, Chcę Email</button>
+                            </div>
+                            <div id="emailInputSection" style="display: none; margin-top: 30px;">
+                                <div class="form-group">
+                                    <label class="form-label">Twój adres email:</label>
+                                    <input type="email" class="form-input" id="userEmail" placeholder="email@example.com" />
+                                </div>
+                                <div class="alert alert-error" id="emailError" style="display: none;"></div>
+                                <div class="button-group">
+                                    <button class="btn btn-back" onclick="rsvpEmailReset()">Anuluj</button>
+                                    <button class="btn btn-primary" onclick="rsvpEmailConfirm()">Potwierdź</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- STEP 7: Diet -->
+                        <div class="rsvp-step" id="rsvpStep6">
+                            <div class="progress-tracker" id="progressTracker7"></div>
+                            <h2>Preferencje Żywieniowe</h2>
+                            <p class="rsvp-subtitle">Czy masz jakieś ograniczenia dietetyczne?</p>
+                            <div class="checkbox-list">
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="noDiet" />
+                                    <label for="noDiet">Brak ograniczeń</label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin-top: 25px;">
+                                <label class="form-label">Szczegóły ograniczeń (opcjonalnie):</label>
+                                <textarea class="form-input" id="dietDetails" placeholder="np. Weganin, Gluten-free, Alergiczny na..." rows="4"></textarea>
+                            </div>
+                            <div class="button-group">
+                                <button class="btn btn-back" onclick="rsvpGoBackFromStep7()">Wróć</button>
+                                <button class="btn btn-primary" onclick="rsvpDietDone()">Dalej</button>
+                            </div>
+                        </div>
+                        
+                        <!-- STEP 8: Summary -->
+                        <div class="rsvp-step" id="rsvpStep7">
+                            <div class="progress-tracker" id="progressTracker8"></div>
+                            <h2>Podsumowanie Potwierdzenia</h2>
+                            <p class="rsvp-subtitle">Sprawdź wprowadzone dane</p>
+                            <table class="summary-table">
+                                <tr>
+                                    <td>Kod zaproszenia:</td>
+                                    <td id="summaryCode"></td>
+                                </tr>
+                                <tr>
+                                    <td>Liczba osób:</td>
+                                    <td id="summaryCount"></td>
+                                </tr>
+                                <tr>
+                                    <td>Osoby:</td>
+                                    <td id="summaryPeople"></td>
+                                </tr>
+                                <tr>
+                                    <td>Osoba towarzysząca:</td>
+                                    <td id="summaryCompanion"></td>
+                                </tr>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td id="summaryEmail"></td>
+                                </tr>
+                                <tr>
+                                    <td>Newsletter:</td>
+                                    <td id="summaryNewsletter"></td>
+                                </tr>
+                                <tr>
+                                    <td>Preferencje żywieniowe:</td>
+                                    <td id="summaryDiet"></td>
+                                </tr>
+                            </table>
+                            <div class="button-group">
+                                <button class="btn btn-back" onclick="rsvpGoBackFromStep8()">Wróć</button>
+                                <button class="btn btn-primary" onclick="rsvpSubmit()" id="submitBtn">Potwierdź i Wyślij</button>
+                            </div>
+                        </div>
+                        
+                        <!-- STEP 9: Success -->
+                        <div class="rsvp-step" id="rsvpStep8">
                             <div style="text-align: center; padding: 40px 0;">
-                                <h2>Dziękujemy!</h2>
-                                <div class="alert alert-success">Twoje potwierdzenie zostało przyjęte.</div>
-                                <button class="btn btn-primary" onclick="showPage('home')">Powrót</button>
+                                <h2>Potwierdzenie Wysłane</h2>
+                                <div class="alert alert-success">Dziękujemy za potwierdzenie przybycia. Czekamy na Ciebie na weselu!</div>
+                                <div class="button-group" style="margin-top: 40px;">
+                                    <button class="btn btn-primary" onclick="resetRSVP()">Nowe Potwierdzenie</button>
+                                    <button class="btn btn-secondary" onclick="showPage('home')">Zamknij</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- NO ATTENDANCE -->
+                        <div class="rsvp-step" id="rsvpNoAttendanceSection">
+                            <h2>Rozumiemy Twoją Decyzję</h2>
+                            <p class="rsvp-subtitle">Czy chcesz otrzymywać aktualizacje dotyczące wesela?</p>
+                            <div class="button-group">
+                                <button class="btn btn-secondary" id="btnNoEmail" onclick="rsvpNoContactDone()">Nie, Dziękuję</button>
+                                <button class="btn btn-primary" id="btnYesEmail" onclick="rsvpNoContactEmail()">Tak, Chcę Email</button>
+                            </div>
+                            <div id="noContactEmailInput" style="display: none; margin-top: 30px;">
+                                <div class="form-group">
+                                    <label class="form-label">Twój adres email:</label>
+                                    <input type="email" class="form-input" id="noContactEmail" placeholder="email@example.com" />
+                                </div>
+                                <div class="alert alert-error" id="noContactEmailError" style="display: none;"></div>
+                                <div class="button-group">
+                                    <button class="btn btn-back" onclick="rsvpNoContactReset()">Wróć</button>
+                                    <button class="btn btn-primary" onclick="rsvpNoContactSubmit()" id="noContactSubmitBtn">Potwierdź</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- SUCCESS SCREENS -->
+                        <div class="rsvp-step" id="noEmailSuccess">
+                            <div style="text-align: center; padding: 40px 0;">
+                                <h2>Potwierdzenie Wysłane</h2>
+                                <div class="alert alert-success">Rozumiemy Twoją decyzję. Dziękujemy za wiadomość.</div>
+                                <div class="button-group" style="margin-top: 40px;">
+                                    <button class="btn btn-primary" onclick="resetRSVP()">Nowe Potwierdzenie</button>
+                                    <button class="btn btn-secondary" onclick="showPage('home')">Zamknij</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="rsvp-step" id="withEmailSuccess">
+                            <div style="text-align: center; padding: 40px 0;">
+                                <h2>Potwierdzenie Wysłane</h2>
+                                <div class="alert alert-success">Będziemy Ci wysyłać aktualizacje dotyczące wesela na podany email.</div>
+                                <div class="button-group" style="margin-top: 40px;">
+                                    <button class="btn btn-primary" onclick="resetRSVP()">Nowe Potwierdzenie</button>
+                                    <button class="btn btn-secondary" onclick="showPage('home')">Zamknij</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1276,40 +1954,123 @@ body {
         <!-- GALLERY -->
         <div class="page" id="gallery">
             <div class="content-section">
-                <h2 class="section-title">Galeria</h2>
-                <div class="gold-divider"></div>
-                <p class="section-subtitle">Podziel się swoimi zdjęciami</p>
-                <div class="info-card">
-                    <p>Link do wspólnej galerii:</p>
-                    <p style="margin-top: 20px;">
-                        <a href="https://photos.app.goo.gl/563UeatK4Yv3f9kP7" target="_blank" style="color: var(--gold-accent); font-weight: 600;">
-                            → Otwórz galerię w Google Photos
-                        </a>
-                    </p>
+                <div class="gallery-container">
+                    <div class="gallery-card">
+                        <h2 class="section-title">Galeria Naszych Zdjęć</h2>
+                        <div class="gold-divider"></div>
+                        <p class="rsvp-subtitle">Zapraszamy do obejrzenia naszych ulubionych momentów</p>
+                        
+                        <div class="gallery-info">
+                            <h3>Podziel się Swoimi Zdjęciami</h3>
+                            <p>Jeśli masz zdjęcia z wesela, dodaj je do naszej wspólnej galerii! Możesz wrzucać zdjęcia bezpośrednio do albumu Google Photos. Dzięki temu wszystkie wspomnienia będą w jednym miejscu.</p>
+                            <p style="margin-bottom: 0; color: var(--navy-blue); font-weight: 700;">Pamiętaj: Tylko zdjęcia z dnia wesela - 6 sierpnia 2026</p>
+                        </div>
+                        
+                        <div class="gallery-cta">
+                            <a href="https://photos.app.goo.gl/563UeatK4Yv3f9kP7" target="_blank">Otwórz Galerię w Google Photos</a>
+                        </div>
+                        
+                        <div style="margin-top: 40px; padding: 30px; background: var(--cream-white); border-radius: 8px; text-align: center; border: 1px solid var(--soft-beige);">
+                            <p style="color: #777; font-size: 15px; margin: 0;">Zdjęcia pojawiają się w galerii na bieżąco. Dziękujemy za dzielenie się wspomnieniami!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        
     </main>
     
+    <!-- FOOTER -->
     <footer class="main-footer">
         <div class="footer-content">
+            <h3 class="footer-title">Kontakt</h3>
+            <div class="footer-contacts">
+                <div class="footer-person">
+                    <div class="footer-photo">
+                        <div class="footer-photo-placeholder">[WIKTORIA]<br>130x130px</div>
+                    </div>
+                    <h4>Wiktoria</h4>
+                    <p>[numer telefonu]</p>
+                    <p>wiktoria@example.com</p>
+                </div>
+                <div class="footer-person">
+                    <div class="footer-photo">
+                        <div class="footer-photo-placeholder">[MACIEJ]<br>130x130px</div>
+                    </div>
+                    <h4>Maciej</h4>
+                    <p>[numer telefonu]</p>
+                    <p>maciej@example.com</p>
+                </div>
+            </div>
             <div class="footer-copyright">
                 © 2026 Wiktoria & Maciej. Wszystkie prawa zastrzeżone.
             </div>
         </div>
     </footer>
+    
 </div>
 
 <script>
+const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTdoZJn2yd4HVavsFeL9degLN6ZG86CAlE_a86X4d6sDBkkZPx_za3s-LNW2NfHtWYtw/exec";
 const PASSWORD = "wesele2026";
+
 const guestDatabase = new Map([
     ["1001", { names: ["Ludmiła Schleser", "Jacek Schleser"], companion: false }],
     ["1002", { names: ["Milena Schleser"], companion: true }],
     ["1003", { names: ["Paulina Schleser", "Piotr Masiak", "Piotr Junior Masiak"], companion: false }],
+    ["1004", { names: ["Kacper Milczarek"], companion: true }],
+    ["1005", { names: ["Wiktor Tiedtke"], companion: true }],
+    ["1006", { names: ["Krystian Karpiuk"], companion: true }],
+    ["1007", { names: ["Karolina Sosnowska", "Karol Sosnowski"], companion: false }],
+    ["1008", { names: ["Natalia Siuda", "Filip Siuda", "Antonina Siuda"], companion: false }],
+    ["1009", { names: ["Agata Kowal", "Stanisław Kowal"], companion: false }],
+    ["1010", { names: ["Damian Kurcaba", "Natalia"], companion: false }],
+    ["1011", { names: ["Anna Birna"], companion: true }],
+    ["1012", { names: ["Irena Lipus", "Ryszard Lipus"], companion: false }],
+    ["1013", { names: ["Marianna Schleser"], companion: false }],
+    ["1014", { names: ["Iwona Schleser", "Dariusz Schleser", "Stanisław Schleser"], companion: false }],
+    ["1015", { names: ["Anita Schleser", "Andrzej Schleser"], companion: false }],
+    ["1016", { names: ["Agnieszka Schleser", "Jakub Pudełko"], companion: false }],
+    ["1017", { names: ["Patryk Gorajski"], companion: true }],
+    ["1018", { names: ["Sylwia Kosidło", "Sławomir Kosidło"], companion: false }],
+    ["1019", { names: ["Kamil Kosidło"], companion: true }],
+    ["1020", { names: ["Izabela Kosidło", "Damian Kosidło", "Stanisław Kosidło"], companion: false }],
+    ["1021", { names: ["Gabriela Kosidło", "Tomasz Kosidło"], companion: false }],
+    ["1022", { names: ["Bartosz Kosidło", "Wiktoria Kosidło"], companion: false }],
+    ["1023", { names: ["Klaudia Kosidło", "Kamil Ebner"], companion: false }],
+    ["1024", { names: ["Agnieszka Jundziłł", "Grzegorz Jundziłł"], companion: false }],
+    ["1025", { names: ["Karol Jundziłł"], companion: true }],
+    ["1026", { names: ["Mariola Wilewska", "Zbigniew Wilewski", "Krzysztof Sikorski"], companion: false }],
+    ["1027", { names: ["Zdzisława Rutzka", "Janusz Rutzki", "Agata Sikorska"], companion: false }],
+    ["1028", { names: ["Izabela Sikorska", "Jarosław Sikorski"], companion: false }],
+    ["1029", { names: ["Barbara Kosidło"], companion: false }],
+    ["1030", { names: ["Sławomira Molenda", "Roman Molenda"], companion: false }],
+    ["1031", { names: ["Natalia Lewandowska", "Julia Lewandowska", "Wiktor Lewandowski"], companion: false }],
+    ["1032", { names: ["Aleksandra Chołaścińska", "Kornel Chołaściński"], companion: false }],
+    ["1033", { names: ["Sandra Kwiatkowska", "Mikołaj Michalak"], companion: false }],
+    ["1034", { names: ["Jagoda Rutzka", "Kacper Burczykowski"], companion: false }],
+    ["1035", { names: ["Igor Rutzki", "Justyna Langowska"], companion: false }],
+    ["1036", { names: ["Łukasz Sikorski"], companion: true }],
+    ["1037", { names: ["Mateusz Sikorski", "ANNA KOWALSKA"], companion: false }],
+    ["1038", { names: ["Paulina Bielińska", "Kamil Weroniecki"], companion: false }],
+    ["1039", { names: ["Malwina Piechocka", "Marek Piechocki"], companion: false }]
 ]);
 
-let rsvpState = { code: null, selectedPeople: [], attending: null };
+let rsvpState = {
+    code: null,
+    selectedPeople: [],
+    companion: { name: "", email: "", hasCompanion: null },
+    email: "",
+    wantEmail: false,
+    diet: "",
+    noDiet: false,
+    attending: null,
+    currentStep: 1,
+    formCompleted: false,
+    isSubmitting: false
+};
 
+/* Easter Egg */
 function triggerEasterEgg() {
     document.getElementById("easterEggOverlay").classList.add("show");
     setTimeout(() => closeEasterEgg(), 4800);
@@ -1319,6 +2080,7 @@ function closeEasterEgg() {
     document.getElementById("easterEggOverlay").classList.remove("show");
 }
 
+/* Login */
 function checkPassword() {
     const password = document.getElementById("passwordInput").value;
     if (password === PASSWORD) {
@@ -1326,13 +2088,16 @@ function checkPassword() {
         document.getElementById("appContainer").classList.add("visible");
     } else {
         document.getElementById("loginError").textContent = "Nieprawidłowe hasło";
+        document.getElementById("passwordInput").value = "";
     }
 }
 
+/* Navigation */
 function showPage(pageId) {
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
     document.getElementById(pageId).classList.add("active");
-    document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
+    
+    document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
     event.target?.classList.add("active");
 }
 
@@ -1343,10 +2108,12 @@ function smoothScrollToRsvp() {
     }, 100);
 }
 
+/* Countdown */
 function updateCountdown() {
     const weddingDate = new Date("2026-08-06T00:00:00").getTime();
     const now = new Date().getTime();
     const timeLeft = weddingDate - now;
+    
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
@@ -1375,76 +2142,475 @@ function updateCountdown() {
     }
 }
 
-function rsvpValidateCode() {
-    const code = document.getElementById("codeInput").value.trim();
-    if (!guestDatabase.has(code)) {
-        document.getElementById("codeError").textContent = "Kod niepoprawny";
-        document.getElementById("codeError").style.display = "block";
-        return;
-    }
-    rsvpState.code = code;
-    showRsvpStep2();
+function scheduleCountdownUpdate() {
+    const now = new Date();
+    const msUntilNextSecond = 1000 - now.getMilliseconds();
+    setTimeout(() => {
+        updateCountdown();
+        scheduleCountdownUpdate();
+    }, msUntilNextSecond);
 }
 
-function showRsvpStep2() {
-    document.getElementById("rsvpStep1").classList.remove("visible");
-    document.getElementById("rsvpStep2").classList.add("visible");
+/* Progress Tracker */
+function updateProgressTracker(step) {
+    const trackers = document.querySelectorAll("[id^='progressTracker']");
+    trackers.forEach(tracker => {
+        if (!tracker) return;
+        
+        let html = '<div class="progress-tracker-fill" style="width: ' + (((step - 1) / 7) * 100) + '%"></div>';
+        for (let i = 1; i <= 8; i++) {
+            html += `<div class="progress-step ${i === step ? 'active' : ''}">${i}</div>`;
+        }
+        tracker.innerHTML = html;
+    });
+}
+
+function hideAllSteps() {
+    document.querySelectorAll(".rsvp-step").forEach(el => el.classList.remove("visible"));
+}
+
+function showStep(stepId) {
+    hideAllSteps();
+    document.getElementById(stepId).classList.add("visible");
+    updateProgressTracker(rsvpState.currentStep);
+}
+
+/* RSVP Functions */
+function rsvpValidateCode() {
+    const code = document.getElementById("codeInput").value.trim();
+    const codeError = document.getElementById("codeError");
+    const codeBtn = document.getElementById("codeBtn");
+
+    if (code.length !== 4 || isNaN(code)) {
+        codeError.textContent = "Kod musi mieć 4 cyfry";
+        codeError.style.display = "block";
+        return;
+    }
+
+    if (!guestDatabase.has(code)) {
+        codeError.textContent = "Kod nie został znaleziony";
+        codeError.style.display = "block";
+        return;
+    }
+
+    codeError.style.display = "none";
+    codeBtn.disabled = true;
+    codeBtn.textContent = "Sprawdzam...";
+
+    fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({ action: "validateCode", code: code })
+    })
+    .then(response => response.json())
+    .then(data => {
+        codeBtn.disabled = false;
+        codeBtn.textContent = "Dalej";
+
+        if (data.success) {
+            rsvpState.code = code;
+            rsvpState.currentStep = 2;
+            showStep("rsvpStep2");
+        } else {
+            codeError.textContent = data.message;
+            codeError.style.display = "block";
+        }
+    })
+    .catch(error => {
+        codeBtn.disabled = false;
+        codeBtn.textContent = "Dalej";
+        codeError.textContent = "Błąd połączenia. Spróbuj ponownie.";
+        codeError.style.display = "block";
+    });
 }
 
 function rsvpYesAttendance() {
     rsvpState.attending = true;
+    rsvpState.currentStep = 3;
+    rsvpShowPeopleSelection();
+}
+
+function rsvpNoAttendance() {
+    rsvpState.attending = false;
+    showStep("rsvpNoAttendanceSection");
+}
+
+function rsvpShowPeopleSelection() {
     const people = guestDatabase.get(rsvpState.code).names;
     const container = document.getElementById("peopleCheckboxes");
     container.innerHTML = "";
+
     people.forEach((person, index) => {
         container.innerHTML += `
-            <div style="display: flex; align-items: center; padding: 12px; margin-bottom: 10px; background: var(--cream-white); border-radius: 4px;">
+            <div class="checkbox-option">
                 <input type="checkbox" id="person${index}" value="${person}" />
-                <label for="person${index}" style="margin-left: 10px; cursor: pointer;">${person}</label>
+                <label for="person${index}">${person}</label>
             </div>
         `;
     });
-    document.getElementById("rsvpStep2").classList.remove("visible");
-    document.getElementById("rsvpStep3").classList.add("visible");
+
+    showStep("rsvpStep3");
 }
 
 function rsvpSelectPeople() {
     const checkboxes = document.querySelectorAll("#peopleCheckboxes input[type='checkbox']");
     const selected = Array.from(checkboxes).filter(c => c.checked).map(c => c.value);
+    const peopleError = document.getElementById("peopleError");
+
     if (selected.length === 0) {
-        alert("Zaznacz co najmniej jedną osobę");
+        peopleError.textContent = "Musisz wybrać co najmniej jedną osobę";
+        peopleError.style.display = "block";
         return;
     }
+
     rsvpState.selectedPeople = selected;
-    document.getElementById("rsvpStep3").classList.remove("visible");
-    document.getElementById("rsvpSuccess").classList.add("visible");
+    peopleError.style.display = "none";
+
+    if (guestDatabase.get(rsvpState.code).companion) {
+        rsvpState.currentStep = 4;
+        showStep("rsvpStep3b");
+    } else {
+        rsvpState.currentStep = 6;
+        showStep("rsvpStep5");
+    }
 }
 
-function rsvpNoAttendance() {
-    rsvpState.attending = false;
-    document.getElementById("rsvpStep2").classList.remove("visible");
-    document.getElementById("rsvpNoAttendanceSection").classList.add("visible");
+function rsvpGoBack(fromStep) {
+    const previousStep = fromStep - 1;
+    rsvpState.currentStep = previousStep;
+    if (previousStep === 1) showStep("rsvpStep1");
+    else if (previousStep === 2) showStep("rsvpStep2");
+}
+
+function rsvpGoBackFromStep4() {
+    rsvpState.currentStep = 3;
+    showStep("rsvpStep3");
+}
+
+function rsvpGoBackFromStep5() {
+    rsvpState.currentStep = 4;
+    showStep("rsvpStep3b");
+}
+
+function rsvpGoBackFromStep6() {
+    if (rsvpState.companion.hasCompanion && rsvpState.companion.name) {
+        rsvpState.currentStep = 5;
+        showStep("rsvpStep3c");
+    } else {
+        rsvpState.currentStep = 4;
+        showStep("rsvpStep3b");
+    }
+}
+
+function rsvpGoBackFromStep7() {
+    rsvpState.currentStep = 6;
+    showStep("rsvpStep5");
+}
+
+function rsvpGoBackFromStep8() {
+    rsvpState.currentStep = 7;
+    showStep("rsvpStep6");
+}
+
+function rsvpNoCompanion() {
+    rsvpState.companion = { hasCompanion: false, name: "", email: "" };
+    rsvpState.currentStep = 6;
+    showStep("rsvpStep5");
+}
+
+function rsvpYesCompanion() {
+    rsvpState.currentStep = 5;
+    showStep("rsvpStep3c");
+}
+
+function rsvpCompanionDone() {
+    const name = document.getElementById("companionName").value.trim();
+    const email = document.getElementById("companionEmail").value.trim();
+    const companionError = document.getElementById("companionError");
+
+    if (!name) {
+        companionError.textContent = "Wpisz imię i nazwisko osoby towarzyszącej";
+        companionError.style.display = "block";
+        return;
+    }
+
+    if (email && !validateEmail(email)) {
+        companionError.textContent = "Nieprawidłowy format emaila";
+        companionError.style.display = "block";
+        return;
+    }
+
+    rsvpState.companion = { name, email, hasCompanion: true };
+    companionError.style.display = "none";
+    rsvpState.currentStep = 6;
+    showStep("rsvpStep5");
+}
+
+function rsvpEmailYes() {
+    document.getElementById("emailInputSection").style.display = "block";
+    document.getElementById("emailNoBtn").style.display = "none";
+    document.getElementById("emailYesBtn").style.display = "none";
+}
+
+function rsvpEmailNo() {
+    rsvpState.wantEmail = false;
+    rsvpState.email = "";
+    rsvpState.currentStep = 7;
+    showStep("rsvpStep6");
+}
+
+function rsvpEmailConfirm() {
+    const email = document.getElementById("userEmail").value.trim();
+    const emailError = document.getElementById("emailError");
+
+    if (!validateEmail(email)) {
+        emailError.textContent = "Nieprawidłowy format emaila";
+        emailError.style.display = "block";
+        return;
+    }
+
+    rsvpState.wantEmail = true;
+    rsvpState.email = email;
+    emailError.style.display = "none";
+    rsvpState.currentStep = 7;
+    showStep("rsvpStep6");
+}
+
+function rsvpEmailReset() {
+    document.getElementById("emailInputSection").style.display = "none";
+    document.getElementById("emailNoBtn").style.display = "block";
+    document.getElementById("emailYesBtn").style.display = "block";
+    document.getElementById("userEmail").value = "";
+}
+
+function rsvpDietDone() {
+    const noDiet = document.getElementById("noDiet").checked;
+    const dietDetails = document.getElementById("dietDetails").value.trim();
+
+    if (!noDiet && !dietDetails) {
+        alert("Zaznacz 'Brak ograniczeń' lub wpisz szczegóły ograniczeń dietetycznych");
+        return;
+    }
+
+    rsvpState.noDiet = noDiet;
+    rsvpState.diet = dietDetails;
+    rsvpState.currentStep = 8;
+    rsvpShowSummary();
+}
+
+function rsvpShowSummary() {
+    document.getElementById("summaryCode").textContent = rsvpState.code;
+    let totalCount = rsvpState.selectedPeople.length;
+    if (rsvpState.companion.hasCompanion && rsvpState.companion.name) {
+        totalCount += 1;
+    }
+    document.getElementById("summaryCount").textContent = totalCount;
+    document.getElementById("summaryPeople").textContent = rsvpState.selectedPeople.join(", ");
+    document.getElementById("summaryCompanion").textContent = rsvpState.companion.name || "Brak";
+    document.getElementById("summaryEmail").textContent = rsvpState.email || "Nie podane";
+    document.getElementById("summaryNewsletter").textContent = rsvpState.wantEmail ? "Tak" : "Nie";
+    document.getElementById("summaryDiet").textContent = rsvpState.noDiet ? "Brak ograniczeń" : (rsvpState.diet || "Brak");
+
+    showStep("rsvpStep7");
+}
+
+function rsvpSubmit() {
+    if (rsvpState.isSubmitting) return;
+    
+    const submitBtn = document.getElementById("submitBtn");
+    submitBtn.disabled = true;
+    rsvpState.isSubmitting = true;
+    submitBtn.textContent = "Wysyłam...";
+
+    const payload = {
+        action: "submitRSVP",
+        code: rsvpState.code,
+        people: rsvpState.selectedPeople,
+        companion: rsvpState.companion.hasCompanion && rsvpState.companion.name ? rsvpState.companion.name : "",
+        companionEmail: rsvpState.companion.email || "",
+        email: rsvpState.email,
+        newsletter: rsvpState.wantEmail ? "Tak" : "Nie",
+        diet: rsvpState.noDiet ? "Brak ograniczeń" : rsvpState.diet
+    };
+
+    fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Potwierdź i Wyślij";
+        rsvpState.isSubmitting = false;
+
+        if (data.success) {
+            rsvpState.formCompleted = true;
+            rsvpState.currentStep = 9;
+            showStep("rsvpStep8");
+        } else {
+            alert("Błąd: " + data.message);
+        }
+    })
+    .catch(error => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Potwierdź i Wyślij";
+        rsvpState.isSubmitting = false;
+        alert("Błąd połączenia. Spróbuj ponownie.");
+    });
+}
+
+function resetRSVP() {
+    rsvpState = {
+        code: null,
+        selectedPeople: [],
+        companion: { name: "", email: "", hasCompanion: null },
+        email: "",
+        wantEmail: false,
+        diet: "",
+        noDiet: false,
+        attending: null,
+        currentStep: 1,
+        formCompleted: false,
+        isSubmitting: false
+    };
+
+    document.getElementById("codeInput").value = "";
+    document.getElementById("userEmail").value = "";
+    document.getElementById("companionName").value = "";
+    document.getElementById("companionEmail").value = "";
+    document.getElementById("dietDetails").value = "";
+    document.getElementById("noDiet").checked = false;
+    
+    document.getElementById("emailInputSection").style.display = "none";
+    document.getElementById("emailNoBtn").style.display = "block";
+    document.getElementById("emailYesBtn").style.display = "block";
+    document.getElementById("noContactEmailInput").style.display = "none";
+    document.getElementById("noContactEmail").value = "";
+
+    showStep("rsvpStep1");
+}
+
+function rsvpNoContactEmail() {
+    document.getElementById("noContactEmailInput").style.display = "block";
+    document.getElementById("btnNoEmail").style.display = "none";
+    document.getElementById("btnYesEmail").style.display = "none";
 }
 
 function rsvpNoContactDone() {
-    document.getElementById("rsvpNoAttendanceSection").classList.remove("visible");
-    document.getElementById("rsvpSuccess").classList.add("visible");
+    if (rsvpState.formCompleted || rsvpState.isSubmitting) return;
+
+    rsvpState.formCompleted = true;
+    rsvpState.isSubmitting = true;
+
+    const payload = {
+        action: "submitNoAttendance",
+        code: rsvpState.code,
+        people: guestDatabase.get(rsvpState.code).names.join(", "),
+        email: "",
+        newsletter: "Nie"
+    };
+
+    fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+        rsvpState.isSubmitting = false;
+
+        if (data.success) {
+            showStep("noEmailSuccess");
+        } else {
+            alert("Błąd: " + data.message);
+            rsvpState.formCompleted = false;
+        }
+    })
+    .catch(error => {
+        rsvpState.isSubmitting = false;
+        rsvpState.formCompleted = false;
+        alert("Błąd połączenia. Spróbuj ponownie.");
+    });
 }
 
-function rsvpGoBack(step) {
-    if (step === 3) {
-        document.getElementById("rsvpStep3").classList.remove("visible");
-        document.getElementById("rsvpStep2").classList.add("visible");
+function rsvpNoContactSubmit() {
+    if (rsvpState.formCompleted || rsvpState.isSubmitting) return;
+
+    const email = document.getElementById("noContactEmail").value.trim();
+    const emailError = document.getElementById("noContactEmailError");
+
+    if (!validateEmail(email)) {
+        emailError.textContent = "Nieprawidłowy format emaila";
+        emailError.style.display = "block";
+        return;
     }
+
+    const noContactSubmitBtn = document.getElementById("noContactSubmitBtn");
+    noContactSubmitBtn.disabled = true;
+    rsvpState.isSubmitting = true;
+    rsvpState.formCompleted = true;
+    noContactSubmitBtn.textContent = "Wysyłam...";
+
+    const payload = {
+        action: "submitNoAttendance",
+        code: rsvpState.code,
+        people: guestDatabase.get(rsvpState.code).names.join(", "),
+        email: email,
+        newsletter: "Tak"
+    };
+
+    fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+        noContactSubmitBtn.disabled = false;
+        noContactSubmitBtn.textContent = "Potwierdź";
+        rsvpState.isSubmitting = false;
+
+        if (data.success) {
+            showStep("withEmailSuccess");
+        } else {
+            alert("Błąd: " + data.message);
+            rsvpState.formCompleted = false;
+        }
+    })
+    .catch(error => {
+        noContactSubmitBtn.disabled = false;
+        noContactSubmitBtn.textContent = "Potwierdź";
+        rsvpState.isSubmitting = false;
+        rsvpState.formCompleted = false;
+        alert("Błąd połączenia. Spróbuj ponownie.");
+    });
 }
 
+function rsvpNoContactReset() {
+    document.getElementById("noContactEmailInput").style.display = "none";
+    document.getElementById("btnNoEmail").style.display = "block";
+    document.getElementById("btnYesEmail").style.display = "block";
+    document.getElementById("noContactEmail").value = "";
+    document.getElementById("noContactEmailError").style.display = "none";
+}
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+/* Initialize */
 document.addEventListener("DOMContentLoaded", function() {
     updateCountdown();
-    setInterval(updateCountdown, 1000);
+    scheduleCountdownUpdate();
+    
     document.getElementById("passwordInput").addEventListener("keypress", function(e) {
         if (e.key === "Enter") checkPassword();
     });
 });
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('SW registered'))
+        .catch(() => console.log('SW failed'));
+}
 </script>
 </body>
 </html>
