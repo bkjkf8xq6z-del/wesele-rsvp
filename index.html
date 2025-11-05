@@ -27,57 +27,14 @@
     --section-padding: 80px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--cream-white); color: var(--dark-text); line-height: 1.7; overflow-x: hidden; }
+.top-banner { background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%); padding: 30px 20px; text-align: center; position: relative; overflow: hidden; cursor: pointer; transition: all 0.3s ease; }
+.top-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold-accent), transparent); }
+.couple-names { font-family: var(--font-cursive); font-size: 56px; color: var(--gold-accent); margin-bottom: 8px; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); }
+.wedding-date { font-family: var(--font-heading); font-size: 18px; color: var(--cream-white); letter-spacing: 4px; font-weight: 400; }
 
-body {
-    font-family: var(--font-body);
-    background: var(--cream-white);
-    color: var(--dark-text);
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-.top-banner {
-    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%);
-    padding: 30px 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.top-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
-}
-
-.couple-names {
-    font-family: var(--font-cursive);
-    font-size: 56px;
-    color: var(--gold-accent);
-    margin-bottom: 8px;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.wedding-date {
-    font-family: var(--font-heading);
-    font-size: 18px;
-    color: var(--cream-white);
-    letter-spacing: 4px;
-    font-weight: 400;
-}
-
+/* ✅ ZMIANA 2: HERO SECTION DOMYŚLNIE UKRYTE */
 .hero-section {
     position: relative;
     height: 600px;
@@ -85,79 +42,22 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
 }
 
-.hero-content {
-    z-index: 2;
-    max-width: 800px;
-    padding: 40px;
-}
+.hero-content { z-index: 2; max-width: 800px; padding: 40px; }
+.hero-subtitle { font-family: var(--font-heading); font-size: 22px; color: var(--light-gold); margin-bottom: 15px; letter-spacing: 3px; font-weight: 400; }
+.hero-title { font-family: var(--font-heading); font-size: 48px; color: white; margin-bottom: 20px; font-weight: 700; line-height: 1.3; }
+.gold-divider { width: 120px; height: 2px; background: var(--gold-accent); margin: 20px auto; }
 
-.hero-subtitle {
-    font-family: var(--font-heading);
-    font-size: 22px;
-    color: var(--light-gold);
-    margin-bottom: 15px;
-    letter-spacing: 3px;
-    font-weight: 400;
-}
-
-.hero-title {
-    font-family: var(--font-heading);
-    font-size: 48px;
-    color: white;
-    margin-bottom: 20px;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.gold-divider {
-    width: 120px;
-    height: 2px;
-    background: var(--gold-accent);
-    margin: 20px auto;
-}
-
-.easter-egg-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 10000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-.easter-egg-overlay.show {
-    display: flex;
-}
-
-.falcon-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.falcon-real {
-    position: absolute;
-    width: 300px;
-    height: auto;
-    left: -350px;
-    top: 50%;
-    transform: translateY(-50%);
-    filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 50px rgba(212, 175, 55, 0.4));
-    animation: falconFlyEpic 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    z-index: 10001;
-}
+.easter-egg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 10000; display: none; align-items: center; justify-content: center; }
+.easter-egg-overlay.show { display: flex; }
+.falcon-container { position: relative; width: 100%; height: 100%; overflow: hidden; }
+.falcon-real { position: absolute; width: 300px; height: auto; left: -350px; top: 50%; transform: translateY(-50%); filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.8)) drop-shadow(0 0 50px rgba(212, 175, 55, 0.4)); animation: falconFlyEpic 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; z-index: 10001; }
 
 @keyframes falconFlyEpic {
     0% { left: -350px; top: 50%; opacity: 1; transform: translateY(-50%) rotateZ(0deg); }
@@ -170,1183 +70,201 @@ body {
     100% { right: -350px; opacity: 0; transform: translateY(-50%) rotateZ(18deg) scale(0.9); }
 }
 
-.login-page {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.login-page.hidden {
-    display: none;
-}
-
-.login-box {
-    background: white;
-    padding: 60px;
-    border-radius: 8px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    max-width: 480px;
-    width: 90%;
-    border-top: 4px solid var(--gold-accent);
-}
-
-.login-box h1 {
-    font-family: var(--font-heading);
-    color: var(--navy-blue);
-    margin-bottom: 15px;
-    font-size: 38px;
-    font-weight: 700;
-}
-
-.login-box p {
-    font-family: var(--font-body);
-    color: #666;
-    margin-bottom: 35px;
-    font-size: 15px;
-}
-
-.login-box input {
-    width: 100%;
-    padding: 16px 20px;
-    margin-bottom: 25px;
-    border: 2px solid var(--soft-beige);
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: var(--font-body);
-    transition: all 0.3s ease;
-}
-
-.login-box input:focus {
-    outline: none;
-    border-color: var(--gold-accent);
-    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
-}
-
-.login-box button {
-    width: 100%;
-    padding: 16px;
-    background: var(--navy-blue);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 600;
-    font-family: var(--font-heading);
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-.login-box button:hover {
-    background: var(--darker-navy);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.login-error {
-    color: #c62828;
-    margin-top: 20px;
-    font-size: 14px;
-    min-height: 20px;
-}
-
-.app-container {
-    display: none;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-.app-container.visible {
-    display: flex;
-}
-
-.main-content {
-    flex: 1;
-    background: var(--cream-white);
-}
-
-.content-section {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: var(--section-padding) 40px;
-}
-
-.page {
-    display: none;
-}
-
-.page.active {
-    display: block;
-    animation: fadeInUp 0.5s ease;
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 48px;
-    color: var(--navy-blue);
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.section-subtitle {
-    font-family: var(--font-body);
-    font-size: 18px;
-    color: #666;
-    text-align: center;
-    margin-bottom: 60px;
-    font-weight: 300;
-}
-
-.main-nav {
-    background: white;
-    border-bottom: 1px solid var(--soft-beige);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-.nav-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    flex-wrap: wrap;
-    padding: 0;
-}
-
-.nav-btn {
-    padding: 20px 32px;
-    background: transparent;
-    border: none;
-    border-bottom: 3px solid transparent;
-    font-family: var(--font-heading);
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--navy-blue);
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-.nav-btn:hover {
-    background: var(--light-gold);
-    border-bottom-color: var(--gold-accent);
-}
-
-.nav-btn.active {
-    background: var(--navy-blue);
-    color: var(--gold-accent);
-    border-bottom-color: var(--gold-accent);
-}
-
-.countdown-container {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.countdown-intro {
-    font-family: var(--font-heading);
-    font-size: 28px;
-    color: var(--navy-blue);
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.countdown-date-display {
-    font-family: var(--font-body);
-    font-size: 20px;
-    color: var(--gold-accent);
-    margin-bottom: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-}
-
-.countdown-location {
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: #888;
-    margin-bottom: 50px;
-}
-
-.countdown-boxes {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-
-.countdown-box {
-    background: white;
-    border: 2px solid var(--gold-accent);
-    border-radius: 8px;
-    padding: 35px 40px;
-    min-width: 140px;
-    text-align: center;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-}
-
-.countdown-box:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    border-color: var(--navy-blue);
-}
-
-.countdown-number {
-    font-family: var(--font-heading);
-    font-size: 52px;
-    color: var(--navy-blue);
-    font-weight: 700;
-    line-height: 1;
-    display: block;
-    margin-bottom: 12px;
-}
-
-.countdown-label {
-    font-family: var(--font-body);
-    font-size: 13px;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-}
-
-.cta-section {
-    text-align: center;
-    margin-top: 70px;
-    padding: 60px 20px;
-}
-
-.cta-title {
-    font-family: var(--font-heading);
-    font-size: 32px;
-    color: var(--navy-blue);
-    margin: 0 0 15px 0;
-    font-weight: 700;
-}
-
-.cta-subtitle {
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 35px;
-    line-height: 1.6;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 18px 50px;
-    background: var(--navy-blue);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-family: var(--font-heading);
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(26, 58, 82, 0.2);
-}
-
-.cta-button:hover {
-    background: var(--gold-accent);
-    color: var(--navy-blue);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-}
-
-.cta-button:active {
-    transform: translateY(-1px);
-}
-
-.schedule-timeline {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.schedule-item {
-    display: flex;
-    margin-bottom: 40px;
-    position: relative;
-    align-items: flex-start;
-}
-
-.schedule-time {
-    flex: 0 0 140px;
-    padding: 20px;
-    background: var(--navy-blue);
-    color: white;
-    border-radius: 8px;
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 700;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(26, 58, 82, 0.2);
-}
-
-.schedule-connector {
-    width: 60px;
-    height: 3px;
-    background: var(--gold-accent);
-    margin: 28px 20px 0 20px;
-    flex-shrink: 0;
-}
-
-.schedule-content {
-    flex: 1;
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    border-left: 4px solid var(--gold-accent);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.schedule-activity {
-    font-family: var(--font-heading);
-    font-size: 22px;
-    color: var(--navy-blue);
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.schedule-location {
-    font-size: 14px;
-    color: var(--gold-accent);
-    margin-bottom: 12px;
-    font-weight: 600;
-}
-
-.schedule-description {
-    font-size: 15px;
-    color: #666;
-    line-height: 1.6;
-}
-
-.timeline-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    position: relative;
-    padding: 40px 0;
-}
-
-.timeline-container::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to bottom, var(--gold-accent), var(--soft-beige));
-}
-
-.timeline-item {
-    display: flex;
-    margin-bottom: 80px;
-    position: relative;
-    align-items: flex-start;
-}
-
-.timeline-item:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.timeline-photo {
-    flex: 0 0 220px;
-    height: 220px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid var(--gold-accent);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    position: relative;
-    z-index: 2;
-    background: linear-gradient(135deg, var(--soft-beige), white);
-}
-
-.timeline-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.timeline-photo-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-body);
-    font-size: 14px;
-    color: #999;
-    text-align: center;
-    padding: 20px;
-    background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
-}
-
-.timeline-connector {
-    flex: 0 0 60px;
-    height: 2px;
-    background: var(--gold-accent);
-    position: relative;
-    z-index: 1;
-}
-
-.timeline-content {
-    flex: 1;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    border-left: 3px solid var(--gold-accent);
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-    border-left: none;
-    border-right: 3px solid var(--gold-accent);
-}
-
-.timeline-year {
-    font-family: var(--font-heading);
-    font-size: 18px;
-    color: var(--gold-accent);
-    font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.timeline-text {
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: #555;
-    line-height: 1.7;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%) translateY(30px);
-    width: 20px;
-    height: 20px;
-    background: var(--gold-accent);
-    border-radius: 50%;
-    border: 4px solid white;
-    box-shadow: 0 0 0 4px var(--soft-beige);
-    z-index: 3;
-}
-
-.info-card {
-    background: white;
-    padding: 50px;
-    border-radius: 8px;
-    margin-bottom: 40px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border-top: 4px solid var(--gold-accent);
-}
-
-.info-card h3 {
-    font-family: var(--font-heading);
-    font-size: 32px;
-    color: var(--navy-blue);
-    margin-bottom: 30px;
-    font-weight: 700;
-}
-
-.info-card h4 {
-    font-family: var(--font-heading);
-    font-size: 18px;
-    color: var(--navy-blue);
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.info-card p {
-    font-size: 16px;
-    margin-bottom: 15px;
-    color: #555;
-}
-
-.info-card strong {
-    color: var(--navy-blue);
-    font-weight: 700;
-}
-
-.info-card a {
-    color: var(--gold-accent);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-.info-card a:hover {
-    color: var(--navy-blue);
-    text-decoration: underline;
-}
-
-.info-grid {
-    display: grid;
-    grid-template-columns: 1fr 450px;
-    gap: 40px;
-    align-items: center;
-}
-
-.info-details p {
-    font-size: 16px;
-    margin-bottom: 15px;
-    color: #555;
-}
-
-.info-details strong {
-    color: var(--navy-blue);
-    font-weight: 700;
-}
-
-.info-details a {
-    color: var(--gold-accent);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-.info-details a:hover {
-    color: var(--navy-blue);
-    text-decoration: underline;
-}
-
-.map-embed {
-    width: 100%;
-    height: 350px;
-    border-radius: 8px;
-    border: 2px solid var(--soft-beige);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-.map-embed iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 6px;
-}
-
-.gift-section {
-    background: linear-gradient(135deg, var(--light-gold) 0%, var(--soft-beige) 100%);
-    padding: 40px;
-    border-radius: 8px;
-    text-align: center;
-    margin-top: 40px;
-    border: 2px solid var(--gold-accent);
-}
-
-.gift-section h3 {
-    color: var(--navy-blue);
-    margin-bottom: 20px;
-}
-
-.gift-section p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.gift-highlight {
-    color: var(--navy-blue);
-    font-weight: 700;
-    font-size: 18px;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-top: 60px;
-}
-
-.contact-person {
-    background: white;
-    padding: 40px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border-top: 3px solid var(--gold-accent);
-}
-
-.contact-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin: 0 auto 25px;
-    border: 4px solid var(--gold-accent);
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, var(--soft-beige), white);
-}
-
-.contact-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.contact-photo-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: #999;
-    text-align: center;
-    background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
-}
-
-.contact-person h3 {
-    font-family: var(--font-heading);
-    font-size: 26px;
-    color: var(--navy-blue);
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.contact-info-item {
-    margin: 15px 0;
-    font-size: 15px;
-    color: #666;
-}
-
-.contact-info-item strong {
-    display: block;
-    color: var(--navy-blue);
-    margin-bottom: 5px;
-    font-weight: 700;
-}
-
-.rsvp-container {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.rsvp-card {
-    background: white;
-    padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
-    border-top: 4px solid var(--gold-accent);
-}
-
-.rsvp-card h2 {
-    font-family: var(--font-heading);
-    font-size: 32px;
-    color: var(--navy-blue);
-    margin-bottom: 15px;
-    text-align: center;
-    font-weight: 700;
-}
-
-.rsvp-subtitle {
-    font-size: 16px;
-    color: #777;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.rsvp-step {
-    display: none;
-}
-
-.rsvp-step.visible {
-    display: block;
-}
-
-.progress-tracker {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-    position: relative;
-    padding: 0 10px;
-}
-
-.progress-tracker::before {
-    content: '';
-    position: absolute;
-    top: 16px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--soft-beige);
-    z-index: 1;
-}
-
-.progress-tracker-fill {
-    position: absolute;
-    top: 16px;
-    left: 0;
-    height: 2px;
-    background: var(--gold-accent);
-    z-index: 2;
-    transition: width 0.3s ease;
-}
-
-.progress-step {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: white;
-    border: 3px solid var(--soft-beige);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-heading);
-    font-size: 14px;
-    font-weight: 700;
-    color: #999;
-    position: relative;
-    z-index: 3;
-    transition: all 0.3s ease;
-}
-
-.progress-step.active {
-    background: var(--gold-accent);
-    border-color: var(--gold-accent);
-    color: white;
-    transform: scale(1.15);
-}
-
-.form-group {
-    margin-bottom: 30px;
-}
-
-.form-label {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 15px;
-    color: var(--navy-blue);
-    margin-bottom: 12px;
-    font-weight: 600;
-}
-
-.form-input {
-    width: 100%;
-    padding: 14px 18px;
-    border: 2px solid var(--soft-beige);
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: var(--font-body);
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: var(--gold-accent);
-    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
-}
-
-.checkbox-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.checkbox-option {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    background: var(--cream-white);
-    border: 2px solid var(--soft-beige);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.checkbox-option:hover {
-    border-color: var(--gold-accent);
-    background: white;
-}
-
-.checkbox-option input[type="checkbox"] {
-    width: 22px;
-    height: 22px;
-    margin-right: 14px;
-    cursor: pointer;
-    accent-color: var(--gold-accent);
-}
-
-.checkbox-option label {
-    margin: 0;
-    cursor: pointer;
-    font-size: 16px;
-    color: var(--dark-text);
-}
-
-.button-group {
-    display: flex;
-    gap: 15px;
-    margin-top: 40px;
-}
-
-.btn {
-    flex: 1;
-    padding: 16px 28px;
-    border: none;
-    border-radius: 4px;
-    font-family: var(--font-heading);
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-.btn-primary {
-    background: var(--navy-blue);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: var(--darker-navy);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn-primary:disabled {
-    background: #999;
-    cursor: not-allowed;
-}
-
-.btn-secondary {
-    background: white;
-    color: var(--navy-blue);
-    border: 2px solid var(--navy-blue);
-}
-
-.btn-secondary:hover {
-    background: var(--navy-blue);
-    color: white;
-}
-
-.btn-back {
-    background: var(--soft-beige);
-    color: var(--navy-blue);
-}
-
-.btn-back:hover {
-    background: #d0c9bd;
-}
-
-.alert {
-    padding: 18px;
-    border-radius: 4px;
-    margin: 25px 0;
-    text-align: center;
-    font-weight: 600;
-}
-
-.alert-success {
-    background: #e8f5e9;
-    color: #2e7d32;
-    border: 2px solid #c8e6c9;
-}
-
-.alert-error {
-    background: #ffebee;
-    color: #c62828;
-    border: 2px solid #ffcdd2;
-}
-
-.summary-table {
-    width: 100%;
-    margin: 30px 0;
-    border-collapse: collapse;
-    border: 1px solid var(--soft-beige);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.summary-table td {
-    padding: 18px;
-    border-bottom: 1px solid var(--soft-beige);
-}
-
-.summary-table td:first-child {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    color: var(--navy-blue);
-    background: var(--cream-white);
-    width: 40%;
-}
-
-.summary-table tr:last-child td {
-    border-bottom: none;
-}
-
-.gallery-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.gallery-card {
-    background: white;
-    padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border-top: 4px solid var(--gold-accent);
-}
-
-.gallery-info {
-    background: var(--light-gold);
-    padding: 30px;
-    border-radius: 8px;
-    margin: 30px 0;
-    border-left: 4px solid var(--gold-accent);
-}
-
-.gallery-info h3 {
-    font-family: var(--font-heading);
-    color: var(--navy-blue);
-    margin-bottom: 15px;
-    font-size: 24px;
-}
-
-.gallery-info p {
-    color: #555;
-    margin-bottom: 12px;
-    line-height: 1.7;
-}
-
-.gallery-cta {
-    margin-top: 40px;
-}
-
-.gallery-cta a {
-    display: inline-block;
-    padding: 18px 40px;
-    background: var(--navy-blue);
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    letter-spacing: 1px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
-
-.gallery-cta a:hover {
-    background: var(--darker-navy);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.main-footer {
-    background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%);
-    color: white;
-    padding: 60px 40px 40px;
-    margin-top: 80px;
-    position: relative;
-}
-
-.main-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
-}
-
-.footer-content {
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.footer-title {
-    font-family: var(--font-heading);
-    font-size: 28px;
-    color: var(--gold-accent);
-    text-align: center;
-    margin-bottom: 50px;
-    font-weight: 700;
-}
-
-.footer-contacts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    margin-bottom: 40px;
-}
-
-.footer-person {
-    text-align: center;
-}
-
-.footer-photo {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    border: 4px solid var(--gold-accent);
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, var(--soft-beige), white);
-}
-
-.footer-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.footer-photo-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: #999;
-    text-align: center;
-    background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
-}
-
-.footer-person h4 {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    color: white;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.footer-person p {
-    color: #ccc;
-    margin: 8px 0;
-    font-size: 15px;
-}
-
-.footer-copyright {
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #999;
-    font-size: 14px;
-}
+.login-page { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%); display: flex; justify-content: center; align-items: center; z-index: 9999; }
+.login-page.hidden { display: none; }
+.login-box { background: white; padding: 60px; border-radius: 8px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3); text-align: center; max-width: 480px; width: 90%; border-top: 4px solid var(--gold-accent); }
+.login-box h1 { font-family: var(--font-heading); color: var(--navy-blue); margin-bottom: 15px; font-size: 38px; font-weight: 700; }
+.login-box p { font-family: var(--font-body); color: #666; margin-bottom: 35px; font-size: 15px; }
+.login-box input { width: 100%; padding: 16px 20px; margin-bottom: 25px; border: 2px solid var(--soft-beige); border-radius: 4px; font-size: 16px; font-family: var(--font-body); transition: all 0.3s ease; }
+.login-box input:focus { outline: none; border-color: var(--gold-accent); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1); }
+.login-box button { width: 100%; padding: 16px; background: var(--navy-blue); color: white; border: none; border-radius: 4px; font-size: 16px; font-weight: 600; font-family: var(--font-heading); letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; }
+.login-box button:hover { background: var(--darker-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); }
+.login-error { color: #c62828; margin-top: 20px; font-size: 14px; min-height: 20px; }
+
+.app-container { display: none; min-height: 100vh; flex-direction: column; }
+.app-container.visible { display: flex; }
+.main-content { flex: 1; background: var(--cream-white); }
+.content-section { max-width: var(--max-width); margin: 0 auto; padding: var(--section-padding) 40px; }
+.page { display: none; }
+.page.active { display: block; animation: fadeInUp 0.5s ease; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.section-title { font-family: var(--font-heading); font-size: 48px; color: var(--navy-blue); text-align: center; margin-bottom: 20px; font-weight: 700; }
+.section-subtitle { font-family: var(--font-body); font-size: 18px; color: #666; text-align: center; margin-bottom: 60px; font-weight: 300; }
+
+.main-nav { background: white; border-bottom: 1px solid var(--soft-beige); box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); position: sticky; top: 0; z-index: 1000; transition: all 0.3s ease; }
+.nav-container { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: center; gap: 0; flex-wrap: wrap; padding: 0; }
+.nav-btn { padding: 20px 32px; background: transparent; border: none; border-bottom: 3px solid transparent; font-family: var(--font-heading); font-size: 15px; font-weight: 600; color: var(--navy-blue); letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; }
+.nav-btn:hover { background: var(--light-gold); border-bottom-color: var(--gold-accent); }
+.nav-btn.active { background: var(--navy-blue); color: var(--gold-accent); border-bottom-color: var(--gold-accent); }
+
+.countdown-container { text-align: center; margin-bottom: 60px; }
+.countdown-intro { font-family: var(--font-heading); font-size: 28px; color: var(--navy-blue); margin-bottom: 15px; font-weight: 600; }
+.countdown-date-display { font-family: var(--font-body); font-size: 20px; color: var(--gold-accent); margin-bottom: 10px; font-weight: 600; letter-spacing: 2px; }
+.countdown-location { font-family: var(--font-body); font-size: 16px; color: #888; margin-bottom: 50px; }
+.countdown-boxes { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+.countdown-box { background: white; border: 2px solid var(--gold-accent); border-radius: 8px; padding: 35px 40px; min-width: 140px; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; }
+.countdown-box:hover { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12); border-color: var(--navy-blue); }
+.countdown-number { font-family: var(--font-heading); font-size: 52px; color: var(--navy-blue); font-weight: 700; line-height: 1; display: block; margin-bottom: 12px; }
+.countdown-label { font-family: var(--font-body); font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
+
+.cta-section { text-align: center; margin-top: 70px; padding: 60px 20px; }
+.cta-title { font-family: var(--font-heading); font-size: 32px; color: var(--navy-blue); margin: 0 0 15px 0; font-weight: 700; }
+.cta-subtitle { font-family: var(--font-body); font-size: 16px; color: #666; margin-bottom: 35px; line-height: 1.6; }
+.cta-button { display: inline-block; padding: 18px 50px; background: var(--navy-blue); color: white; border: none; border-radius: 4px; font-family: var(--font-heading); font-size: 16px; font-weight: 700; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; box-shadow: 0 4px 15px rgba(26, 58, 82, 0.2); }
+.cta-button:hover { background: var(--gold-accent); color: var(--navy-blue); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); }
+.cta-button:active { transform: translateY(-1px); }
+
+.schedule-timeline { max-width: 900px; margin: 0 auto; }
+.schedule-item { display: flex; margin-bottom: 40px; position: relative; align-items: flex-start; }
+.schedule-time { flex: 0 0 140px; padding: 20px; background: var(--navy-blue); color: white; border-radius: 8px; font-family: var(--font-heading); font-size: 24px; font-weight: 700; text-align: center; box-shadow: 0 4px 12px rgba(26, 58, 82, 0.2); }
+.schedule-connector { width: 60px; height: 3px; background: var(--gold-accent); margin: 28px 20px 0 20px; flex-shrink: 0; }
+.schedule-content { flex: 1; background: white; padding: 25px; border-radius: 8px; border-left: 4px solid var(--gold-accent); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+.schedule-activity { font-family: var(--font-heading); font-size: 22px; color: var(--navy-blue); font-weight: 700; margin-bottom: 10px; }
+.schedule-location { font-size: 14px; color: var(--gold-accent); margin-bottom: 12px; font-weight: 600; }
+.schedule-description { font-size: 15px; color: #666; line-height: 1.6; }
+
+.timeline-container { max-width: 1000px; margin: 0 auto; position: relative; padding: 40px 0; }
+.timeline-container::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(to bottom, var(--gold-accent), var(--soft-beige)); }
+.timeline-item { display: flex; margin-bottom: 80px; position: relative; align-items: flex-start; }
+.timeline-item:nth-child(even) { flex-direction: row-reverse; }
+.timeline-photo { flex: 0 0 220px; height: 220px; border-radius: 50%; overflow: hidden; border: 4px solid var(--gold-accent); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); position: relative; z-index: 2; background: linear-gradient(135deg, var(--soft-beige), white); }
+.timeline-photo img { width: 100%; height: 100%; object-fit: cover; }
+.timeline-photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 14px; color: #999; text-align: center; padding: 20px; background: linear-gradient(135deg, #f5f5f5, #e8e8e8); }
+.timeline-connector { flex: 0 0 60px; height: 2px; background: var(--gold-accent); position: relative; z-index: 1; }
+.timeline-content { flex: 1; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border-left: 3px solid var(--gold-accent); }
+.timeline-item:nth-child(even) .timeline-content { border-left: none; border-right: 3px solid var(--gold-accent); }
+.timeline-year { font-family: var(--font-heading); font-size: 18px; color: var(--gold-accent); font-weight: 700; margin-bottom: 10px; letter-spacing: 1px; }
+.timeline-text { font-family: var(--font-body); font-size: 16px; color: #555; line-height: 1.7; }
+.timeline-dot { position: absolute; left: 50%; transform: translateX(-50%) translateY(30px); width: 20px; height: 20px; background: var(--gold-accent); border-radius: 50%; border: 4px solid white; box-shadow: 0 0 0 4px var(--soft-beige); z-index: 3; }
+
+.info-card { background: white; padding: 50px; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); border-top: 4px solid var(--gold-accent); }
+.info-card h3 { font-family: var(--font-heading); font-size: 32px; color: var(--navy-blue); margin-bottom: 30px; font-weight: 700; }
+.info-card h4 { font-family: var(--font-heading); font-size: 18px; color: var(--navy-blue); margin-bottom: 10px; font-weight: 700; }
+.info-card p { font-size: 16px; margin-bottom: 15px; color: #555; }
+.info-card strong { color: var(--navy-blue); font-weight: 700; }
+.info-card a { color: var(--gold-accent); text-decoration: none; font-weight: 600; transition: all 0.2s ease; }
+.info-card a:hover { color: var(--navy-blue); text-decoration: underline; }
+.info-grid { display: grid; grid-template-columns: 1fr 450px; gap: 40px; align-items: center; }
+.info-details p { font-size: 16px; margin-bottom: 15px; color: #555; }
+.info-details strong { color: var(--navy-blue); font-weight: 700; }
+.info-details a { color: var(--gold-accent); text-decoration: none; font-weight: 600; transition: all 0.2s ease; }
+.info-details a:hover { color: var(--navy-blue); text-decoration: underline; }
+.map-embed { width: 100%; height: 350px; border-radius: 8px; border: 2px solid var(--soft-beige); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); }
+.map-embed iframe { width: 100%; height: 100%; border: none; border-radius: 6px; }
+
+.gift-section { background: linear-gradient(135deg, var(--light-gold) 0%, var(--soft-beige) 100%); padding: 40px; border-radius: 8px; text-align: center; margin-top: 40px; border: 2px solid var(--gold-accent); }
+.gift-section h3 { color: var(--navy-blue); margin-bottom: 20px; }
+.gift-section p { font-size: 16px; color: #555; margin-bottom: 10px; }
+.gift-highlight { color: var(--navy-blue); font-weight: 700; font-size: 18px; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px; }
+.contact-person { background: white; padding: 40px; border-radius: 8px; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); border-top: 3px solid var(--gold-accent); }
+.contact-photo { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 25px; border: 4px solid var(--gold-accent); overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); background: linear-gradient(135deg, var(--soft-beige), white); }
+.contact-photo img { width: 100%; height: 100%; object-fit: cover; }
+.contact-photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #999; text-align: center; background: linear-gradient(135deg, #f5f5f5, #e8e8e8); }
+.contact-person h3 { font-family: var(--font-heading); font-size: 26px; color: var(--navy-blue); margin-bottom: 20px; font-weight: 700; }
+.contact-info-item { margin: 15px 0; font-size: 15px; color: #666; }
+.contact-info-item strong { display: block; color: var(--navy-blue); margin-bottom: 5px; font-weight: 700; }
+
+.rsvp-container { max-width: 700px; margin: 0 auto; }
+.rsvp-card { background: white; padding: 50px; border-radius: 8px; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12); border-top: 4px solid var(--gold-accent); }
+.rsvp-card h2 { font-family: var(--font-heading); font-size: 32px; color: var(--navy-blue); margin-bottom: 15px; text-align: center; font-weight: 700; }
+.rsvp-subtitle { font-size: 16px; color: #777; text-align: center; margin-bottom: 40px; }
+.rsvp-step { display: none; }
+.rsvp-step.visible { display: block; }
+
+.progress-tracker { display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; position: relative; padding: 0 10px; }
+.progress-tracker::before { content: ''; position: absolute; top: 16px; left: 0; right: 0; height: 2px; background: var(--soft-beige); z-index: 1; }
+.progress-tracker-fill { position: absolute; top: 16px; left: 0; height: 2px; background: var(--gold-accent); z-index: 2; transition: width 0.3s ease; }
+.progress-step { width: 36px; height: 36px; border-radius: 50%; background: white; border: 3px solid var(--soft-beige); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: #999; position: relative; z-index: 3; transition: all 0.3s ease; }
+.progress-step.active { background: var(--gold-accent); border-color: var(--gold-accent); color: white; transform: scale(1.15); }
+
+.form-group { margin-bottom: 30px; }
+.form-label { display: block; font-family: var(--font-heading); font-size: 15px; color: var(--navy-blue); margin-bottom: 12px; font-weight: 600; }
+.form-input { width: 100%; padding: 14px 18px; border: 2px solid var(--soft-beige); border-radius: 4px; font-size: 16px; font-family: var(--font-body); transition: all 0.3s ease; background: white; }
+.form-input:focus { outline: none; border-color: var(--gold-accent); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1); }
+
+.checkbox-list { display: flex; flex-direction: column; gap: 12px; }
+.checkbox-option { display: flex; align-items: center; padding: 16px; background: var(--cream-white); border: 2px solid var(--soft-beige); border-radius: 4px; cursor: pointer; transition: all 0.2s ease; }
+.checkbox-option:hover { border-color: var(--gold-accent); background: white; }
+.checkbox-option input[type="checkbox"] { width: 22px; height: 22px; margin-right: 14px; cursor: pointer; accent-color: var(--gold-accent); }
+.checkbox-option label { margin: 0; cursor: pointer; font-size: 16px; color: var(--dark-text); }
+
+.button-group { display: flex; gap: 15px; margin-top: 40px; }
+.btn { flex: 1; padding: 16px 28px; border: none; border-radius: 4px; font-family: var(--font-heading); font-size: 15px; font-weight: 600; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; }
+.btn-primary { background: var(--navy-blue); color: white; }
+.btn-primary:hover { background: var(--darker-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); }
+.btn-primary:disabled { background: #999; cursor: not-allowed; }
+.btn-secondary { background: white; color: var(--navy-blue); border: 2px solid var(--navy-blue); }
+.btn-secondary:hover { background: var(--navy-blue); color: white; }
+.btn-back { background: var(--soft-beige); color: var(--navy-blue); }
+.btn-back:hover { background: #d0c9bd; }
+
+.alert { padding: 18px; border-radius: 4px; margin: 25px 0; text-align: center; font-weight: 600; }
+.alert-success { background: #e8f5e9; color: #2e7d32; border: 2px solid #c8e6c9; }
+.alert-error { background: #ffebee; color: #c62828; border: 2px solid #ffcdd2; }
+
+.summary-table { width: 100%; margin: 30px 0; border-collapse: collapse; border: 1px solid var(--soft-beige); border-radius: 8px; overflow: hidden; }
+.summary-table td { padding: 18px; border-bottom: 1px solid var(--soft-beige); }
+.summary-table td:first-child { font-family: var(--font-heading); font-weight: 700; color: var(--navy-blue); background: var(--cream-white); width: 40%; }
+.summary-table tr:last-child td { border-bottom: none; }
+
+.gallery-container { max-width: 800px; margin: 0 auto; text-align: center; }
+.gallery-card { background: white; padding: 50px; border-radius: 8px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); border-top: 4px solid var(--gold-accent); }
+.gallery-info { background: var(--light-gold); padding: 30px; border-radius: 8px; margin: 30px 0; border-left: 4px solid var(--gold-accent); }
+.gallery-info h3 { font-family: var(--font-heading); color: var(--navy-blue); margin-bottom: 15px; font-size: 24px; }
+.gallery-info p { color: #555; margin-bottom: 12px; line-height: 1.7; }
+.gallery-cta { margin-top: 40px; }
+.gallery-cta a { display: inline-block; padding: 18px 40px; background: var(--navy-blue); color: white; text-decoration: none; border-radius: 4px; font-family: var(--font-heading); font-weight: 600; letter-spacing: 1px; font-size: 16px; transition: all 0.3s ease; text-transform: uppercase; }
+.gallery-cta a:hover { background: var(--darker-navy); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
+
+.main-footer { background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%); color: white; padding: 60px 40px 40px; margin-top: 80px; position: relative; }
+.main-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold-accent), transparent); }
+.footer-content { max-width: var(--max-width); margin: 0 auto; }
+.footer-title { font-family: var(--font-heading); font-size: 28px; color: var(--gold-accent); text-align: center; margin-bottom: 50px; font-weight: 700; }
+.footer-contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 40px; }
+.footer-person { text-align: center; }
+.footer-photo { width: 130px; height: 130px; border-radius: 50%; margin: 0 auto 20px; border: 4px solid var(--gold-accent); overflow: hidden; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); background: linear-gradient(135deg, var(--soft-beige), white); }
+.footer-photo img { width: 100%; height: 100%; object-fit: cover; }
+.footer-photo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #999; text-align: center; background: linear-gradient(135deg, #f5f5f5, #e8e8e8); }
+.footer-person h4 { font-family: var(--font-heading); font-size: 24px; color: white; margin-bottom: 15px; font-weight: 700; }
+.footer-person p { color: #ccc; margin: 8px 0; font-size: 15px; }
+.footer-copyright { text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #999; font-size: 14px; }
 
 @media (max-width: 968px) {
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .map-embed {
-        height: 300px;
-    }
-    
-    .timeline-item {
-        flex-direction: column !important;
-        text-align: center;
-    }
-    
-    .timeline-container::before {
-        left: 30px;
-    }
-    
-    .timeline-connector {
-        display: none;
-    }
-    
-    .timeline-dot {
-        left: 30px;
-    }
-    
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-contacts {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .nav-btn {
-        padding: 16px 20px;
-        font-size: 13px;
-    }
+    .info-grid { grid-template-columns: 1fr; }
+    .map-embed { height: 300px; }
+    .timeline-item { flex-direction: column !important; text-align: center; }
+    .timeline-container::before { left: 30px; }
+    .timeline-connector { display: none; }
+    .timeline-dot { left: 30px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-contacts { grid-template-columns: 1fr; gap: 40px; }
+    .nav-btn { padding: 16px 20px; font-size: 13px; }
 }
 
 @media (max-width: 640px) {
-    .couple-names {
-        font-size: 36px;
-    }
-    
-    .hero-section {
-        height: 400px;
-    }
-    
-    .hero-title {
-        font-size: 28px;
-    }
-    
-    .content-section {
-        padding: 50px 20px;
-    }
-    
-    .countdown-boxes {
-        gap: 15px;
-    }
-    
-    .countdown-box {
-        padding: 25px 30px;
-        min-width: 110px;
-    }
-    
-    .countdown-number {
-        font-size: 40px;
-    }
-    
-    .button-group {
-        flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
-    }
+    .couple-names { font-size: 36px; }
+    .hero-section { height: 400px; }
+    .hero-title { font-size: 28px; }
+    .content-section { padding: 50px 20px; }
+    .countdown-boxes { gap: 15px; }
+    .countdown-box { padding: 25px 30px; min-width: 110px; }
+    .countdown-number { font-size: 40px; }
+    .button-group { flex-direction: column; }
+    .btn { width: 100%; }
 }
 </style>
 </head>
 <body>
 
-<!-- EASTER EGG -->
 <div class="easter-egg-overlay" id="easterEggOverlay" onclick="closeEasterEgg()">
     <div class="falcon-container">
         <img src="falcon.PNG" alt="Millennium Falcon" class="falcon-real" />
     </div>
 </div>
 
-<!-- LOGIN -->
 <div class="login-page" id="loginPage">
     <div class="login-box">
         <h1>Wesele</h1>
@@ -1357,7 +275,6 @@ body {
     </div>
 </div>
 
-<!-- APP -->
 <div class="app-container" id="appContainer">
     
     <div class="top-banner" onclick="triggerEasterEgg()">
@@ -1386,7 +303,6 @@ body {
     
     <main class="main-content">
         
-        <!-- HOME -->
         <div class="page active" id="home">
             <div class="content-section">
                 <div class="countdown-container">
@@ -1395,7 +311,6 @@ body {
                     <div class="countdown-location">Tczew, Polska</div>
                     <div class="countdown-boxes" id="countdownBoxes"></div>
                 </div>
-                
                 <div class="cta-section">
                     <div class="gold-divider"></div>
                     <h3 class="cta-title">Świętujmy razem</h3>
@@ -1405,19 +320,14 @@ body {
             </div>
         </div>
         
-        <!-- HISTORY -->
         <div class="page" id="history">
             <div class="content-section">
                 <h2 class="section-title">Nasza Historia Miłości</h2>
                 <div class="gold-divider"></div>
                 <p class="section-subtitle">Od pierwszego spotkania do naszego wielkiego dnia</p>
-                
                 <div class="timeline-container">
-                    
                     <div class="timeline-item">
-                        <div class="timeline-photo">
-                            <div class="timeline-photo-placeholder">[PHOTO 1]<br>200x200px<br>Pierwsze spotkanie</div>
-                        </div>
+                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 1]<br>200x200px</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Wrzesień 2020</div>
@@ -1425,11 +335,8 @@ body {
                         </div>
                         <div class="timeline-dot"></div>
                     </div>
-                    
                     <div class="timeline-item">
-                        <div class="timeline-photo">
-                            <div class="timeline-photo-placeholder">[PHOTO 2]<br>200x200px<br>Pierwsza randka</div>
-                        </div>
+                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 2]<br>200x200px</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Październik 2020</div>
@@ -1437,11 +344,8 @@ body {
                         </div>
                         <div class="timeline-dot"></div>
                     </div>
-                    
                     <div class="timeline-item">
-                        <div class="timeline-photo">
-                            <div class="timeline-photo-placeholder">[PHOTO 3]<br>200x200px<br>Wspólny wyjazd</div>
-                        </div>
+                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 3]<br>200x200px</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Czerwiec 2021</div>
@@ -1449,11 +353,8 @@ body {
                         </div>
                         <div class="timeline-dot"></div>
                     </div>
-                    
                     <div class="timeline-item">
-                        <div class="timeline-photo">
-                            <div class="timeline-photo-placeholder">[PHOTO 4]<br>200x200px<br>Oświadczyny</div>
-                        </div>
+                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 4]<br>200x200px</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Grudzień 2024</div>
@@ -1461,11 +362,8 @@ body {
                         </div>
                         <div class="timeline-dot"></div>
                     </div>
-                    
                     <div class="timeline-item">
-                        <div class="timeline-photo">
-                            <div class="timeline-photo-placeholder">[PHOTO 5]<br>200x200px<br>Dzień ślubu</div>
-                        </div>
+                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 5]<br>200x200px</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Sierpień 2026</div>
@@ -1477,98 +375,76 @@ body {
             </div>
         </div>
         
-        <!-- SCHEDULE -->
         <div class="page" id="schedule">
             <div class="content-section">
                 <h2 class="section-title">Harmonogram Dnia</h2>
                 <div class="gold-divider"></div>
                 <p class="section-subtitle">Dokładny plan naszego wielkiego dnia - 6 sierpnia 2026</p>
-                
                 <div class="schedule-timeline">
-                    
                     <div class="schedule-item">
                         <div class="schedule-time">15:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
                             <div class="schedule-activity">⛪ Ceremonia ślubna</div>
                             <div class="schedule-location">Kościół pw. Podwyższenia Krzyża Świętego</div>
-                            <div class="schedule-description">
-                                Zapraszamy do kościoła. Ceremonia potrwa około 30-40 minut. Wejście wolne - proszę się nie spóźniać!
-                            </div>
+                            <div class="schedule-description">Zapraszamy do kościoła. Ceremonia potrwa około 30-40 minut. Wejście wolne - proszę się nie spóźniać!</div>
                         </div>
                     </div>
-                    
                     <div class="schedule-item">
                         <div class="schedule-time">16:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
                             <div class="schedule-activity">📸 Sesja zdjęciowa</div>
                             <div class="schedule-location">Parki i tereny w okolicy Tczewa</div>
-                            <div class="schedule-description">
-                                Plenery fotograficzne pary i grup gości. Jeśli chcesz być na zdjęciach, zarejestruj się podczas RSVP!
-                            </div>
+                            <div class="schedule-description">Plenery fotograficzne pary i grup gości. Jeśli chcesz być na zdjęciach, zarejestruj się podczas RSVP!</div>
                         </div>
                     </div>
-                    
                     <div class="schedule-item">
                         <div class="schedule-time">17:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
                             <div class="schedule-activity">🍷 Koktajl powitalny</div>
                             <div class="schedule-location">OKLASKI - Stanisławie 30A</div>
-                            <div class="schedule-description">
-                                Zapraszamy do sali przyjęć. Czeka na Was koktajl, przekąski i możliwość powitania pary młodej!
-                            </div>
+                            <div class="schedule-description">Zapraszamy do sali przyjęć. Czeka na Was koktajl, przekąski i możliwość powitania pary młodej!</div>
                         </div>
                     </div>
-                    
                     <div class="schedule-item">
                         <div class="schedule-time">18:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
                             <div class="schedule-activity">🍽️ Obiad i przemowy</div>
                             <div class="schedule-location">Główna sala - OKLASKI</div>
-                            <div class="schedule-description">
-                                Zapraszamy do stolów. Serwujemy pyszne menu przygotowane specjalnie dla Was. Toasty i przemowy od bliskich będą nas wzruszać!
-                            </div>
+                            <div class="schedule-description">Zapraszamy do stolów. Serwujemy pyszne menu przygotowane specjalnie dla Was. Toasty i przemowy od bliskich będą nas wzruszać!</div>
                         </div>
                     </div>
-                    
                     <div class="schedule-item">
                         <div class="schedule-time">20:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
                             <div class="schedule-activity">🎵 Taniec i rozrywka</div>
                             <div class="schedule-location">Parkiet - OKLASKI</div>
-                            <div class="schedule-description">
-                                Czas na zabawę! Tańczymy, śpiewamy i cieszymy się wspólnie. DJ będzie grać całą noc!
-                            </div>
+                            <div class="schedule-description">Czas na zabawę! Tańczymy, śpiewamy i cieszymy się wspólnie. DJ będzie grać całą noc!</div>
                         </div>
                     </div>
-                    
                     <div class="schedule-item">
                         <div class="schedule-time">23:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
                             <div class="schedule-activity">🌙 Pożegnanie</div>
                             <div class="schedule-location">Parking - Wyjazd</div>
-                            <div class="schedule-description">
-                                Dziękujemy za przybycie i razem spędzony czas! Zabieracie ze sobą najlepsze wspomnienia z naszego wielkiego dnia.
-                            </div>
+                            <div class="schedule-description">Dziękujemy za przybycie i razem spędzony czas! Zabieracie ze sobą najlepsze wspomnienia z naszego wielkiego dnia.</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- INFORMATION -->
         <div class="page" id="info">
             <div class="content-section">
                 <h2 class="section-title">Informacje Organizacyjne</h2>
                 <div class="gold-divider"></div>
                 <p class="section-subtitle">Wszystko co musisz wiedzieć o naszym weselu</p>
                 
-                <!-- Ceremonia -->
                 <div class="info-card">
                     <h3>Ceremonia Ślubna</h3>
                     <div class="info-grid">
@@ -1585,7 +461,6 @@ body {
                     </div>
                 </div>
                 
-                <!-- Reception -->
                 <div class="info-card">
                     <h3>Przyjęcie Weselne</h3>
                     <div class="info-grid">
@@ -1602,7 +477,6 @@ body {
                     </div>
                 </div>
                 
-                <!-- Transport & Parking -->
                 <div class="info-card">
                     <h3>🚗 Dojazd i Parkingi</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 25px;">
@@ -1621,7 +495,6 @@ body {
                     </div>
                 </div>
                 
-                <!-- Transport Options - POPRAWKA 5: TYLKO BOLT + TAXI -->
                 <div class="info-card">
                     <h3>🚕 Transport</h3>
                     <p>Jeśli nie chcesz prowadzić samochodu, mamy kilka opcji:</p>
@@ -1639,7 +512,6 @@ body {
                     </div>
                 </div>
                 
-                <!-- Hotels -->
                 <div class="info-card">
                     <h3>🏨 Noclegi</h3>
                     <p>Jeśli przyjeżdżasz z daleka, polecamy następujące miejsca noclegowe:</p>
@@ -1662,14 +534,12 @@ body {
                     </p>
                 </div>
                 
-                <!-- Gifts -->
                 <div class="gift-section">
                     <h3>🎁 Prezenty i Kwiaty</h3>
                     <p>Prosimy o koperty z pieniędzmi</p>
                     <p class="gift-highlight">Prosimy NIE przynosić kwiatów - preferujemy koperty z pieniędzmi</p>
                 </div>
                 
-                <!-- Contact -->
                 <h2 class="section-title" style="margin-top: 80px;">Kontakt</h2>
                 <div class="gold-divider"></div>
                 <div class="contact-grid">
@@ -1705,13 +575,10 @@ body {
             </div>
         </div>
         
-        <!-- RSVP - FULL V21 IMPLEMENTATION -->
         <div class="page" id="rsvp">
             <div class="content-section">
                 <div class="rsvp-container">
                     <div class="rsvp-card">
-                        
-                        <!-- STEP 1: Code -->
                         <div class="rsvp-step visible" id="rsvpStep1">
                             <div class="progress-tracker" id="progressTracker1"></div>
                             <h2>Wprowadź Kod Zaproszenia</h2>
@@ -1726,7 +593,6 @@ body {
                             </div>
                         </div>
                         
-                        <!-- STEP 2: Attend? -->
                         <div class="rsvp-step" id="rsvpStep2">
                             <div class="progress-tracker" id="progressTracker2"></div>
                             <h2>Czy będziesz na weselu?</h2>
@@ -1737,7 +603,6 @@ body {
                             </div>
                         </div>
                         
-                        <!-- STEP 3: Select People -->
                         <div class="rsvp-step" id="rsvpStep3">
                             <div class="progress-tracker" id="progressTracker3"></div>
                             <h2>Wybierz osoby uczestniczące</h2>
@@ -1750,7 +615,6 @@ body {
                             </div>
                         </div>
                         
-                        <!-- STEP 4: Companion? -->
                         <div class="rsvp-step" id="rsvpStep3b">
                             <div class="progress-tracker" id="progressTracker4"></div>
                             <h2>Będziesz z osobą towarzyszącą?</h2>
@@ -1762,7 +626,6 @@ body {
                             </div>
                         </div>
                         
-                        <!-- STEP 5: Companion Details -->
                         <div class="rsvp-step" id="rsvpStep3c">
                             <div class="progress-tracker" id="progressTracker5"></div>
                             <h2>Dane Osoby Towarzyszącej</h2>
@@ -1782,7 +645,6 @@ body {
                             </div>
                         </div>
                         
-                        <!-- STEP 6: Email Contact -->
                         <div class="rsvp-step" id="rsvpStep5">
                             <div class="progress-tracker" id="progressTracker6"></div>
                             <h2>Chcesz pozostać w kontakcie?</h2>
@@ -1805,7 +667,6 @@ body {
                             </div>
                         </div>
                         
-                        <!-- STEP 7: Diet -->
                         <div class="rsvp-step" id="rsvpStep6">
                             <div class="progress-tracker" id="progressTracker7"></div>
                             <h2>Preferencje Żywieniowe</h2>
@@ -1826,7 +687,6 @@ body {
                             </div>
                         </div>
                         
-                        <!-- STEP 8: Summary -->
                         <div class="rsvp-step" id="rsvpStep7">
                             <div class="progress-tracker" id="progressTracker8"></div>
                             <h2>Podsumowanie Potwierdzenia</h2>
@@ -1867,7 +727,6 @@ body {
                             </div>
                         </div>
                         
-                        <!-- STEP 9: Success -->
                         <div class="rsvp-step" id="rsvpStep8">
                             <div style="text-align: center; padding: 40px 0;">
                                 <h2>Potwierdzenie Wysłane</h2>
@@ -1879,7 +738,6 @@ body {
                             </div>
                         </div>
                         
-                        <!-- NO ATTENDANCE -->
                         <div class="rsvp-step" id="rsvpNoAttendanceSection">
                             <h2>Rozumiemy Twoją Decyzję</h2>
                             <p class="rsvp-subtitle">Czy chcesz otrzymywać aktualizacje dotyczące wesela?</p>
@@ -1900,7 +758,6 @@ body {
                             </div>
                         </div>
                         
-                        <!-- SUCCESS SCREENS -->
                         <div class="rsvp-step" id="noEmailSuccess">
                             <div style="text-align: center; padding: 40px 0;">
                                 <h2>Potwierdzenie Wysłane</h2>
@@ -1927,24 +784,20 @@ body {
             </div>
         </div>
         
-        <!-- GALLERY - POPRAWKA 6: BEZ NAPISU -->
         <div class="page" id="gallery">
             <div class="content-section">
                 <div class="gallery-container">
                     <div class="gallery-card">
                         <h2 class="section-title">Galeria Naszych Zdjęć</h2>
                         <div class="gold-divider"></div>
-                        
                         <div class="gallery-info">
                             <h3>Podziel się Swoimi Zdjęciami</h3>
                             <p>Jeśli masz zdjęcia z wesela, dodaj je do naszej wspólnej galerii! Możesz wrzucać zdjęcia bezpośrednio do albumu Google Photos. Dzięki temu wszystkie wspomnienia będą w jednym miejscu.</p>
                             <p style="margin-bottom: 0; color: var(--navy-blue); font-weight: 700;">Pamiętaj: Tylko zdjęcia z dnia wesela - 6 sierpnia 2026</p>
                         </div>
-                        
                         <div class="gallery-cta">
                             <a href="https://photos.app.goo.gl/563UeatK4Yv3f9kP7" target="_blank">Otwórz Galerię w Google Photos</a>
                         </div>
-                        
                         <div style="margin-top: 40px; padding: 30px; background: var(--cream-white); border-radius: 8px; text-align: center; border: 1px solid var(--soft-beige);">
                             <p style="color: #777; font-size: 15px; margin: 0;">Zdjęcia pojawiają się w galerii na bieżąco. Dziękujemy za dzielenie się wspomnieniami!</p>
                         </div>
@@ -1955,7 +808,6 @@ body {
         
     </main>
     
-    <!-- FOOTER -->
     <footer class="main-footer">
         <div class="footer-content">
             <h3 class="footer-title">Kontakt</h3>
@@ -2045,14 +897,8 @@ let rsvpState = {
     isSubmitting: false
 };
 
-function triggerEasterEgg() {
-    document.getElementById("easterEggOverlay").classList.add("show");
-    setTimeout(() => closeEasterEgg(), 4800);
-}
-
-function closeEasterEgg() {
-    document.getElementById("easterEggOverlay").classList.remove("show");
-}
+function triggerEasterEgg() { document.getElementById("easterEggOverlay").classList.add("show"); setTimeout(() => closeEasterEgg(), 4800); }
+function closeEasterEgg() { document.getElementById("easterEggOverlay").classList.remove("show"); }
 
 function checkPassword() {
     const password = document.getElementById("passwordInput").value;
@@ -2065,7 +911,6 @@ function checkPassword() {
     }
 }
 
-// POPRAWKA 1: SCROLL TO TOP NA KAŻDEJ ZMIANIE STRONY
 function showPage(pageId) {
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
     document.getElementById(pageId).classList.add("active");
@@ -2073,62 +918,47 @@ function showPage(pageId) {
     document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
     event.target?.classList.add("active");
     
-    // ✅ ZMIANA 1: SMOOTH SCROLL TO TOP
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // ✅ ZMIANA 2: POKAŻ/UKRYJ HERO SECTION
+    const heroSection = document.querySelector(".hero-section");
+    if (pageId === 'home') {
+        heroSection.style.display = "flex";
+    } else {
+        heroSection.style.display = "none";
+    }
 }
 
-// POPRAWKA 2: NOWA FUNKCJA - ZAMKNIJ RSVP I PODŚWIETL GŁÓWNA
 function closeRsvpAndHighlightHome() {
-    // Usuń active z wszystkich przycisków
     document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
-    
-    // Dodaj active do przycisku "Główna" (pierwszy przycisk)
     document.querySelectorAll(".nav-btn")[0].classList.add("active");
-    
-    // Pokaż stronę główną
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
     document.getElementById('home').classList.add("active");
-    
-    // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    const heroSection = document.querySelector(".hero-section");
+    heroSection.style.display = "flex";
 }
 
 function smoothScrollToRsvp() {
     showPage('rsvp');
-    setTimeout(() => {
-        document.getElementById('rsvpStep1').scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+    setTimeout(() => { document.getElementById('rsvpStep1').scrollIntoView({ behavior: 'smooth' }); }, 100);
 }
 
 function updateCountdown() {
     const weddingDate = new Date("2026-08-06T00:00:00").getTime();
     const now = new Date().getTime();
     const timeLeft = weddingDate - now;
-    
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-    
     const countdownEl = document.getElementById("countdownBoxes");
     if (countdownEl) {
         countdownEl.innerHTML = `
-            <div class="countdown-box">
-                <span class="countdown-number">${days}</span>
-                <span class="countdown-label">Dni</span>
-            </div>
-            <div class="countdown-box">
-                <span class="countdown-number">${hours}</span>
-                <span class="countdown-label">Godzin</span>
-            </div>
-            <div class="countdown-box">
-                <span class="countdown-number">${minutes}</span>
-                <span class="countdown-label">Minut</span>
-            </div>
-            <div class="countdown-box">
-                <span class="countdown-number">${seconds}</span>
-                <span class="countdown-label">Sekund</span>
-            </div>
+            <div class="countdown-box"><span class="countdown-number">${days}</span><span class="countdown-label">Dni</span></div>
+            <div class="countdown-box"><span class="countdown-number">${hours}</span><span class="countdown-label">Godzin</span></div>
+            <div class="countdown-box"><span class="countdown-number">${minutes}</span><span class="countdown-label">Minut</span></div>
+            <div class="countdown-box"><span class="countdown-number">${seconds}</span><span class="countdown-label">Sekund</span></div>
         `;
     }
 }
@@ -2136,107 +966,52 @@ function updateCountdown() {
 function scheduleCountdownUpdate() {
     const now = new Date();
     const msUntilNextSecond = 1000 - now.getMilliseconds();
-    setTimeout(() => {
-        updateCountdown();
-        scheduleCountdownUpdate();
-    }, msUntilNextSecond);
+    setTimeout(() => { updateCountdown(); scheduleCountdownUpdate(); }, msUntilNextSecond);
 }
 
 function updateProgressTracker(step) {
     const trackers = document.querySelectorAll("[id^='progressTracker']");
     trackers.forEach(tracker => {
         if (!tracker) return;
-        
         let html = '<div class="progress-tracker-fill" style="width: ' + (((step - 1) / 7) * 100) + '%"></div>';
-        for (let i = 1; i <= 8; i++) {
-            html += `<div class="progress-step ${i === step ? 'active' : ''}">${i}</div>`;
-        }
+        for (let i = 1; i <= 8; i++) { html += `<div class="progress-step ${i === step ? 'active' : ''}">${i}</div>`; }
         tracker.innerHTML = html;
     });
 }
 
-function hideAllSteps() {
-    document.querySelectorAll(".rsvp-step").forEach(el => el.classList.remove("visible"));
-}
-
-function showStep(stepId) {
-    hideAllSteps();
-    document.getElementById(stepId).classList.add("visible");
-    updateProgressTracker(rsvpState.currentStep);
-}
+function hideAllSteps() { document.querySelectorAll(".rsvp-step").forEach(el => el.classList.remove("visible")); }
+function showStep(stepId) { hideAllSteps(); document.getElementById(stepId).classList.add("visible"); updateProgressTracker(rsvpState.currentStep); }
 
 function rsvpValidateCode() {
     const code = document.getElementById("codeInput").value.trim();
     const codeError = document.getElementById("codeError");
     const codeBtn = document.getElementById("codeBtn");
-
-    if (code.length !== 4 || isNaN(code)) {
-        codeError.textContent = "Kod musi mieć 4 cyfry";
-        codeError.style.display = "block";
-        return;
-    }
-
-    if (!guestDatabase.has(code)) {
-        codeError.textContent = "Kod nie został znaleziony";
-        codeError.style.display = "block";
-        return;
-    }
-
+    if (code.length !== 4 || isNaN(code)) { codeError.textContent = "Kod musi mieć 4 cyfry"; codeError.style.display = "block"; return; }
+    if (!guestDatabase.has(code)) { codeError.textContent = "Kod nie został znaleziony"; codeError.style.display = "block"; return; }
     codeError.style.display = "none";
     codeBtn.disabled = true;
     codeBtn.textContent = "Sprawdzam...";
-
-    fetch(GOOGLE_APPS_SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify({ action: "validateCode", code: code })
-    })
+    fetch(GOOGLE_APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify({ action: "validateCode", code: code }) })
     .then(response => response.json())
     .then(data => {
         codeBtn.disabled = false;
         codeBtn.textContent = "Dalej";
-
-        if (data.success) {
-            rsvpState.code = code;
-            rsvpState.currentStep = 2;
-            showStep("rsvpStep2");
-        } else {
-            codeError.textContent = data.message;
-            codeError.style.display = "block";
-        }
+        if (data.success) { rsvpState.code = code; rsvpState.currentStep = 2; showStep("rsvpStep2"); }
+        else { codeError.textContent = data.message; codeError.style.display = "block"; }
     })
-    .catch(error => {
-        codeBtn.disabled = false;
-        codeBtn.textContent = "Dalej";
-        codeError.textContent = "Błąd połączenia. Spróbuj ponownie.";
-        codeError.style.display = "block";
-    });
+    .catch(error => { codeBtn.disabled = false; codeBtn.textContent = "Dalej"; codeError.textContent = "Błąd połączenia. Spróbuj ponownie."; codeError.style.display = "block"; });
 }
 
-function rsvpYesAttendance() {
-    rsvpState.attending = true;
-    rsvpState.currentStep = 3;
-    rsvpShowPeopleSelection();
-}
-
-function rsvpNoAttendance() {
-    rsvpState.attending = false;
-    showStep("rsvpNoAttendanceSection");
-}
+function rsvpYesAttendance() { rsvpState.attending = true; rsvpState.currentStep = 3; rsvpShowPeopleSelection(); }
+function rsvpNoAttendance() { rsvpState.attending = false; showStep("rsvpNoAttendanceSection"); }
 
 function rsvpShowPeopleSelection() {
     const people = guestDatabase.get(rsvpState.code).names;
     const container = document.getElementById("peopleCheckboxes");
     container.innerHTML = "";
-
     people.forEach((person, index) => {
-        container.innerHTML += `
-            <div class="checkbox-option">
-                <input type="checkbox" id="person${index}" value="${person}" />
-                <label for="person${index}">${person}</label>
-            </div>
-        `;
+        container.innerHTML += `<div class="checkbox-option"><input type="checkbox" id="person${index}" value="${person}" /><label for="person${index}">${person}</label></div>`;
     });
-
     showStep("rsvpStep3");
 }
 
@@ -2244,119 +1019,41 @@ function rsvpSelectPeople() {
     const checkboxes = document.querySelectorAll("#peopleCheckboxes input[type='checkbox']");
     const selected = Array.from(checkboxes).filter(c => c.checked).map(c => c.value);
     const peopleError = document.getElementById("peopleError");
-
-    if (selected.length === 0) {
-        peopleError.textContent = "Musisz wybrać co najmniej jedną osobę";
-        peopleError.style.display = "block";
-        return;
-    }
-
+    if (selected.length === 0) { peopleError.textContent = "Musisz wybrać co najmniej jedną osobę"; peopleError.style.display = "block"; return; }
     rsvpState.selectedPeople = selected;
     peopleError.style.display = "none";
-
-    if (guestDatabase.get(rsvpState.code).companion) {
-        rsvpState.currentStep = 4;
-        showStep("rsvpStep3b");
-    } else {
-        rsvpState.currentStep = 6;
-        showStep("rsvpStep5");
-    }
+    if (guestDatabase.get(rsvpState.code).companion) { rsvpState.currentStep = 4; showStep("rsvpStep3b"); }
+    else { rsvpState.currentStep = 6; showStep("rsvpStep5"); }
 }
 
-function rsvpGoBack(fromStep) {
-    const previousStep = fromStep - 1;
-    rsvpState.currentStep = previousStep;
-    if (previousStep === 1) showStep("rsvpStep1");
-    else if (previousStep === 2) showStep("rsvpStep2");
-}
-
-function rsvpGoBackFromStep4() {
-    rsvpState.currentStep = 3;
-    showStep("rsvpStep3");
-}
-
-function rsvpGoBackFromStep5() {
-    rsvpState.currentStep = 4;
-    showStep("rsvpStep3b");
-}
-
-function rsvpGoBackFromStep6() {
-    if (rsvpState.companion.hasCompanion && rsvpState.companion.name) {
-        rsvpState.currentStep = 5;
-        showStep("rsvpStep3c");
-    } else {
-        rsvpState.currentStep = 4;
-        showStep("rsvpStep3b");
-    }
-}
-
-function rsvpGoBackFromStep7() {
-    rsvpState.currentStep = 6;
-    showStep("rsvpStep5");
-}
-
-function rsvpGoBackFromStep8() {
-    rsvpState.currentStep = 7;
-    showStep("rsvpStep6");
-}
-
-function rsvpNoCompanion() {
-    rsvpState.companion = { hasCompanion: false, name: "", email: "" };
-    rsvpState.currentStep = 6;
-    showStep("rsvpStep5");
-}
-
-function rsvpYesCompanion() {
-    rsvpState.currentStep = 5;
-    showStep("rsvpStep3c");
-}
+function rsvpGoBack(fromStep) { const previousStep = fromStep - 1; rsvpState.currentStep = previousStep; if (previousStep === 1) showStep("rsvpStep1"); else if (previousStep === 2) showStep("rsvpStep2"); }
+function rsvpGoBackFromStep4() { rsvpState.currentStep = 3; showStep("rsvpStep3"); }
+function rsvpGoBackFromStep5() { rsvpState.currentStep = 4; showStep("rsvpStep3b"); }
+function rsvpGoBackFromStep6() { if (rsvpState.companion.hasCompanion && rsvpState.companion.name) { rsvpState.currentStep = 5; showStep("rsvpStep3c"); } else { rsvpState.currentStep = 4; showStep("rsvpStep3b"); } }
+function rsvpGoBackFromStep7() { rsvpState.currentStep = 6; showStep("rsvpStep5"); }
+function rsvpGoBackFromStep8() { rsvpState.currentStep = 7; showStep("rsvpStep6"); }
+function rsvpNoCompanion() { rsvpState.companion = { hasCompanion: false, name: "", email: "" }; rsvpState.currentStep = 6; showStep("rsvpStep5"); }
+function rsvpYesCompanion() { rsvpState.currentStep = 5; showStep("rsvpStep3c"); }
 
 function rsvpCompanionDone() {
     const name = document.getElementById("companionName").value.trim();
     const email = document.getElementById("companionEmail").value.trim();
     const companionError = document.getElementById("companionError");
-
-    if (!name) {
-        companionError.textContent = "Wpisz imię i nazwisko osoby towarzyszącej";
-        companionError.style.display = "block";
-        return;
-    }
-
-    if (email && !validateEmail(email)) {
-        companionError.textContent = "Nieprawidłowy format emaila";
-        companionError.style.display = "block";
-        return;
-    }
-
+    if (!name) { companionError.textContent = "Wpisz imię i nazwisko osoby towarzyszącej"; companionError.style.display = "block"; return; }
+    if (email && !validateEmail(email)) { companionError.textContent = "Nieprawidłowy format emaila"; companionError.style.display = "block"; return; }
     rsvpState.companion = { name, email, hasCompanion: true };
     companionError.style.display = "none";
     rsvpState.currentStep = 6;
     showStep("rsvpStep5");
 }
 
-function rsvpEmailYes() {
-    document.getElementById("emailInputSection").style.display = "block";
-    document.getElementById("emailNoBtn").style.display = "none";
-    document.getElementById("emailYesBtn").style.display = "none";
-}
-
-function rsvpEmailNo() {
-    rsvpState.wantEmail = false;
-    rsvpState.email = "";
-    rsvpState.currentStep = 7;
-    showStep("rsvpStep6");
-}
+function rsvpEmailYes() { document.getElementById("emailInputSection").style.display = "block"; document.getElementById("emailNoBtn").style.display = "none"; document.getElementById("emailYesBtn").style.display = "none"; }
+function rsvpEmailNo() { rsvpState.wantEmail = false; rsvpState.email = ""; rsvpState.currentStep = 7; showStep("rsvpStep6"); }
 
 function rsvpEmailConfirm() {
     const email = document.getElementById("userEmail").value.trim();
     const emailError = document.getElementById("emailError");
-
-    if (!validateEmail(email)) {
-        emailError.textContent = "Nieprawidłowy format emaila";
-        emailError.style.display = "block";
-        return;
-    }
-
+    if (!validateEmail(email)) { emailError.textContent = "Nieprawidłowy format emaila"; emailError.style.display = "block"; return; }
     rsvpState.wantEmail = true;
     rsvpState.email = email;
     emailError.style.display = "none";
@@ -2364,22 +1061,12 @@ function rsvpEmailConfirm() {
     showStep("rsvpStep6");
 }
 
-function rsvpEmailReset() {
-    document.getElementById("emailInputSection").style.display = "none";
-    document.getElementById("emailNoBtn").style.display = "block";
-    document.getElementById("emailYesBtn").style.display = "block";
-    document.getElementById("userEmail").value = "";
-}
+function rsvpEmailReset() { document.getElementById("emailInputSection").style.display = "none"; document.getElementById("emailNoBtn").style.display = "block"; document.getElementById("emailYesBtn").style.display = "block"; document.getElementById("userEmail").value = ""; }
 
 function rsvpDietDone() {
     const noDiet = document.getElementById("noDiet").checked;
     const dietDetails = document.getElementById("dietDetails").value.trim();
-
-    if (!noDiet && !dietDetails) {
-        alert("Zaznacz 'Brak ograniczeń' lub wpisz szczegóły ograniczeń dietetycznych");
-        return;
-    }
-
+    if (!noDiet && !dietDetails) { alert("Zaznacz 'Brak ograniczeń' lub wpisz szczegóły ograniczeń dietetycznych"); return; }
     rsvpState.noDiet = noDiet;
     rsvpState.diet = dietDetails;
     rsvpState.currentStep = 8;
@@ -2389,27 +1076,22 @@ function rsvpDietDone() {
 function rsvpShowSummary() {
     document.getElementById("summaryCode").textContent = rsvpState.code;
     let totalCount = rsvpState.selectedPeople.length;
-    if (rsvpState.companion.hasCompanion && rsvpState.companion.name) {
-        totalCount += 1;
-    }
+    if (rsvpState.companion.hasCompanion && rsvpState.companion.name) { totalCount += 1; }
     document.getElementById("summaryCount").textContent = totalCount;
     document.getElementById("summaryPeople").textContent = rsvpState.selectedPeople.join(", ");
     document.getElementById("summaryCompanion").textContent = rsvpState.companion.name || "Brak";
     document.getElementById("summaryEmail").textContent = rsvpState.email || "Nie podane";
     document.getElementById("summaryNewsletter").textContent = rsvpState.wantEmail ? "Tak" : "Nie";
     document.getElementById("summaryDiet").textContent = rsvpState.noDiet ? "Brak ograniczeń" : (rsvpState.diet || "Brak");
-
     showStep("rsvpStep7");
 }
 
 function rsvpSubmit() {
     if (rsvpState.isSubmitting) return;
-    
     const submitBtn = document.getElementById("submitBtn");
     submitBtn.disabled = true;
     rsvpState.isSubmitting = true;
     submitBtn.textContent = "Wysyłam...";
-
     const payload = {
         action: "submitRSVP",
         code: rsvpState.code,
@@ -2420,21 +1102,24 @@ function rsvpSubmit() {
         newsletter: rsvpState.wantEmail ? "Tak" : "Nie",
         diet: rsvpState.noDiet ? "Brak ograniczeń" : rsvpState.diet
     };
-
-    fetch(GOOGLE_APPS_SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify(payload)
-    })
+    fetch(GOOGLE_APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify(payload) })
     .then(response => response.json())
     .then(data => {
         submitBtn.disabled = false;
         submitBtn.textContent = "Potwierdź i Wyślij";
         rsvpState.isSubmitting = false;
-
         if (data.success) {
             rsvpState.formCompleted = true;
             rsvpState.currentStep = 9;
             showStep("rsvpStep8");
+            
+            // ✅ ZMIANA 1: SMOOTH SCROLL DO SUCCESS MESSAGE (WYCENTROWANY)
+            setTimeout(() => {
+                const successMsg = document.getElementById("rsvpStep8");
+                if (successMsg) {
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 300);
         } else {
             alert("Błąd: " + data.message);
         }
@@ -2448,157 +1133,69 @@ function rsvpSubmit() {
 }
 
 function resetRSVP() {
-    rsvpState = {
-        code: null,
-        selectedPeople: [],
-        companion: { name: "", email: "", hasCompanion: null },
-        email: "",
-        wantEmail: false,
-        diet: "",
-        noDiet: false,
-        attending: null,
-        currentStep: 1,
-        formCompleted: false,
-        isSubmitting: false
-    };
-
+    rsvpState = { code: null, selectedPeople: [], companion: { name: "", email: "", hasCompanion: null }, email: "", wantEmail: false, diet: "", noDiet: false, attending: null, currentStep: 1, formCompleted: false, isSubmitting: false };
     document.getElementById("codeInput").value = "";
     document.getElementById("userEmail").value = "";
     document.getElementById("companionName").value = "";
     document.getElementById("companionEmail").value = "";
     document.getElementById("dietDetails").value = "";
     document.getElementById("noDiet").checked = false;
-    
     document.getElementById("emailInputSection").style.display = "none";
     document.getElementById("emailNoBtn").style.display = "block";
     document.getElementById("emailYesBtn").style.display = "block";
     document.getElementById("noContactEmailInput").style.display = "none";
     document.getElementById("noContactEmail").value = "";
-
     showStep("rsvpStep1");
 }
 
-function rsvpNoContactEmail() {
-    document.getElementById("noContactEmailInput").style.display = "block";
-    document.getElementById("btnNoEmail").style.display = "none";
-    document.getElementById("btnYesEmail").style.display = "none";
-}
+function rsvpNoContactEmail() { document.getElementById("noContactEmailInput").style.display = "block"; document.getElementById("btnNoEmail").style.display = "none"; document.getElementById("btnYesEmail").style.display = "none"; }
 
 function rsvpNoContactDone() {
     if (rsvpState.formCompleted || rsvpState.isSubmitting) return;
-
     rsvpState.formCompleted = true;
     rsvpState.isSubmitting = true;
-
-    const payload = {
-        action: "submitNoAttendance",
-        code: rsvpState.code,
-        people: guestDatabase.get(rsvpState.code).names.join(", "),
-        email: "",
-        newsletter: "Nie"
-    };
-
-    fetch(GOOGLE_APPS_SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify(payload)
-    })
+    const payload = { action: "submitNoAttendance", code: rsvpState.code, people: guestDatabase.get(rsvpState.code).names.join(", "), email: "", newsletter: "Nie" };
+    fetch(GOOGLE_APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify(payload) })
     .then(response => response.json())
     .then(data => {
         rsvpState.isSubmitting = false;
-
-        if (data.success) {
-            showStep("noEmailSuccess");
-        } else {
-            alert("Błąd: " + data.message);
-            rsvpState.formCompleted = false;
-        }
+        if (data.success) { showStep("noEmailSuccess"); } else { alert("Błąd: " + data.message); rsvpState.formCompleted = false; }
     })
-    .catch(error => {
-        rsvpState.isSubmitting = false;
-        rsvpState.formCompleted = false;
-        alert("Błąd połączenia. Spróbuj ponownie.");
-    });
+    .catch(error => { rsvpState.isSubmitting = false; rsvpState.formCompleted = false; alert("Błąd połączenia. Spróbuj ponownie."); });
 }
 
 function rsvpNoContactSubmit() {
     if (rsvpState.formCompleted || rsvpState.isSubmitting) return;
-
     const email = document.getElementById("noContactEmail").value.trim();
     const emailError = document.getElementById("noContactEmailError");
-
-    if (!validateEmail(email)) {
-        emailError.textContent = "Nieprawidłowy format emaila";
-        emailError.style.display = "block";
-        return;
-    }
-
+    if (!validateEmail(email)) { emailError.textContent = "Nieprawidłowy format emaila"; emailError.style.display = "block"; return; }
     const noContactSubmitBtn = document.getElementById("noContactSubmitBtn");
     noContactSubmitBtn.disabled = true;
     rsvpState.isSubmitting = true;
     rsvpState.formCompleted = true;
     noContactSubmitBtn.textContent = "Wysyłam...";
-
-    const payload = {
-        action: "submitNoAttendance",
-        code: rsvpState.code,
-        people: guestDatabase.get(rsvpState.code).names.join(", "),
-        email: email,
-        newsletter: "Tak"
-    };
-
-    fetch(GOOGLE_APPS_SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify(payload)
-    })
+    const payload = { action: "submitNoAttendance", code: rsvpState.code, people: guestDatabase.get(rsvpState.code).names.join(", "), email: email, newsletter: "Tak" };
+    fetch(GOOGLE_APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify(payload) })
     .then(response => response.json())
     .then(data => {
         noContactSubmitBtn.disabled = false;
         noContactSubmitBtn.textContent = "Potwierdź";
         rsvpState.isSubmitting = false;
-
-        if (data.success) {
-            showStep("withEmailSuccess");
-        } else {
-            alert("Błąd: " + data.message);
-            rsvpState.formCompleted = false;
-        }
+        if (data.success) { showStep("withEmailSuccess"); } else { alert("Błąd: " + data.message); rsvpState.formCompleted = false; }
     })
-    .catch(error => {
-        noContactSubmitBtn.disabled = false;
-        noContactSubmitBtn.textContent = "Potwierdź";
-        rsvpState.isSubmitting = false;
-        rsvpState.formCompleted = false;
-        alert("Błąd połączenia. Spróbuj ponownie.");
-    });
+    .catch(error => { noContactSubmitBtn.disabled = false; noContactSubmitBtn.textContent = "Potwierdź"; rsvpState.isSubmitting = false; rsvpState.formCompleted = false; alert("Błąd połączenia. Spróbuj ponownie."); });
 }
 
-function rsvpNoContactReset() {
-    document.getElementById("noContactEmailInput").style.display = "none";
-    document.getElementById("btnNoEmail").style.display = "block";
-    document.getElementById("btnYesEmail").style.display = "block";
-    document.getElementById("noContactEmail").value = "";
-    document.getElementById("noContactEmailError").style.display = "none";
-}
-
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
+function rsvpNoContactReset() { document.getElementById("noContactEmailInput").style.display = "none"; document.getElementById("btnNoEmail").style.display = "block"; document.getElementById("btnYesEmail").style.display = "block"; document.getElementById("noContactEmail").value = ""; document.getElementById("noContactEmailError").style.display = "none"; }
+function validateEmail(email) { const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; return re.test(email); }
 
 document.addEventListener("DOMContentLoaded", function() {
     updateCountdown();
     scheduleCountdownUpdate();
-    
-    document.getElementById("passwordInput").addEventListener("keypress", function(e) {
-        if (e.key === "Enter") checkPassword();
-    });
+    document.getElementById("passwordInput").addEventListener("keypress", function(e) { if (e.key === "Enter") checkPassword(); });
 });
 
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-        .then(() => console.log('SW registered'))
-        .catch(() => console.log('SW failed'));
-}
+if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/service-worker.js').then(() => console.log('SW registered')).catch(() => console.log('SW failed')); }
 </script>
 </body>
 </html>
