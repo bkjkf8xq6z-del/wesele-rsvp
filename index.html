@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wesele Wiktoria & Maciej - 06.08.2026</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -259,13 +259,95 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
    RESPONSIVE DESIGN - MOBILE OPTIMIZATION
    ============================================ */
 
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    gap: 6px;
+}
+
+.hamburger-menu span {
+    width: 28px;
+    height: 3px;
+    background-color: #c4b3a0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+}
+
+.nav-container.mobile-show {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.98) 0%, rgba(40, 40, 40, 0.98) 100%);
+    border-bottom: 2px solid #c4b3a0;
+    padding: 0;
+    gap: 0;
+    z-index: 999;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+.nav-container.mobile-show .nav-btn {
+    width: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid #333;
+    justify-content: center;
+}
+
+.nav-container.mobile-show .nav-btn:last-child {
+    border-bottom: none;
+}
+
+.nav-container.mobile-show .nav-btn.active {
+    background-color: #c4b3a0;
+    color: #000;
+}
+
 /* Tablet devices (768px and below) */
 @media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .top-banner {
+        position: relative;
+        padding-right: 60px;
+    }
+
     html, body {
         font-size: 14px;
     }
 
-    .hero {
+    .hero-section {
         min-height: 60vh;
         padding: 40px 20px;
     }
@@ -283,33 +365,6 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     .hero-button {
         font-size: 14px;
         padding: 12px 24px;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    nav {
-        display: none;
-    }
-
-    nav.mobile-open {
-        display: flex;
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        z-index: 999;
-        padding: 20px;
-        gap: 10px;
-    }
-
-    nav.mobile-open a {
-        padding: 12px;
-        border-radius: 4px;
-        text-align: left;
     }
 
     .container {
@@ -448,15 +503,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
         font-size: 13px;
     }
 
-    header {
-        padding: 15px 20px;
-    }
-
-    .header-title {
-        font-size: 18px;
-    }
-
-    .hero {
+    .hero-section {
         min-height: 50vh;
         padding: 30px 15px;
     }
@@ -596,17 +643,14 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
         margin-right: 8px;
     }
 
-    /* Touch-friendly adjustments */
     a, button {
         -webkit-tap-highlight-color: transparent;
     }
 
-    /* Better spacing for lists on mobile */
     li {
         margin-bottom: 8px;
     }
 
-    /* Prevent horizontal scroll */
     body, html {
         max-width: 100%;
         overflow-x: hidden;
@@ -666,6 +710,12 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     
     <div class="top-banner" onclick="triggerEasterEgg()">
         <div class="couple-names">Wiktoria & Maciej</div>
+    <button class="hamburger-menu" id="hamburgerBtn" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
         <div class="wedding-date">06.08.2026</div>
     </div>
     
@@ -1582,6 +1632,36 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/service-worker.js').then(() => console.log('SW registered')).catch(() => console.log('SW failed')); }
+
+function toggleMobileMenu() {
+    const hamburger = document.getElementById("hamburgerBtn");
+    const navContainer = document.querySelector(".nav-container");
+    hamburger.classList.toggle("active");
+    navContainer.classList.toggle("mobile-show");
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const navButtons = document.querySelectorAll(".nav-btn");
+    navButtons.forEach(btn => {
+        btn.addEventListener("click", function() {
+            const hamburger = document.getElementById("hamburgerBtn");
+            const navContainer = document.querySelector(".nav-container");
+            hamburger.classList.remove("active");
+            navContainer.classList.remove("mobile-show");
+        });
+    });
+});
+
+document.addEventListener("click", function(event) {
+    const hamburger = document.getElementById("hamburgerBtn");
+    const navContainer = document.querySelector(".nav-container");
+    const isClickInsideNav = navContainer?.contains(event.target);
+    const isClickOnHamburger = hamburger?.contains(event.target);
+    if (!isClickInsideNav && !isClickOnHamburger && navContainer?.classList.contains("mobile-show")) {
+        hamburger.classList.remove("active");
+        navContainer.classList.remove("mobile-show");
+    }
+});
 </script>
 </body>
 </html>
