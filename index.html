@@ -5,16 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wesele Wiktoria & Maciej - 06.08.2026</title>
 
-<!-- Google Fonts - Modern Classic Typography -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Lato:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-/* ========================================================================== */
-/* MODERN CLASSIC WEDDING DESIGN - V23 ULTIMATE */
-/* ========================================================================== */
-
 :root {
     --navy-blue: #1a3a52;
     --gold-accent: #d4af37;
@@ -128,7 +123,6 @@ body {
     margin: 20px auto;
 }
 
-/* EASTER EGG */
 .easter-egg-overlay {
     position: fixed;
     top: 0;
@@ -176,7 +170,6 @@ body {
     100% { right: -350px; opacity: 0; transform: translateY(-50%) rotateZ(18deg) scale(0.9); }
 }
 
-/* LOGIN */
 .login-page {
     position: fixed;
     top: 0;
@@ -266,7 +259,6 @@ body {
     min-height: 20px;
 }
 
-/* APP */
 .app-container {
     display: none;
     min-height: 100vh;
@@ -320,7 +312,6 @@ body {
     font-weight: 300;
 }
 
-/* NAVIGATION */
 .main-nav {
     background: white;
     border-bottom: 1px solid var(--soft-beige);
@@ -367,7 +358,6 @@ body {
     border-bottom-color: var(--gold-accent);
 }
 
-/* COUNTDOWN */
 .countdown-container {
     text-align: center;
     margin-bottom: 60px;
@@ -441,7 +431,6 @@ body {
     font-weight: 600;
 }
 
-/* CTA */
 .cta-section {
     text-align: center;
     margin-top: 70px;
@@ -492,7 +481,6 @@ body {
     transform: translateY(-1px);
 }
 
-/* SCHEDULE - V23 NEW! */
 .schedule-timeline {
     max-width: 900px;
     margin: 0 auto;
@@ -556,7 +544,6 @@ body {
     line-height: 1.6;
 }
 
-/* TIMELINE */
 .timeline-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -578,7 +565,7 @@ body {
     display: flex;
     margin-bottom: 80px;
     position: relative;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .timeline-item:nth-child(even) {
@@ -658,7 +645,7 @@ body {
 .timeline-dot {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(30px);
     width: 20px;
     height: 20px;
     background: var(--gold-accent);
@@ -668,7 +655,6 @@ body {
     z-index: 3;
 }
 
-/* INFO CARDS */
 .info-card {
     background: white;
     padding: 50px;
@@ -788,7 +774,6 @@ body {
     font-size: 18px;
 }
 
-/* CONTACT */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -855,7 +840,6 @@ body {
     font-weight: 700;
 }
 
-/* RSVP */
 .rsvp-container {
     max-width: 700px;
     margin: 0 auto;
@@ -1117,7 +1101,6 @@ body {
     border-bottom: none;
 }
 
-/* GALLERY */
 .gallery-container {
     max-width: 800px;
     margin: 0 auto;
@@ -1178,7 +1161,6 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* FOOTER */
 .main-footer {
     background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%);
     color: white;
@@ -1274,7 +1256,6 @@ body {
     font-size: 14px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 968px) {
     .info-grid {
         grid-template-columns: 1fr;
@@ -1369,7 +1350,7 @@ body {
 <div class="login-page" id="loginPage">
     <div class="login-box">
         <h1>Wesele</h1>
-        <p>Wprowadź hasło, aby uzyskać dostęp do systemu potwierdzenia przybycia</p>
+        <p>Wprowadź hasło aby uzyskać dostęp do systemu potwierdzenia przybycia</p>
         <input type="password" id="passwordInput" placeholder="Wprowadź hasło" />
         <button onclick="checkPassword()">Zaloguj się</button>
         <div class="login-error" id="loginError"></div>
@@ -1496,7 +1477,7 @@ body {
             </div>
         </div>
         
-        <!-- SCHEDULE - V23 NEW! -->
+        <!-- SCHEDULE -->
         <div class="page" id="schedule">
             <div class="content-section">
                 <h2 class="section-title">Harmonogram Dnia</h2>
@@ -1548,7 +1529,7 @@ body {
                             <div class="schedule-activity">🍽️ Obiad i przemowy</div>
                             <div class="schedule-location">Główna sala - OKLASKI</div>
                             <div class="schedule-description">
-                                Zapraszamy do stołów. Serwujemy pyszne menu przygotowane specjalnie dla Was. Toasty i przemowy od bliskich będą nas wzruszać!
+                                Zapraszamy do stolów. Serwujemy pyszne menu przygotowane specjalnie dla Was. Toasty i przemowy od bliskich będą nas wzruszać!
                             </div>
                         </div>
                     </div>
@@ -1567,7 +1548,7 @@ body {
                     
                     <div class="schedule-item">
                         <div class="schedule-time">23:00</div>
-                        <div class="schedule-connector" style="display: none;"></div>
+                        <div class="schedule-connector"></div>
                         <div class="schedule-content">
                             <div class="schedule-activity">🌙 Pożegnanie</div>
                             <div class="schedule-location">Parking - Wyjazd</div>
@@ -1585,7 +1566,7 @@ body {
             <div class="content-section">
                 <h2 class="section-title">Informacje Organizacyjne</h2>
                 <div class="gold-divider"></div>
-                <p class="section-subtitle">Wszystko, co musisz wiedzieć o naszym weselu</p>
+                <p class="section-subtitle">Wszystko co musisz wiedzieć o naszym weselu</p>
                 
                 <!-- Ceremonia -->
                 <div class="info-card">
@@ -1599,7 +1580,7 @@ body {
                             <p><strong><a href="https://maps.google.com/?q=ul.+Stefana+Kardynała+Wyszyńskiego+13,+83-110+Tczew" target="_blank">Otwórz w Google Maps</a></strong></p>
                         </div>
                         <div class="map-embed">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5565.896565008256!2d18.79967232190074!3d54.08843931564477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd60daf7f655c3%3A0xa59e0b2ac82b288a!2zS2_Fm2Npw7PDgiBwdy4gUG9kd3nFvHN6ZW5pYSBLcnp5xbxhIMWat2ljIFxFMDlcdkllXDA2dGVnbyE1e0I4JTlEOiU5RCU3Rjp7QT01QjAxMDZ9JTdEfQ!5e0!3m2!1spl!2spl!4v1762261706136!5m2!1spl!2spl" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5565.896565008256!2d18.79967232190074!3d54.08843931564477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd60daf7f655c3%3A0xa59e0b2ac82b288a!2zS8OzxJ9jiW9sIHB3LiBQb2R3ecWzc3plbmlhIEtyesSyeiBCbyU3NDUxJTdEczolQjglOUQlN0Y6e0E6NUIwMTA2fSU3RH0!5e0!3m2!1spl!2spl!4v1762261706136!5m2!1spl!2spl" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
@@ -1621,7 +1602,7 @@ body {
                     </div>
                 </div>
                 
-                <!-- Transport & Parking - V23 NEW! -->
+                <!-- Transport & Parking -->
                 <div class="info-card">
                     <h3>🚗 Dojazd i Parkingi</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 25px;">
@@ -1640,30 +1621,25 @@ body {
                     </div>
                 </div>
                 
-                <!-- Transport Options - V23 NEW! -->
+                <!-- Transport Options - POPRAWKA 5: TYLKO BOLT + TAXI -->
                 <div class="info-card">
                     <h3>🚕 Transport</h3>
                     <p>Jeśli nie chcesz prowadzić samochodu, mamy kilka opcji:</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
                         <div style="background: var(--cream-white); padding: 20px; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 32px; margin-bottom: 10px;">🚖</div>
-                            <p><strong>Uber/Bolt</strong></p>
-                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Dostępne w Tczewie. Zaordynuj wcześniej!</p>
+                            <div style="font-size: 32px; margin-bottom: 10px;">🚗</div>
+                            <p><strong>Bolt</strong></p>
+                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Aplikacja Bolt dostępna w Tczewie. Zaordynuj wcześniej!</p>
                         </div>
                         <div style="background: var(--cream-white); padding: 20px; border-radius: 8px; text-align: center;">
                             <div style="font-size: 32px; margin-bottom: 10px;">🚕</div>
                             <p><strong>Taxi</strong></p>
                             <p style="font-size: 14px; color: #666; margin-top: 10px;">Taxi Tczew: <strong style="color: var(--navy-blue);">XXX-XXX-XXX</strong></p>
                         </div>
-                        <div style="background: var(--cream-white); padding: 20px; border-radius: 8px; text-align: center;">
-                            <div style="font-size: 32px; margin-bottom: 10px;">🚌</div>
-                            <p><strong>Autobus</strong></p>
-                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Pytaj nas o wyczarterem!</p>
-                        </div>
                     </div>
                 </div>
                 
-                <!-- Hotels - V23 NEW! -->
+                <!-- Hotels -->
                 <div class="info-card">
                     <h3>🏨 Noclegi</h3>
                     <p>Jeśli przyjeżdżasz z daleka, polecamy następujące miejsca noclegowe:</p>
@@ -1898,7 +1874,7 @@ body {
                                 <div class="alert alert-success">Dziękujemy za potwierdzenie przybycia. Czekamy na Ciebie na weselu!</div>
                                 <div class="button-group" style="margin-top: 40px;">
                                     <button class="btn btn-primary" onclick="resetRSVP()">Nowe Potwierdzenie</button>
-                                    <button class="btn btn-secondary" onclick="showPage('home')">Zamknij</button>
+                                    <button class="btn btn-secondary" onclick="closeRsvpAndHighlightHome()">Zamknij</button>
                                 </div>
                             </div>
                         </div>
@@ -1931,7 +1907,7 @@ body {
                                 <div class="alert alert-success">Rozumiemy Twoją decyzję. Dziękujemy za wiadomość.</div>
                                 <div class="button-group" style="margin-top: 40px;">
                                     <button class="btn btn-primary" onclick="resetRSVP()">Nowe Potwierdzenie</button>
-                                    <button class="btn btn-secondary" onclick="showPage('home')">Zamknij</button>
+                                    <button class="btn btn-secondary" onclick="closeRsvpAndHighlightHome()">Zamknij</button>
                                 </div>
                             </div>
                         </div>
@@ -1942,7 +1918,7 @@ body {
                                 <div class="alert alert-success">Będziemy Ci wysyłać aktualizacje dotyczące wesela na podany email.</div>
                                 <div class="button-group" style="margin-top: 40px;">
                                     <button class="btn btn-primary" onclick="resetRSVP()">Nowe Potwierdzenie</button>
-                                    <button class="btn btn-secondary" onclick="showPage('home')">Zamknij</button>
+                                    <button class="btn btn-secondary" onclick="closeRsvpAndHighlightHome()">Zamknij</button>
                                 </div>
                             </div>
                         </div>
@@ -1951,14 +1927,13 @@ body {
             </div>
         </div>
         
-        <!-- GALLERY -->
+        <!-- GALLERY - POPRAWKA 6: BEZ NAPISU -->
         <div class="page" id="gallery">
             <div class="content-section">
                 <div class="gallery-container">
                     <div class="gallery-card">
                         <h2 class="section-title">Galeria Naszych Zdjęć</h2>
                         <div class="gold-divider"></div>
-                        <p class="rsvp-subtitle">Zapraszamy do obejrzenia naszych ulubionych momentów</p>
                         
                         <div class="gallery-info">
                             <h3>Podziel się Swoimi Zdjęciami</h3>
@@ -2070,7 +2045,6 @@ let rsvpState = {
     isSubmitting: false
 };
 
-/* Easter Egg */
 function triggerEasterEgg() {
     document.getElementById("easterEggOverlay").classList.add("show");
     setTimeout(() => closeEasterEgg(), 4800);
@@ -2080,7 +2054,6 @@ function closeEasterEgg() {
     document.getElementById("easterEggOverlay").classList.remove("show");
 }
 
-/* Login */
 function checkPassword() {
     const password = document.getElementById("passwordInput").value;
     if (password === PASSWORD) {
@@ -2092,13 +2065,32 @@ function checkPassword() {
     }
 }
 
-/* Navigation */
+// POPRAWKA 1: SCROLL TO TOP NA KAŻDEJ ZMIANIE STRONY
 function showPage(pageId) {
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
     document.getElementById(pageId).classList.add("active");
     
     document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
     event.target?.classList.add("active");
+    
+    // ✅ ZMIANA 1: SMOOTH SCROLL TO TOP
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// POPRAWKA 2: NOWA FUNKCJA - ZAMKNIJ RSVP I PODŚWIETL GŁÓWNA
+function closeRsvpAndHighlightHome() {
+    // Usuń active z wszystkich przycisków
+    document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
+    
+    // Dodaj active do przycisku "Główna" (pierwszy przycisk)
+    document.querySelectorAll(".nav-btn")[0].classList.add("active");
+    
+    // Pokaż stronę główną
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById('home').classList.add("active");
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function smoothScrollToRsvp() {
@@ -2108,7 +2100,6 @@ function smoothScrollToRsvp() {
     }, 100);
 }
 
-/* Countdown */
 function updateCountdown() {
     const weddingDate = new Date("2026-08-06T00:00:00").getTime();
     const now = new Date().getTime();
@@ -2151,7 +2142,6 @@ function scheduleCountdownUpdate() {
     }, msUntilNextSecond);
 }
 
-/* Progress Tracker */
 function updateProgressTracker(step) {
     const trackers = document.querySelectorAll("[id^='progressTracker']");
     trackers.forEach(tracker => {
@@ -2175,7 +2165,6 @@ function showStep(stepId) {
     updateProgressTracker(rsvpState.currentStep);
 }
 
-/* RSVP Functions */
 function rsvpValidateCode() {
     const code = document.getElementById("codeInput").value.trim();
     const codeError = document.getElementById("codeError");
@@ -2596,7 +2585,6 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-/* Initialize */
 document.addEventListener("DOMContentLoaded", function() {
     updateCountdown();
     scheduleCountdownUpdate();
