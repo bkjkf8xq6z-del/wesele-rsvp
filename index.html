@@ -35,8 +35,8 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 .wedding-date { font-family: var(--font-heading); font-size: 18px; color: var(--cream-white); letter-spacing: 4px; font-weight: 400; }
 .hero-section {
     position: relative;
-    height: 0;
-    background: linear-gradient(rgba(26, 58, 82, 0.5), rgba(26, 58, 82, 0.7)), url('couple-hero.jpg');
+    height: 600px;
+    background: linear-gradient(rgba(26, 58, 82, 0.4), rgba(26, 58, 82, 0.6)), url('couple-hero.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -45,17 +45,6 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     justify-content: center;
     text-align: center;
     color: white;
-    visibility: hidden;
-    padding: 0;
-    margin: 0;
-}
-
-.hero-section.visible {
-    display: flex;
-    visibility: visible;
-    height: 600px;
-    padding: 40px;
-    margin: 0;
 }
 
 .hero-content { z-index: 2; max-width: 800px; padding: 40px; }
@@ -264,826 +253,6 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     .button-group { flex-direction: column; }
     .btn { width: 100%; }
 }
-
-
-/* ========== MOBILE-FIRST OPTIMIZATION ========== */
-
-/* ===== ZMIANA 1: BOTTOM NAVIGATION ===== */
-.mobile-nav {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .desktop-nav {
-        display: none;
-    }
-
-    .mobile-nav {
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: white;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        padding: 8px 0 8px 0;
-        padding-bottom: env(safe-area-inset-bottom);
-        justify-content: space-around;
-        border-top: 1px solid var(--soft-beige);
-    }
-
-    .mobile-nav-btn {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-        padding: 8px 12px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        flex: 1;
-        max-width: 80px;
-    }
-
-    .mobile-nav-btn.active {
-        background: linear-gradient(135deg, var(--light-gold) 0%, var(--soft-beige) 100%);
-        border-radius: 12px;
-    }
-
-    .nav-icon {
-        font-size: 24px;
-        line-height: 1;
-    }
-
-    .nav-label {
-        font-size: 11px;
-        font-weight: 600;
-        color: var(--navy-blue);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .mobile-nav-btn.active .nav-label {
-        color: var(--gold-accent);
-    }
-
-    /* Dodaj padding-bottom dla głównego contentu */
-    .main-content {
-        padding-bottom: 80px;
-    }
-}
-
-/* ===== ZMIANA 2 & 8: HERO SECTION MOBILE ===== */
-@media (max-width: 768px) {
-    .hero-section.visible {
-        height: 300px;
-        padding: 20px 15px;
-        background: linear-gradient(rgba(26, 58, 82, 0.65), rgba(26, 58, 82, 0.85)), url('couple-hero.jpg');
-    }
-
-    .hero-content {
-        padding: 15px;
-    }
-
-    .hero-subtitle {
-        font-size: 18px;
-        letter-spacing: 2px;
-        margin-bottom: 12px;
-    }
-
-    .hero-title {
-        font-size: 36px;
-        margin-bottom: 18px;
-        line-height: 1.2;
-    }
-
-    .gold-divider {
-        width: 100px;
-        margin: 15px auto;
-    }
-}
-
-/* ===== ZMIANA 8: TYPOGRAPHY & SPACING ===== */
-@media (max-width: 768px) {
-    body {
-        font-size: 16px;
-        line-height: 1.8;
-    }
-
-    .content-section {
-        padding: 60px 20px;
-    }
-
-    .section-title {
-        font-size: 38px;
-        margin-bottom: 18px;
-    }
-
-    .section-subtitle {
-        font-size: 17px;
-        margin-bottom: 50px;
-        line-height: 1.8;
-    }
-
-    .couple-names {
-        font-size: 42px;
-        margin-bottom: 10px;
-    }
-
-    .wedding-date {
-        font-size: 16px;
-        letter-spacing: 3px;
-    }
-}
-
-/* ===== ZMIANA 3: COUNTDOWN 2x2 GRID ===== */
-@media (max-width: 768px) {
-    .countdown-intro {
-        font-size: 26px;
-        margin-bottom: 18px;
-    }
-
-    .countdown-date-display {
-        font-size: 18px;
-        margin-bottom: 12px;
-    }
-
-    .countdown-location {
-        font-size: 16px;
-        margin-bottom: 40px;
-    }
-
-    .countdown-boxes {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-top: 35px;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .countdown-box {
-        padding: 30px 20px;
-        min-width: unset;
-        border-radius: 12px;
-        animation: fadeInUp 0.6s ease forwards;
-        opacity: 0;
-    }
-
-    .countdown-box:nth-child(1) { animation-delay: 0.1s; }
-    .countdown-box:nth-child(2) { animation-delay: 0.2s; }
-    .countdown-box:nth-child(3) { animation-delay: 0.3s; }
-    .countdown-box:nth-child(4) { animation-delay: 0.4s; }
-
-    .countdown-number {
-        font-size: 48px;
-        margin-bottom: 10px;
-    }
-
-    .countdown-label {
-        font-size: 13px;
-        letter-spacing: 1.5px;
-    }
-}
-
-/* ===== ZMIANA 5: STICKY CTA BUTTON ===== */
-@media (max-width: 768px) {
-    .cta-section {
-        margin-top: 50px;
-        padding: 50px 20px;
-    }
-
-    .cta-title {
-        font-size: 30px;
-        margin-bottom: 18px;
-    }
-
-    .cta-subtitle {
-        font-size: 17px;
-        margin-bottom: 30px;
-        line-height: 1.7;
-    }
-
-    .cta-button {
-        position: fixed;
-        bottom: 90px;
-        left: 20px;
-        right: 20px;
-        z-index: 999;
-        padding: 18px 40px;
-        font-size: 16px;
-        box-shadow: 0 8px 30px rgba(26, 58, 82, 0.4);
-        animation: pulse 2s infinite;
-        width: calc(100% - 40px);
-        max-width: 500px;
-        margin: 0 auto;
-        display: none;
-    }
-
-    .cta-button.visible {
-        display: block;
-    }
-
-    @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
-            box-shadow: 0 8px 30px rgba(26, 58, 82, 0.4);
-        }
-        50% {
-            transform: scale(1.02);
-            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5);
-        }
-    }
-}
-
-/* ===== ZMIANA 4: TIMELINE SWIPE CAROUSEL ===== */
-@media (max-width: 768px) {
-    .timeline-container {
-        padding: 20px 0;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        position: relative;
-    }
-
-    .timeline-container::-webkit-scrollbar {
-        display: none;
-    }
-
-    .timeline-container::before {
-        display: none;
-    }
-
-    .timeline-item {
-        display: inline-flex;
-        flex-direction: column;
-        width: 85vw;
-        max-width: 400px;
-        margin: 0 10px 30px 10px;
-        scroll-snap-align: center;
-        vertical-align: top;
-        background: white;
-        border-radius: 16px;
-        padding: 25px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        border: none;
-    }
-
-    .timeline-photo {
-        flex: 0 0 220px;
-        height: 220px;
-        margin: 0 auto 20px;
-        border: 4px solid var(--gold-accent);
-    }
-
-    .timeline-connector {
-        display: none;
-    }
-
-    .timeline-dot {
-        display: none;
-    }
-
-    .timeline-content {
-        border: none;
-        box-shadow: none;
-        padding: 0;
-        text-align: center;
-        background: transparent;
-    }
-
-    .timeline-year {
-        font-size: 20px;
-        margin-bottom: 12px;
-        color: var(--gold-accent);
-    }
-
-    .timeline-text {
-        font-size: 16px;
-        line-height: 1.7;
-        color: #555;
-    }
-
-    /* Scroll indicator */
-    .timeline-container::after {
-        content: "← Przesuń →";
-        display: block;
-        text-align: center;
-        color: #999;
-        font-size: 13px;
-        margin-top: 10px;
-        font-weight: 600;
-        letter-spacing: 1px;
-    }
-}
-
-/* ===== ZMIANA 4: HARMONOGRAM ACCORDION ===== */
-@media (max-width: 768px) {
-    .schedule-timeline {
-        max-width: 100%;
-    }
-
-    .schedule-item {
-        flex-direction: column;
-        margin-bottom: 15px;
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        border: 2px solid var(--soft-beige);
-    }
-
-    .schedule-time {
-        flex: none;
-        padding: 16px 20px;
-        font-size: 20px;
-        margin: 0;
-        border-radius: 0;
-        background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .schedule-time::after {
-        content: "▼";
-        font-size: 14px;
-        transition: transform 0.3s ease;
-    }
-
-    .schedule-item.expanded .schedule-time::after {
-        transform: rotate(180deg);
-    }
-
-    .schedule-connector {
-        display: none;
-    }
-
-    .schedule-content {
-        padding: 20px;
-        border: none;
-        border-top: 3px solid var(--gold-accent);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease, padding 0.3s ease;
-    }
-
-    .schedule-item.expanded .schedule-content {
-        max-height: 500px;
-        padding: 20px;
-    }
-
-    .schedule-activity {
-        font-size: 20px;
-        margin-bottom: 12px;
-    }
-
-    .schedule-location {
-        font-size: 14px;
-        margin-bottom: 12px;
-    }
-
-    .schedule-description {
-        font-size: 15px;
-        line-height: 1.7;
-    }
-}
-
-/* ===== ZMIANA 6: RSVP FORM - TOUCH FRIENDLY ===== */
-@media (max-width: 768px) {
-    .rsvp-container {
-        max-width: 100%;
-        padding: 0 15px;
-    }
-
-    .rsvp-card {
-        padding: 30px 20px;
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    .rsvp-card h2 {
-        font-size: 28px;
-        margin-bottom: 18px;
-    }
-
-    .rsvp-subtitle {
-        font-size: 16px;
-        margin-bottom: 35px;
-        line-height: 1.7;
-    }
-
-    .progress-tracker {
-        margin-bottom: 35px;
-        padding: 0 10px;
-    }
-
-    .progress-step {
-        width: 32px;
-        height: 32px;
-        font-size: 13px;
-        border-width: 3px;
-    }
-
-    .form-group {
-        margin-bottom: 25px;
-    }
-
-    .form-label {
-        font-size: 16px;
-        margin-bottom: 10px;
-        font-weight: 700;
-    }
-
-    .form-input {
-        padding: 16px 18px;
-        font-size: 16px;
-        border-radius: 8px;
-        border-width: 2px;
-        min-height: 52px;
-    }
-
-    .form-input:focus {
-        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
-    }
-
-    .checkbox-list {
-        gap: 12px;
-    }
-
-    .checkbox-option {
-        padding: 16px 18px;
-        border-radius: 10px;
-        border-width: 2px;
-        min-height: 60px;
-    }
-
-    .checkbox-option input[type="checkbox"] {
-        width: 28px;
-        height: 28px;
-        margin-right: 16px;
-    }
-
-    .checkbox-option label {
-        font-size: 16px;
-        line-height: 1.5;
-    }
-
-    .button-group {
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 30px;
-    }
-
-    .btn {
-        width: 100%;
-        padding: 16px 24px;
-        font-size: 16px;
-        min-height: 52px;
-        border-radius: 10px;
-        font-weight: 700;
-        letter-spacing: 1px;
-    }
-
-    .summary-table td {
-        padding: 16px;
-        font-size: 15px;
-    }
-
-    .summary-table td:first-child {
-        font-size: 14px;
-    }
-}
-
-/* ===== ZMIANA 7: GALERIA QR CODE ===== */
-@media (max-width: 768px) {
-    .gallery-container {
-        max-width: 100%;
-        padding: 0 15px;
-    }
-
-    .gallery-card {
-        padding: 30px 20px;
-        border-radius: 16px;
-    }
-
-    .gallery-info {
-        padding: 25px 20px;
-        margin: 25px 0;
-        border-radius: 12px;
-        border-left-width: 4px;
-    }
-
-    .gallery-info h3 {
-        font-size: 22px;
-        margin-bottom: 16px;
-    }
-
-    .gallery-info p {
-        font-size: 15px;
-        line-height: 1.7;
-    }
-
-    .gallery-cta {
-        margin-top: 30px;
-    }
-
-    .gallery-cta a {
-        padding: 16px 40px;
-        font-size: 16px;
-        border-radius: 10px;
-        min-height: 52px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .qr-code-section {
-        margin-top: 30px;
-        padding: 25px;
-        background: var(--cream-white);
-        border-radius: 12px;
-        text-align: center;
-        border: 2px solid var(--gold-accent);
-    }
-
-    .qr-code-section h4 {
-        font-size: 18px;
-        color: var(--navy-blue);
-        margin-bottom: 15px;
-        font-family: var(--font-heading);
-    }
-
-    .qr-code-placeholder {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto;
-        background: white;
-        border: 2px solid var(--gold-accent);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        color: #999;
-        padding: 20px;
-        text-align: center;
-    }
-}
-
-/* ===== ZMIANA 9: ANIMATIONS & MICRO-INTERACTIONS ===== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes bounceIn {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@media (max-width: 768px) {
-    .page.active {
-        animation: fadeIn 0.4s ease;
-    }
-
-    .section-title {
-        animation: fadeInUp 0.5s ease;
-    }
-
-    .section-subtitle {
-        animation: fadeInUp 0.6s ease;
-    }
-
-    .btn:active {
-        transform: scale(0.97);
-    }
-
-    .nav-btn:active,
-    .mobile-nav-btn:active {
-        transform: scale(0.95);
-    }
-
-    .info-card {
-        animation: fadeInUp 0.5s ease;
-    }
-
-    .contact-person {
-        animation: fadeInUp 0.6s ease;
-    }
-
-    .timeline-item {
-        animation: fadeInUp 0.5s ease;
-    }
-
-    .schedule-item {
-        animation: fadeInUp 0.4s ease;
-        animation-fill-mode: both;
-    }
-
-    .schedule-item:nth-child(1) { animation-delay: 0.05s; }
-    .schedule-item:nth-child(2) { animation-delay: 0.1s; }
-    .schedule-item:nth-child(3) { animation-delay: 0.15s; }
-    .schedule-item:nth-child(4) { animation-delay: 0.2s; }
-    .schedule-item:nth-child(5) { animation-delay: 0.25s; }
-    .schedule-item:nth-child(6) { animation-delay: 0.3s; }
-}
-
-/* Info Cards Mobile */
-@media (max-width: 768px) {
-    .info-card {
-        padding: 30px 20px;
-        margin-bottom: 25px;
-        border-radius: 16px;
-    }
-
-    .info-card h3 {
-        font-size: 26px;
-        margin-bottom: 25px;
-    }
-
-    .info-card h4 {
-        font-size: 18px;
-        margin-bottom: 12px;
-    }
-
-    .info-card p {
-        font-size: 15px;
-        line-height: 1.7;
-        margin-bottom: 16px;
-    }
-
-    .info-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    .map-embed {
-        height: 300px;
-        border-radius: 12px;
-        border-width: 3px;
-    }
-}
-
-/* Contact Mobile */
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-        margin-top: 40px;
-    }
-
-    .contact-person {
-        padding: 30px 20px;
-        border-radius: 16px;
-    }
-
-    .contact-photo {
-        width: 110px;
-        height: 110px;
-        margin-bottom: 20px;
-        border-width: 4px;
-    }
-
-    .contact-person h3 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .contact-info-item {
-        margin: 16px 0;
-        font-size: 16px;
-    }
-}
-
-/* Footer Mobile */
-@media (max-width: 768px) {
-    .main-footer {
-        padding: 50px 20px 30px;
-        margin-top: 60px;
-    }
-
-    .footer-title {
-        font-size: 24px;
-        margin-bottom: 35px;
-    }
-
-    .footer-contacts {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        margin-bottom: 30px;
-    }
-
-    .footer-photo {
-        width: 110px;
-        height: 110px;
-    }
-
-    .footer-person h4 {
-        font-size: 22px;
-        margin-bottom: 16px;
-    }
-
-    .footer-person p {
-        font-size: 16px;
-    }
-
-    .footer-copyright {
-        margin-top: 30px;
-        padding-top: 25px;
-        font-size: 13px;
-    }
-}
-
-/* Extra Small Devices */
-@media (max-width: 480px) {
-    .content-section {
-        padding: 50px 15px;
-    }
-
-    .section-title {
-        font-size: 32px;
-    }
-
-    .couple-names {
-        font-size: 36px;
-    }
-
-    .countdown-number {
-        font-size: 42px;
-    }
-
-    .btn {
-        font-size: 15px;
-        padding: 14px 20px;
-    }
-}
-
-/* ===== ZMIANA 12: SHARE & ADD TO CALENDAR ===== */
-@media (max-width: 768px) {
-    .quick-actions {
-        display: flex;
-        gap: 10px;
-        margin-top: 30px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .action-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 20px;
-        background: white;
-        border: 2px solid var(--gold-accent);
-        color: var(--navy-blue);
-        border-radius: 10px;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        flex: 1;
-        min-width: 140px;
-        justify-content: center;
-    }
-
-    .action-btn:active {
-        transform: scale(0.95);
-    }
-
-    .action-btn span {
-        font-size: 18px;
-    }
-}
 </style>
 </head>
 <body>
@@ -1119,7 +288,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
         </div>
     </div>
     
-    <nav class="main-nav desktop-nav">
+    <nav class="main-nav">
         <div class="nav-container">
             <button class="nav-btn active" onclick="showPage('home')">Główna</button>
             <button class="nav-btn" onclick="showPage('history')">Historia</button>
@@ -1128,33 +297,6 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
             <button class="nav-btn" onclick="showPage('rsvp')">Potwierdzenie</button>
             <button class="nav-btn" onclick="showPage('gallery')">Galeria</button>
         </div>
-    </nav>
-
-    <nav class="mobile-nav">
-        <button class="mobile-nav-btn active" onclick="showPage('home')" data-page="home">
-            <span class="nav-icon">🏠</span>
-            <span class="nav-label">Główna</span>
-        </button>
-        <button class="mobile-nav-btn" onclick="showPage('history')" data-page="history">
-            <span class="nav-icon">❤️</span>
-            <span class="nav-label">Historia</span>
-        </button>
-        <button class="mobile-nav-btn" onclick="showPage('schedule')" data-page="schedule">
-            <span class="nav-icon">⏰</span>
-            <span class="nav-label">Plan</span>
-        </button>
-        <button class="mobile-nav-btn" onclick="showPage('info')" data-page="info">
-            <span class="nav-icon">ℹ️</span>
-            <span class="nav-label">Info</span>
-        </button>
-        <button class="mobile-nav-btn" onclick="showPage('rsvp')" data-page="rsvp">
-            <span class="nav-icon">✉️</span>
-            <span class="nav-label">RSVP</span>
-        </button>
-        <button class="mobile-nav-btn" onclick="showPage('gallery')" data-page="gallery">
-            <span class="nav-icon">📸</span>
-            <span class="nav-label">Galeria</span>
-        </button>
     </nav>
     
     <main class="main-content">
@@ -1172,16 +314,6 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                     <h3 class="cta-title">Świętujmy razem</h3>
                     <p class="cta-subtitle">Potwierdź swoją obecność i dołącz do zabawy</p>
                     <button class="cta-button" onclick="smoothScrollToRsvp()">Potwierdź Obecność</button>
-                    <div class="quick-actions">
-                        <button class="action-btn" onclick="addToCalendar()">
-                            <span>📅</span>
-                            Dodaj do kalendarza
-                        </button>
-                        <button class="action-btn" onclick="shareWebsite()">
-                            <span>📤</span>
-                            Udostępnij
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1248,55 +380,55 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                 <p class="section-subtitle">Dokładny plan naszego wielkiego dnia - 6 sierpnia 2026</p>
                 <div class="schedule-timeline">
                     <div class="schedule-item">
-                        <div class="schedule-time">15:00</div>
+                        <div class="schedule-time" data-emoji="⛪">15:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">⛪ Ceremonia ślubna</div>
+                            <div class="schedule-activity">Ceremonia ślubna</div>
                             <div class="schedule-location">Kościół pw. Podwyższenia Krzyża Świętego</div>
                             <div class="schedule-description">Zapraszamy do kościoła. Ceremonia potrwa około 30-40 minut. Wejście wolne - proszę się nie spóźniać!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">16:00</div>
+                        <div class="schedule-time">16:00" data-emoji="📸"></div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">📸 Sesja zdjęciowa</div>
+                            <div class="schedule-activity">Sesja zdjęciowa</div>
                             <div class="schedule-location">Parki i tereny w okolicy Tczewa</div>
                             <div class="schedule-description">Plenery fotograficzne pary i grup gości. Jeśli chcesz być na zdjęciach, zarejestruj się podczas RSVP!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">17:00</div>
+                        <div class="schedule-time">17:00" data-emoji="🍷"></div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">🍷 Koktajl powitalny</div>
+                            <div class="schedule-activity">Koktajl powitalny</div>
                             <div class="schedule-location">OKLASKI - Stanisławie 30A</div>
                             <div class="schedule-description">Zapraszamy do sali przyjęć. Czeka na Was koktajl, przekąski i możliwość powitania pary młodej!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">18:00</div>
+                        <div class="schedule-time">18:00" data-emoji="🍽️"></div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">🍽️ Obiad i przemowy</div>
+                            <div class="schedule-activity">Obiad i przemowy</div>
                             <div class="schedule-location">Główna sala - OKLASKI</div>
                             <div class="schedule-description">Zapraszamy do stolów. Serwujemy pyszne menu przygotowane specjalnie dla Was. Toasty i przemowy od bliskich będą nas wzruszać!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">20:00</div>
+                        <div class="schedule-time">20:00" data-emoji="🎵"></div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">🎵 Taniec i rozrywka</div>
+                            <div class="schedule-activity">Taniec i rozrywka</div>
                             <div class="schedule-location">Parkiet - OKLASKI</div>
                             <div class="schedule-description">Czas na zabawę! Tańczymy, śpiewamy i cieszymy się wspólnie. DJ będzie grać całą noc!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">23:00</div>
+                        <div class="schedule-time">23:00" data-emoji="🌙"></div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">🌙 Pożegnanie</div>
+                            <div class="schedule-activity">Pożegnanie</div>
                             <div class="schedule-location">Parking - Wyjazd</div>
                             <div class="schedule-description">Dziękujemy za przybycie i razem spędzony czas! Zabieracie ze sobą najlepsze wspomnienia z naszego wielkiego dnia.</div>
                         </div>
@@ -1661,15 +793,6 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="gallery-cta">
                             <a href="https://photos.app.goo.gl/563UeatK4Yv3f9kP7" target="_blank">Otwórz Galerię w Google Photos</a>
                         </div>
-                        <div class="qr-code-section">
-                            <h4>📱 Skanuj QR kod</h4>
-                            <div class="qr-code-placeholder">
-                                [QR CODE]<br>
-                                Tutaj będzie QR kod<br>
-                                do galerii Google Photos
-                            </div>
-                            <p style="margin-top: 15px; font-size: 14px; color: #666;">Szybki dostęp do galerii</p>
-                        </div>
                         <div style="margin-top: 40px; padding: 30px; background: var(--cream-white); border-radius: 8px; text-align: center; border: 1px solid var(--soft-beige);">
                             <p style="color: #777; font-size: 15px; margin: 0;">Zdjęcia pojawiają się w galerii na bieżąco. Dziękujemy za dzielenie się wspomnieniami!</p>
                         </div>
@@ -1778,7 +901,7 @@ function checkPassword() {
         document.getElementById("loginPage").classList.add("hidden");
         document.getElementById("appContainer").classList.add("visible");
         const heroSection = document.querySelector(".hero-section");
-        heroSection.classList.add("visible");
+        heroSection.style.display = "flex";
     } else {
         document.getElementById("loginError").textContent = "Nieprawidłowe hasło";
         document.getElementById("passwordInput").value = "";
@@ -1806,13 +929,11 @@ function showPage(pageId) {
 function closeRsvpAndHighlightHome() {
     document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
     document.querySelectorAll(".nav-btn")[0].classList.add("active");
-    document.querySelectorAll(".mobile-nav-btn").forEach(btn => btn.classList.remove("active"));
-    document.querySelectorAll(".mobile-nav-btn")[0].classList.add("active");
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
     document.getElementById('home').classList.add("active");
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const heroSection = document.querySelector(".hero-section");
-    heroSection.classList.add("visible");
+    heroSection.style.display = "flex";
 }
 
 function smoothScrollToRsvp() {
@@ -2072,123 +1193,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/service-worker.js').then(() => console.log('SW registered')).catch(() => console.log('SW failed')); }
-
-
-// ========== MOBILE-FIRST JAVASCRIPT ==========
-
-// Accordion dla harmonogramu (mobile)
-document.addEventListener('DOMContentLoaded', function() {
-    if (window.innerWidth <= 768) {
-        const scheduleItems = document.querySelectorAll('.schedule-item');
-
-        // Domyślnie rozwiń pierwsze 2
-        scheduleItems.forEach((item, index) => {
-            if (index < 2) {
-                item.classList.add('expanded');
-            }
-
-            const timeEl = item.querySelector('.schedule-time');
-            if (timeEl) {
-                timeEl.addEventListener('click', function() {
-                    item.classList.toggle('expanded');
-                });
-            }
-        });
-    }
-});
-
-// Share website
-function shareWebsite() {
-    if (navigator.share) {
-        navigator.share({
-            title: 'Wesele Wiktoria & Maciej',
-            text: 'Zapraszamy na nasze wesele 6 sierpnia 2026!',
-            url: window.location.href
-        }).catch(err => console.log('Share cancelled'));
-    } else {
-        // Fallback: copy to clipboard
-        navigator.clipboard.writeText(window.location.href).then(() => {
-            alert('Link skopiowany do schowka!');
-        });
-    }
-}
-
-// Add to calendar
-function addToCalendar() {
-    const event = {
-        title: 'Wesele Wiktoria & Maciej',
-        location: 'OKLASKI, Stanisławie 30A, 83-112 Lubiszewo',
-        description: 'Zapraszamy na nasze wesele!',
-        start: '2026-08-06T15:00:00',
-        end: '2026-08-07T02:00:00'
-    };
-
-    // Google Calendar URL
-    const startTime = event.start.replace(/[-:]/g, '').replace('.000', '');
-    const endTime = event.end.replace(/[-:]/g, '').replace('.000', '');
-    const googleCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${startTime}/${endTime}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}`;
-
-    window.open(googleCalUrl, '_blank');
-}
-
-// Smooth scroll dla RSVP
-function smoothScrollToRsvp() {
-    showPage('rsvp');
-    setTimeout(() => {
-        const rsvpCard = document.querySelector('.rsvp-card');
-        if (rsvpCard) {
-            rsvpCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }, 100);
-}
-
-// Timeline horizontal scroll hint
-document.addEventListener('DOMContentLoaded', function() {
-    if (window.innerWidth <= 768) {
-        const timeline = document.querySelector('.timeline-container');
-        if (timeline) {
-            // Auto-scroll hint po 1 sekundzie
-            setTimeout(() => {
-                timeline.scrollBy({ left: 50, behavior: 'smooth' });
-                setTimeout(() => {
-                    timeline.scrollBy({ left: -50, behavior: 'smooth' });
-                }, 500);
-            }, 1000);
-        }
-    }
-});
-
-// Countdown animation trigger
-document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animationPlayState = 'running';
-            }
-        });
-    });
-
-    document.querySelectorAll('.countdown-box').forEach(box => {
-        observer.observe(box);
-    });
-});
-
-// Sticky CTA visibility kontrola
-let lastScrollTop = 0;
-window.addEventListener('scroll', function() {
-    const ctaBtn = document.querySelector('.cta-button.visible');
-    if (ctaBtn && window.innerWidth <= 768) {
-        const st = window.pageYOffset || document.documentElement.scrollTop;
-
-        // Ukryj przy scrollowaniu w dół, pokaż przy scrollowaniu w górę
-        if (st > lastScrollTop && st > 100) {
-            ctaBtn.style.transform = 'translateY(150px)';
-        } else {
-            ctaBtn.style.transform = 'translateY(0)';
-        }
-        lastScrollTop = st <= 0 ? 0 : st;
-    }
-});
 </script>
 </body>
 </html>
