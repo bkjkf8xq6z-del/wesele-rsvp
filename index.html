@@ -254,7 +254,50 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     .btn { width: 100%; }
 }
 
-/* FIX: Timeline na mobile - karuzela zamiast pionowo */
+@media (max-width: 768px) {
+    .schedule-item {
+        flex-direction: column;
+        margin-bottom: 16px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border: 2px solid #d4af37;
+    }
+    .schedule-time {
+        padding: 18px 20px;
+        font-size: 28px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1a3a52 0%, #0f2433 100%);
+        color: white;
+        margin: 0;
+        text-align: center;
+        min-height: 60px;
+    }
+    .schedule-connector { display: none !important; }
+    .schedule-content {
+        padding: 20px;
+        border: none !important;
+        text-align: left;
+    }
+    .schedule-activity {
+        font-size: 20px;
+        margin-bottom: 12px;
+        color: #1a3a52;
+        font-weight: 700;
+    }
+    .schedule-location {
+        font-size: 15px;
+        margin-bottom: 12px;
+        color: #d4af37;
+        font-weight: 600;
+    }
+    .schedule-description {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #555;
+    }
+}
+
 @media (max-width: 768px) {
     .timeline-container {
         display: flex;
@@ -265,17 +308,9 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         padding: 20px 0;
-        gap: 0;
     }
-
-    .timeline-container::-webkit-scrollbar {
-        display: none;
-    }
-
-    .timeline-container::before {
-        display: none !important;
-    }
-
+    .timeline-container::-webkit-scrollbar { display: none; }
+    .timeline-container::before { display: none !important; }
     .timeline-item {
         display: inline-flex;
         flex-direction: column;
@@ -289,40 +324,19 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
         border-radius: 12px;
         padding: 20px;
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-        border: none;
     }
-
     .timeline-photo {
-        width: 150px;
-        height: 150px;
+        width: 140px;
+        height: 140px;
         margin: 0 auto 15px;
         border: 3px solid #d4af37;
     }
-
-    .timeline-connector {
-        display: none !important;
-    }
-
-    .timeline-dot {
-        display: none !important;
-    }
-
+    .timeline-connector { display: none !important; }
+    .timeline-dot { display: none !important; }
     .timeline-content {
         border: none !important;
-        box-shadow: none !important;
         padding: 0 !important;
         text-align: center;
-    }
-
-    .timeline-year {
-        font-size: 16px;
-        color: #d4af37;
-        margin-bottom: 8px;
-    }
-
-    .timeline-text {
-        font-size: 14px;
-        color: #666;
     }
 }
 </style>
@@ -395,6 +409,9 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                 <h2 class="section-title">Nasza Historia Miłości</h2>
                 <div class="gold-divider"></div>
                 <p class="section-subtitle">Od pierwszego spotkania do naszego wielkiego dnia</p>
+                <p style="font-size: 14px; margin-top: 15px; color: #d4af37; font-style: italic; text-align: center;">
+                    Przesuń w boki aby zobaczyć całą naszą historię →
+                </p>
                 <div class="timeline-container">
                     <div class="timeline-item">
                         <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 1]<br>200x200px</div></div>
@@ -1098,7 +1115,16 @@ function rsvpSelectPeople() {
 function rsvpGoBack(fromStep) { const previousStep = fromStep - 1; rsvpState.currentStep = previousStep; if (previousStep === 1) showStep("rsvpStep1"); else if (previousStep === 2) showStep("rsvpStep2"); }
 function rsvpGoBackFromStep4() { rsvpState.currentStep = 3; showStep("rsvpStep3"); }
 function rsvpGoBackFromStep5() { rsvpState.currentStep = 4; showStep("rsvpStep3b"); }
-function rsvpGoBackFromStep6() { if (rsvpState.companion.hasCompanion && rsvpState.companion.name) { rsvpState.currentStep = 5; showStep("rsvpStep3c"); } else { rsvpState.currentStep = 4; showStep("rsvpStep3b"); } }
+function rsvpGoBackFromStep6() {
+    if (!guestDatabase.get(rsvpState.code).companion) {
+        rsvpState.currentStep = 3;
+        rsvpState.companion = { hasCompanion: false, name: "", email: "" };
+        showStep("rsvpStep3");
+    } else {
+        rsvpState.currentStep = 4;
+        showStep("rsvpStep3b");
+    }
+}
 function rsvpGoBackFromStep7() { rsvpState.currentStep = 6; showStep("rsvpStep5"); }
 function rsvpGoBackFromStep8() { rsvpState.currentStep = 7; showStep("rsvpStep6"); }
 function rsvpNoCompanion() { rsvpState.companion = { hasCompanion: false, name: "", email: "" }; rsvpState.currentStep = 6; showStep("rsvpStep5"); }
