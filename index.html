@@ -253,6 +253,411 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     .button-group { flex-direction: column; }
     .btn { width: 100%; }
 }
+
+
+/* ========== COMPREHENSIVE MOBILE-FIRST OPTIMIZATION ========== */
+
+/* Hide/Show mobile vs desktop */
+.mobile-only { display: none; }
+.desktop-only { display: block; }
+
+@media (max-width: 768px) {
+    .mobile-only { display: block !important; }
+    .desktop-only { display: none !important; }
+
+    .main-content {
+        padding-bottom: 90px;
+    }
+}
+
+/* ===== MOBILE BOTTOM NAV ===== */
+.mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    padding: 8px 0;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    border-top: 1px solid var(--soft-beige);
+    justify-content: space-around;
+}
+
+.mobile-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+    border-radius: 12px;
+    margin: 0 4px;
+}
+
+.mobile-nav-btn.active {
+    background: linear-gradient(135deg, var(--light-gold) 0%, var(--soft-beige) 100%);
+}
+
+.nav-icon {
+    font-size: 24px;
+    line-height: 1;
+    display: block;
+}
+
+.nav-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mobile-nav-btn.active .nav-label {
+    color: var(--gold-accent);
+}
+
+/* ===== HERO SECTION MOBILE ===== */
+@media (max-width: 768px) {
+    .hero-section.visible {
+        height: 300px;
+        padding: 20px 15px;
+        background: linear-gradient(rgba(26, 58, 82, 0.65), rgba(26, 58, 82, 0.85)), url('couple-hero.jpg');
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+}
+
+/* ===== COUNTDOWN - 2x2 GRID, BEZ MRUGANIA ===== */
+@media (max-width: 768px) {
+    .countdown-boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 30px;
+        max-width: 100%;
+    }
+
+    .countdown-box {
+        padding: 25px 15px;
+        border-radius: 10px;
+        animation: none;
+        opacity: 1;
+    }
+
+    .countdown-number {
+        font-size: 44px;
+    }
+}
+
+/* ===== CTA BUTTON - ZAWSZE WIDOCZNY NA GŁÓWNEJ ===== */
+@media (max-width: 768px) {
+    .cta-button {
+        position: static;
+        width: 100%;
+        padding: 16px 30px;
+        margin: 30px 0 20px 0;
+        box-shadow: 0 6px 20px rgba(26, 58, 82, 0.3);
+        transition: all 0.2s ease;
+    }
+
+    .cta-button:active {
+        transform: scale(0.97);
+    }
+}
+
+/* ===== KALENDARZ - TYLKO JEDEN BUTTON (SHARE USUNIĘTY) ===== */
+@media (max-width: 768px) {
+    .quick-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 25px;
+        justify-content: center;
+    }
+
+    .action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        background: white;
+        border: 2px solid var(--gold-accent);
+        color: var(--navy-blue);
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .action-btn:active {
+        transform: scale(0.95);
+    }
+}
+
+/* ===== HISTORIA - TIMELINE CAROUSEL ===== */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: visible;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 0;
+        margin-left: -15px;
+        margin-right: -15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .timeline-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .timeline-container::before {
+        display: none;
+    }
+
+    .timeline-item {
+        display: inline-flex;
+        flex-direction: column;
+        width: 85vw;
+        max-width: 400px;
+        min-width: 85vw;
+        margin: 0;
+        scroll-snap-align: center;
+        flex-shrink: 0;
+        background: white;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .timeline-photo {
+        flex: 0 0 200px;
+        height: 200px;
+        margin: 0 auto 20px;
+        border: 4px solid var(--gold-accent);
+    }
+
+    .timeline-connector {
+        display: none;
+    }
+
+    .timeline-dot {
+        display: none;
+    }
+
+    .timeline-content {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    .timeline-year {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .timeline-text {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+/* ===== HARMONOGRAM - NOWY DESIGN (CARDS) ===== */
+@media (max-width: 768px) {
+    .schedule-item {
+        flex-direction: column;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, white 0%, var(--cream-white) 100%);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        border: none;
+    }
+
+    .schedule-time {
+        padding: 18px 20px;
+        font-size: 26px;
+        background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        font-weight: 700;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .schedule-time::after {
+        content: attr(data-emoji);
+        font-size: 28px;
+        margin-left: 12px;
+    }
+
+    .schedule-connector {
+        display: none;
+    }
+
+    .schedule-content {
+        padding: 18px 20px;
+        border: none;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .schedule-activity {
+        font-size: 20px;
+        margin-bottom: 10px;
+        margin-top: 0;
+        color: var(--navy-blue);
+        font-weight: 700;
+    }
+
+    .schedule-location {
+        font-size: 14px;
+        margin-bottom: 10px;
+        color: var(--gold-accent);
+        font-weight: 600;
+    }
+
+    .schedule-description {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #555;
+    }
+}
+
+/* ===== RSVP - TOUCH FRIENDLY ===== */
+@media (max-width: 768px) {
+    .rsvp-container {
+        padding: 0 15px;
+    }
+
+    .rsvp-card {
+        padding: 25px 20px;
+        border-radius: 14px;
+    }
+
+    .rsvp-card h2 {
+        font-size: 26px;
+    }
+
+    .form-input {
+        padding: 14px 16px;
+        font-size: 16px;
+        min-height: 48px;
+    }
+
+    .checkbox-option {
+        padding: 14px 16px;
+        min-height: 54px;
+    }
+
+    .checkbox-option input[type="checkbox"] {
+        width: 26px;
+        height: 26px;
+        margin-right: 14px;
+    }
+
+    .btn {
+        width: 100%;
+        min-height: 48px;
+        font-size: 15px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* ===== GALERIA - BEZ QR CODE ===== */
+@media (max-width: 768px) {
+    .gallery-card {
+        padding: 25px 20px;
+    }
+
+    .gallery-info {
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .gallery-cta a {
+        padding: 14px 35px;
+        font-size: 15px;
+        min-height: 48px;
+    }
+}
+
+/* ===== INFO CARDS ===== */
+@media (max-width: 768px) {
+    .info-card {
+        padding: 25px 20px;
+        margin-bottom: 20px;
+        border-radius: 14px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .map-embed {
+        height: 280px;
+    }
+}
+
+/* ===== TYPOGRAPHY ===== */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .content-section {
+        padding: 50px 20px;
+    }
+
+    .section-title {
+        font-size: 36px;
+    }
+
+    .couple-names {
+        font-size: 40px;
+    }
+}
+
+/* ===== CONTACT & FOOTER ===== */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-contacts {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 <body>
@@ -288,7 +693,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
         </div>
     </div>
     
-    <nav class="main-nav">
+    <nav class="main-nav desktop-only">
         <div class="nav-container">
             <button class="nav-btn active" onclick="showPage('home')">Główna</button>
             <button class="nav-btn" onclick="showPage('history')">Historia</button>
@@ -297,6 +702,34 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
             <button class="nav-btn" onclick="showPage('rsvp')">Potwierdzenie</button>
             <button class="nav-btn" onclick="showPage('gallery')">Galeria</button>
         </div>
+    </nav>
+
+    <!-- MOBILE NAV - BOTTOM BAR -->
+    <nav class="mobile-nav mobile-only">
+        <button class="mobile-nav-btn active" data-page="home" onclick="showPage('home'); updateMobileNav('home');">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Główna</span>
+        </button>
+        <button class="mobile-nav-btn" data-page="history" onclick="showPage('history'); updateMobileNav('history');">
+            <span class="nav-icon">❤️</span>
+            <span class="nav-label">Historia</span>
+        </button>
+        <button class="mobile-nav-btn" data-page="schedule" onclick="showPage('schedule'); updateMobileNav('schedule');">
+            <span class="nav-icon">⏰</span>
+            <span class="nav-label">Plan</span>
+        </button>
+        <button class="mobile-nav-btn" data-page="info" onclick="showPage('info'); updateMobileNav('info');">
+            <span class="nav-icon">ℹ️</span>
+            <span class="nav-label">Info</span>
+        </button>
+        <button class="mobile-nav-btn" data-page="rsvp" onclick="showPage('rsvp'); updateMobileNav('rsvp');">
+            <span class="nav-icon">✉️</span>
+            <span class="nav-label">RSVP</span>
+        </button>
+        <button class="mobile-nav-btn" data-page="gallery" onclick="showPage('gallery'); updateMobileNav('gallery');">
+            <span class="nav-icon">📸</span>
+            <span class="nav-label">Galeria</span>
+        </button>
     </nav>
     
     <main class="main-content">
@@ -383,52 +816,52 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="schedule-time" data-emoji="⛪">15:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">Ceremonia ślubna</div>
+                            <div class="schedule-activity">⛪ Ceremonia ślubna</div>
                             <div class="schedule-location">Kościół pw. Podwyższenia Krzyża Świętego</div>
                             <div class="schedule-description">Zapraszamy do kościoła. Ceremonia potrwa około 30-40 minut. Wejście wolne - proszę się nie spóźniać!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">16:00" data-emoji="📸"></div>
+                        <div class="schedule-time" data-emoji="📸">16:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">Sesja zdjęciowa</div>
+                            <div class="schedule-activity">📸 Sesja zdjęciowa</div>
                             <div class="schedule-location">Parki i tereny w okolicy Tczewa</div>
                             <div class="schedule-description">Plenery fotograficzne pary i grup gości. Jeśli chcesz być na zdjęciach, zarejestruj się podczas RSVP!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">17:00" data-emoji="🍷"></div>
+                        <div class="schedule-time" data-emoji="🍷">17:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">Koktajl powitalny</div>
+                            <div class="schedule-activity">🍷 Koktajl powitalny</div>
                             <div class="schedule-location">OKLASKI - Stanisławie 30A</div>
                             <div class="schedule-description">Zapraszamy do sali przyjęć. Czeka na Was koktajl, przekąski i możliwość powitania pary młodej!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">18:00" data-emoji="🍽️"></div>
+                        <div class="schedule-time" data-emoji="🍽️">18:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">Obiad i przemowy</div>
+                            <div class="schedule-activity">🍽️ Obiad i przemowy</div>
                             <div class="schedule-location">Główna sala - OKLASKI</div>
                             <div class="schedule-description">Zapraszamy do stolów. Serwujemy pyszne menu przygotowane specjalnie dla Was. Toasty i przemowy od bliskich będą nas wzruszać!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">20:00" data-emoji="🎵"></div>
+                        <div class="schedule-time" data-emoji="🎵">20:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">Taniec i rozrywka</div>
+                            <div class="schedule-activity">🎵 Taniec i rozrywka</div>
                             <div class="schedule-location">Parkiet - OKLASKI</div>
                             <div class="schedule-description">Czas na zabawę! Tańczymy, śpiewamy i cieszymy się wspólnie. DJ będzie grać całą noc!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">23:00" data-emoji="🌙"></div>
+                        <div class="schedule-time" data-emoji="🌙">23:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">Pożegnanie</div>
+                            <div class="schedule-activity">🌙 Pożegnanie</div>
                             <div class="schedule-location">Parking - Wyjazd</div>
                             <div class="schedule-description">Dziękujemy za przybycie i razem spędzony czas! Zabieracie ze sobą najlepsze wspomnienia z naszego wielkiego dnia.</div>
                         </div>
@@ -901,7 +1334,7 @@ function checkPassword() {
         document.getElementById("loginPage").classList.add("hidden");
         document.getElementById("appContainer").classList.add("visible");
         const heroSection = document.querySelector(".hero-section");
-        heroSection.style.display = "flex";
+        heroSection.classList.add("visible");
     } else {
         document.getElementById("loginError").textContent = "Nieprawidłowe hasło";
         document.getElementById("passwordInput").value = "";
@@ -929,11 +1362,13 @@ function showPage(pageId) {
 function closeRsvpAndHighlightHome() {
     document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
     document.querySelectorAll(".nav-btn")[0].classList.add("active");
+    document.querySelectorAll(".mobile-nav-btn").forEach(btn => btn.classList.remove("active"));
+    document.querySelectorAll(".mobile-nav-btn")[0].classList.add("active");
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
     document.getElementById('home').classList.add("active");
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const heroSection = document.querySelector(".hero-section");
-    heroSection.style.display = "flex";
+    heroSection.classList.add("visible");
 }
 
 function smoothScrollToRsvp() {
