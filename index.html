@@ -255,176 +255,92 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 }
 
 
-/* ========== COMPREHENSIVE MOBILE-FIRST OPTIMIZATION ========== */
-
-/* Hide/Show mobile vs desktop */
-.mobile-only { display: none; }
-.desktop-only { display: block; }
+/* ============= MOBILE BOTTOM NAV ============= */
+.mobile-bottom-nav {
+    display: none;
+}
 
 @media (max-width: 768px) {
-    .mobile-only { display: block !important; }
-    .desktop-only { display: none !important; }
-
-    .main-content {
-        padding-bottom: 90px;
-    }
-}
-
-/* ===== MOBILE BOTTOM NAV ===== */
-.mobile-nav {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.12);
-    z-index: 1000;
-    padding: 8px 0;
-    padding-bottom: max(8px, env(safe-area-inset-bottom));
-    border-top: 1px solid var(--soft-beige);
-    justify-content: space-around;
-}
-
-.mobile-nav-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    padding: 8px 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    flex: 1;
-    border-radius: 12px;
-    margin: 0 4px;
-}
-
-.mobile-nav-btn.active {
-    background: linear-gradient(135deg, var(--light-gold) 0%, var(--soft-beige) 100%);
-}
-
-.nav-icon {
-    font-size: 24px;
-    line-height: 1;
-    display: block;
-}
-
-.nav-label {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--navy-blue);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.mobile-nav-btn.active .nav-label {
-    color: var(--gold-accent);
-}
-
-/* ===== HERO SECTION MOBILE ===== */
-@media (max-width: 768px) {
-    .hero-section.visible {
-        height: 300px;
-        padding: 20px 15px;
-        background: linear-gradient(rgba(26, 58, 82, 0.65), rgba(26, 58, 82, 0.85)), url('couple-hero.jpg');
+    .main-nav {
+        display: none !important;
     }
 
-    .hero-subtitle {
-        font-size: 16px;
-        letter-spacing: 2px;
-    }
-
-    .hero-title {
-        font-size: 32px;
-        line-height: 1.2;
-    }
-}
-
-/* ===== COUNTDOWN - 2x2 GRID, BEZ MRUGANIA ===== */
-@media (max-width: 768px) {
-    .countdown-boxes {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        margin-top: 30px;
-        max-width: 100%;
-    }
-
-    .countdown-box {
-        padding: 25px 15px;
-        border-radius: 10px;
-        animation: none;
-        opacity: 1;
-    }
-
-    .countdown-number {
-        font-size: 44px;
-    }
-}
-
-/* ===== CTA BUTTON - ZAWSZE WIDOCZNY NA GŁÓWNEJ ===== */
-@media (max-width: 768px) {
-    .cta-button {
-        position: static;
-        width: 100%;
-        padding: 16px 30px;
-        margin: 30px 0 20px 0;
-        box-shadow: 0 6px 20px rgba(26, 58, 82, 0.3);
-        transition: all 0.2s ease;
-    }
-
-    .cta-button:active {
-        transform: scale(0.97);
-    }
-}
-
-/* ===== KALENDARZ - TYLKO JEDEN BUTTON (SHARE USUNIĘTY) ===== */
-@media (max-width: 768px) {
-    .quick-actions {
+    .mobile-bottom-nav {
         display: flex;
-        gap: 12px;
-        margin-top: 25px;
-        justify-content: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid #e8e3dc;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 0;
+        gap: 0;
+        justify-content: space-around;
+        padding-bottom: env(safe-area-inset-bottom);
     }
 
-    .action-btn {
-        display: inline-flex;
+    .mobile-nav-item {
+        flex: 1;
+        background: none;
+        border: none;
+        padding: 10px 8px;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 8px;
-        padding: 12px 24px;
-        background: white;
-        border: 2px solid var(--gold-accent);
-        color: var(--navy-blue);
-        border-radius: 10px;
-        font-size: 14px;
-        font-weight: 600;
+        gap: 4px;
         cursor: pointer;
         transition: all 0.2s ease;
+        border-radius: 8px;
+        margin: 4px;
     }
 
-    .action-btn:active {
-        transform: scale(0.95);
+    .mobile-nav-item.active {
+        background: linear-gradient(135deg, #f4e4c1 0%, #e8e3dc 100%);
+    }
+
+    .mobile-icon {
+        font-size: 22px;
+        display: block;
+        line-height: 1;
+    }
+
+    .mobile-label {
+        font-size: 10px;
+        font-weight: 700;
+        color: #1a3a52;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+    }
+
+    .mobile-nav-item.active .mobile-label {
+        color: #d4af37;
+    }
+
+    .main-content {
+        padding-bottom: 80px;
     }
 }
 
-/* ===== HISTORIA - TIMELINE CAROUSEL ===== */
+@media (min-width: 769px) {
+    .mobile-bottom-nav {
+        display: none !important;
+    }
+}
+
+
+/* ============= TIMELINE MOBILE CAROUSEL ============= */
 @media (max-width: 768px) {
     .timeline-container {
         padding: 20px 0;
         display: flex;
-        flex-direction: row;
         overflow-x: auto;
         overflow-y: visible;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 0;
-        margin-left: -15px;
-        margin-right: -15px;
-        padding-left: 15px;
-        padding-right: 15px;
     }
 
     .timeline-container::-webkit-scrollbar {
@@ -432,73 +348,83 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     }
 
     .timeline-container::before {
-        display: none;
+        display: none !important;
     }
 
     .timeline-item {
         display: inline-flex;
         flex-direction: column;
         width: 85vw;
-        max-width: 400px;
+        max-width: 380px;
         min-width: 85vw;
-        margin: 0;
+        margin: 0 10px;
         scroll-snap-align: center;
         flex-shrink: 0;
         background: white;
-        border-radius: 16px;
-        padding: 25px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        border-radius: 14px;
+        padding: 22px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border: none;
     }
 
     .timeline-photo {
-        flex: 0 0 200px;
-        height: 200px;
-        margin: 0 auto 20px;
-        border: 4px solid var(--gold-accent);
+        flex: 0 0 180px;
+        height: 180px;
+        margin: 0 auto 18px;
+        border: 3px solid #d4af37;
+        border-radius: 50%;
     }
 
     .timeline-connector {
-        display: none;
+        display: none !important;
     }
 
     .timeline-dot {
-        display: none;
+        display: none !important;
     }
 
     .timeline-content {
-        border: none;
-        box-shadow: none;
-        padding: 0;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
         text-align: center;
     }
 
     .timeline-year {
-        font-size: 18px;
-        margin-bottom: 12px;
+        font-size: 17px;
+        color: #d4af37;
+        margin-bottom: 10px;
+        font-weight: 700;
     }
 
     .timeline-text {
-        font-size: 16px;
+        font-size: 15px;
         line-height: 1.6;
+        color: #666;
     }
 }
 
-/* ===== HARMONOGRAM - NOWY DESIGN (CARDS) ===== */
+
+/* ============= SCHEDULE MOBILE CARDS ============= */
 @media (max-width: 768px) {
+    .schedule-timeline {
+        max-width: 100%;
+    }
+
     .schedule-item {
         flex-direction: column;
-        margin-bottom: 16px;
-        background: linear-gradient(135deg, white 0%, var(--cream-white) 100%);
-        border-radius: 14px;
+        margin-bottom: 14px;
+        background: linear-gradient(135deg, white 0%, #f0ebe7 100%);
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
         border: none;
     }
 
     .schedule-time {
-        padding: 18px 20px;
-        font-size: 26px;
-        background: linear-gradient(135deg, var(--navy-blue) 0%, var(--darker-navy) 100%);
+        padding: 16px 18px;
+        font-size: 24px;
+        background: linear-gradient(135deg, #1a3a52 0%, #0f2433 100%);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -506,83 +432,110 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
         font-weight: 700;
         margin: 0;
         border-radius: 0;
+        min-height: 56px;
     }
 
     .schedule-time::after {
         content: attr(data-emoji);
-        font-size: 28px;
-        margin-left: 12px;
+        font-size: 26px;
+        margin-left: 10px;
     }
 
     .schedule-connector {
-        display: none;
+        display: none !important;
     }
 
     .schedule-content {
-        padding: 18px 20px;
-        border: none;
+        padding: 16px 18px;
+        border: none !important;
         max-height: none;
         overflow: visible;
     }
 
     .schedule-activity {
-        font-size: 20px;
-        margin-bottom: 10px;
+        font-size: 18px;
+        margin-bottom: 8px;
         margin-top: 0;
-        color: var(--navy-blue);
+        color: #1a3a52;
         font-weight: 700;
     }
 
     .schedule-location {
-        font-size: 14px;
+        font-size: 13px;
         margin-bottom: 10px;
-        color: var(--gold-accent);
+        color: #d4af37;
         font-weight: 600;
     }
 
     .schedule-description {
-        font-size: 15px;
+        font-size: 14px;
         line-height: 1.6;
-        color: #555;
+        color: #666;
     }
 }
 
-/* ===== RSVP - TOUCH FRIENDLY ===== */
+
+/* ============= COUNTDOWN MOBILE 2x2 GRID ============= */
+@media (max-width: 768px) {
+    .countdown-boxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 28px;
+        max-width: 100%;
+    }
+
+    .countdown-box {
+        padding: 24px 16px;
+        border-radius: 10px;
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
+    .countdown-number {
+        font-size: 42px;
+        margin-bottom: 8px;
+    }
+
+    .countdown-label {
+        font-size: 12px;
+    }
+}
+
+
+/* ============= RSVP MOBILE TOUCH-FRIENDLY ============= */
 @media (max-width: 768px) {
     .rsvp-container {
+        max-width: 100%;
         padding: 0 15px;
     }
 
     .rsvp-card {
-        padding: 25px 20px;
-        border-radius: 14px;
-    }
-
-    .rsvp-card h2 {
-        font-size: 26px;
+        padding: 24px 18px;
+        border-radius: 12px;
     }
 
     .form-input {
-        padding: 14px 16px;
+        padding: 14px 15px;
         font-size: 16px;
         min-height: 48px;
     }
 
     .checkbox-option {
-        padding: 14px 16px;
-        min-height: 54px;
+        padding: 14px 15px;
+        min-height: 52px;
     }
 
     .checkbox-option input[type="checkbox"] {
-        width: 26px;
-        height: 26px;
-        margin-right: 14px;
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
     }
 
     .btn {
         width: 100%;
         min-height: 48px;
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .button-group {
@@ -591,30 +544,45 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     }
 }
 
-/* ===== GALERIA - BEZ QR CODE ===== */
+
+/* ============= GENERAL MOBILE OPTIMIZATION ============= */
 @media (max-width: 768px) {
-    .gallery-card {
-        padding: 25px 20px;
+    body {
+        font-size: 16px;
+        line-height: 1.8;
     }
 
-    .gallery-info {
-        padding: 20px;
-        margin: 20px 0;
+    .content-section {
+        padding: 50px 18px;
     }
 
-    .gallery-cta a {
-        padding: 14px 35px;
+    .section-title {
+        font-size: 34px;
+        margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .couple-names {
+        font-size: 38px;
+    }
+
+    .cta-button {
+        padding: 16px 28px;
         font-size: 15px;
-        min-height: 48px;
+        margin: 25px 0 15px 0;
     }
-}
 
-/* ===== INFO CARDS ===== */
-@media (max-width: 768px) {
     .info-card {
-        padding: 25px 20px;
-        margin-bottom: 20px;
-        border-radius: 14px;
+        padding: 22px 18px;
+        margin-bottom: 18px;
+    }
+
+    .info-card h3 {
+        font-size: 24px;
     }
 
     .info-grid {
@@ -625,37 +593,38 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
     .map-embed {
         height: 280px;
     }
-}
 
-/* ===== TYPOGRAPHY ===== */
-@media (max-width: 768px) {
-    body {
-        font-size: 16px;
-        line-height: 1.8;
-    }
-
-    .content-section {
-        padding: 50px 20px;
-    }
-
-    .section-title {
-        font-size: 36px;
-    }
-
-    .couple-names {
-        font-size: 40px;
-    }
-}
-
-/* ===== CONTACT & FOOTER ===== */
-@media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
+    }
+
+    .contact-person {
+        padding: 22px 18px;
     }
 
     .footer-contacts {
         grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .gallery-card {
+        padding: 22px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-section {
+        padding: 40px 14px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .cta-button {
+        font-size: 14px;
+        padding: 14px 24px;
     }
 }
 </style>
@@ -693,42 +662,43 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
         </div>
     </div>
     
-    <nav class="main-nav desktop-only">
+    <!-- DESKTOP NAV -->
+    <nav class="main-nav" id="desktopNav">
         <div class="nav-container">
-            <button class="nav-btn active" onclick="showPage('home')">Główna</button>
-            <button class="nav-btn" onclick="showPage('history')">Historia</button>
-            <button class="nav-btn" onclick="showPage('schedule')">Harmonogram</button>
-            <button class="nav-btn" onclick="showPage('info')">Informacje</button>
-            <button class="nav-btn" onclick="showPage('rsvp')">Potwierdzenie</button>
-            <button class="nav-btn" onclick="showPage('gallery')">Galeria</button>
+            <button class="nav-btn active" onclick="selectPage('home')">Główna</button>
+            <button class="nav-btn" onclick="selectPage('history')">Historia</button>
+            <button class="nav-btn" onclick="selectPage('schedule')">Harmonogram</button>
+            <button class="nav-btn" onclick="selectPage('info')">Informacje</button>
+            <button class="nav-btn" onclick="selectPage('rsvp')">Potwierdzenie</button>
+            <button class="nav-btn" onclick="selectPage('gallery')">Galeria</button>
         </div>
     </nav>
 
-    <!-- MOBILE NAV - BOTTOM BAR -->
-    <nav class="mobile-nav mobile-only">
-        <button class="mobile-nav-btn active" data-page="home" onclick="showPage('home'); updateMobileNav('home');">
-            <span class="nav-icon">🏠</span>
-            <span class="nav-label">Główna</span>
+    <!-- MOBILE BOTTOM NAV -->
+    <nav class="mobile-bottom-nav" id="mobileNav">
+        <button class="mobile-nav-item active" data-page="home" onclick="selectPage('home')">
+            <span class="mobile-icon">◆</span>
+            <span class="mobile-label">Główna</span>
         </button>
-        <button class="mobile-nav-btn" data-page="history" onclick="showPage('history'); updateMobileNav('history');">
-            <span class="nav-icon">❤️</span>
-            <span class="nav-label">Historia</span>
+        <button class="mobile-nav-item" data-page="history" onclick="selectPage('history')">
+            <span class="mobile-icon">♥</span>
+            <span class="mobile-label">Historia</span>
         </button>
-        <button class="mobile-nav-btn" data-page="schedule" onclick="showPage('schedule'); updateMobileNav('schedule');">
-            <span class="nav-icon">⏰</span>
-            <span class="nav-label">Plan</span>
+        <button class="mobile-nav-item" data-page="schedule" onclick="selectPage('schedule')">
+            <span class="mobile-icon">⌚</span>
+            <span class="mobile-label">Plan</span>
         </button>
-        <button class="mobile-nav-btn" data-page="info" onclick="showPage('info'); updateMobileNav('info');">
-            <span class="nav-icon">ℹ️</span>
-            <span class="nav-label">Info</span>
+        <button class="mobile-nav-item" data-page="info" onclick="selectPage('info')">
+            <span class="mobile-icon">ⓘ</span>
+            <span class="mobile-label">Info</span>
         </button>
-        <button class="mobile-nav-btn" data-page="rsvp" onclick="showPage('rsvp'); updateMobileNav('rsvp');">
-            <span class="nav-icon">✉️</span>
-            <span class="nav-label">RSVP</span>
+        <button class="mobile-nav-item" data-page="rsvp" onclick="selectPage('rsvp')">
+            <span class="mobile-icon">✇</span>
+            <span class="mobile-label">RSVP</span>
         </button>
-        <button class="mobile-nav-btn" data-page="gallery" onclick="showPage('gallery'); updateMobileNav('gallery');">
-            <span class="nav-icon">📸</span>
-            <span class="nav-label">Galeria</span>
+        <button class="mobile-nav-item" data-page="gallery" onclick="selectPage('gallery')">
+            <span class="mobile-icon">◉</span>
+            <span class="mobile-label">Galeria</span>
         </button>
     </nav>
     
@@ -813,55 +783,55 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                 <p class="section-subtitle">Dokładny plan naszego wielkiego dnia - 6 sierpnia 2026</p>
                 <div class="schedule-timeline">
                     <div class="schedule-item">
-                        <div class="schedule-time" data-emoji="⛪">15:00</div>
+                        <div class="schedule-time">15:00" data-emoji="✝"></div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">⛪ Ceremonia ślubna</div>
+                            <div class="schedule-activity">Ceremonia ślubna</div>
                             <div class="schedule-location">Kościół pw. Podwyższenia Krzyża Świętego</div>
                             <div class="schedule-description">Zapraszamy do kościoła. Ceremonia potrwa około 30-40 minut. Wejście wolne - proszę się nie spóźniać!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time" data-emoji="📸">16:00</div>
+                        <div class="schedule-time">16:00" data-emoji="◎"></div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">📸 Sesja zdjęciowa</div>
+                            <div class="schedule-activity">Sesja zdjęciowa</div>
                             <div class="schedule-location">Parki i tereny w okolicy Tczewa</div>
                             <div class="schedule-description">Plenery fotograficzne pary i grup gości. Jeśli chcesz być na zdjęciach, zarejestruj się podczas RSVP!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time" data-emoji="🍷">17:00</div>
+                        <div class="schedule-time">17:00" data-emoji="◆"></div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">🍷 Koktajl powitalny</div>
+                            <div class="schedule-activity">Koktajl powitalny</div>
                             <div class="schedule-location">OKLASKI - Stanisławie 30A</div>
                             <div class="schedule-description">Zapraszamy do sali przyjęć. Czeka na Was koktajl, przekąski i możliwość powitania pary młodej!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time" data-emoji="🍽️">18:00</div>
+                        <div class="schedule-time">18:00" data-emoji="⊕"></div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">🍽️ Obiad i przemowy</div>
+                            <div class="schedule-activity">Obiad i przemowy</div>
                             <div class="schedule-location">Główna sala - OKLASKI</div>
                             <div class="schedule-description">Zapraszamy do stolów. Serwujemy pyszne menu przygotowane specjalnie dla Was. Toasty i przemowy od bliskich będą nas wzruszać!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time" data-emoji="🎵">20:00</div>
+                        <div class="schedule-time">20:00" data-emoji="♪"></div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">🎵 Taniec i rozrywka</div>
+                            <div class="schedule-activity">Taniec i rozrywka</div>
                             <div class="schedule-location">Parkiet - OKLASKI</div>
                             <div class="schedule-description">Czas na zabawę! Tańczymy, śpiewamy i cieszymy się wspólnie. DJ będzie grać całą noc!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time" data-emoji="🌙">23:00</div>
+                        <div class="schedule-time">23:00" data-emoji="★"></div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">🌙 Pożegnanie</div>
+                            <div class="schedule-activity">Pożegnanie</div>
                             <div class="schedule-location">Parking - Wyjazd</div>
                             <div class="schedule-description">Dziękujemy za przybycie i razem spędzony czas! Zabieracie ze sobą najlepsze wspomnienia z naszego wielkiego dnia.</div>
                         </div>
@@ -1334,41 +1304,69 @@ function checkPassword() {
         document.getElementById("loginPage").classList.add("hidden");
         document.getElementById("appContainer").classList.add("visible");
         const heroSection = document.querySelector(".hero-section");
-        heroSection.classList.add("visible");
+        heroSection.style.display = "flex";
     } else {
         document.getElementById("loginError").textContent = "Nieprawidłowe hasło";
         document.getElementById("passwordInput").value = "";
     }
 }
 
-function showPage(pageId) {
+
+function selectPage(pageId) {
+    // Ukryj wszystkie strony
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    // Pokaż wybraną
     document.getElementById(pageId).classList.add("active");
-    
+
+    // Podświetl desktop nav
     document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
-    event.target?.classList.add("active");
-    
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+        if ((pageId === 'home' && btn.textContent.includes('Główna')) ||
+            (pageId === 'history' && btn.textContent.includes('Historia')) ||
+            (pageId === 'schedule' && btn.textContent.includes('Harmonogram')) ||
+            (pageId === 'info' && btn.textContent.includes('Informacje')) ||
+            (pageId === 'rsvp' && btn.textContent.includes('Potwierdzenie')) ||
+            (pageId === 'gallery' && btn.textContent.includes('Galeria'))) {
+            btn.classList.add("active");
+        }
+    });
+
+    // Podświetl mobile nav
+    document.querySelectorAll(".mobile-nav-item").forEach(btn => btn.classList.remove("active"));
+    document.querySelectorAll(".mobile-nav-item").forEach(btn => {
+        if (btn.dataset.page === pageId) {
+            btn.classList.add("active");
+        }
+    });
+
+    // Scroll na górę
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // ✅ ZMIANA 2: POKAŻ/UKRYJ HERO SECTION
-    const heroSection = document.querySelector(".hero-section");
-    if (pageId === 'home') {
-        heroSection.style.display = "flex";
-    } else {
-        heroSection.style.display = "none";
+
+    // Pokaż/ukryj hero
+    const hero = document.querySelector(".hero-section");
+    if (hero) {
+        if (pageId === 'home') {
+            hero.style.display = "flex";
+        } else {
+            hero.style.display = "none";
+        }
     }
 }
+
+// Alias dla kompatybilności
+function showPage(pageId) {
+    selectPage(pageId);
+}
+
 
 function closeRsvpAndHighlightHome() {
     document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
     document.querySelectorAll(".nav-btn")[0].classList.add("active");
-    document.querySelectorAll(".mobile-nav-btn").forEach(btn => btn.classList.remove("active"));
-    document.querySelectorAll(".mobile-nav-btn")[0].classList.add("active");
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
     document.getElementById('home').classList.add("active");
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const heroSection = document.querySelector(".hero-section");
-    heroSection.classList.add("visible");
+    heroSection.style.display = "flex";
 }
 
 function smoothScrollToRsvp() {
@@ -1628,6 +1626,52 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/service-worker.js').then(() => console.log('SW registered')).catch(() => console.log('SW failed')); }
+
+
+// ============= ADD TO CALENDAR =============
+function addToCalendar() {
+    const choice = prompt(
+        'Wybierz kalendarz:\n' +
+        '1 - Google Calendar\n' +
+        '2 - Apple/iCal (pobieranie)\n' +
+        '3 - Outlook\n\n' +
+        'Wpisz 1, 2 lub 3:',
+        '1'
+    );
+
+    if (!choice) return;
+
+    if (choice === '1') {
+        // Google Calendar
+        const url = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wesele%20Wiktoria%20%26%20Maciej&dates=20260806T150000Z/20260807T020000Z&details=Zapraszamy%20na%20nasze%20wesele!&location=OKLASKI,%20Stanisławie%2030A';
+        window.open(url, '_blank');
+    } else if (choice === '2') {
+        // Apple/iCal - pobierz plik
+        const ics = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+DTSTART:20260806T150000Z
+DTEND:20260807T020000Z
+SUMMARY:Wesele Wiktoria & Maciej
+LOCATION:OKLASKI, Stanisławie 30A, 83-112 Lubiszewo
+DESCRIPTION:Zapraszamy na nasze wesele!
+END:VEVENT
+END:VCALENDAR`;
+        const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'wesele-2026.ics';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else if (choice === '3') {
+        // Outlook
+        const url = 'https://outlook.live.com/calendar/0/deeplink/compose?subject=Wesele%20Wiktoria%20%26%20Maciej&location=OKLASKI&body=Zapraszamy%20na%20nasze%20wesele!&startdt=2026-08-06T15:00:00&enddt=2026-08-07T02:00:00';
+        window.open(url, '_blank');
+    }
+}
 </script>
 </body>
 </html>
