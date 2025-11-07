@@ -244,7 +244,10 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 
 @media (max-width: 640px) {
     .couple-names { font-size: 36px; }
-    .hero-section { height: 400px; }
+    .hero-section {
+        height: 400px;
+        background-position: center 40%;
+    }
     .hero-title { font-size: 28px; }
     .content-section { padding: 50px 20px; }
     .countdown-boxes { gap: 15px; }
@@ -255,6 +258,11 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 }
 
 @media (max-width: 768px) {
+    .hero-section {
+        height: 400 px;
+        background-attachment: scroll;
+        background-position: center 30%;
+        }
     .schedule-item {
         flex-direction: column;
         margin-bottom: 16px;
@@ -351,8 +359,8 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 
 <div class="login-page" id="loginPage">
     <div class="login-box">
-        <h1>Wesele</h1>
-        <p>Wprowadź hasło aby uzyskać dostęp do systemu potwierdzenia przybycia</p>
+        <h1>Wesele WiM</h1>
+        <p>Wprowadź hasło, aby wejść na naszą stronę weselną</p>
         <input type="password" id="passwordInput" placeholder="Wprowadź hasło" />
         <button onclick="checkPassword()">Zaloguj się</button>
         <div class="login-error" id="loginError"></div>
@@ -406,7 +414,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
         
         <div class="page" id="history">
             <div class="content-section">
-                <h2 class="section-title">Nasza Historia Miłości</h2>
+                <h2 class="section-title">Nasza Historia</h2>
                 <div class="gold-divider"></div>
                 <p class="section-subtitle">Od pierwszego spotkania aż do dziś</p>
                 <p style="font-size: 14px; margin-top: 15px; color: #d4af37; font-style: italic; text-align: center;">
@@ -466,7 +474,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
             <div class="content-section">
                 <h2 class="section-title">Harmonogram Dnia</h2>
                 <div class="gold-divider"></div>
-                <p class="section-subtitle">Dokładny plan naszego wielkiego dnia - 6 sierpnia 2026</p>
+                <p class="section-subtitle">Gotowy dokładny plan na dzień - 6 sierpnia 2026</p>
                 <div class="schedule-timeline">
                     <div class="schedule-item">
                         <div class="schedule-time">15:00</div>
@@ -474,38 +482,29 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="schedule-content">
                             <div class="schedule-activity">⛪ Ceremonia ślubna</div>
                             <div class="schedule-location">Kościół pw. Podwyższenia Krzyża Świętego</div>
-                            <div class="schedule-description">Zapraszamy do kościoła. Ceremonia potrwa około 30-40 minut. Wejście wolne - proszę się nie spóźniać!</div>
+                            <div class="schedule-description">Zapraszamy do kościoła. Ceremonia potrwa odpowiednio długo.</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">16:00</div>
+                        <div class="schedule-time">16:30</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">📸 Sesja zdjęciowa</div>
-                            <div class="schedule-location">Parki i tereny w okolicy Tczewa</div>
-                            <div class="schedule-description">Plenery fotograficzne pary i grup gości. Jeśli chcesz być na zdjęciach, zarejestruj się podczas RSVP!</div>
+                            <div class="schedule-activity">Powitanie na sali weselnej</div>
+                            <div class="schedule-location">OKLASKI - Stanisławie 30A</div>
+                            <div class="schedule-description">Zapraszamy do sali. Czekamy tam na was!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">17:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">🍷 Koktajl powitalny</div>
-                            <div class="schedule-location">OKLASKI - Stanisławie 30A</div>
-                            <div class="schedule-description">Zapraszamy do sali przyjęć. Czeka na Was koktajl, przekąski i możliwość powitania pary młodej!</div>
+                            <div class="schedule-activity">🍽️ Obiad i przemowy</div>
+                            <div class="schedule-location">OKLASKI</div>
+                            <div class="schedule-description">Zapraszamy do stołów. Serwujemy pyszne menu przygotowane specjalnie dla Was. Toasty i przemowy od bliskich!</div>
                         </div>
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">18:00</div>
-                        <div class="schedule-connector"></div>
-                        <div class="schedule-content">
-                            <div class="schedule-activity">🍽️ Obiad i przemowy</div>
-                            <div class="schedule-location">Główna sala - OKLASKI</div>
-                            <div class="schedule-description">Zapraszamy do stolów. Serwujemy pyszne menu przygotowane specjalnie dla Was. Toasty i przemowy od bliskich będą nas wzruszać!</div>
-                        </div>
-                    </div>
-                    <div class="schedule-item">
-                        <div class="schedule-time">20:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
                             <div class="schedule-activity">🎵 Taniec i rozrywka</div>
@@ -514,12 +513,12 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">23:00</div>
+                        <div class="schedule-time">5:00</div>
                         <div class="schedule-connector"></div>
                         <div class="schedule-content">
-                            <div class="schedule-activity">🌙 Pożegnanie</div>
-                            <div class="schedule-location">Parking - Wyjazd</div>
-                            <div class="schedule-description">Dziękujemy za przybycie i razem spędzony czas! Zabieracie ze sobą najlepsze wspomnienia z naszego wielkiego dnia.</div>
+                            <div class="schedule-activity">🌙 Pożegnanie?</div>
+                            <div class="schedule-location">OKLASKI</div>
+                            <div class="schedule-description">Dziękujemy za przybycie i razem spędzony czas! Czy to na pewno koniec?</div>
                         </div>
                     </div>
                 </div>
@@ -553,7 +552,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                     <div class="info-grid">
                         <div class="info-details">
                             <p><strong>Data:</strong> 6 sierpnia 2026</p>
-                            <p><strong>Godzina:</strong> 17:00</p>
+                            <p><strong>Godzina:</strong> 16:30</p>
                             <p><strong>Miejsce:</strong> OKLASKI</p>
                             <p><strong>Adres:</strong> Stanisławie 30A, 83-112 Lubiszewo</p>
                             <p><strong><a href="https://maps.google.com/?q=Stanisławie+30A,+83-112+Lubiszewo" target="_blank">Otwórz w Google Maps</a></strong></p>
@@ -568,13 +567,13 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                     <h3>🚗 Dojazd i Parkingi</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 25px;">
                         <div>
-                            <h4>📍 Ceremonia</h4>
+                            <h4>📍Ceremonia</h4>
                             <p><strong>Kościół pw. Podwyższenia Krzyża Świętego</strong></p>
                             <p>ul. Stefana Kardynała Wyszyńskiego 13, 83-110 Tczew</p>
-                            <p style="margin-top: 15px; font-size: 14px; color: #666;">✅ Parking przy kościele (bezpłatny)</p>
+                            <p style="margin-top: 15px; font-size: 14px; color: #666;">✅ Parking miejski przy kościele (płatny)</p>
                         </div>
                         <div>
-                            <h4>📍 Przyjęcie</h4>
+                            <h4>📍Przyjęcie</h4>
                             <p><strong>OKLASKI</strong></p>
                             <p>Stanisławie 30A, 83-112 Lubiszewo</p>
                             <p style="margin-top: 15px; font-size: 14px; color: #666;">✅ Duży parking na terenie (bezpłatny)</p>
@@ -589,42 +588,35 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div style="background: var(--cream-white); padding: 20px; border-radius: 8px; text-align: center;">
                             <div style="font-size: 32px; margin-bottom: 10px;">🚗</div>
                             <p><strong>Bolt</strong></p>
-                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Aplikacja Bolt dostępna w Tczewie. Zaordynuj wcześniej!</p>
+                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Aplikacja Bolt dostępna w Tczewie. Zarezerwuj wcześniej!</p>
                         </div>
                         <div style="background: var(--cream-white); padding: 20px; border-radius: 8px; text-align: center;">
                             <div style="font-size: 32px; margin-bottom: 10px;">🚕</div>
                             <p><strong>Taxi</strong></p>
-                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Taxi Tczew: <strong style="color: var(--navy-blue);">XXX-XXX-XXX</strong></p>
+                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Taxi 1: <strong style="color: var(--navy-blue);">XXX-XXX-XXX</strong></p>
+                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Taxi 2: <strong style="color: var(--navy-blue);">XXX-XXX-XXX</strong></p>
+                            <p style="font-size: 14px; color: #666; margin-top: 10px;">Taxi 3: <strong style="color: var(--navy-blue);">XXX-XXX-XXX</strong></p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="info-card">
                     <h3>🏨 Noclegi</h3>
-                    <p>Jeśli przyjeżdżasz z daleka, polecamy następujące miejsca noclegowe:</p>
+                    <p>Jeśli przyjeżdżasz z daleka, polecamy następujące miejsce noclegowe:</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
                         <div style="border: 2px solid var(--soft-beige); padding: 20px; border-radius: 8px;">
-                            <h4>Hotel BEISPIEL</h4>
-                            <p style="font-size: 14px; margin: 10px 0;"><strong>Odległość:</strong> 3 km od przyjęcia</p>
-                            <p style="font-size: 14px; margin: 10px 0;"><strong>Cena:</strong> ok. 150-200 zł/noc</p>
-                            <p style="font-size: 14px;"><a href="https://www.booking.com" target="_blank" style="color: var(--gold-accent);">→ Rezerwacja online</a></p>
-                        </div>
-                        <div style="border: 2px solid var(--soft-beige); padding: 20px; border-radius: 8px;">
-                            <h4>Apartamenty PRZYKŁAD</h4>
-                            <p style="font-size: 14px; margin: 10px 0;"><strong>Odległość:</strong> 2 km od przyjęcia</p>
-                            <p style="font-size: 14px; margin: 10px 0;"><strong>Cena:</strong> ok. 120-150 zł/noc</p>
-                            <p style="font-size: 14px;"><a href="https://www.airbnb.com" target="_blank" style="color: var(--gold-accent);">→ Wyszukaj na Airbnb</a></p>
+                            <h4>LINK Hotel</h4>
+                            <p style="font-size: 14px; margin: 10px 0;"><strong>Odległość:</strong> 5 km od przyjęcia</p>
+                            <p style="font-size: 14px; margin: 10px 0;"><strong>Cena:</strong> 200 zł/noc za osobę</p>
+                            <p style="font-size: 14px; margin: 10px 0;"><strong>Rezerwacja:</strong> XXX-XXX-XXX</p>
                         </div>
                     </div>
-                    <p style="margin-top: 25px; padding: 15px; background: var(--light-gold); border-radius: 8px; border-left: 4px solid var(--gold-accent); font-size: 14px; color: #666;">
-                        <strong>💡 Wskazówka:</strong> Rezerwuj noclegi z wyprzedzeniem (lipiec-sierpień to sezon turystyczny). Jeśli szukasz więcej opcji, napisz do nas - mamy kilka polecanych miejsc!
-                    </p>
                 </div>
                 
                 <div class="gift-section">
-                    <h3>🎁 Prezenty i Kwiaty</h3>
-                    <p>Prosimy o koperty z pieniędzmi</p>
-                    <p class="gift-highlight">Prosimy NIE przynosić kwiatów - preferujemy koperty z pieniędzmi</p>
+                    <h3>Prezenty</h3>
+                    <p>Ręczniki już mamy, pościel również. Cztery talerze, które posiadamy nam wystarczą.</p>
+                    <p class="gift-highlight">Prosimy nie przynosić kwiatów — udekorujcie nimi własne domy.</p>
                 </div>
                 
                 <h2 class="section-title" style="margin-top: 80px;">Kontakt</h2>
@@ -637,11 +629,11 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <h3>Wiktoria</h3>
                         <div class="contact-info-item">
                             <strong>Telefon:</strong>
-                            <span style="color: var(--gold-accent); font-weight: 600;">[numer telefonu]</span>
+                            <span style="color: var(--gold-accent); font-weight: 600;">724-262-483</span>
                         </div>
                         <div class="contact-info-item">
                             <strong>Email:</strong>
-                            <span style="color: var(--gold-accent); font-weight: 600;">[Adres email]</span>
+                            <span style="color: var(--gold-accent); font-weight: 600;">kosidlo.wiktoria00@gmail.com</span>
                         </div>
                     </div>
                     <div class="contact-person">
@@ -651,11 +643,11 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <h3>Maciej</h3>
                         <div class="contact-info-item">
                             <strong>Telefon:</strong>
-                            <span style="color: var(--gold-accent); font-weight: 600;">[numer telefonu]</span>
+                            <span style="color: var(--gold-accent); font-weight: 600;">502-957-097</span>
                         </div>
                         <div class="contact-info-item">
                             <strong>Email:</strong>
-                            <span style="color: var(--gold-accent); font-weight: 600;">[Adres email]</span>
+                            <span style="color: var(--gold-accent); font-weight: 600;">maciejschleser@outlook.com</span>
                         </div>
                     </div>
                 </div>
@@ -733,7 +725,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         </div>
                         <div class="rsvp-step" id="rsvpStep5">
                             <div class="progress-tracker" id="progressTracker6"></div>
-                            <h2>Chcesz pozostać w kontakcie?</h2>
+                            <h2>Chcesz pozostać z nami w kontakcie?</h2>
                             <p class="rsvp-subtitle">Chciałbyś/chciałabyś otrzymywać aktualizacje dotyczące wesela?</p>
                             <div class="button-group">
                                 <button class="btn btn-back" onclick="rsvpGoBackFromStep6()">Wróć</button>
@@ -774,7 +766,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="rsvp-step" id="rsvpStep7">
                             <div class="progress-tracker" id="progressTracker8"></div>
                             <h2>Podsumowanie Potwierdzenia</h2>
-                            <p class="rsvp-subtitle">Sprawdź wprowadzone dane</p>
+                            <p class="rsvp-subtitle">Sprawdź wprowadzone dane i potwierdź</p>
                             <table class="summary-table">
                                 <tr>
                                     <td>Kod zaproszenia:</td>
@@ -814,7 +806,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="rsvp-step" id="rsvpStep8">
                             <div style="text-align: center; padding: 40px 0;">
                                 <h2>Potwierdzenie Wysłane</h2>
-                                <div class="alert alert-success">Dziękujemy za potwierdzenie przybycia. Czekamy na Ciebie na weselu!</div>
+                                <div class="alert alert-success">Dziękujemy za potwierdzenie przybycia. Czekamy na Ciebie 6 sierpnia!</div>
                                 <div class="button-group" style="margin-top: 40px;">
                                     <button class="btn btn-primary" onclick="resetRSVP()">Nowe Potwierdzenie</button>
                                     <button class="btn btn-secondary" onclick="closeRsvpAndHighlightHome()">Zamknij</button>
@@ -872,11 +864,11 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
             <div class="content-section">
                 <div class="gallery-container">
                     <div class="gallery-card">
-                        <h2 class="section-title">Galeria Naszych Zdjęć</h2>
+                        <h2 class="section-title">Galeria Waszych Zdjęć</h2>
                         <div class="gold-divider"></div>
                         <div class="gallery-info">
                             <h3>Podziel się Swoimi Zdjęciami</h3>
-                            <p>Jeśli masz zdjęcia z wesela, dodaj je do naszej wspólnej galerii! Możesz wrzucać zdjęcia bezpośrednio do albumu Google Photos. Dzięki temu wszystkie wspomnienia będą w jednym miejscu.</p>
+                            <p>Jeśli masz zdjęcia z wesela, dodaj je do wspólnej galerii! Możesz wrzucać zdjęcia bezpośrednio do albumu Google Photos. Dzięki temu wszystkie wspomnienia będą w jednym miejscu.</p>
                             <p style="margin-bottom: 0; color: var(--navy-blue); font-weight: 700;">Pamiętaj: Tylko zdjęcia z dnia wesela - 6 sierpnia 2026</p>
                         </div>
                         <div class="gallery-cta">
@@ -901,16 +893,16 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="footer-photo-placeholder">[WIKTORIA]<br>130x130px</div>
                     </div>
                     <h4>Wiktoria</h4>
-                    <p>[numer telefonu]</p>
-                    <p>wiktoria@example.com</p>
+                    <p>724-262-483</p>
+                    <p>kosidlo.wiktoria00@gmail.com</p>
                 </div>
                 <div class="footer-person">
                     <div class="footer-photo">
                         <div class="footer-photo-placeholder">[MACIEJ]<br>130x130px</div>
                     </div>
                     <h4>Maciej</h4>
-                    <p>[numer telefonu]</p>
-                    <p>maciej@example.com</p>
+                    <p>502-957-097</p>
+                    <p>maciejschleser@outlook.com</p>
                 </div>
             </div>
             <div class="footer-copyright">
