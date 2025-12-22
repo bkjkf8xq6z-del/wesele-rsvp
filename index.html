@@ -425,8 +425,8 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 1]<br>200x200px</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
-                            <div class="timeline-year">Wrzesień 2020</div>
-                            <div class="timeline-text">[Placeholder - Opis pierwszego spotkania]</div>
+                            <div class="timeline-year">Sierpień 2021</div>
+                            <div class="timeline-text">Pierwsze spotkanie, no tego na weselu u Natali i Filipa, dzięki Klaudia, że nie mogłaś iść z Kurcabem, bo dziś bym tego nie pisał. No i dzięki Natalia i Filip za zaproszenie. A również to zasługa Kacperka, że mnie dzień wcześniej z JK zaprawił do wesela i mnie tam zawiózł XD</div>
                         </div>
                         <div class="timeline-dot"></div>
                     </div>
@@ -434,8 +434,8 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 2]<br>200x200px</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
-                            <div class="timeline-year">Październik 2020</div>
-                            <div class="timeline-text">[Placeholder - Opis pierwszej randki]</div>
+                            <div class="timeline-year">Październik 2022</div>
+                            <div class="timeline-text">Dobrze, że się urodziłem i miałem akurat urodziny w październiku, bo inaczej Łigi nie napisałaby do mnie życzeń urodzinowych. Lekko wymusiła, magnez albo pocztówkę z Norwegii (bo akurat tam byłem na delegacji).</div>
                         </div>
                         <div class="timeline-dot"></div>
                     </div>
@@ -443,8 +443,8 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 3]<br>200x200px</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
-                            <div class="timeline-year">Czerwiec 2021</div>
-                            <div class="timeline-text">[Placeholder - Opis wspólnego wyjazdu]</div>
+                            <div class="timeline-year">Listopad 2022</div>
+                            <div class="timeline-text">No a jak już miałem ten magnez to trzeba było go przekazać, także niefortunnie się zdażyło, że umówiliśmy się na 20 listopada 2022. Zapytacie, dlaczego niefortunnie? Ponieważ akurt zaczynał się Mundial w Katarze i nie obejrzałem meczu otwarcia. Z persepktywy czasu to nawet lepiej na tym wyszedłem XD No i dałem jej ten magnez, oczywiście w Bydgoszczy, bo tam Łigi akurat mieszkała i studiowała. Trochę się przeszliśmy (jakieś 10 km). No i tyle z tego było. (Zdjęcie zrobione podczas zwiedzania Bydgoszczy) </div>
                         </div>
                         <div class="timeline-dot"></div>
                     </div>
@@ -452,8 +452,8 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 4]<br>200x200px</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
-                            <div class="timeline-year">Grudzień 2024</div>
-                            <div class="timeline-text">[Placeholder-Opis oświadczyn]</div>
+                            <div class="timeline-year">Grudzień 2022</div>
+                            <div class="timeline-text">Rękawiczki</div>
                         </div>
                         <div class="timeline-dot"></div>
                     </div>
@@ -919,45 +919,51 @@ const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTdoZJn
 const PASSWORD = "wesele2026";
 
 const guestDatabase = new Map([
-    ["1001", { names: ["Ludmiła Schleser", "Jacek Schleser"], companion: false }],
-    ["1002", { names: ["Milena Schleser"], companion: true }],
-    ["1003", { names: ["Paulina Schleser", "Piotr Masiak", "Piotr Junior Masiak"], companion: false }],
-    ["1004", { names: ["Kacper Milczarek"], companion: true }],
-    ["1005", { names: ["Wiktor Tiedtke"], companion: true }],
-    ["1006", { names: ["Krystian Karpiuk"], companion: true }],
-    ["1007", { names: ["Karolina Sosnowska", "Karol Sosnowski"], companion: false }],
-    ["1008", { names: ["Natalia Siuda", "Filip Siuda", "Antonina Siuda"], companion: false }],
-    ["1009", { names: ["Agata Kowal", "Stanisław Kowal"], companion: false }],
-    ["1010", { names: ["Damian Kurcaba", "Natalia"], companion: false }],
-    ["1011", { names: ["Anna Birna"], companion: true }],
-    ["1012", { names: ["Irena Lipus", "Ryszard Lipus"], companion: false }],
-    ["1013", { names: ["Marianna Schleser"], companion: false }],
-    ["1014", { names: ["Iwona Schleser", "Dariusz Schleser", "Stanisław Schleser"], companion: false }],
-    ["1015", { names: ["Anita Schleser", "Andrzej Schleser"], companion: false }],
-    ["1016", { names: ["Agnieszka Schleser", "Jakub Pudełko"], companion: false }],
-    ["1017", { names: ["Patryk Gorajski"], companion: true }],
-    ["1018", { names: ["Sylwia Kosidło", "Sławomir Kosidło"], companion: false }],
-    ["1019", { names: ["Kamil Kosidło"], companion: true }],
-    ["1020", { names: ["Izabela Kosidło", "Damian Kosidło", "Stanisław Kosidło"], companion: false }],
-    ["1021", { names: ["Gabriela Kosidło", "Tomasz Kosidło"], companion: false }],
-    ["1022", { names: ["Bartosz Kosidło", "Wiktoria Kosidło"], companion: false }],
-    ["1023", { names: ["Klaudia Kosidło", "Kamil Ebner"], companion: false }],
-    ["1024", { names: ["Agnieszka Jundziłł", "Grzegorz Jundziłł"], companion: false }],
-    ["1025", { names: ["Karol Jundziłł"], companion: true }],
-    ["1026", { names: ["Mariola Wilewska", "Zbigniew Wilewski", "Krzysztof Sikorski"], companion: false }],
-    ["1027", { names: ["Zdzisława Rutzka", "Janusz Rutzki", "Agata Sikorska"], companion: false }],
-    ["1028", { names: ["Izabela Sikorska", "Jarosław Sikorski"], companion: false }],
-    ["1029", { names: ["Barbara Kosidło"], companion: false }],
-    ["1030", { names: ["Sławomira Molenda", "Roman Molenda"], companion: false }],
-    ["1031", { names: ["Natalia Lewandowska", "Julia Lewandowska", "Wiktor Lewandowski"], companion: false }],
-    ["1032", { names: ["Aleksandra Chołaścińska", "Kornel Chołaściński"], companion: false }],
-    ["1033", { names: ["Sandra Kwiatkowska", "Mikołaj Michalak"], companion: false }],
-    ["1034", { names: ["Jagoda Rutzka", "Kacper Burczykowski"], companion: false }],
-    ["1035", { names: ["Igor Rutzki", "Justyna Langowska"], companion: false }],
-    ["1036", { names: ["Łukasz Sikorski"], companion: true }],
-    ["1037", { names: ["Mateusz Sikorski", "ANNA KOWALSKA"], companion: false }],
-    ["1038", { names: ["Paulina Bielińska", "Kamil Weroniecki"], companion: false }],
-    ["1039", { names: ["Malwina Piechocka", "Marek Piechocki"], companion: false }]
+    ["1110", { names: ["Ludmiła Schleser", "Jacek Schleser"], companion: false }],
+    ["6767", { names: ["Milena Schleser"], companion: true }],
+    ["2810", { names: ["Paulina Schleser", "Piotr Masiak", "Piotr Junior Masiak"], companion: false }],
+    ["2137", { names: ["Kacper Milczarek"], companion: true }],
+    ["2222", { names: ["Wiktor Tiedtke"], companion: true }],
+    ["7312", { names: ["Krystian Karpiuk"], companion: true }],
+    ["0109", { names: ["Karolina Sosnowska", "Karol Sosnowski"], companion: false }],
+    ["8387", { names: ["Natalia Siuda", "Filip Siuda", "Antonina Siuda"], companion: false }],
+    ["7736", { names: ["Agata Kowal", "Stanisław Kowal"], companion: false }],
+    ["5614", { names: ["Damian Kurcaba", "Natalia Komorowska", "Anastazja"], companion: false }],
+    ["9391", { names: ["Anna Birna"], companion: true }],
+    ["3152", { names: ["Irena Lipus", "Ryszard Lipus"], companion: false }],
+    ["3171", { names: ["Marianna Schleser"], companion: false }],
+    ["9478", { names: ["Iwona Schleser", "Dariusz Schleser", "Stanisław Schleser"], companion: false }],
+    ["8488", { names: ["Anita Schleser", "Andrzej Schleser"], companion: false }],
+    ["9760", { names: ["Agnieszka Schleser", "Jakub Pudełko"], companion: false }],
+    ["6510", { names: ["Patryk Gorajski"], companion: true }],
+    ["2881", { names: ["Zbigniew Oszmana"], companion: true }],
+    ["7777", { names: ["Sylwia Kosidło", "Sławomir Kosidło"], companion: false }],
+    ["8310", { names: ["Kamil Kosidło", "Dominik Dobrowolski"], companion: false }],
+    ["3915", { names: ["Izabela Kosidło", "Damian Kosidło", "Stanisław Kosidło"], companion: false }],
+    ["5743", { names: ["Gabriela Kosidło", "Tomasz Kosidło"], companion: false }],
+    ["7251", { names: ["Bartosz Kosidło", "Wiktoria Kosidło"], companion: false }],
+    ["8950", { names: ["Klaudia Kosidło", "Kamil Ebner"], companion: false }],
+    ["8973", { names: ["Agnieszka Jundziłł", "Grzegorz Jundziłł"], companion: false }],
+    ["3104", { names: ["Karol Jundziłł"], companion: true }],
+    ["6012", { names: ["Mariola Wilewska", "Zbigniew Wilewski", "Krzysztof Sikorski"], companion: false }],
+    ["4318", { names: ["Zdzisława Rutzka", "Janusz Rutzki", "Agata Sikorska"], companion: false }],
+    ["7809", { names: ["Izabela Sikorska", "Jarosław Sikorski"], companion: false }],
+    ["8719", { names: ["Barbara Kosidło"], companion: false }],
+    ["9645", { names: ["Sławomira Molenda", "Roman Molenda"], companion: false }],
+    ["8371", { names: ["Natalia Lewandowska", "Julia Lewandowska", "Wiktor Lewandowski"], companion: true }],
+    ["2064", { names: ["Aleksandra Chołaścińska", "Kornel Chołaściński"], companion: false }],
+    ["5980", { names: ["Sandra Kwiatkowska", "Mikołaj Michalak"], companion: false }],
+    ["4036", { names: ["Jagoda Rutzka"], companion: true }],
+    ["8620", { names: ["Igor Rutzki"], companion: true }],
+    ["8437", { names: ["Łukasz Sikorski"], companion: true }],
+    ["8765", { names: ["Mateusz Sikorski"], companion: true }],
+    ["6282", { names: ["Paulina Bielińska", "Kamil Weroniecki"], companion: false }],
+    ["2477", { names: ["Krystian Sikorski"], companion: true }],
+    ["1727", { names: ["Weronika Sikorska"], companion: true }],
+    ["6282", { names: ["Maria Puchowska"], companion: true }],
+    ["7537", { names: ["Magdalena Mółka", "Grzegorz Mółka", "Filip Mółka"], companion: false }],
+    ["3451", { names: ["Anna Chyła", "Adam Chyła", "Michał Chyła"], companion: false }],
+    ["9999", { names: ["Malwina Karpowicz", "Marek Karpowicz"], companion: false }]
 ]);
 
 let rsvpState = {
