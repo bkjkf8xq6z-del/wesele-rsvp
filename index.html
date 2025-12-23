@@ -13,7 +13,7 @@
 :root {
     --card-1: #facbab;
     --card-2: #fbb886;
-    --iris-blue: #8cbade;
+    --iris-blue: #879CAA;
     --black-text: #1a1a1a;
     --navy-blue: #8cbade;
     --gold-accent: #fbb886;
@@ -36,6 +36,13 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 .top-banner { background: linear-gradient(135deg, var(--iris-blue) 0%, #7aa8cd 100%); padding: 30px 20px; text-align: center; position: relative; overflow: hidden; cursor: pointer; transition: all 0.3s ease; }
 .top-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold-accent), transparent); }
 .couple-names { font-family: var(--font-cursive); font-size: 56px; color: var(--gold-accent); margin-bottom: 8px; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); }
+.couple-names svg {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+}
 .wedding-date { font-family: var(--font-heading); font-size: 18px; color: var(--cream-white); letter-spacing: 4px; font-weight: 400; }
 .hero-section {
     position: relative;
@@ -381,7 +388,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 <div class="app-container" id="appContainer">
     
     <div class="top-banner" onclick="triggerEasterEgg()">
-        <div class="couple-names">Wiktoria & Maciej</div>
+        <img src="MONOGRAM.svg" alt="Wiktoria & Maciej Monogram" class="couple-names-svg" />
         <div class="wedding-date">06.08.2026</div>
     </div>
     
@@ -638,7 +645,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                 <div class="contact-grid">
                     <div class="contact-person">
                         <div class="contact-photo">
-                            <div class="contact-photo-placeholder">[WIKTORIA]<br>120x120px</div>
+                            <img src="Łigi.jpg" alt="Łigi"/>
                         </div>
                         <h3>Wiktoria</h3>
                         <div class="contact-info-item">
