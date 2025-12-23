@@ -145,6 +145,12 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 .timeline-item { display: flex; margin-bottom: 100px; position: relative; align-items: center; gap: 60px; }
 .timeline-item:nth-child(even) { flex-direction: row-reverse; }
 .timeline-photo { flex: 0 0 320px; height: 320px; border-radius: 8px; overflow: hidden; border: 4px solid var(--gold-accent); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); position: relative; z-index: 2; background: linear-gradient(135deg, var(--soft-beige), white); }
+.timeline-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
 .timeline-connector { display: none; }
 .timeline-content { flex: 1; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border-left: 4px solid var(--gold-accent); }
 .timeline-item:nth-child(even) .timeline-content { border-left: none; border-right: 4px solid var(--gold-accent); }
@@ -233,10 +239,10 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
 .gallery-cta a { display: inline-block; padding: 18px 40px; background: var(--navy-blue); color: white; text-decoration: none; border-radius: 4px; font-family: var(--font-heading); font-weight: 600; letter-spacing: 1px; font-size: 16px; transition: all 0.3s ease; text-transform: uppercase; }
 .gallery-cta a:hover { background: var(--darker-navy); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
 
-.main-footer { background: linear-gradient(135deg, #879CAA 0%, #7aa8cd 100%); color: white; padding: 60px 40px 40px; margin-top: 80px; position: relative; }
+.main-footer { background: linear-gradient(135deg, #879CAA 0%, #879CAA 100%); color: white; padding: 60px 40px 40px; margin-top: 80px; position: relative; }
 .main-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold-accent), transparent); }
 .footer-content { max-width: var(--max-width); margin: 0 auto; }
-.footer-title { font-family: var(--font-heading); font-size: 36px; color: var(--gold-accent); text-align: center; margin-bottom: 50px; font-weight: 700; }
+.footer-title { font-family: var(--font-heading); font-size: 46px; color: var(--gold-accent); text-align: center; margin-bottom: 50px; font-weight: 700; }
 .footer-contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 40px; }
 .footer-person { text-align: center; }
 .footer-photo { width: 130px; height: 130px; border-radius: 50%; margin: 0 auto 20px; border: 4px solid var(--gold-accent); overflow: hidden; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); background: linear-gradient(135deg, var(--soft-beige), white); }
@@ -437,7 +443,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                 <p class="section-subtitle">Od pierwszego spotkania aż do dziś</p>
                 <div class="timeline-container">
                     <div class="timeline-item">
-                        <div class="timeline-photo"> 
+                        <div class="timeline-photo-img"> 
                             <img src="Historia1.jpg" alt="Historia1"/>
                         </div>
                         <div class="timeline-connector"></div>
@@ -447,13 +453,13 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-photo">
+                        <div class="timeline-photo-img">
                             <img src="Historia2.jpg" alt="Historia2"/>
                         </div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Październik 2022</div>
-                            <div class="timeline-text">Dobrze, że się urodziłem i miałem akurat urodziny w październiku, bo inaczej Łigi nie napisałaby do mnie życzeń urodzinowych. Lekko wymusiła, magnes albo pocztówkę z Norwegii (bo akurat tam byłem na delegacji).</div>
+                            <div class="timeline-text">Dobrze, że się urodziłem i miałem akurat urodziny w październiku, bo inaczej Wiczusia nie napisałaby do mnie życzeń urodzinowych. Lekko wymusiła magnes albo pocztówkę z Norwegii (bo akurat tam byłem na delegacji).</div>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -461,7 +467,7 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Listopad 2022</div>
-                            <div class="timeline-text">No a jak już miałem ten magnes to trzeba było go przekazać, także niefortunnie się zdażyło, że umówiliśmy się na 20 listopada 2022. Zapytacie, dlaczego niefortunnie? Ponieważ akurt zaczynał się Mundial w Katarze i nie obejrzałem meczu otwarcia. Z persepktywy czasu to nawet lepiej na tym wyszedłem XD No i dałem jej ten magnes, oczywiście w Bydgoszczy, bo tam Łigi akurat mieszkała i studiowała. Trochę się przeszliśmy (jakieś 10 km). No i tyle z tego było. (Zdjęcie zrobione podczas zwiedzania Bydgoszczy) </div>
+                            <div class="timeline-text">No a jak już miałem ten magnes to trzeba było go przekazać. Niefortunnie się zdażyło, że umówiliśmy się na pierwsze spotkanie 20 listopada 2022. Zapytacie, dlaczego niefortunnie? Ponieważ akurt zaczynał się Mundial w Katarze XD Przekazałem norweski magnes, oczywiście spotkanie odbyło się w Bydgoszczy, tam Wiczusia akurat mieszkała i studiowała. Trochę się przeszliśmy (jakieś 10 km). (Zdjęcie zrobione podczas zwiedzania Bydgoszczy) </div>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -469,15 +475,42 @@ body { font-family: var(--font-body); background: var(--cream-white); color: var
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Grudzień 2022</div>
-                            <div class="timeline-text">Rękawiczki</div>
+                            <div class="timeline-text">Wiczusia mówi, żeby tu napisać, że drugie spotkanie odbyło się w grudniu przed świętami i otrzymała rękawiczki na sznurku. Co podobno było jej wielkim marzeniem.</div>
                         </div>
                     </div>
+                     <div class="timeline-item">
+                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 5]<br>200x200px</div></div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Styczeń 2023</div>
+                            <div class="timeline-text">Zmieniliśmy status na FB z wolny na zajęty.</div>
+                        </div>
+                    </div>
+                    
+                     <div class="timeline-item">
+                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 5]<br>200x200px</div></div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Maj 2023</div>
+                            <div class="timeline-text">Pierwszy wspólny wyjazd! Cel -> Wrocław Zoo. Co tu dużo pisać, zrobiliśmy zdjęcie z żyrafą i to jest jakby okej.</div>
+                        </div>
+                    </div>
+
+                     <div class="timeline-item">
+                        <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 5]<br>200x200px</div></div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Grudzień 2024</div>
+                            <div class="timeline-text">Zapewne drogi czytelniczko / czytelniku zastanawia Ciebie, dlaczego taki duży czasowy przeskok. Odpowiedź jest prosta: Chcesz znać więcej szczegółów to dopytaj XD Aczkolwiek jako, że jesteśmy w grudniu 2024, to 01.12.2024 Wiczusia bardzo niechętnie pojechała nad morze, aby zgodzić się zostać moją żoną. </div>
+                        </div>
+                    </div>
+                    
                     <div class="timeline-item">
                         <div class="timeline-photo"><div class="timeline-photo-placeholder">[PHOTO 5]<br>200x200px</div></div>
                         <div class="timeline-connector"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">Sierpień 2026</div>
-                            <div class="timeline-text">Nasz wielki dzień! Dziękujemy, że jesteś z nami w tym wyjątkowym momencie.</div>
+                            <div class="timeline-text">Tu nie ma jeszcze historii, dopiero ją napiszemy w pierwszy czwartek sierpnia 2026.</div>
                         </div>
                     </div>
                 </div>
